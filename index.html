@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101820">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="일본 기업 공시와 약속 이행을 근거와 함께 확인하는 KABU LENS 시험 서비스">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>KABU LENS</title>
+</head>
+<body>
+  <a class="skip" href="#content">본문으로 건너뛰기</a>
+  <header class="topbar">
+    <div><strong>KABU LENS</strong><span>株レンズ</span></div>
+    <div class="top-actions"><p id="connection" role="status" aria-live="polite">연결 상태 확인 중</p><button id="openCommand" type="button" class="ghost" aria-keyshortcuts="Control+K Meta+K">화면 찾기 <kbd>Ctrl K</kbd></button><button id="togglePrivacy" type="button" class="ghost" aria-keyshortcuts="Control+Shift+L">화면 가리기</button></div>
+  </header>
+  <div class="notice" role="note"><b>시험 서비스</b> 투자 권유가 아닙니다. 실제 시세를 저장하거나 재배포하지 않으며, 예시값은 모두 ‘예시’로 표시합니다.</div>
+  <div class="app-shell">
+  <nav class="nav" aria-label="주요 화면">
+    <button data-route="today" aria-current="page">오늘</button>
+    <button data-route="search">기업찾기</button>
+    <button data-route="company">기업</button>
+    <button data-route="watchlist">관심</button>
+    <button data-route="portfolio">보유</button>
+    <button data-route="disclosures">공시</button>
+    <button data-route="promises">약속</button>
+    <button data-route="capital">자본</button>
+    <button data-route="benefits">우대</button>
+    <button data-route="import">내 CSV</button>
+    <button data-route="settings">설정</button>
+    <button data-route="safety">자료보호</button>
+  </nav>
+  <nav class="mobile-nav" aria-label="모바일 주요 화면">
+    <button data-route="today">오늘</button><button data-route="search">찾기</button><button data-route="watchlist">관심</button><button data-route="portfolio">보유</button><button id="openMobileMenu" type="button" aria-haspopup="dialog">더보기</button>
+  </nav>
+  <main id="content" tabindex="-1">
+    <section class="screen" data-screen="today">
+      <h1>오늘 확인할 변화</h1>
+      <p class="lead">숫자보다 먼저, 원문과 판정 근거를 확인합니다.</p>
+      <div class="cards">
+        <article><span class="tag">예시 · E01</span><h2>영업이익 예상 상회</h2><p class="score up">+38 · 상향</p><p>회사 예상·전년 수치와 비교한 예시입니다.</p><a href="#disclosures">근거 공시 보기</a></article>
+        <article><span class="tag">예시 · E03</span><h2>ROE 약속 이행</h2><p class="score warn">61% · 지연</p><p>기한 경과율보다 실적 진척이 낮은 예시입니다.</p><a href="#promises">약속 연혁 보기</a></article>
+      </div>
+      <section class="local-panel" aria-labelledby="notificationTitle"><h2 id="notificationTitle">이 기기 알림함</h2><p>로컬 시험 세션에서만 보입니다. 외부 푸시·문자·이메일은 보내지 않습니다.</p><button id="refreshNotifications" type="button">알림 새로 확인</button><p id="notificationStatus" role="status" aria-live="polite">설정에서 로컬 시험 세션을 시작하세요.</p><ul id="notificationItems" class="list"></ul></section>
+      <section class="local-panel" aria-labelledby="retentionTitle"><h2 id="retentionTitle">세션·알림 보존 미리보기</h2><p>후보만 계산합니다. 이 버튼은 어떤 자료도 자동으로 삭제하지 않습니다.</p><button id="previewRetention" type="button">보존 영향 확인</button><p id="retentionStatus" role="status" aria-live="polite">먼저 로컬 시험 세션을 시작하세요.</p></section>
+    </section>
+    <section class="screen" data-screen="search" hidden>
+      <h1>일본 기업 찾기</h1><label>종목 코드 또는 기업명<input id="companySearch" inputmode="search" autocomplete="off" placeholder="예: 7203"></label>
+      <p id="searchHelp">기업 기본정보와 공시만 검색합니다. 공용 실시간 시세는 제공하지 않습니다.</p>
+      <button id="officialLookup">JPX 공식 사이트에서 가격 확인</button>
+    </section>
+    <section class="screen" data-screen="company" hidden>
+      <h1>기업 요약</h1><p class="eyebrow">예시 기업 · 7203</p>
+      <dl class="metrics"><div><dt>약속</dt><dd>순항 92%</dd></div><div><dt>자본 변화</dt><dd>1건</dd></div><div><dt>주주우대</dt><dd>없음</dd></div></dl>
+      <p class="empty">현재 가격은 표시하지 않습니다. ‘기업찾기’에서 JPX 공식 조회로 이동할 수 있습니다.</p>
+    </section>
+    <section class="screen" data-screen="watchlist" hidden>
+      <h1>관심 기업</h1><form id="watchForm"><label>종목 코드<input id="watchCode" pattern="[0-9A-Z]{4,5}" maxlength="5" required></label><button>추가</button></form><ul id="watchItems" class="list"></ul>
+    </section>
+    <section class="screen" data-screen="portfolio" hidden>
+      <h1>내 보유 기록</h1><p class="lead">금액·수량은 이 기기에만 저장됩니다.</p>
+      <form id="positionForm"><label>종목 코드<input id="positionCode" maxlength="5" required></label><label>메모<input id="positionMemo" maxlength="80"></label><button>기기에 저장</button></form><ul id="positionItems" class="list"></ul>
+    </section>
+    <section class="screen" data-screen="disclosures" hidden>
+      <h1>공시 원문</h1><article><span class="tag">고정 시험자료</span><h2>유가증권보고서</h2><p>실제 수집은 EDINET 이용 조건과 API 키가 확인될 때까지 차단되어 있습니다.</p><p class="evidence">근거 ID: fixture:S100TEST01</p></article>
+    </section>
+    <section class="screen" data-screen="promises" hidden>
+      <h1>약속과 실적</h1><ol class="timeline"><li><b>FY2023 · 약속</b><span>ROE 8% 이상 · 예시</span></li><li><b>FY2025 · 실적</b><span>ROE 4.9% · 예시</span></li></ol>
+    </section>
+    <section class="screen" data-screen="capital" hidden>
+      <h1>자본 변화</h1><p class="empty">대량보유·자사주·모자상장 판정은 근거가 있는 경우에만 나타납니다. 계약 시세가 필요한 계산은 현재 꺼져 있습니다.</p>
+    </section>
+    <section class="screen" data-screen="benefits" hidden>
+      <h1>주주우대</h1><p class="empty">우대 원문·최소 주식수·해외 수령 여부를 확인합니다. 현재 가격이 없으므로 종합이율은 계산하지 않습니다.</p>
+    </section>
+    <section class="screen" data-screen="import" hidden>
+      <h1>내 가격 CSV</h1><p class="lead">사용 권리가 있는 일봉 CSV만 선택하세요. 파일은 서버로 보내거나 저장하지 않습니다.</p>
+      <label class="file">UTF-8 CSV 선택<input id="csvFile" type="file" accept=".csv,text/csv"></label><button id="clearImport" type="button">화면에서 지우기</button>
+      <p id="csvStatus" role="status" aria-live="polite">선택한 파일 없음</p><div id="csvPreview" class="tablewrap"></div>
+    </section>
+    <section class="screen" data-screen="settings" hidden>
+      <h1>설정</h1><div class="setting-grid"><label><input id="largeText" type="checkbox"> 글자 크게 보기</label><label><input id="reduceMotion" type="checkbox"> 움직임 줄이기</label><label><input id="highContrast" type="checkbox"> 대비 높이기</label><label><input id="compactView" type="checkbox"> PC에서 조밀하게 보기</label></div><p>새 기본값은 신규 사용자에게만 적용하며, 저장된 설정은 업데이트 뒤에도 유지합니다.</p>
+      <section class="local-panel" aria-labelledby="pcStatusTitle"><h2 id="pcStatusTitle">이 PC 브라우저 준비 상태</h2><p>개인 식별 정보나 브라우저 원문 문자열은 수집하지 않습니다.</p><dl id="pcStatus" class="status-grid"></dl><p><b>단축키:</b> Ctrl/⌘+K 화면 찾기 · Alt+1~9 화면 이동 · Ctrl+Shift+L 화면 가리기</p></section>
+      <section class="local-panel mobile-install" aria-labelledby="mobileInstallTitle"><h2 id="mobileInstallTitle">모바일 홈 화면 앱</h2><p id="mobileInstallStatus" role="status" aria-live="polite">설치 가능 여부 확인 중</p><button id="installApp" type="button" hidden>이 기기에 설치</button><details><summary>직접 추가하는 방법</summary><p>브라우저 메뉴에서 ‘홈 화면에 추가’ 또는 ‘앱 설치’를 선택하세요. 설치하지 않아도 같은 기능을 사용할 수 있습니다.</p></details></section>
+      <section class="local-panel" aria-labelledby="commercialGateTitle"><h2 id="commercialGateTitle">상용 운영 증거 게이트</h2><p>코드 준비와 실제 운영 증거를 구분합니다. 공개 배포·실기기·실계정·실데이터 증거가 모두 있어야 100점이 됩니다.</p><dl id="commercialGateStatus" class="status-grid"><div><dt>확인 상태</dt><dd class="warn">불러오는 중</dd></div></dl><p id="commercialGateBlocked" role="status" aria-live="polite"></p></section>
+      <section class="local-panel" aria-labelledby="localAuthTitle"><h2 id="localAuthTitle">로컬 시험 세션</h2><p><b>상용 로그인 아님.</b> 외부 계정 없이 인증·알림 화면 흐름만 검사합니다. 원문 토큰은 저장하지 않으며 세션·알림 상태는 로컬 서버 재시작 뒤에도 이어지고 30분 뒤 끝납니다.</p><form id="localAuthForm"><label>기기 프로필 ID<input id="localProfileId" autocomplete="off" minlength="8" maxlength="64" pattern="[A-Za-z0-9][A-Za-z0-9:_-]{7,63}" placeholder="예: device:my-test" required></label><button>시험 세션 시작</button></form><button id="endLocalSession" type="button" class="secondary" hidden>시험 세션 종료</button><p id="localAuthStatus" role="status" aria-live="polite">세션 없음</p></section>
+    </section>
+    <section class="screen" data-screen="safety" hidden>
+      <h1>자료 보호</h1><p id="migrationState" class="ok">저장자료 형식 확인 중</p><button id="exportData">내 자료 내보내기</button><label class="file">복구 파일 선택<input id="importData" type="file" accept="application/json"></label><p id="backupStatus" role="status" aria-live="polite"></p>
+      <button id="applyUpdate" hidden>안전하게 새 버전 적용</button>
+    </section>
+  </main>
+  </div>
+  <footer>PC·모바일 출시 후보 v0.13 · 재시작 보존 사용 · 상용 로그인·외부 푸시·실사용·공개 주소 검증 전</footer>
+  <dialog id="mobileMenu" aria-labelledby="mobileMenuTitle"><form method="dialog" class="mobile-menu"><div class="command-head"><h2 id="mobileMenuTitle">더보기</h2><button value="cancel" class="secondary">닫기</button></div><div class="mobile-menu-items"><button type="button" data-route="company">기업</button><button type="button" data-route="disclosures">공시</button><button type="button" data-route="promises">약속</button><button type="button" data-route="capital">자본</button><button type="button" data-route="benefits">우대</button><button type="button" data-route="import">내 CSV</button><button type="button" data-route="settings">설정</button><button type="button" data-route="safety">자료보호</button></div></form></dialog>
+  <dialog id="commandPalette" aria-labelledby="commandTitle"><form method="dialog" class="command-box"><div class="command-head"><h2 id="commandTitle">화면 빠르게 열기</h2><button value="cancel" aria-label="닫기" class="secondary">닫기</button></div><label>화면 이름 검색<input id="commandSearch" autocomplete="off" placeholder="예: 공시, 설정"></label><div id="commandItems" class="command-items"></div></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden><span id="toastText"></span><button id="toastAction" type="button" hidden>되돌리기</button></div>
+  <section id="privacyVeil" class="privacy-veil" aria-labelledby="privacyTitle" hidden><div><h2 id="privacyTitle">화면을 가렸습니다</h2><p>주변 사람에게 투자 자료가 보이지 않도록 임시로 숨겼습니다.</p><button id="restorePrivacy" type="button">다시 보기</button></div></section>
+  <noscript>이 서비스는 자료를 기기에 안전하게 저장하기 위해 JavaScript가 필요합니다.</noscript>
+  <script src="storage.js"></script><script src="pc_runtime.js"></script><script src="mobile_runtime.js"></script><script src="app.js"></script>
+</body>
+</html>
