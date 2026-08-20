@@ -1,4 +1,4 @@
-const CACHE='kabulens-shell-v19';
+const CACHE='kabulens-shell-v20';
 const SHELL=['./','./index.html','./styles.css','./storage.js','./pc_runtime.js','./mobile_runtime.js','./app.js','./evidence_runtime.js','./manifest.webmanifest','./icon.svg'];
 const APP_SHELL=new URL('./index.html',self.registration.scope).href;
 
