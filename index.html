@@ -44,7 +44,7 @@
       <p class="lead">숫자보다 먼저, 원문과 판정 근거를 확인합니다.</p>
       <div class="cards">
         <article><span class="tag">예시 · E01</span><h2>영업이익 예상 상회</h2><p class="score up">+38 · 상향</p><p>회사 예상·전년 수치와 비교한 예시입니다.</p><a href="#disclosures">근거 공시 보기</a></article>
-        <article><span class="tag">예시 · E03</span><h2>ROE 약속 이행</h2><p class="score warn">61% · 지연</p><p>기한 경과율보다 실적 진척이 낮은 예시입니다.</p><a href="#promises">약속 연혁 보기</a></article>
+        <article><span class="tag">예시 · E03</span><h2>ROE 약속 이행</h2><p class="score warn">판정 보류</p><p>원문·확인일·계산식 판이 완전하지 않아 이행 여부를 공개하지 않습니다.</p><a href="#promises">근거 검토 보기</a></article>
       </div>
       <section class="local-panel" aria-labelledby="notificationTitle"><h2 id="notificationTitle">이 기기 알림함</h2><p>로컬 시험 세션에서만 보입니다. 외부 푸시·문자·이메일은 보내지 않습니다.</p><button id="refreshNotifications" type="button">알림 새로 확인</button><p id="notificationStatus" role="status" aria-live="polite">설정에서 로컬 시험 세션을 시작하세요.</p><ul id="notificationItems" class="list"></ul></section>
       <section class="local-panel" aria-labelledby="retentionTitle"><h2 id="retentionTitle">세션·알림 보존 미리보기</h2><p>후보만 계산합니다. 이 버튼은 어떤 자료도 자동으로 삭제하지 않습니다.</p><button id="previewRetention" type="button">보존 영향 확인</button><p id="retentionStatus" role="status" aria-live="polite">먼저 로컬 시험 세션을 시작하세요.</p></section>
@@ -96,12 +96,12 @@
     </section>
   </main>
   </div>
-  <footer>PC·모바일 출시 후보 v0.20 · iPhone 설치·업데이트 사전 흐름 · 상용 로그인·외부 푸시·실사용 전</footer>
+  <footer>PC·모바일 출시 후보 v0.21 · 근거 카드 보류 상태 · iPhone 설치·업데이트 사전 흐름 · 상용 로그인·외부 푸시·실사용 전</footer>
   <dialog id="mobileMenu" aria-labelledby="mobileMenuTitle"><form method="dialog" class="mobile-menu"><div class="command-head"><h2 id="mobileMenuTitle">더보기</h2><button value="cancel" class="secondary">닫기</button></div><div class="mobile-menu-items"><button type="button" data-route="company">기업</button><button type="button" data-route="disclosures">공시</button><button type="button" data-route="promises">약속</button><button type="button" data-route="capital">자본</button><button type="button" data-route="benefits">우대</button><button type="button" data-route="import">내 CSV</button><button type="button" data-route="settings">설정</button><button type="button" data-route="safety">자료보호</button></div></form></dialog>
   <dialog id="commandPalette" aria-labelledby="commandTitle"><form method="dialog" class="command-box"><div class="command-head"><h2 id="commandTitle">화면 빠르게 열기</h2><button value="cancel" aria-label="닫기" class="secondary">닫기</button></div><label>화면 이름 검색<input id="commandSearch" autocomplete="off" placeholder="예: 공시, 설정"></label><div id="commandItems" class="command-items"></div></form></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden><span id="toastText"></span><button id="toastAction" type="button" hidden>되돌리기</button></div>
   <section id="privacyVeil" class="privacy-veil" aria-labelledby="privacyTitle" hidden><div><h2 id="privacyTitle">화면을 가렸습니다</h2><p>주변 사람에게 투자 자료가 보이지 않도록 임시로 숨겼습니다.</p><button id="restorePrivacy" type="button">다시 보기</button></div></section>
   <noscript>이 서비스는 자료를 기기에 안전하게 저장하기 위해 JavaScript가 필요합니다.</noscript>
-  <script src="storage.js"></script><script src="pc_runtime.js"></script><script src="mobile_runtime.js"></script><script src="app.js"></script>
+  <script src="storage.js"></script><script src="pc_runtime.js"></script><script src="mobile_runtime.js"></script><script src="app.js"></script><script src="evidence_runtime.js"></script>
 </body>
 </html>
