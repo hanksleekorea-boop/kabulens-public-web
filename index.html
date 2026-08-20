@@ -52,7 +52,12 @@
     <section class="screen" data-screen="search" hidden>
       <h1>일본 기업 찾기</h1><label>종목 코드 또는 기업명<input id="companySearch" inputmode="search" autocomplete="off" placeholder="예: 7203"></label>
       <p id="searchHelp">기업 기본정보와 공시만 검색합니다. 공용 실시간 시세는 제공하지 않습니다.</p>
-      <button id="officialLookup">JPX 공식 사이트에서 가격 확인</button>
+      <div class="research-controls"><label>정렬<select id="researchSort"><option value="code">종목 코드</option><option value="name">기업명</option><option value="sector">업종</option></select></label><label>방향<select id="researchDirection"><option value="asc">오름차순</option><option value="desc">내림차순</option></select></label></div>
+      <form id="saveSearchForm" class="inline-form"><label>조건 이름<input id="savedSearchName" maxlength="40" placeholder="예: 통신 기업" required></label><button>현재 조건 저장</button></form>
+      <p id="researchStatus" role="status" aria-live="polite"></p><ul id="researchResults" class="list"></ul>
+      <section class="local-panel" aria-labelledby="savedSearchTitle"><h2 id="savedSearchTitle">저장한 탐색 조건</h2><ul id="savedSearchItems" class="list"></ul></section>
+      <section class="local-panel" aria-labelledby="compareTitle"><h2 id="compareTitle">비교함 <span id="compareCount">0/4</span></h2><p>고정 시험자료의 기본정보만 비교합니다. 가격·추천·순위는 제공하지 않습니다.</p><ul id="compareItems" class="list"></ul></section>
+      <button id="officialLookup" type="button">JPX 공식 사이트에서 가격 확인</button>
     </section>
     <section class="screen" data-screen="company" hidden>
       <h1>기업 요약</h1><p class="eyebrow">예시 기업 · 7203</p>
@@ -96,12 +101,12 @@
     </section>
   </main>
   </div>
-  <footer>PC·모바일 출시 후보 v0.22 · 근거 최신성·연결 보류 상태 · iPhone 설치·업데이트 사전 흐름 · 상용 로그인·외부 푸시·실사용 전</footer>
+  <footer>PC·모바일 출시 후보 v0.23 · 저장 탐색·정렬·비교 시험판 · 근거 최신성·연결 보류 상태 · 상용 로그인·외부 푸시·실사용 전</footer>
   <dialog id="mobileMenu" aria-labelledby="mobileMenuTitle"><form method="dialog" class="mobile-menu"><div class="command-head"><h2 id="mobileMenuTitle">더보기</h2><button value="cancel" class="secondary">닫기</button></div><div class="mobile-menu-items"><button type="button" data-route="company">기업</button><button type="button" data-route="disclosures">공시</button><button type="button" data-route="promises">약속</button><button type="button" data-route="capital">자본</button><button type="button" data-route="benefits">우대</button><button type="button" data-route="import">내 CSV</button><button type="button" data-route="settings">설정</button><button type="button" data-route="safety">자료보호</button></div></form></dialog>
   <dialog id="commandPalette" aria-labelledby="commandTitle"><form method="dialog" class="command-box"><div class="command-head"><h2 id="commandTitle">화면 빠르게 열기</h2><button value="cancel" aria-label="닫기" class="secondary">닫기</button></div><label>화면 이름 검색<input id="commandSearch" autocomplete="off" placeholder="예: 공시, 설정"></label><div id="commandItems" class="command-items"></div></form></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden><span id="toastText"></span><button id="toastAction" type="button" hidden>되돌리기</button></div>
   <section id="privacyVeil" class="privacy-veil" aria-labelledby="privacyTitle" hidden><div><h2 id="privacyTitle">화면을 가렸습니다</h2><p>주변 사람에게 투자 자료가 보이지 않도록 임시로 숨겼습니다.</p><button id="restorePrivacy" type="button">다시 보기</button></div></section>
   <noscript>이 서비스는 자료를 기기에 안전하게 저장하기 위해 JavaScript가 필요합니다.</noscript>
-  <script src="storage.js"></script><script src="pc_runtime.js"></script><script src="mobile_runtime.js"></script><script src="app.js"></script><script src="evidence_runtime.js"></script>
+  <script src="storage.js"></script><script src="pc_runtime.js"></script><script src="mobile_runtime.js"></script><script src="research_runtime.js"></script><script src="app.js"></script><script src="evidence_runtime.js"></script>
 </body>
 </html>
