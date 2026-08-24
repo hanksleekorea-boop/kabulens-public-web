@@ -1,5 +1,6 @@
 (function(){'use strict';
   var loaded=KabuStorage.load(localStorage),state=loaded.data,pendingWorker=null,toastTimer=null;
+  document.getElementById('checkMobileUpdate').insertAdjacentElement('afterend',document.getElementById('applyUpdate'));
   var screens=[].slice.call(document.querySelectorAll('[data-screen]')),buttons=[].slice.call(document.querySelectorAll('[data-route]'));
   var labels={};KabuPc.ROUTES.forEach(function(item){labels[item[0]]=item[1];});
   function escapeHtml(value){var d=document.createElement('div');d.textContent=value;return d.innerHTML;}
