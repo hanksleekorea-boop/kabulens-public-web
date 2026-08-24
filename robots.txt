@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /legal/
+Disallow: /status.html
+Sitemap: https://hanksleekorea-boop.github.io/kabulens-public-web/sitemap.xml
