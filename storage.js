@@ -14,7 +14,7 @@
     if(source.unknown&&typeof source.unknown==='object')Object.assign(next.unknown,source.unknown);
     return next;
   }
-  function load(store){var value=null,key=KEY;try{value=store.getItem(KEY);if(!value){for(var i=0;i<LEGACY.length;i++){value=store.getItem(LEGACY[i]);if(value){key=LEGACY[i];break;}}}var parsed=value?JSON.parse(value):fresh();var next=migrate(parsed);store.setItem(KEY,JSON.stringify(next));return {data:next,migratedFrom:key===KEY?null:key,error:null};}catch(err){return {data:fresh(),migratedFrom:null,error:'STORAGE_RECOVERED_WITHOUT_OVERWRITE'};}}
+  function load(store){var value=null,key=KEY;try{value=store.getItem(KEY);if(!value){for(var i=0;i<LEGACY.length;i++){value=store.getItem(LEGACY[i]);if(value){key=LEGACY[i];break;}}}var parsed=value?JSON.parse(value):fresh();var next=migrate(parsed);store.setItem(KEY,JSON.stringify(next));return {data:next,migratedFrom:key===KEY?null:key,error:null,recovery:null};}catch(err){return {data:fresh(),migratedFrom:null,error:'STORAGE_RECOVERED_WITHOUT_OVERWRITE',recovery:typeof value==='string'?{key:key,raw:value}:null};}}
   function save(store,data){var next=migrate(data);store.setItem(KEY,JSON.stringify(next));return next;}
   function restore(store,text){var parsed=JSON.parse(text);if(!parsed||typeof parsed!=='object')throw new Error('BACKUP_INVALID');return save(store,parsed);}
   return {KEY:KEY,fresh:fresh,migrate:migrate,load:load,save:save,restore:restore};
