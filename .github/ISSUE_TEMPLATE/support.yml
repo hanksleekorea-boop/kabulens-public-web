@@ -1,0 +1,29 @@
+name: 일반 문의
+description: 사용 방법이나 공개 서비스 정책을 문의합니다.
+title: "[문의] "
+labels: [support]
+body:
+  - type: markdown
+    attributes:
+      value: "공개 양식입니다. 개인정보·계정정보·결제정보·열쇠 문자열을 입력하지 마십시오."
+  - type: dropdown
+    id: area
+    attributes:
+      label: 문의 영역
+      options: [PC 웹, 모바일 웹·PWA, 자료 저장·복구, 공시·근거, 정책·기타]
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: 문의 내용
+      description: 공개해도 안전한 내용만 적어 주세요.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: 공개 정보 확인
+      options:
+        - label: 개인정보·비밀값을 포함하지 않았습니다.
+          required: true

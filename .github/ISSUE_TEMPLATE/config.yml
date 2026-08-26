@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 서비스 상태
+    url: https://hanksleekorea-boop.github.io/kabulens-public-web/status.html
+    about: 공개 서비스 상태와 현재 제공 경계를 확인합니다.
+  - name: 비공개 보안 신고
+    url: https://github.com/hanksleekorea-boop/kabulens-public-web/security/advisories/new
+    about: 취약점·비밀값·공개하면 위험한 내용은 비공개로 신고합니다.

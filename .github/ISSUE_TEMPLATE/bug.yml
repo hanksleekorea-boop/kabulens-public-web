@@ -1,0 +1,36 @@
+name: 오류 신고
+description: 공개 서비스의 재현 가능한 오류를 신고합니다.
+title: "[오류] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "보안 문제는 비공개 보안 신고를 사용하십시오. 공개 양식에 개인정보·비밀값을 올리지 마십시오."
+  - type: input
+    id: url
+    attributes:
+      label: 문제가 발생한 공개 주소
+      placeholder: https://hanksleekorea-boop.github.io/kabulens-public-web/
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 재현 순서
+      description: 무엇을 눌렀고 어떤 결과를 예상했는지 적어 주세요.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: 기기와 브라우저
+      placeholder: "예: Android Chrome, Windows Edge"
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: 공개 정보 확인
+      options:
+        - label: 개인정보·비밀값을 포함하지 않았습니다.
+          required: true
