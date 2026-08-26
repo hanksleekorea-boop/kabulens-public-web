@@ -6,7 +6,7 @@
     ['benefits','우대'],['import','내 CSV'],['settings','설정'],['safety','자료보호']
   ];
   function filterRoutes(query){var q=String(query||'').trim().toLowerCase();return ROUTES.filter(function(item){return !q||item[0].indexOf(q)>=0||item[1].toLowerCase().indexOf(q)>=0;});}
-  function shortcut(event){var key=String(event.key||'').toLowerCase();if((event.ctrlKey||event.metaKey)&&!event.shiftKey&&key==='k')return {type:'command'};if(event.ctrlKey&&event.shiftKey&&key==='l')return {type:'privacy'};if(event.altKey&&!event.ctrlKey&&!event.metaKey&&/^[1-9]$/.test(key))return {type:'route',route:ROUTES[Number(key)-1][0]};return null;}
+  function shortcut(event){var key=String(event.key||'').toLowerCase(),digit=/^Digit([1-9])$/.exec(String(event.code||'')),number=digit?digit[1]:key;if((event.ctrlKey||event.metaKey)&&!event.shiftKey&&key==='k')return {type:'command'};if(event.ctrlKey&&event.shiftKey&&key==='l')return {type:'privacy'};if((event.ctrlKey||event.metaKey)&&event.shiftKey&&/^[1-3]$/.test(number))return {type:'research-focus',target:['companySearch','researchResults','researchEvidenceTitle'][Number(number)-1]};if(event.altKey&&!event.ctrlKey&&!event.metaKey&&/^[1-9]$/.test(number))return {type:'route',route:ROUTES[Number(number)-1][0]};return null;}
   function capabilities(value){return [
     ['로컬 저장',value.storage===true],['오프라인 준비',value.worker===true],
     ['백업 파일',value.file===true],['대화상자',value.dialog===true]
