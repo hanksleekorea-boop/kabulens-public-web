@@ -7,8 +7,8 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="description" content="일본 기업 공시와 약속 이행을 근거와 함께 확인하는 KABU LENS 시험 서비스">
-  <script id="release-boundary" type="application/json">{"version":"0.30","phase":"RELEASE_CANDIDATE","commercialAuth":"UNVERIFIED","externalPush":"UNVERIFIED","realUser":"UNVERIFIED","deviceEvidence":"PARTIAL"}</script>
+  <meta name="description" content="일본 기업 공시와 약속 이행을 근거와 함께 확인하는 KABU LENS 무료 공개 베타">
+  <script id="release-boundary" type="application/json">{"version":"0.30","phase":"PUBLIC_FREE_BETA","commercialAuth":"UNVERIFIED","externalPush":"UNVERIFIED","realUser":"UNVERIFIED","deviceEvidence":"PARTIAL"}</script>
   <script id="stage1-release-boundary" type="application/json">{"verifiedGateCount":6,"totalGateCount":18,"commercialReady":false,"androidCurrentVersion":"NOT_RUN","iphoneCurrentVersion":"NOT_RUN","fiveUserTasks":"NOT_RUN"}</script>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -21,7 +21,7 @@
     <div><strong>KABU LENS</strong><span>株レンズ</span></div>
     <div class="top-actions"><p id="connection" role="status" aria-live="polite">연결 상태 확인 중</p><button id="openCommand" type="button" class="ghost" aria-keyshortcuts="Control+K Meta+K">화면 찾기 <kbd>Ctrl K</kbd></button><button id="togglePrivacy" type="button" class="ghost" aria-keyshortcuts="Control+Shift+L">화면 가리기</button></div>
   </header>
-  <div class="notice" role="note"><b>시험 서비스</b> 투자 권유가 아닙니다. 실제 시세를 저장하거나 재배포하지 않으며, 예시값은 모두 ‘예시’로 표시합니다.</div>
+  <div class="notice" role="note"><b>무료 공개 베타</b> 계정·결제 없이 이용할 수 있습니다. 투자 권유가 아닙니다. 실제 시세를 저장하거나 재배포하지 않고, 예시값은 모두 ‘예시’로 표시합니다.</div>
   <div class="app-shell">
   <nav class="nav" aria-label="주요 화면">
     <button data-route="today" aria-current="page">오늘</button>
@@ -120,7 +120,7 @@
     </section>
   </main>
   </div>
-  <footer>PC·모바일 출시 후보 v0.30 · 3열 조사 공간·근거 포함 내보내기·18개 출시조건 실패닫힘 · 상용 로그인·실결제·외부 푸시·실사용 전<br><a href="legal/terms.html">출시 전 이용 조건</a> · <a href="legal/privacy.html">출시 전 개인정보 안내</a> · <a href="status.html">서비스 상태</a> · <a href="support.html">지원·신고</a></footer>
+  <footer>PC·모바일 무료 공개 베타 v0.30 · 3열 조사 공간·근거 포함 내보내기 · 계정·결제 없는 로컬 저장형 · 상용 로그인·외부 푸시·유료 Lite 실사용 전 · 출시조건 6/18<br><a href="legal/terms.html">출시 전 이용 조건</a> · <a href="legal/privacy.html">출시 전 개인정보 안내</a> · <a href="status.html">서비스 상태</a> · <a href="support.html">지원·신고</a></footer>
   <dialog id="mobileMenu" aria-labelledby="mobileMenuTitle"><form method="dialog" class="mobile-menu"><div class="command-head"><h2 id="mobileMenuTitle">더보기</h2><button value="cancel" class="secondary">닫기</button></div><div class="mobile-menu-items"><button type="button" data-route="company">기업</button><button type="button" data-route="disclosures">공시</button><button type="button" data-route="promises">약속</button><button type="button" data-route="capital">자본</button><button type="button" data-route="benefits">우대</button><button type="button" data-route="import">내 CSV</button><button type="button" data-route="settings">설정</button><button type="button" data-route="safety">자료보호</button></div></form></dialog>
   <dialog id="commandPalette" aria-labelledby="commandTitle"><form method="dialog" class="command-box"><div class="command-head"><h2 id="commandTitle">화면 빠르게 열기</h2><button value="cancel" aria-label="닫기" class="secondary">닫기</button></div><label>화면 이름 검색<input id="commandSearch" autocomplete="off" placeholder="예: 공시, 설정"></label><div id="commandItems" class="command-items"></div></form></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden><span id="toastText"></span><button id="toastAction" type="button" hidden>되돌리기</button></div>

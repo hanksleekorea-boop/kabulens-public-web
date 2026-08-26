@@ -12,7 +12,7 @@ SURFACES = {
     "": ("text/html", b"KABU LENS", 250_000),
     "app.js": ("javascript", b"ensureCatalog", 500_000),
     "styles.css": ("text/css", b"focus-visible", 500_000),
-    "sw.js": ("javascript", b"kabulens-shell-v30-2-public-support1", 100_000),
+    "sw.js": ("javascript", b"kabulens-shell-v30-2-public-beta1", 100_000),
     "manifest.webmanifest": ("manifest", b'"display":"standalone"', 50_000),
     "legal/terms.html": ("text/html", "출시 전 이용 조건".encode(), 150_000),
     "legal/privacy.html": ("text/html", "출시 전 개인정보".encode(), 150_000),
