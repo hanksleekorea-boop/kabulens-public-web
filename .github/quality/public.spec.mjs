@@ -27,6 +27,11 @@ test('Stock Scanner public release is responsive functional and accessible',asyn
   await expect(page.locator('#resultList .result-card').first()).toBeVisible();
   await page.locator('#resultList .result-card').first().click();
   await expect(page.locator('#reportPanel')).toContainText('상승 근거');
+  await expect(page.locator('#reportPanel')).toContainText('이 방법, 쉽게 이해하기');
+  await expect(page.locator('#reportPanel')).toContainText('30초 설명');
+  await expect(page.locator('#reportPanel .master-card')).toHaveCount(2);
+  await expect(page.locator('#reportPanel .case-card')).toContainText('대표 수익·연구 사례');
+  await expect(page.locator('#reportPanel .evidence-link')).toHaveCount(3);
   await expect(page.locator('#reportPanel')).toContainText('선택 방법 비교·민감도');
   await expect(page.locator('#printReport')).toBeVisible();
   const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();
@@ -39,7 +44,7 @@ test('Stock Scanner QR policy and PWA assets are public',async({page,request,bas
   await page.goto(new URL('#more',baseURL).href,{waitUntil:'networkidle'});
   await expect(page.locator('#publicQrImage')).toBeVisible();
   await expect(page.locator('#publicQrLink')).toHaveAttribute('href',/stock-scanner-qr\.png$/);
-  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','brand.json','stock-scanner-qr.png','dashboard.html','progress.json','legal/terms.html','legal/privacy.html']){
+  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','methodology_education_v1.json','brand.json','stock-scanner-qr.png','dashboard.html','progress.json','legal/terms.html','legal/privacy.html']){
     expect((await request.get(new URL(asset,baseURL).href)).ok(),asset).toBeTruthy();
   }
   const manifest=await(await request.get(new URL('stock-scanner.webmanifest',baseURL).href)).json();
