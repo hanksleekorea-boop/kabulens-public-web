@@ -10,6 +10,7 @@ from urllib.request import Request, urlopen
 
 SURFACES = {
     "": ("text/html", b"Stock Scanner", 250_000),
+    "root_redirect.js": ("javascript", b"stock-scanner.html", 20_000),
     "stock-scanner.html": ("text/html", b"Stock Scanner", 250_000),
     "dashboard.html": ("text/html", "개발 진척 대시보드".encode(), 250_000),
     "progress.json": ("application/json", b'"schemaVersion": "stock-scanner-progress/v1"', 100_000),
@@ -17,7 +18,7 @@ SURFACES = {
     "stock-scanner.css": ("text/css", b"focus-visible", 500_000),
     "stock_scanner_runtime.js": ("javascript", b"StockScanner", 500_000),
     "methodology_education_v1.json": ("application/json", b'"schemaVersion": "stock-scanner-method-education/v1"', 500_000),
-    "stock-scanner-sw.js": ("javascript", b"stock-scanner-shell-v5-3-service-content2", 100_000),
+    "stock-scanner-sw.js": ("javascript", b"stock-scanner-shell-v5-3-service-content3", 100_000),
     "sw.js": ("javascript", b"stock-scanner-sw.js", 20_000),
     "public_config.js": ("javascript", b"STOCK_SCANNER_PUBLIC_CONFIG", 20_000),
     "brand.json": ("application/json", b'"name": "Stock Scanner"', 20_000),
@@ -27,6 +28,7 @@ SURFACES = {
     "legal/privacy.html": ("text/html", "Stock Scanner".encode(), 150_000),
     "status.html": ("text/html", "Stock Scanner".encode(), 150_000),
     "support.html": ("text/html", "Stock Scanner".encode(), 150_000),
+    ".well-known/security.txt": ("text/plain", b"Contact: https://github.com/hanksleekorea-boop/kabulens-public-web/security/advisories/new", 20_000),
     "robots.txt": ("text/plain", b"Sitemap:", 20_000),
     "sitemap.xml": ("xml", b"kabulens-public-web", 100_000),
     "stock-scanner-qr.png": ("image/png", b"\x89PNG\r\n\x1a\n", 200_000),

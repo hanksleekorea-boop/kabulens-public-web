@@ -19,8 +19,11 @@ jobs:
         with:
           node-version: "22"
       - run: npm ci --prefix .github/quality
-      - run: npm exec --prefix .github/quality -- playwright install --with-deps chromium firefox webkit
+      - run: npm audit --prefix .github/quality --audit-level=high
       - run: mkdir -p .github/quality/results
+      - name: Generate dependency inventory
+        run: npm sbom --prefix .github/quality --sbom-format spdx > .github/quality/results/public-quality-sbom.spdx.json
+      - run: npm exec --prefix .github/quality -- playwright install --with-deps chromium firefox webkit
       - run: npm exec --prefix .github/quality -- playwright test --config .github/quality/playwright.config.mjs
       - if: always()
         uses: actions/upload-artifact@v6
@@ -40,6 +43,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: npm ci --prefix .github/quality
+      - run: npm audit --prefix .github/quality --audit-level=high
       - run: mkdir -p .github/quality/results
       - name: Measure public Lighthouse three times
         run: |

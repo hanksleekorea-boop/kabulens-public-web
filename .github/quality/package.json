@@ -6,9 +6,5 @@
     "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.62.1",
     "lighthouse": "13.4.1"
-  },
-  "dependencies": {
-    "kabulens-public-quality": "file:",
-    "stock-scanner-release-verification": "file:../../.."
   }
 }

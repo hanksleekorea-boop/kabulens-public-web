@@ -12,6 +12,7 @@ test('Stock Scanner public release is responsive functional and accessible',asyn
     await page.setViewportSize({width,height:width>=1000?900:844});
     await page.goto(new URL('#today',baseURL).href,{waitUntil:'networkidle'});
     await expect(page).toHaveTitle(/Stock Scanner/);
+    await expect(page.locator('meta[http-equiv="Content-Security-Policy"]')).toHaveCount(1);
     await expect(page.getByRole('heading',{name:/방법을 비교하고/})).toBeVisible();
     const productText=await page.locator('body').innerText();
     for(const forbidden of ['개발 진척','99/100','남은 1점','미실시','자동검사 상태'])expect(productText).not.toContain(forbidden);
@@ -51,12 +52,14 @@ test('Stock Scanner QR policy and PWA assets are public',async({page,request,bas
   await expect(page.locator('#publicQrLink')).toHaveAttribute('href',/stock-scanner-qr\.png$/);
   await expect(page.locator('body')).not.toContainText('개발 진척');
   await expect(page.locator('body')).not.toContainText('99/100');
-  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','methodology_education_v1.json','brand.json','stock-scanner-qr.png','dashboard.html','progress.json','free-launch-readiness.json','legal/terms.html','legal/privacy.html']){
+  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','methodology_education_v1.json','brand.json','stock-scanner-qr.png','.well-known/security.txt','dashboard.html','progress.json','free-launch-readiness.json','legal/terms.html','legal/privacy.html']){
     expect((await request.get(new URL(asset,baseURL).href)).ok(),asset).toBeTruthy();
   }
   const manifest=await(await request.get(new URL('stock-scanner.webmanifest',baseURL).href)).json();
   expect(manifest.name).toBe('Stock Scanner');
   expect(manifest.start_url).toBe('./stock-scanner.html#today');
+  const security=await(await request.get(new URL('.well-known/security.txt',baseURL).href)).text();
+  expect(security).toContain('security/advisories/new');
 });
 
 test('Stock Scanner development dashboard exposes truthful progress and twenty-item queues',async({page,baseURL})=>{

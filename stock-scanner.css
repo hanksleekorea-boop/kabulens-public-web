@@ -6,6 +6,7 @@
 @media(max-width:360px){:root{font-size:15px}.brand b{font-size:.82rem;letter-spacing:.06em}.locale select{min-width:5.6rem}.mobile-routes button{font-size:.68rem}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 @media print{.scanner-header,.preview-boundary,.mobile-routes,.filter-panel,.results-panel,.method-chips,.toast,.report-actions,#addWatchlist{display:none!important}.scan-grid{display:block}.report-panel{display:block;position:static;height:auto;background:#fff;color:#000}.report-panel p,.report-panel li{color:#222}.report-panel section{break-inside:avoid}}
+.landing-page{margin:0;background:#06141a;color:#f1f7f5;font:16px system-ui,sans-serif}.landing-main{max-width:42rem;margin:18vh auto;padding:1.5rem;text-align:center}.landing-link{display:inline-flex;align-items:center;min-height:44px;color:#43e6c6}
 .brand{min-height:44px}
 @media(max-width:899px){.method-option input{width:44px;height:44px;flex:0 0 44px;margin:0}}
 .brand-logo{width:2.7rem;height:2.7rem;border-radius:.8rem;box-shadow:0 0 28px rgba(67,230,198,.25)}

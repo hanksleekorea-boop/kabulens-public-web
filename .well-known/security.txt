@@ -1,0 +1,5 @@
+Contact: https://github.com/hanksleekorea-boop/kabulens-public-web/security/advisories/new
+Expires: 2027-08-28T00:00:00Z
+Preferred-Languages: ko, en, ja
+Canonical: https://hanksleekorea-boop.github.io/kabulens-public-web/.well-known/security.txt
+Policy: https://hanksleekorea-boop.github.io/kabulens-public-web/support.html
