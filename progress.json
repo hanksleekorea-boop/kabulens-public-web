@@ -10,7 +10,7 @@
   "metrics": [
     {"id":"brand","label":"Stock Scanner 브랜드·공개","value":100,"unit":"%","state":"PASS","evidence":"공개 main·QR·PWA·정책·지원 전환 완료"},
     {"id":"pc","label":"PC 공개 베타 준비도","value":90,"unit":"/100","state":"PARTIAL","evidence":"실제 허가자료·독립 과거시험 제외"},
-    {"id":"mobile","label":"모바일 공개 베타 준비도","value":90,"unit":"/100","state":"PARTIAL","evidence":"현 공개판 홈 화면 설치·독립 실행 제외"},
+    {"id":"mobile","label":"모바일 공개 베타 준비도","value":90,"unit":"/100","state":"PARTIAL","evidence":"Android 설치·독립·오프라인 통과, iPhone·실자료 제외"},
     {"id":"automation","label":"현재 자동 품질 검사","value":100,"unit":"%","state":"PASS","evidence":"서버·웹·3개 브라우저·Lighthouse 기준 통과"},
     {"id":"commercial","label":"1단계 상용 통과 조건","value":6,"maximum":18,"unit":"개","state":"BLOCKED","evidence":"실데이터·법률·결제·실기기·실사용자 증거 필요"}
   ],
@@ -23,14 +23,14 @@
     "Chromium·Firefox·WebKit 자동 사용자 흐름",
     "Lighthouse 성능·접근성·모범사례·SEO 기준",
     "자료 권리·실데이터·투자 권유 기본 차단",
-    "SM-G996N 최신 공개판 5탭·스캔 50개·보고서·방법 비교"
+    "SM-G996N 최신 공개판 설치·독립 실행·오프라인·5탭·스캔·보고서·방법 비교"
   ],
   "bottlenecks": [
     {"label":"실제 시장자료","state":"USER_OR_VENDOR","unlock":"미국·일본 공급자와 표시·저장·파생·내보내기 권리 확정"},
     {"label":"방법 성과","state":"EXTERNAL_EVIDENCE","unlock":"허가된 당시 시점 자료로 독립 과거시험과 검토"},
     {"label":"법적 운영","state":"USER_DECISION","unlock":"운영자 신원·관할·보존·환불·면책 확정"},
     {"label":"유료 운영","state":"USER_OR_VENDOR","unlock":"결제 사업자·가격·환불·세금·생산 계정 확정"},
-    {"label":"현장 검증","state":"DEVICE_AND_USERS","unlock":"Android/iPhone·보조기술·실사용자·24시간 관찰"},
+    {"label":"현장 검증","state":"DEVICE_AND_USERS","unlock":"Android는 통과. iPhone·보조기술·실사용자·24시간 관찰 필요"},
     {"label":"Drive 복구","state":"PERMANENTLY_EXCLUDED","unlock":"B 드라이브를 사용하지 않는 사용자 방침에 따라 진척률과 분리"}
   ],
   "links": {
@@ -43,7 +43,7 @@
     "qr":"https://hanksleekorea-boop.github.io/kabulens-public-web/stock-scanner-qr.png"
   },
   "urgentNext": [
-    "같은 SM-G996N 재연결 뒤 홈 화면 설치·독립 실행·업데이트·오프라인 복구",
+    "SM-G996N 설치판의 다음 서비스워커 업데이트·기존 저장자료 유지 재검사",
     "실제 iPhone 홈 화면 설치·독립 실행·업데이트·오프라인 복구",
     "전체 화면 한국어·영어·일본어 번역",
     "키보드 200% 확대와 화면읽기 도구 수동검사",
