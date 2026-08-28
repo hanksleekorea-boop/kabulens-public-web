@@ -71,5 +71,5 @@ test('public account, QR, local persistence, and PWA assets remain usable withou
   }
   const manifest = await (await request.get(new URL('manifest.webmanifest', baseURL).href)).json();
   expect(manifest.display).toBe('standalone');
-  expect(manifest.start_url).toBe('./#today');
+  expect(manifest.start_url).toBe('./index.html');
 });
