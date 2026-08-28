@@ -17,7 +17,7 @@ SURFACES = {
     "stock-scanner.css": ("text/css", b"focus-visible", 500_000),
     "stock_scanner_runtime.js": ("javascript", b"StockScanner", 500_000),
     "methodology_education_v1.json": ("application/json", b'"schemaVersion": "stock-scanner-method-education/v1"', 500_000),
-    "stock-scanner-sw.js": ("javascript", b"stock-scanner-shell-v5-3-free-launch1", 100_000),
+    "stock-scanner-sw.js": ("javascript", b"stock-scanner-shell-v5-3-service-content2", 100_000),
     "sw.js": ("javascript", b"stock-scanner-sw.js", 20_000),
     "public_config.js": ("javascript", b"STOCK_SCANNER_PUBLIC_CONFIG", 20_000),
     "brand.json": ("application/json", b'"name": "Stock Scanner"', 20_000),

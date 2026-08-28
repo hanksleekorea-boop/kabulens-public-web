@@ -13,6 +13,9 @@ test('Stock Scanner public release is responsive functional and accessible',asyn
     await page.goto(new URL('#today',baseURL).href,{waitUntil:'networkidle'});
     await expect(page).toHaveTitle(/Stock Scanner/);
     await expect(page.getByRole('heading',{name:/방법을 비교하고/})).toBeVisible();
+    const productText=await page.locator('body').innerText();
+    for(const forbidden of ['개발 진척','99/100','남은 1점','미실시','자동검사 상태'])expect(productText).not.toContain(forbidden);
+    expect(await page.locator('a[href="dashboard.html"],a[href="free-launch-readiness.json"],a[href="progress.json"]').count()).toBe(0);
     const size=await page.evaluate(()=>({client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));
     expect(size.scroll,`overflow at ${width}px`).toBeLessThanOrEqual(size.client);
     if(width<1000){
@@ -33,6 +36,8 @@ test('Stock Scanner public release is responsive functional and accessible',asyn
   await expect(page.locator('#reportPanel .case-card')).toContainText('대표 수익·연구 사례');
   await expect(page.locator('#reportPanel .evidence-link')).toHaveCount(3);
   await expect(page.locator('#reportPanel')).toContainText('선택 방법 비교·민감도');
+  await expect(page.locator('#reportPanel')).toContainText('실제 과거 성적은 제공하지 않습니다.');
+  await expect(page.locator('#reportPanel')).not.toContainText('NOT_RUN');
   await expect(page.locator('#printReport')).toBeVisible();
   const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();
   expect(axe.violations.filter(item=>['critical','serious'].includes(item.impact)),`a11y ${testInfo.project.name}`).toEqual([]);
@@ -44,6 +49,8 @@ test('Stock Scanner QR policy and PWA assets are public',async({page,request,bas
   await page.goto(new URL('#more',baseURL).href,{waitUntil:'networkidle'});
   await expect(page.locator('#publicQrImage')).toBeVisible();
   await expect(page.locator('#publicQrLink')).toHaveAttribute('href',/stock-scanner-qr\.png$/);
+  await expect(page.locator('body')).not.toContainText('개발 진척');
+  await expect(page.locator('body')).not.toContainText('99/100');
   for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','methodology_education_v1.json','brand.json','stock-scanner-qr.png','dashboard.html','progress.json','free-launch-readiness.json','legal/terms.html','legal/privacy.html']){
     expect((await request.get(new URL(asset,baseURL).href)).ok(),asset).toBeTruthy();
   }
