@@ -3,14 +3,14 @@ import { expect, test } from '@playwright/test';
 
 const widths=[1440,390,360];
 
-test('Stock Scanner public release is responsive functional and accessible',async({page,baseURL},testInfo)=>{
+test('Stock Scanner public release is responsive functional and accessible',async({page,request,baseURL},testInfo)=>{
   const errors=[];
   page.on('console',message=>{if(message.type()==='error')errors.push(`console: ${message.text()}`);});
   page.on('pageerror',error=>errors.push(`page: ${error.message}`));
+  expect((await request.get(baseURL)).ok(),'public root response').toBeTruthy();
   for(const width of widths){
     await page.setViewportSize({width,height:width>=1000?900:844});
-    const response=await page.goto(new URL('#today',baseURL).href,{waitUntil:'networkidle'});
-    expect(response?.ok()).toBeTruthy();
+    await page.goto(new URL('#today',baseURL).href,{waitUntil:'networkidle'});
     await expect(page).toHaveTitle(/Stock Scanner/);
     await expect(page.getByRole('heading',{name:/방법을 비교하고/})).toBeVisible();
     const size=await page.evaluate(()=>({client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));
