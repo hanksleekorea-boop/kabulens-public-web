@@ -18,7 +18,7 @@ SURFACES = {
     "public_config.js": ("javascript", b"STOCK_SCANNER_PUBLIC_CONFIG", 20_000),
     "brand.json": ("application/json", b'"name": "Stock Scanner"', 20_000),
     "stock-scanner.webmanifest": ("manifest", b'"name": "Stock Scanner"', 50_000),
-    "manifest.webmanifest": ("manifest", b'"name": "Stock Scanner"', 50_000),
+    "manifest.webmanifest": ("manifest", b'"name":"Stock Scanner"', 50_000),
     "legal/terms.html": ("text/html", "Stock Scanner".encode(), 150_000),
     "legal/privacy.html": ("text/html", "Stock Scanner".encode(), 150_000),
     "status.html": ("text/html", "Stock Scanner".encode(), 150_000),

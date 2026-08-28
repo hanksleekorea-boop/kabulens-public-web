@@ -12,7 +12,7 @@ test('Stock Scanner public release is responsive functional and accessible',asyn
     const response=await page.goto(new URL('#today',baseURL).href,{waitUntil:'networkidle'});
     expect(response?.ok()).toBeTruthy();
     await expect(page).toHaveTitle(/Stock Scanner/);
-    await expect(page.getByRole('heading',{name:'검사 조건'})).toBeVisible();
+    await expect(page.getByRole('heading',{name:/방법을 비교하고/})).toBeVisible();
     const size=await page.evaluate(()=>({client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));
     expect(size.scroll,`overflow at ${width}px`).toBeLessThanOrEqual(size.client);
     if(width<1000){
@@ -22,7 +22,7 @@ test('Stock Scanner public release is responsive functional and accessible',asyn
   }
   await page.setViewportSize({width:1440,height:900});
   await page.goto(new URL('#scan',baseURL).href,{waitUntil:'networkidle'});
-  await page.locator('#minScore').fill('-100');
+  await page.locator('#scanMinScore').selectOption('-100');
   await page.getByRole('button',{name:'상승 후보 찾기'}).click();
   await expect(page.locator('#resultList .result-card').first()).toBeVisible();
   await page.locator('#resultList .result-card').first().click();
