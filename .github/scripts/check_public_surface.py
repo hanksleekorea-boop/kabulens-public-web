@@ -11,9 +11,11 @@ from urllib.request import Request, urlopen
 SURFACES = {
     "": ("text/html", b"Stock Scanner", 250_000),
     "stock-scanner.html": ("text/html", b"Stock Scanner", 250_000),
+    "dashboard.html": ("text/html", "개발 진척 대시보드".encode(), 250_000),
+    "progress.json": ("application/json", b'"schemaVersion": "stock-scanner-progress/v1"', 100_000),
     "stock-scanner.css": ("text/css", b"focus-visible", 500_000),
     "stock_scanner_runtime.js": ("javascript", b"StockScanner", 500_000),
-    "stock-scanner-sw.js": ("javascript", b"stock-scanner-shell-v5-1-brand1", 100_000),
+    "stock-scanner-sw.js": ("javascript", b"stock-scanner-shell-v5-1-progress2", 100_000),
     "sw.js": ("javascript", b"stock-scanner-sw.js", 20_000),
     "public_config.js": ("javascript", b"STOCK_SCANNER_PUBLIC_CONFIG", 20_000),
     "brand.json": ("application/json", b'"name": "Stock Scanner"', 20_000),

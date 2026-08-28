@@ -27,6 +27,8 @@ test('Stock Scanner public release is responsive functional and accessible',asyn
   await expect(page.locator('#resultList .result-card').first()).toBeVisible();
   await page.locator('#resultList .result-card').first().click();
   await expect(page.locator('#reportPanel')).toContainText('상승 근거');
+  await expect(page.locator('#reportPanel')).toContainText('선택 방법 비교·민감도');
+  await expect(page.locator('#printReport')).toBeVisible();
   const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();
   expect(axe.violations.filter(item=>['critical','serious'].includes(item.impact)),`a11y ${testInfo.project.name}`).toEqual([]);
   expect(errors).toEqual([]);
@@ -37,10 +39,20 @@ test('Stock Scanner QR policy and PWA assets are public',async({page,request,bas
   await page.goto(new URL('#more',baseURL).href,{waitUntil:'networkidle'});
   await expect(page.locator('#publicQrImage')).toBeVisible();
   await expect(page.locator('#publicQrLink')).toHaveAttribute('href',/stock-scanner-qr\.png$/);
-  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','brand.json','stock-scanner-qr.png','legal/terms.html','legal/privacy.html']){
+  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','brand.json','stock-scanner-qr.png','dashboard.html','progress.json','legal/terms.html','legal/privacy.html']){
     expect((await request.get(new URL(asset,baseURL).href)).ok(),asset).toBeTruthy();
   }
   const manifest=await(await request.get(new URL('stock-scanner.webmanifest',baseURL).href)).json();
   expect(manifest.name).toBe('Stock Scanner');
   expect(manifest.start_url).toBe('./stock-scanner.html#today');
+});
+
+test('Stock Scanner development dashboard exposes truthful progress and twenty-item queues',async({page,baseURL})=>{
+  const response=await page.goto(new URL('dashboard.html',baseURL).href,{waitUntil:'networkidle'});
+  expect(response?.ok()).toBeTruthy();
+  await expect(page).toHaveTitle(/개발 진척 대시보드 · Stock Scanner/);
+  await expect(page.locator('#metrics .metric-card')).toHaveCount(5);
+  await expect(page.locator('#urgent li')).toHaveCount(20);
+  await expect(page.locator('#autonomous li')).toHaveCount(20);
+  await expect(page.locator('#summary')).toContainText('무료 공개 베타');
 });
