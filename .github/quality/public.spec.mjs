@@ -45,3 +45,31 @@ test('public release remains usable responsive and accessible', async ({ page, b
   expect(blocking, `serious accessibility issues in ${testInfo.project.name}: ${JSON.stringify(blocking)}`).toEqual([]);
   expect(runtimeErrors, `runtime errors in ${testInfo.project.name}`).toEqual([]);
 });
+
+test('public account, QR, local persistence, and PWA assets remain usable without Google', async ({ page, request, baseURL }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(new URL('#today', baseURL).href, { waitUntil: 'networkidle' });
+  await page.locator('#accountEntry').click();
+  await expect(page).toHaveURL(/#settings$/);
+  await expect(page.locator('#myAccount')).toBeVisible();
+  await expect(page.locator('#accountSummary')).toContainText('운영 인증 연결을 준비 중');
+  await expect(page.locator('#publicQrImage')).toBeVisible();
+  await expect(page.locator('#publicQrLink')).toHaveAttribute('href', /kabulens-public-qr\.png$/);
+  await page.locator('#accountDisplayName').fill('공개 품질 검사');
+  await page.locator('#saveAccountDisplayName').click();
+  await page.locator('#accountDailyGoal').selectOption('15');
+  await page.locator('#saveAccountPreferences').click();
+  await expect(page.locator('#accountPreferenceStatus')).toContainText('하루 목표 15분');
+  const preferences = await page.evaluate(() => JSON.parse(localStorage.getItem('kabulens.account-preferences.v1')));
+  expect(preferences).toEqual({ displayName: '공개 품질 검사', dailyGoal: '15' });
+  await page.locator('#openManualBackup').click();
+  await expect(page).toHaveURL(/#safety$/);
+  await expect(page.getByRole('heading', { name: '자료 보호' })).toBeVisible();
+  for (const asset of ['manifest.webmanifest', 'sw.js', 'kabulens-public-qr.png']) {
+    const response = await request.get(new URL(asset, baseURL).href);
+    expect(response.ok(), `${asset} response`).toBeTruthy();
+  }
+  const manifest = await (await request.get(new URL('manifest.webmanifest', baseURL).href)).json();
+  expect(manifest.display).toBe('standalone');
+  expect(manifest.start_url).toBe('./#today');
+});
