@@ -2,6 +2,14 @@
 (function () {
   'use strict';
   var TOKEN_KEY = 'kabulens.production.session.v1';
+  var loginInProgress = false;
+  var subscribers = [];
+  var authState = { state: 'checking', profile: null };
+  function publishAuthState(value, profile) {
+    authState = { state: value, profile: profile || null };
+    window.dispatchEvent(new CustomEvent('kabulens-auth-state', { detail: authState }));
+    subscribers.slice().forEach(function (subscriber) { subscriber(authState); });
+  }
   function apiOrigin() {
     var config = window.KABULENS_AUTH_CONFIG || {};
     return typeof config.apiOrigin === 'string' && /^https:\/\//.test(config.apiOrigin) ? config.apiOrigin.replace(/\/$/, '') : '';
@@ -26,7 +34,8 @@
     if (sessionToken()) next.headers.Authorization = 'Bearer ' + sessionToken();
     return fetch(origin + path, next).then(function (response) {
       return response.json().catch(function () { return {}; }).then(function (data) {
-        if (!response.ok) throw new Error(data.message || data.error || 'AUTH_REQUEST_FAILED');
+        var detail = data && data.detail && typeof data.detail === 'object' ? data.detail : data;
+        if (!response.ok) throw new Error(detail.message || detail.error || 'AUTH_REQUEST_FAILED');
         return data;
       });
     });
@@ -35,18 +44,74 @@
     var origin = apiOrigin();
     if (!origin) {
       status('운영 인증 서버 주소와 OAuth 등록값이 아직 연결되지 않았습니다. 이 기기의 로컬 저장은 그대로 유지됩니다.', 'warn');
+      publishAuthState('configurationError');
       return;
     }
+    if (loginInProgress) return;
+    loginInProgress = true;
+    var button = document.getElementById('signInGoogle');
+    if (button) button.disabled = true;
+    status('Google 로그인으로 이동하는 중입니다.', '');
+    publishAuthState('signingIn');
     location.assign(origin + '/v1/auth/' + provider + '/start?return_to=' + encodeURIComponent(location.origin + location.pathname));
   }
   function exchangeTicket() {
     var match = location.hash.match(/(?:^#|&)auth_ticket=([^&]+)/);
-    if (!match) return;
-    request('/v1/auth/tickets/exchange', { method: 'POST', body: JSON.stringify({ ticket: decodeURIComponent(match[1]) }) }).then(function (data) {
+    if (!match) return Promise.resolve(false);
+    return request('/v1/auth/tickets/exchange', { method: 'POST', body: JSON.stringify({ ticket: decodeURIComponent(match[1]) }) }).then(function (data) {
       rememberToken(String(data.token || ''));
       history.replaceState(null, '', location.pathname + location.search);
-      status('Google·Apple 로그인 세션을 시작했습니다. 이 탭을 닫으면 다시 로그인해야 합니다.', 'ok');
-    }).catch(function () { status('로그인 완료 정보를 안전하게 교환하지 못했습니다. 다시 시도하세요.', 'warn'); });
+      status('Google 로그인 세션을 시작했습니다. 이 탭을 닫으면 다시 로그인해야 합니다.', 'ok');
+      return refreshAuthState().then(function () { return true; });
+    }).catch(function () { status('로그인 완료 정보를 안전하게 교환하지 못했습니다. 다시 시도하세요.', 'warn'); publishAuthState('recoverableError'); return false; });
+  }
+  function clearToken() {
+    try { sessionStorage.removeItem(TOKEN_KEY); } catch (error) { /* no action needed */ }
+  }
+  function refreshAuthState() {
+    if (!apiOrigin()) {
+      publishAuthState('configurationError');
+      return Promise.resolve(authState);
+    }
+    if (!sessionToken()) {
+      publishAuthState('signedOut');
+      return Promise.resolve(authState);
+    }
+    publishAuthState('checking');
+    return request('/v1/auth/session').then(function (profile) {
+      loginInProgress = false;
+      status('Google 로그인 세션이 확인되었습니다. 저장·복원·로그아웃은 각각 버튼을 눌러야 실행됩니다.', 'ok');
+      publishAuthState('signedIn', profile);
+      return authState;
+    }).catch(function () {
+      clearToken();
+      status('로그인 세션이 만료되었습니다. 다시 로그인할 수 있습니다.', 'warn');
+      publishAuthState('signedOut');
+      return authState;
+    });
+  }
+  function initializeAuthState() {
+    if (!apiOrigin()) {
+      status('운영 인증 서버 주소가 아직 공개 설정에 없습니다.', 'warn');
+      publishAuthState('configurationError');
+      return Promise.resolve(authState);
+    }
+    return refreshAuthState();
+  }
+  function subscribeAuthState(callback) {
+    if (typeof callback !== 'function') return function () {};
+    subscribers.push(callback);
+    callback(authState);
+    return function () { subscribers = subscribers.filter(function (value) { return value !== callback; }); };
+  }
+  function updateDisplayName(displayName) {
+    return request('/v1/auth/profile', {
+      method: 'POST',
+      body: JSON.stringify({ displayName: String(displayName || '').trim().slice(0, 60) })
+    }).then(function (profile) {
+      publishAuthState('signedIn', profile);
+      return profile;
+    });
   }
   function sync() {
     if (!window.KabuStorage) { status('로컬 자료를 준비하는 중입니다.', 'warn'); return; }
@@ -63,24 +128,41 @@
     }).catch(function (error) { status('계정 복원에 실패했습니다: ' + error.message, 'warn'); });
   }
   function signOut() {
-    try { sessionStorage.removeItem(TOKEN_KEY); } catch (error) { /* no action needed */ }
-    status('이 브라우저 탭의 로그인 세션을 끝냈습니다. 서버 저장 자료는 삭제하지 않았습니다.', '');
+    var hadToken = !!sessionToken();
+    var action = hadToken ? request('/v1/auth/session', { method: 'DELETE' }) : Promise.resolve({ signedOut: true });
+    return action.then(function () {
+      status('서버와 이 브라우저 탭의 로그인 세션을 끝냈습니다. 서버 저장 자료는 삭제하지 않았습니다.', '');
+    }).catch(function () {
+      status('이 탭에서는 로그아웃했습니다. 네트워크 문제로 서버 세션 종료 확인은 하지 못했습니다.', 'warn');
+    }).then(function () {
+      clearToken();
+      loginInProgress = false;
+      publishAuthState('signedOut');
+    });
   }
   function init() {
     var google = document.getElementById('signInGoogle');
-    var apple = document.getElementById('signInApple');
     var syncButton = document.getElementById('syncAccountData');
     var restoreButton = document.getElementById('restoreAccountData');
     var out = document.getElementById('signOutProduction');
-    if (!google || !apple || !syncButton || !restoreButton || !out) return;
+    if (!google || !syncButton || !restoreButton || !out) return;
     google.addEventListener('click', function () { begin('google'); });
-    apple.addEventListener('click', function () { begin('apple'); });
     syncButton.addEventListener('click', sync);
     restoreButton.addEventListener('click', restore);
     out.addEventListener('click', signOut);
-    if (sessionToken()) status('이 브라우저 탭에 로그인 세션이 있습니다. 저장·복원·로그아웃을 사용할 수 있습니다.', 'ok');
-    else status(apiOrigin() ? '로그인 공급자 준비 상태를 확인하세요.' : '운영 인증 서버 주소가 아직 공개 설정에 없습니다.', 'warn');
-    exchangeTicket();
+    exchangeTicket().then(function (exchanged) { if (!exchanged) initializeAuthState(); });
+    window.addEventListener('focus', function () { if (sessionToken()) refreshAuthState(); });
   }
+  window.KabuAuth = Object.freeze({
+    initializeAuthState: initializeAuthState,
+    signInWithGoogle: function () { return begin('google'); },
+    subscribeAuthState: subscribeAuthState,
+    refreshAuthState: refreshAuthState,
+    updateDisplayName: updateDisplayName,
+    signOut: signOut,
+    getAuthState: function () { return authState; },
+    syncAccountData: sync,
+    restoreAccountData: restore
+  });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true }); else init();
 }());

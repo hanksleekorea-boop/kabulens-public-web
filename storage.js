@@ -17,6 +17,8 @@
   }
   function load(store){var value=null,key=KEY;try{value=store.getItem(KEY);if(!value){for(var i=0;i<LEGACY.length;i++){value=store.getItem(LEGACY[i]);if(value){key=LEGACY[i];break;}}}var parsed=value?JSON.parse(value):fresh();var next=migrate(parsed);store.setItem(KEY,JSON.stringify(next));return {data:next,migratedFrom:key===KEY?null:key,error:null,recovery:null};}catch(err){return {data:fresh(),migratedFrom:null,error:'STORAGE_RECOVERED_WITHOUT_OVERWRITE',recovery:typeof value==='string'?{key:key,raw:value}:null};}}
   function save(store,data){var next=migrate(data);store.setItem(KEY,JSON.stringify(next));return next;}
-  function restore(store,text){var parsed=JSON.parse(text);if(!parsed||typeof parsed!=='object')throw new Error('BACKUP_INVALID');if(parsed.schema==='kabulens-research-bundle/v1')parsed=parsed.userData;if(!parsed||typeof parsed!=='object'||Array.isArray(parsed))throw new Error('BACKUP_INVALID');return save(store,parsed);}
-  return {KEY:KEY,fresh:fresh,migrate:migrate,load:load,save:save,restore:restore};
+  function parseRestore(text){var parsed=JSON.parse(text);if(!parsed||typeof parsed!=='object')throw new Error('BACKUP_INVALID');if(parsed.schema==='kabulens-research-bundle/v1')parsed=parsed.userData;if(!parsed||typeof parsed!=='object'||Array.isArray(parsed))throw new Error('BACKUP_INVALID');return migrate(parsed);}
+  function restore(store,text){return save(store,parseRestore(text));}
+  function restorePreview(current,text){var next=parseRestore(text),before=migrate(current),counts=function(value){return {watchlist:value.watchlist.length,positions:value.positions.length,savedSearches:value.savedSearches.length,compareCodes:value.compareCodes.length,notes:Object.keys(value.researchNotes).length};},a=counts(before),b=counts(next),changed=0;Object.keys(a).forEach(function(key){if(a[key]!==b[key])changed++;});return {next:next,before:a,after:b,changed:changed};}
+  return {KEY:KEY,fresh:fresh,migrate:migrate,load:load,save:save,parseRestore:parseRestore,restore:restore,restorePreview:restorePreview};
 });

@@ -1,5 +1,5 @@
-const CACHE='kabulens-shell-v30-2-public-beta3';
-const SHELL=['./','./index.html','./styles.css','./storage.js','./pc_runtime.js','./mobile_runtime.js','./research_runtime.js','./catalog_10000.json','./app.js','./evidence_runtime.js','./billing_runtime.js','./license_runtime.js','./auth_config.js','./auth_runtime.js','./manifest.webmanifest','./icon.svg','./legal/terms.html','./legal/privacy.html','./status.html','./support.html','./robots.txt','./sitemap.xml'];
+const CACHE='kabulens-shell-v30-4-account-adapter';
+const SHELL=['./','./index.html','./styles.css','./public_config.js','./storage.js','./pc_runtime.js','./mobile_runtime.js','./research_runtime.js','./catalog_10000.json','./app.js','./evidence_runtime.js','./billing_runtime.js','./license_runtime.js','./auth_config.js','./auth_runtime.js','./account_runtime.js','./manifest.webmanifest','./icon.svg','./legal/terms.html','./legal/privacy.html','./status.html','./support.html','./robots.txt','./sitemap.xml'];
 const APP_SHELL=new URL('./index.html',self.registration.scope).href;
 const APP_SCOPE_PATH=new URL(self.registration.scope).pathname;
 function isAppShellNavigation(url){return url.pathname===APP_SCOPE_PATH||url.pathname===APP_SCOPE_PATH+'index.html';}
