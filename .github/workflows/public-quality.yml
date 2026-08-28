@@ -1,0 +1,56 @@
+name: KABU LENS public browser quality
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 21 * * *"
+permissions:
+  contents: read
+concurrency:
+  group: kabulens-public-browser-quality
+  cancel-in-progress: true
+env:
+  KABULENS_PUBLIC_URL: https://hanksleekorea-boop.github.io/kabulens-public-web/
+jobs:
+  browser-matrix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - run: npm ci --prefix .github/quality
+      - run: npm exec --prefix .github/quality -- playwright install --with-deps chromium firefox webkit
+      - run: mkdir -p .github/quality/results
+      - run: npm exec --prefix .github/quality -- playwright test --config .github/quality/playwright.config.mjs
+      - if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: public-browser-results
+          path: .github/quality/results
+          if-no-files-found: ignore
+          retention-days: 14
+  lighthouse-budget:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: npm ci --prefix .github/quality
+      - run: mkdir -p .github/quality/results
+      - name: Measure public Lighthouse three times
+        run: |
+          for run in 1 2 3; do
+            npm exec --prefix .github/quality -- lighthouse "$KABULENS_PUBLIC_URL" --output=json --output-path=".github/quality/results/public-lighthouse-$run.json" --chrome-flags="--headless=new --no-sandbox" --quiet
+          done
+      - run: python .github/quality/check_lighthouse_report.py .github/quality/results/public-lighthouse-1.json .github/quality/results/public-lighthouse-2.json .github/quality/results/public-lighthouse-3.json
+      - if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: public-lighthouse-report
+          path: .github/quality/results/public-lighthouse-*.json
+          if-no-files-found: ignore
+          retention-days: 14
