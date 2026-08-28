@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#06141a">
+  <meta name="description" content="여러 주식 분석 방법을 나란히 비교하고 종목별 상승 근거·반대 근거·자료 경계를 확인하는 Stock Scanner 무료 공개 베타">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Stock Scanner · Global Equity Research">
+  <meta property="og:description" content="방법을 비교하고, 근거를 확인하고, 맥락으로 판단하세요.">
+  <meta property="og:url" content="https://hanksleekorea-boop.github.io/kabulens-public-web/">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://hanksleekorea-boop.github.io/kabulens-public-web/">
+  <script id="release-boundary" type="application/json">{"version":"5.1","phase":"PUBLIC_FREE_BETA","commercialAuth":"UNVERIFIED","externalPush":"UNVERIFIED","realUser":"UNVERIFIED","deviceEvidence":"PARTIAL"}</script>
+  <script id="stage1-release-boundary" type="application/json">{"verifiedGateCount":6,"totalGateCount":18,"commercialReady":false,"androidCurrentVersion":"NOT_RUN","iphoneCurrentVersion":"NOT_RUN","fiveUserTasks":"NOT_RUN"}</script>
+  <link rel="manifest" href="stock-scanner.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="stock-scanner.css">
+  <title>Stock Scanner · Global Equity Research</title>
+</head>
+<body>
+  <a class="skip-link" href="#scannerMain">본문으로 건너뛰기</a>
+  <header class="scanner-header">
+    <a class="brand" href="#today" aria-label="Stock Scanner 홈"><img class="brand-logo" src="icon.svg" alt=""><span><b>STOCK SCANNER</b><small>스탁스캐너 · 글로벌 주식 리서치</small></span></a>
+    <nav class="desktop-routes" aria-label="제품 화면">
+      <button type="button" data-route="today" data-i18n="today">오늘</button>
+      <button type="button" data-route="scan" data-i18n="scan">스캔</button>
+      <button type="button" data-route="watchlist" data-i18n="watchlist">관심</button>
+      <button type="button" data-route="reports" data-i18n="reports">보고서</button>
+      <button type="button" data-route="more" data-i18n="more">더보기</button>
+    </nav>
+    <label class="locale"><span class="sr-only">언어</span><select id="scannerLocale" aria-label="표시 언어"><option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option></select></label>
+  </header>
+  <div class="preview-boundary" role="note"><b>무료 공개 베타 · 합성 검증자료</b><span>실제 기업·가격·재무·공시를 사용하지 않으며 투자 권유·수익 보장이 아닙니다. 실제 자료 사용권과 독립 과거시험이 끝날 때까지 공개 신호는 차단됩니다.</span></div>
+  <main id="scannerMain" tabindex="-1">
+    <section class="view today-view" data-view="today" tabindex="-1" hidden>
+      <div class="hero"><p class="eyebrow">GLOBAL MULTI-METHOD EQUITY RESEARCH</p><h1>방법을 비교하고,<br>근거를 확인하고,<br>맥락으로 판단하세요.</h1><p>하나의 마법 점수 대신 방법별 결과·반대 근거·자료 시점·한계를 나란히 보여드립니다.</p><button type="button" data-route="scan" class="primary" data-i18n="run">상승 후보 찾기</button></div>
+      <div class="summary-grid"><article><span>14</span><h2>방법 계열</h2><p>가치부터 사건·통계까지 확장 가능한 구조</p></article><article><span>12</span><h2>출시 후보</h2><p>현재는 합성자료 자동검사 상태</p></article><article><span>2</span><h2>우선 시장</h2><p>미국·일본, 실제 자료는 아직 차단</p></article></div>
+    </section>
+    <section class="view scan-view" data-view="scan" tabindex="-1">
+      <div class="scan-grid">
+        <aside class="filter-panel" aria-labelledby="filterHeading">
+          <div class="panel-heading"><div><p class="step">01</p><h1 id="filterHeading">검사 조건</h1></div><span class="preview-pill">BETA · SYNTHETIC</span></div>
+          <label>시장<select id="scanMarket"><option value="ALL">미국 + 일본</option><option value="US">미국</option><option value="JP">일본</option></select></label>
+          <div class="two-fields"><label>예상기간<select id="scanHorizon"><option value="1W">1주</option><option value="1M">1개월</option><option value="3M" selected>3개월</option><option value="6M">6개월</option><option value="12M">12개월</option></select></label><label>업종<select id="scanSector"><option value="ALL">전체 업종</option></select></label></div>
+          <label>종목·이름·업종 검색<input id="scanQuery" type="search" maxlength="80" autocomplete="off" placeholder="예: USX001, Technology"></label>
+          <div class="two-fields"><label>최소 점수<select id="scanMinScore"><option value="-100">제한 없음</option><option value="0">0 이상</option><option value="20" selected>20 이상</option><option value="60">60 이상</option></select></label><label>기준일<input id="scanAsOf" type="date"></label></div>
+          <fieldset><legend>방법 선택</legend><p id="methodCount" class="muted"></p><div id="methodOptions" class="method-options"></div></fieldset>
+          <button id="runScan" type="button" class="primary wide">상승 후보 찾기</button>
+          <button id="saveScan" type="button" class="secondary wide">현재 검사 저장</button>
+          <details class="boundary-details"><summary>점수와 자료 경계</summary><p>-100~100 점수와 순위는 화면·계약 시험용 결정적 합성값입니다. 실제 예측 정확도나 과거 수익률이 아닙니다.</p></details>
+        </aside>
+        <section class="results-panel" aria-labelledby="resultHeading">
+          <div class="panel-heading"><div><p class="step">02</p><h2 id="resultHeading" data-i18n="results">후보 결과</h2></div><div class="export-actions"><button id="exportJson" type="button" class="text-button">JSON</button><button id="exportCsv" type="button" class="text-button">CSV</button></div></div>
+          <p id="resultStatus" class="muted" role="status" aria-live="polite">검사 준비 중</p>
+          <ol id="resultList" class="result-list"></ol>
+        </section>
+        <aside class="report-panel" aria-labelledby="reportHeading">
+          <div class="panel-heading"><div><p class="step">03</p><h2 id="reportHeading" data-i18n="report">방법별 평가보고서</h2></div><button id="addWatchlist" type="button" class="icon-button" aria-label="현재 종목을 관심에 추가">☆</button></div>
+          <div id="reportMethods" class="method-chips" aria-label="보고서 방법 선택"></div>
+          <article id="reportPanel"><p class="empty">후보를 선택하면 근거와 반대 근거가 열립니다.</p></article>
+          <button id="shareReport" type="button" class="secondary wide">보고서 설명 공유</button>
+        </aside>
+      </div>
+    </section>
+    <section class="view list-view" data-view="watchlist" tabindex="-1" hidden>
+      <div class="page-title"><p class="eyebrow">SAVED LOCALLY</p><h1>관심 종목과 저장 검사</h1><p>이 기기에만 저장되며 자동으로 서버에 보내지 않습니다.</p></div>
+      <div class="saved-grid"><section><h2>관심 종목</h2><ul id="watchlistItems" class="saved-list"></ul></section><section><h2>저장 검사</h2><ul id="savedScans" class="saved-list"></ul></section></div>
+    </section>
+    <section class="view reports-view" data-view="reports" tabindex="-1" hidden>
+      <div class="page-title"><p class="eyebrow">METHOD REPORT</p><h1>방법별 평가보고서</h1><p>사실·합성 계산·한계와 공개 가능 상태를 구분합니다.</p></div>
+      <article id="mobileReportBody" class="mobile-report-body"><p class="empty">스캔 결과에서 종목을 선택하세요.</p></article>
+    </section>
+    <section class="view more-view" data-view="more" tabindex="-1" hidden>
+      <div class="page-title"><p class="eyebrow">SETTINGS & METHODS</p><h1>방법·저장·설치</h1></div>
+      <div class="more-grid"><section><h2>최근 보고서</h2><ul id="recentReports" class="saved-list"></ul></section><section aria-labelledby="legacyTransferTitle"><h2 id="legacyTransferTitle">이전 판 자료 가져오기</h2><p class="muted">종목을 합성자료에 억지로 연결하지 않고 원본 구조를 보관합니다.</p><button id="inspectLegacyTransfer" type="button" class="secondary">가져오기 미리보기</button><div id="legacyTransferPreview" class="restore-preview" hidden><p id="legacyTransferSummary"></p><button id="confirmLegacyTransfer" type="button" class="primary">보관 사본 가져오기</button><button id="cancelLegacyTransfer" type="button" class="secondary">취소</button></div><p id="legacyTransferStatus" role="status" aria-live="polite"></p></section><section><h2>앱 설치와 오프라인</h2><p id="offlineStatus" role="status">오프라인 화면 준비 확인 중</p><button id="installScanner" type="button" class="primary" hidden>Stock Scanner 설치</button><p class="muted">실제 Android 홈 화면 설치·독립 실행은 분리된 HTTPS 환경에서 추가 확인해야 합니다.</p></section><section><h2>공유와 QR</h2><p class="muted">대표 공개 주소를 다른 기기에서 열 수 있습니다.</p><div class="share-actions"><a id="publicQrLink" class="secondary" href="stock-scanner-qr.png" target="_blank" rel="noopener noreferrer">QR 크게 보기</a><button id="sharePublicApp" type="button" class="primary">Stock Scanner 공유</button></div><img id="publicQrImage" class="public-qr" src="stock-scanner-qr.png" alt="Stock Scanner 공개 주소 QR 코드"><p id="sharingStatus" class="muted" role="status" aria-live="polite">기존 공개 주소를 유지합니다.</p></section><section><h2>현재 지원 경계</h2><dl class="status-list"><div><dt>미국·일본 화면</dt><dd>합성자료</dd></div><div><dt>실제 자료</dt><dd>차단</dd></div><div><dt>과거시험</dt><dd>합성 계약검사만</dd></div><div><dt>개인 맞춤 권고</dt><dd>제공 안 함</dd></div></dl></section><section><h2>서비스와 정책</h2><nav class="policy-links" aria-label="서비스 정책"><a href="legal/terms.html">이용 조건</a><a href="legal/privacy.html">개인정보 안내</a><a href="status.html">서비스 상태</a><a href="support.html">지원·신고</a></nav><p class="muted">운영자 신원·유료 약관·결제는 확정 전이며 현재 차단돼 있습니다.</p></section></div>
+    </section>
+  </main>
+  <nav class="mobile-routes" aria-label="모바일 주요 화면"><button type="button" data-route="today" data-i18n="today">오늘</button><button type="button" data-route="scan" data-i18n="scan">스캔</button><button type="button" data-route="watchlist" data-i18n="watchlist">관심</button><button type="button" data-route="reports" data-i18n="reports">보고서</button><button type="button" data-route="more" data-i18n="more">더보기</button></nav>
+  <div id="scannerToast" class="toast" role="status" aria-live="polite" hidden></div>
+  <footer class="scanner-footer"><p><b>Stock Scanner v5.1</b> · 무료 공개 베타 · 합성 검증자료 전용</p><p>투자 권유·수익 보장·개인 맞춤 조언이 아닙니다.</p></footer>
+  <script src="public_config.js"></script>
+  <script src="stock_scanner_runtime.js"></script>
+</body>
+</html>

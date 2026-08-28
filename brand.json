@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "stock-scanner-brand/v1",
+  "releaseVersion": "5.1",
+  "name": "Stock Scanner",
+  "nameKo": "스탁스캐너",
+  "descriptor": "Global multi-method equity research",
+  "tagline": "Compare methods. See the evidence. Decide with context.",
+  "taglineKo": "방법을 비교하고, 근거를 확인하고, 맥락으로 판단하세요.",
+  "publicUrl": "https://hanksleekorea-boop.github.io/kabulens-public-web/",
+  "status": "PUBLIC_FREE_BETA_SYNTHETIC_DATA",
+  "colors": {
+    "background": "#06141A",
+    "surface": "#0B2028",
+    "accent": "#43E6C6",
+    "warning": "#F5C563",
+    "risk": "#FF8E8E",
+    "text": "#F1F7F5"
+  },
+  "legacyCompatibility": {
+    "preserveBrowserKeys": true,
+    "preserveEnvironmentAliases": true,
+    "displayLabel": "이전 판 자료"
+  }
+}

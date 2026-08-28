@@ -1,4 +1,4 @@
-name: KABU LENS hourly availability
+name: Stock Scanner hourly availability
 
 on:
   workflow_dispatch:

@@ -9,22 +9,23 @@ from urllib.request import Request, urlopen
 
 
 SURFACES = {
-    "": ("text/html", b"KABU LENS", 250_000),
-    "app.js": ("javascript", b"ensureCatalog", 500_000),
-    "styles.css": ("text/css", b"focus-visible", 500_000),
-    "sw.js": ("javascript", b"kabulens-shell-v30-4-account-adapter", 100_000),
-    "auth_config.js": ("javascript", b"KABULENS_AUTH_CONFIG", 20_000),
-    "auth_runtime.js": ("javascript", b"AUTH_API_NOT_CONFIGURED", 100_000),
-    "public_config.js": ("javascript", b"KABULENS_PUBLIC_CONFIG", 20_000),
-    "account_runtime.js": ("javascript", b"kabulens.account-preferences.v1", 100_000),
-    "manifest.webmanifest": ("manifest", b'"display":"standalone"', 50_000),
-    "legal/terms.html": ("text/html", "무료 베타 이용 조건".encode(), 150_000),
-    "legal/privacy.html": ("text/html", "무료 베타 개인정보".encode(), 150_000),
-    "status.html": ("text/html", "서비스 상태".encode(), 150_000),
-    "support.html": ("text/html", "지원·신고".encode(), 150_000),
+    "": ("text/html", b"Stock Scanner", 250_000),
+    "stock-scanner.html": ("text/html", b"Stock Scanner", 250_000),
+    "stock-scanner.css": ("text/css", b"focus-visible", 500_000),
+    "stock_scanner_runtime.js": ("javascript", b"StockScanner", 500_000),
+    "stock-scanner-sw.js": ("javascript", b"stock-scanner-shell-v5-1-brand1", 100_000),
+    "sw.js": ("javascript", b"stock-scanner-sw.js", 20_000),
+    "public_config.js": ("javascript", b"STOCK_SCANNER_PUBLIC_CONFIG", 20_000),
+    "brand.json": ("application/json", b'"name": "Stock Scanner"', 20_000),
+    "stock-scanner.webmanifest": ("manifest", b'"name": "Stock Scanner"', 50_000),
+    "manifest.webmanifest": ("manifest", b'"name": "Stock Scanner"', 50_000),
+    "legal/terms.html": ("text/html", "Stock Scanner".encode(), 150_000),
+    "legal/privacy.html": ("text/html", "Stock Scanner".encode(), 150_000),
+    "status.html": ("text/html", "Stock Scanner".encode(), 150_000),
+    "support.html": ("text/html", "Stock Scanner".encode(), 150_000),
     "robots.txt": ("text/plain", b"Sitemap:", 20_000),
     "sitemap.xml": ("xml", b"kabulens-public-web", 100_000),
-    "kabulens-public-qr.png": ("image/png", b"\x89PNG\r\n\x1a\n", 200_000),
+    "stock-scanner-qr.png": ("image/png", b"\x89PNG\r\n\x1a\n", 200_000),
     "__connectivity__": ("connectivity", b"online", 1_000),
 }
 
@@ -61,7 +62,7 @@ def run(base_url: str) -> dict[str, object]:
     failures = []
     observed = []
     for path, expected in SURFACES.items():
-        request = Request(urljoin(base, path), headers={"User-Agent": "KABU-LENS-public-surface/1.0"})
+        request = Request(urljoin(base, path), headers={"User-Agent": "Stock-Scanner-public-surface/5.1"})
         try:
             with urlopen(request, timeout=20) as response:
                 payload = response.read(expected[2] + 1)

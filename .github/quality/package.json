@@ -1,5 +1,5 @@
 {
-  "name": "kabulens-public-quality",
+  "name": "stock-scanner-public-quality",
   "private": true,
   "version": "0.30.0",
   "devDependencies": {
@@ -8,6 +8,7 @@
     "lighthouse": "13.4.1"
   },
   "dependencies": {
-    "kabulens-public-quality": "file:"
+    "kabulens-public-quality": "file:",
+    "stock-scanner-release-verification": "file:../../.."
   }
 }

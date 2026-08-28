@@ -1,0 +1,14 @@
+{
+  "id": "stock-scanner",
+  "name": "Stock Scanner",
+  "short_name": "Stock Scanner",
+  "description": "Compare stock research methods, evidence, counter-evidence and data boundaries",
+  "start_url": "./stock-scanner.html#today",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#06141a",
+  "theme_color": "#071c24",
+  "lang": "ko",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

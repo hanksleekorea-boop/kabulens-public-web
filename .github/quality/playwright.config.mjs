@@ -14,7 +14,7 @@ export default defineConfig({
   workers: process.env.CI ? 3 : 1,
   reporter: [['list'], ['json', { outputFile: path.join(qualityDir, 'results', 'public-browser-results.json') }]],
   use: {
-    baseURL: process.env.KABULENS_PUBLIC_URL,
+    baseURL: process.env.STOCK_SCANNER_PUBLIC_URL,
     ignoreHTTPSErrors: false,
     serviceWorkers: 'block',
     trace: 'retain-on-failure',

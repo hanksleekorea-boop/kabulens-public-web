@@ -1,6 +1,6 @@
 # 보안 신고
 
-KABU LENS 공개 서비스의 취약점은 공개 이슈로 올리지 않고 다음 비공개 경로로 신고한다.
+Stock Scanner 공개 서비스의 취약점은 공개 이슈로 올리지 않고 다음 비공개 경로로 신고한다.
 
 <https://github.com/hanksleekorea-boop/kabulens-public-web/security/advisories/new>
 

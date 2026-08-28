@@ -1,4 +1,4 @@
-name: KABU LENS public browser quality
+name: Stock Scanner public browser quality
 on:
   workflow_dispatch:
   schedule:
@@ -9,7 +9,7 @@ concurrency:
   group: kabulens-public-browser-quality
   cancel-in-progress: true
 env:
-  KABULENS_PUBLIC_URL: https://hanksleekorea-boop.github.io/kabulens-public-web/
+  STOCK_SCANNER_PUBLIC_URL: https://hanksleekorea-boop.github.io/kabulens-public-web/
 jobs:
   browser-matrix:
     runs-on: ubuntu-latest
@@ -44,7 +44,7 @@ jobs:
       - name: Measure public Lighthouse three times
         run: |
           for run in 1 2 3; do
-            npm exec --prefix .github/quality -- lighthouse "$KABULENS_PUBLIC_URL" --output=json --output-path=".github/quality/results/public-lighthouse-$run.json" --chrome-flags="--headless=new --no-sandbox" --quiet
+            npm exec --prefix .github/quality -- lighthouse "$STOCK_SCANNER_PUBLIC_URL" --output=json --output-path=".github/quality/results/public-lighthouse-$run.json" --chrome-flags="--headless=new --no-sandbox" --quiet
           done
       - run: python .github/quality/check_lighthouse_report.py .github/quality/results/public-lighthouse-1.json .github/quality/results/public-lighthouse-2.json .github/quality/results/public-lighthouse-3.json
       - if: always()
