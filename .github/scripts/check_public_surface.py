@@ -13,10 +13,11 @@ SURFACES = {
     "stock-scanner.html": ("text/html", b"Stock Scanner", 250_000),
     "dashboard.html": ("text/html", "개발 진척 대시보드".encode(), 250_000),
     "progress.json": ("application/json", b'"schemaVersion": "stock-scanner-progress/v1"', 100_000),
+    "free-launch-readiness.json": ("application/json", b'"schemaVersion": "stock-scanner-free-launch-readiness/v1"', 100_000),
     "stock-scanner.css": ("text/css", b"focus-visible", 500_000),
     "stock_scanner_runtime.js": ("javascript", b"StockScanner", 500_000),
     "methodology_education_v1.json": ("application/json", b'"schemaVersion": "stock-scanner-method-education/v1"', 500_000),
-    "stock-scanner-sw.js": ("javascript", b"stock-scanner-shell-v5-2-method-education1", 100_000),
+    "stock-scanner-sw.js": ("javascript", b"stock-scanner-shell-v5-3-free-launch1", 100_000),
     "sw.js": ("javascript", b"stock-scanner-sw.js", 20_000),
     "public_config.js": ("javascript", b"STOCK_SCANNER_PUBLIC_CONFIG", 20_000),
     "brand.json": ("application/json", b'"name": "Stock Scanner"', 20_000),
@@ -65,7 +66,7 @@ def run(base_url: str) -> dict[str, object]:
     failures = []
     observed = []
     for path, expected in SURFACES.items():
-        request = Request(urljoin(base, path), headers={"User-Agent": "Stock-Scanner-public-surface/5.1"})
+        request = Request(urljoin(base, path), headers={"User-Agent": "Stock-Scanner-public-surface/5.3"})
         try:
             with urlopen(request, timeout=20) as response:
                 payload = response.read(expected[2] + 1)

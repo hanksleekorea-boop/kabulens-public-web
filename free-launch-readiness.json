@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "stock-scanner-free-launch-readiness/v1",
+  "product": "Stock Scanner",
+  "version": "5.3",
+  "updatedAt": "2026-08-28T18:00:00+07:00",
+  "scopeId": "FREE_PUBLIC_EDUCATION_RESEARCH_NO_PAYMENT",
+  "scoreBasis": "The shared PC and mobile PWA gate weights total 100. Passed gates total 99; one point remains for a manual assistive-technology check.",
+  "platforms": {
+    "pcWeb": {"score": 99, "maximum": 100, "state": "OPEN", "remaining": "Manual desktop screen-reader journey"},
+    "mobileWebPwa": {"score": 99, "maximum": 100, "state": "OPEN", "remaining": "Manual mobile screen-reader journey"}
+  },
+  "included": [
+    "Anonymous use without sign-in or payment",
+    "Synthetic US and Japan fixtures for education and product-flow verification",
+    "Twelve method explainers, comparisons, reports, local save, backup, restore, delete, export, print, share and PWA offline shell",
+    "Public support, status, privacy notice and free-use conditions"
+  ],
+  "excluded": [
+    "Real security recommendations or return forecasts",
+    "Licensed live or end-of-day market data",
+    "Production identity, account sync and Google sign-in",
+    "Payment, refunds, tax and paid-service contracts",
+    "Personalized investment advice, orders or automated trading"
+  ],
+  "gates": [
+    {"id":"F-01","label":"Free scope and no-payment boundary","weight":5,"state":"PASS","evidence":"Release boundary and every public caution separate the free education build from commercial operation."},
+    {"id":"F-02","label":"Scan and per-method report flow","weight":10,"state":"PASS","evidence":"Deterministic scan, pagination, report, errors and browser journeys are tested."},
+    {"id":"F-03","label":"Twelve method education records","weight":5,"state":"PASS","evidence":"Plain explanation, principle, masters, case, source and caution are validated for all twelve methods."},
+    {"id":"F-04","label":"Family-balanced comparison and sensitivity","weight":4,"state":"PASS","evidence":"Weight total, three-family rule and leave-one-out sensitivity are tested."},
+    {"id":"F-05","label":"Device-local watchlist and saved scans","weight":5,"state":"PASS","evidence":"Bounded local state and lossless unknown-field preservation are tested."},
+    {"id":"F-06","label":"Local backup, restore and delete","weight":5,"state":"PASS","evidence":"Version, boundary, size and integrity checks fail before mutation; delete is explicitly confirmed."},
+    {"id":"F-07","label":"JSON, CSV, print and share","weight":4,"state":"PASS","evidence":"Exports, spreadsheet-injection protection, printing and sharing are available."},
+    {"id":"F-08","label":"Terms, privacy, support and status","weight":5,"state":"PASS","evidence":"Public pages disclose unverified operator and paid-service fields instead of inventing them."},
+    {"id":"F-09","label":"Installable offline PWA shell","weight":6,"state":"PASS","evidence":"Manifest, service worker, same-origin cache list and offline browser journey pass."},
+    {"id":"F-10","label":"PC three-column layout and browser coverage","weight":6,"state":"PASS","evidence":"Desktop flow is tested in Chromium, Firefox and WebKit automation."},
+    {"id":"F-11","label":"Mobile five-tab responsive flow","weight":6,"state":"PASS","evidence":"Today, Scan, Watchlist, Reports and More work at 390px and 360px without horizontal overflow."},
+    {"id":"F-12","label":"Touch and keyboard automated checks","weight":4,"state":"PASS","evidence":"Minimum targets, focus visibility, skip link and automated accessibility checks pass."},
+    {"id":"F-13","label":"Performance and discoverability","weight":5,"state":"PASS","evidence":"Public Lighthouse performance, accessibility, best-practices and SEO thresholds pass."},
+    {"id":"F-14","label":"Public deployment and availability","weight":5,"state":"PASS","evidence":"Public entry, app, dashboard, policies, assets and connectivity surface return valid same-origin responses."},
+    {"id":"F-15","label":"Synthetic and license-safe failure boundary","weight":5,"state":"PASS","evidence":"Real data without allowed rights is blocked; synthetic labels remain next to results."},
+    {"id":"F-16","label":"Previous-version compatibility","weight":4,"state":"PASS","evidence":"Old public worker compatibility and explicit non-mutating KABU LENS archive import are retained."},
+    {"id":"F-17","label":"One-device Android install and offline evidence","weight":5,"state":"PASS","evidence":"SM-G996N installation, standalone launch, offline relaunch, tabs, scan and report passed; no second phone used."},
+    {"id":"F-18","label":"Stable links and QR","weight":4,"state":"PASS","evidence":"PC, mobile, reports, dashboard, status, support and QR links are public."},
+    {"id":"F-19","label":"Repeatable CI and release checks","weight":6,"state":"PASS","evidence":"Server, web, skeleton, quality, browser, Lighthouse and public-surface checks are repeatable."},
+    {"id":"F-20","label":"Manual assistive-technology journey","weight":1,"state":"PENDING_MANUAL","evidence":"Automated accessibility passed; a named desktop and mobile screen reader has not been manually exercised."}
+  ],
+  "commercialBoundary": {
+    "verifiedGates": 6,
+    "totalGates": 18,
+    "ready": false,
+    "note": "This free-launch score does not raise or replace the licensed-data commercial score."
+  }
+}

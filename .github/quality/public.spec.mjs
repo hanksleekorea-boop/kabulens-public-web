@@ -44,7 +44,7 @@ test('Stock Scanner QR policy and PWA assets are public',async({page,request,bas
   await page.goto(new URL('#more',baseURL).href,{waitUntil:'networkidle'});
   await expect(page.locator('#publicQrImage')).toBeVisible();
   await expect(page.locator('#publicQrLink')).toHaveAttribute('href',/stock-scanner-qr\.png$/);
-  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','methodology_education_v1.json','brand.json','stock-scanner-qr.png','dashboard.html','progress.json','legal/terms.html','legal/privacy.html']){
+  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','methodology_education_v1.json','brand.json','stock-scanner-qr.png','dashboard.html','progress.json','free-launch-readiness.json','legal/terms.html','legal/privacy.html']){
     expect((await request.get(new URL(asset,baseURL).href)).ok(),asset).toBeTruthy();
   }
   const manifest=await(await request.get(new URL('stock-scanner.webmanifest',baseURL).href)).json();
@@ -59,5 +59,6 @@ test('Stock Scanner development dashboard exposes truthful progress and twenty-i
   await expect(page.locator('#metrics .metric-card')).toHaveCount(5);
   await expect(page.locator('#urgent li')).toHaveCount(20);
   await expect(page.locator('#autonomous li')).toHaveCount(20);
-  await expect(page.locator('#summary')).toContainText('무료 공개 베타');
+  await expect(page.locator('#summary')).toContainText('로그인·결제 없이');
+  await expect(page.locator('#metrics')).toContainText('99/100');
 });
