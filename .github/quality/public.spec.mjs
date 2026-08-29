@@ -26,6 +26,7 @@ test('Stock Scanner public release is responsive functional and accessible',asyn
   }
   await page.setViewportSize({width:1440,height:900});
   await page.goto(new URL('#scan',baseURL).href,{waitUntil:'networkidle'});
+  await page.locator('details.advanced-filters summary').click();
   await page.locator('#scanMinScore').selectOption('-100');
   await page.getByRole('button',{name:'상승 후보 찾기'}).click();
   await expect(page.locator('#resultList .result-card').first()).toBeVisible();
@@ -66,7 +67,7 @@ test('Stock Scanner development dashboard exposes truthful progress and twenty-i
   const response=await page.goto(new URL('dashboard.html',baseURL).href,{waitUntil:'networkidle'});
   expect(response?.ok()).toBeTruthy();
   await expect(page).toHaveTitle(/개발 진척 대시보드 · Stock Scanner/);
-  await expect(page.locator('#metrics .metric-card')).toHaveCount(5);
+  await expect(page.locator('#metrics .metric-card')).toHaveCount(6);
   await expect(page.locator('#urgent li')).toHaveCount(20);
   await expect(page.locator('#autonomous li')).toHaveCount(20);
   await expect(page.locator('#summary')).toContainText('로그인·결제 없이');

@@ -26,7 +26,7 @@
     {"id":"MFS-15","state":"PARTIAL","evidence":"로컬 회귀·복구 계약은 통과; v5.8 공개 배포 뒤 24시간 관찰과 실제 사용자 5명은 대기"}
   ],
   "verifiedNow": {
-    "webUnitTests": "88/88 before final regression",
+    "webUnitTests": "90/90 passed in final regression",
     "inAppBrowserConsoleErrors": 0,
     "desktopExampleScan": "PASS",
     "candidateComparison": "PASS",
