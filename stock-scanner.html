@@ -81,7 +81,21 @@
       <section id="advancedWorkbench" class="advanced-workbench" aria-labelledby="advancedWorkbenchTitle">
         <header class="advanced-heading"><div><p class="eyebrow">ADVANCED SYNTHETIC RESEARCH</p><h2 id="advancedWorkbenchTitle" data-advanced-key="advancedTitle">고급 연구 작업대</h2><p data-advanced-key="advancedIntro">변화·충돌·시장환경·근거를 한 화면에서 추적합니다.</p></div><span class="preview-pill">STAGE 2 · SYNTHETIC</span></header>
         <p id="advancedBoundary" class="advanced-boundary" role="note">합성자료이며 실제 전망·확률·권유가 아닙니다.</p>
-        <nav class="advanced-jump" aria-label="고급 연구 바로가기"><a href="?research=change#reports">변화</a><a href="?research=conflict#reports">충돌</a><a href="?research=regimes#reports">시장환경</a><a href="?research=scenarios#reports">시나리오</a><a href="?research=evidence#reports">근거</a><a href="?research=timeline#reports">시간선</a><a href="?research=commodity#reports">금·은 사건</a></nav>
+        <nav class="advanced-jump" aria-label="고급 연구 바로가기"><a href="?research=desk#reports">연구 데스크</a><a href="?research=change#reports">변화</a><a href="?research=conflict#reports">충돌</a><a href="?research=regimes#reports">시장환경</a><a href="?research=scenarios#reports">시나리오</a><a href="?research=evidence#reports">근거</a><a href="?research=timeline#reports">시간선</a><a href="?research=commodity#reports">금·은 사건</a></nav>
+        <section id="commercialLaunchDesk" class="commercial-desk" aria-labelledby="commercialDeskTitle" tabindex="-1">
+          <header class="commercial-heading"><div><p class="eyebrow">ADVANCED FREE RESEARCH DESK</p><h3 id="commercialDeskTitle">무료 고급 연구 데스크</h3><p id="commercialPromise">서비스 설명을 불러오는 중입니다.</p></div><span class="commercial-free-badge">FREE · NO SIGN-IN</span></header>
+          <p id="commercialBoundary" class="advanced-boundary" role="note">자료 경계를 확인하는 중입니다.</p>
+          <div id="commercialTrustFacts" class="commercial-trust-grid"></div>
+          <div class="commercial-desk-grid">
+            <section aria-labelledby="commercialBriefingTitle"><h4 id="commercialBriefingTitle">오늘의 고급 연구 브리핑</h4><ol id="commercialBriefing" class="commercial-briefing"></ol><label class="commercial-confirm"><input id="commercialBoundaryConfirm" type="checkbox"><span>합성자료이며 실제 종목 전망이나 개인 맞춤 권고가 아님을 확인했습니다.</span></label></section>
+            <section aria-labelledby="commercialChecklistTitle"><div class="panel-heading"><h4 id="commercialChecklistTitle">연구 완결 점검</h4><strong id="commercialCompletion">0 / 8 완료</strong></div><ul id="commercialChecklist" class="commercial-checklist"></ul></section>
+          </div>
+          <div class="commercial-desk-grid">
+            <section aria-labelledby="commercialJournalTitle"><h4 id="commercialJournalTitle">판단·반증 기록</h4><form id="commercialJournalForm" class="commercial-journal-form"><label>현재 가설<textarea id="commercialHypothesis" maxlength="300" required placeholder="예: 품질과 가격 흐름이 함께 유지되면 합성 후보가 상대적으로 견조할 것이다."></textarea></label><label>내 판단이 틀렸음을 보여줄 조건<textarea id="commercialDisconfirm" maxlength="300" required placeholder="예: 품질 점수가 악화되고 추세 계열이 동시에 음수로 바뀌면 다시 검토한다."></textarea></label><label>다음 확인일<input id="commercialNextCheck" type="date" required></label><button type="submit" class="secondary">판단 기록 저장</button></form><p id="commercialJournalStatus" role="status" aria-live="polite"></p><ul id="commercialJournalList" class="commercial-journal-list"></ul></section>
+            <section aria-labelledby="commercialReviewTitle"><div class="panel-heading"><h4 id="commercialReviewTitle">근거 검토 대기열</h4><span id="commercialReviewStatus">확인 중</span></div><p class="muted">확인일, 이용 권한, 정정 이력이 기준을 벗어나면 자동으로 보류합니다.</p><ul id="commercialReviewQueue" class="commercial-review-list"></ul></section>
+          </div>
+          <section class="commercial-pack" aria-labelledby="commercialPackTitle"><div><p class="eyebrow">REPRODUCIBLE RESEARCH PACK</p><h4 id="commercialPackTitle">재현 가능한 연구 묶음</h4><p>선택 종목·방법·시점·결과·근거 요약·한계·판단 기록을 하나의 JSON으로 보관합니다. 일치 확인용 지문은 우발적 변경을 찾지만 보안 서명은 아닙니다.</p></div><div class="commercial-pack-actions"><button id="commercialBuildPack" type="button" class="primary">현재 연구 묶음 만들기</button><button id="commercialDownloadPack" type="button" class="secondary" disabled>연구 묶음 내려받기</button><label class="file-picker">연구 묶음 확인<input id="commercialImportPack" type="file" accept="application/json,.json"></label><button id="commercialCopySummary" type="button" class="text-button">요약 복사</button></div><p id="commercialPackStatus" role="status" aria-live="polite">연구 묶음 준비 중</p></section>
+        </section>
         <div class="advanced-controls">
           <label><span data-advanced-key="goal">내 연구 목표</span><input id="advancedGoal" maxlength="120" placeholder="예: 서로 다른 방법의 충돌 원인 이해"></label>
           <label><span data-advanced-key="security">합성 종목</span><select id="advancedSecurities" multiple size="5" aria-describedby="advancedSelectionHelp"></select></label>
@@ -116,7 +130,9 @@
   <footer class="scanner-footer"><p><b>Stock Scanner</b> · 무료 교육·연구 서비스 · 합성자료 전용</p><p>역사적 사례는 교육 자료이며 투자 권유·수익 보장·개인 맞춤 조언이 아닙니다.</p></footer>
   <script src="public_config.js"></script>
   <script src="advanced_research_runtime.js"></script>
+  <script src="commercial_free_runtime.js"></script>
   <script src="stock_scanner_runtime.js"></script>
   <script src="advanced_research_ui.js"></script>
+  <script src="commercial_free_ui.js"></script>
 </body>
 </html>

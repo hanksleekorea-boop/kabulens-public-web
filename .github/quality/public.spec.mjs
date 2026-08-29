@@ -53,7 +53,7 @@ test('Stock Scanner QR policy and PWA assets are public',async({page,request,bas
   await expect(page.locator('#publicQrLink')).toHaveAttribute('href',/stock-scanner-qr\.png$/);
   await expect(page.locator('body')).not.toContainText('개발 진척');
   await expect(page.locator('body')).not.toContainText('99/100');
-  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','methodology_education_v1.json','brand.json','stock-scanner-qr.png','advanced_research_runtime.js','advanced_research_ui.js','advanced_research_v2.json','stage2-readiness.json','advanced-persona-report.json','.well-known/security.txt','dashboard.html','progress.json','free-launch-readiness.json','legal/terms.html','legal/privacy.html']){
+  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','methodology_education_v1.json','brand.json','stock-scanner-qr.png','advanced_research_runtime.js','advanced_research_ui.js','advanced_research_v2.json','stage2-readiness.json','advanced-persona-report.json','commercial_free_runtime.js','commercial_free_ui.js','commercial_free_v1.json','commercial-free-readiness.json','commercial-persona-report.json','.well-known/security.txt','dashboard.html','progress.json','free-launch-readiness.json','legal/terms.html','legal/privacy.html']){
     expect((await request.get(new URL(asset,baseURL).href)).ok(),asset).toBeTruthy();
   }
   const manifest=await(await request.get(new URL('stock-scanner.webmanifest',baseURL).href)).json();
@@ -84,11 +84,35 @@ test('Stage two advanced workbench is complete responsive and evidence bounded',
   expect(errors).toEqual([]);
 });
 
+test('Advanced free commercial desk completes a reproducible local research flow',async({page,baseURL})=>{
+  const errors=[];page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});page.on('pageerror',error=>errors.push(error.message));
+  for(const width of [1440,390,360]){
+    await page.setViewportSize({width,height:width>1000?1000:844});
+    await page.goto(new URL('stock-scanner.html?research=desk#reports',baseURL).href,{waitUntil:'networkidle'});
+    await expect(page.locator('#commercialLaunchDesk')).toBeVisible();
+    await expect(page.locator('#commercialTrustFacts article')).toHaveCount(4);
+    await expect(page.locator('#commercialChecklist li')).toHaveCount(8);
+    await expect(page.locator('#commercialReviewStatus')).not.toHaveText('확인 중');
+    const size=await page.evaluate(()=>({client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth,active:document.activeElement&&document.activeElement.id}));
+    expect(size.scroll,`commercial desk overflow at ${width}px`).toBeLessThanOrEqual(size.client);
+    expect(size.active).toBe('commercialLaunchDesk');
+  }
+  await page.locator('#commercialHypothesis').fill('품질과 가격 흐름이 함께 유지되면 합성 후보가 상대적으로 견조할 것이다.');
+  await page.locator('#commercialDisconfirm').fill('품질 점수와 추세 계열이 동시에 음수로 바뀌면 판단을 다시 검토한다.');
+  await page.locator('#commercialNextCheck').fill('2026-09-15');
+  await page.locator('#commercialJournalForm button[type="submit"]').click();
+  await page.locator('#commercialBoundaryConfirm').check();
+  await page.locator('#commercialBuildPack').click();
+  await expect(page.locator('#commercialPackStatus')).toContainText('FNV1A-');
+  await expect(page.locator('#commercialDownloadPack')).toBeEnabled();
+  expect(errors).toEqual([]);
+});
+
 test('Stock Scanner development dashboard exposes truthful progress and twenty-item queues',async({page,baseURL})=>{
   const response=await page.goto(new URL('dashboard.html',baseURL).href,{waitUntil:'networkidle'});
   expect(response?.ok()).toBeTruthy();
   await expect(page).toHaveTitle(/개발 진척 대시보드 · Stock Scanner/);
-  await expect(page.locator('#metrics .metric-card')).toHaveCount(7);
+  await expect(page.locator('#metrics .metric-card')).toHaveCount(8);
   await expect(page.locator('#urgent li')).toHaveCount(20);
   await expect(page.locator('#autonomous li')).toHaveCount(20);
   await expect(page.locator('#summary')).toContainText('로그인·결제 없이');

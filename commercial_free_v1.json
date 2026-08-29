@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "stock-scanner-commercial-free/v1",
+  "version": "7.0",
+  "reviewedAt": "2026-08-29",
+  "dataMode": "SYNTHETIC_ONLY",
+  "serviceLevel": "ADVANCED_FREE_COMMERCIAL",
+  "promise": {
+    "ko": "여러 분석 방법의 결론·반대 근거·자료 한계를 한곳에서 비교하고, 판단 과정을 다시 열어볼 수 있는 무료 고급 연구 데스크",
+    "en": "A free advanced research desk for comparing conclusions, counter-evidence, and data limits across methods while keeping the reasoning reproducible.",
+    "ja": "複数手法の結論・反証・データ限界を比較し、判断過程を再現できる無料の高度研究デスク"
+  },
+  "boundary": {
+    "ko": "현재 공개 자료는 합성 예시입니다. 실제 종목의 상승확률·매매 신호·개인 맞춤 권고를 제공하지 않습니다.",
+    "en": "The public dataset is synthetic. It does not provide real-security probabilities, trading signals, or personalized advice.",
+    "ja": "公開データは合成例です。実銘柄の確率、売買シグナル、個別助言は提供しません。"
+  },
+  "trustFacts": [
+    {"id":"FREE","labelKo":"이용 가격","valueKo":"무료·결제 없음","detailKo":"유료 전환이나 카드 입력 없이 전체 고급 연구 기능을 사용합니다."},
+    {"id":"LOCAL","labelKo":"내 자료","valueKo":"이 기기에 저장","detailKo":"연구 기록과 묶음은 서버로 자동 전송하지 않습니다."},
+    {"id":"REPRODUCIBLE","labelKo":"재현성","valueKo":"입력·근거·한계 포함","detailKo":"연구 묶음의 일치 확인용 지문으로 파일 변경을 확인합니다."},
+    {"id":"BOUNDARY","labelKo":"자료 범위","valueKo":"합성 예시 전용","detailKo":"실자료 사용권과 검증 전에는 실제 종목 결론으로 바꾸지 않습니다."}
+  ],
+  "briefing": {
+    "titleKo": "오늘의 고급 연구 브리핑",
+    "stepsKo": [
+      "서로 다른 계열의 방법 3개 이상을 선택합니다.",
+      "상승 근거와 반대 근거가 동시에 남는지 확인합니다.",
+      "시장환경과 시나리오가 바뀌면 결론이 어떻게 달라지는지 봅니다.",
+      "판단 기록에 틀렸음을 보여줄 조건과 다음 확인일을 적습니다.",
+      "연구 묶음을 저장해 같은 입력과 한계로 결과를 다시 확인합니다."
+    ]
+  },
+  "reviewPolicy": {
+    "maxEvidenceAgeDays": 365,
+    "requiredSourceGrades": ["A", "B", "SYNTHETIC"],
+    "unknownRightsAction": "HOLD",
+    "missingCorrectionHistoryAction": "REVIEW"
+  },
+  "journalGuide": {
+    "hypothesisKo": "무엇이 왜 유리하다고 생각하는지 한 문장으로 씁니다.",
+    "disconfirmKo": "내 판단이 틀렸음을 보여줄 관찰 조건을 먼저 적습니다.",
+    "nextCheckKo": "새 정보가 들어올 때 다시 확인할 날짜를 정합니다."
+  },
+  "completionChecklist": [
+    {"id":"METHODS","labelKo":"서로 다른 계열 방법 3개 이상 선택"},
+    {"id":"SECURITIES","labelKo":"합성 후보 2개 이상 비교"},
+    {"id":"COUNTER","labelKo":"반대 근거 확인"},
+    {"id":"REGIME","labelKo":"시장환경 4개 확인"},
+    {"id":"SCENARIO","labelKo":"조건 시나리오 3개 확인"},
+    {"id":"JOURNAL","labelKo":"판단 기록과 반증 조건 저장"},
+    {"id":"PACK","labelKo":"재현 가능한 연구 묶음 생성"},
+    {"id":"BOUNDARY","labelKo":"합성자료와 투자정보 경계 확인"}
+  ],
+  "support": {
+    "responseExpectationKo": "공개 지원 채널에서 재현 절차와 근거를 접수하며, 긴급 투자 판단이나 개인 자문은 제공하지 않습니다.",
+    "issueUrl": "https://github.com/hanksleekorea-boop/kabulens-public-web/issues/new/choose",
+    "securityUrl": "https://github.com/hanksleekorea-boop/kabulens-public-web/security/advisories/new"
+  }
+}
