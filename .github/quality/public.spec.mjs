@@ -31,7 +31,7 @@ test('Stock Scanner public release is responsive functional and accessible',asyn
   await page.getByRole('button',{name:'상승 후보 찾기'}).click();
   await expect(page.locator('#resultList .result-card').first()).toBeVisible();
   await page.locator('#resultList .result-card').first().click();
-  await expect(page.locator('#reportPanel')).toContainText('상승 근거');
+  await expect(page.locator('#reportPanel')).toContainText('찬성 근거');
   await expect(page.locator('#reportPanel')).toContainText('이 방법, 쉽게 이해하기');
   await expect(page.locator('#reportPanel')).toContainText('30초 설명');
   await expect(page.locator('#reportPanel .master-card')).toHaveCount(2);
