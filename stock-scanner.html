@@ -78,6 +78,33 @@
     <section class="view reports-view" data-view="reports" tabindex="-1" hidden>
       <div class="page-title"><p class="eyebrow">METHOD REPORT</p><h1>방법별 평가보고서</h1><p>간단 설명·작동 원리·대표 대가와 사례를 사실·합성 계산·한계와 구분해 보여줍니다.</p></div>
       <article id="mobileReportBody" class="mobile-report-body"><p class="empty">스캔 결과에서 종목을 선택하세요.</p></article>
+      <section id="advancedWorkbench" class="advanced-workbench" aria-labelledby="advancedWorkbenchTitle">
+        <header class="advanced-heading"><div><p class="eyebrow">ADVANCED SYNTHETIC RESEARCH</p><h2 id="advancedWorkbenchTitle" data-advanced-key="advancedTitle">고급 연구 작업대</h2><p data-advanced-key="advancedIntro">변화·충돌·시장환경·근거를 한 화면에서 추적합니다.</p></div><span class="preview-pill">STAGE 2 · SYNTHETIC</span></header>
+        <p id="advancedBoundary" class="advanced-boundary" role="note">합성자료이며 실제 전망·확률·권유가 아닙니다.</p>
+        <nav class="advanced-jump" aria-label="고급 연구 바로가기"><a href="?research=change#reports">변화</a><a href="?research=conflict#reports">충돌</a><a href="?research=regimes#reports">시장환경</a><a href="?research=scenarios#reports">시나리오</a><a href="?research=evidence#reports">근거</a><a href="?research=timeline#reports">시간선</a><a href="?research=commodity#reports">금·은 사건</a></nav>
+        <div class="advanced-controls">
+          <label><span data-advanced-key="goal">내 연구 목표</span><input id="advancedGoal" maxlength="120" placeholder="예: 서로 다른 방법의 충돌 원인 이해"></label>
+          <label><span data-advanced-key="security">합성 종목</span><select id="advancedSecurities" multiple size="5" aria-describedby="advancedSelectionHelp"></select></label>
+          <fieldset><legend data-advanced-key="methods">집중 비교 방법</legend><div id="advancedMethods" class="advanced-methods"></div></fieldset>
+          <div class="advanced-inline"><label>Horizon<select id="advancedHorizon"><option value="3M">3M</option><option value="6M">6M</option><option value="12M">12M</option></select></label><label>As of<input id="advancedAsOf" type="date"></label></div>
+          <p id="advancedSelectionHelp" class="muted">2~4개 합성 종목과 서로 다른 3~6개 방법을 선택합니다.</p>
+          <div class="advanced-actions"><button id="advancedRun" type="button" class="primary" data-advanced-key="runResearch">연구 결과 새로 계산</button><button id="advancedSaveSnapshot" type="button" class="secondary" data-advanced-key="saveSnapshot">현재 시점 저장</button><button id="advancedSaveView" type="button" class="secondary" data-advanced-key="saveView">연구 보기 저장</button><button id="advancedReset" type="button" class="text-button" data-advanced-key="resetView">기본값으로 복귀</button></div>
+          <p id="advancedStatus" role="status" aria-live="polite">고급 연구 준비 중</p><p id="advancedLocaleCoverage" class="muted"></p>
+        </div>
+        <section id="advancedChangeSection" class="advanced-section" aria-labelledby="advancedChangeTitle"><h3 id="advancedChangeTitle" data-advanced-key="changeTitle">무엇이 달라졌나</h3><div id="advancedChange" class="change-grid"></div></section>
+        <section id="advancedConflictSection" class="advanced-section" aria-labelledby="advancedConflictTitle"><h3 id="advancedConflictTitle" data-advanced-key="conflictTitle">방법론 충돌과 판정 보류</h3><p id="advancedConflictVerdict"></p><div id="advancedConflict" class="table-scroll"></div></section>
+        <section id="advancedRegimesSection" class="advanced-section" aria-labelledby="advancedRegimeTitle"><h3 id="advancedRegimeTitle" data-advanced-key="regimeTitle">시장환경 네 가지</h3><div id="advancedRegimes" class="regime-grid"></div></section>
+        <section id="advancedScenariosSection" class="advanced-section" aria-labelledby="advancedScenarioTitle"><h3 id="advancedScenarioTitle" data-advanced-key="scenarioTitle">낙관·기준·비관 조건</h3><div id="advancedScenarios" class="scenario-grid"></div></section>
+        <section id="advancedEvidenceSection" class="advanced-section" aria-labelledby="advancedEvidenceTitle"><div class="panel-heading"><h3 id="advancedEvidenceTitle" data-advanced-key="evidenceTitle">근거 탐색기</h3><span id="advancedEvidenceCoverage"></span></div><div id="advancedEvidence" class="evidence-explorer"></div></section>
+        <section id="advancedTimelineSection" class="advanced-section" aria-labelledby="advancedTimelineTitle"><h3 id="advancedTimelineTitle" data-advanced-key="timelineTitle">변화 시간선</h3><ol id="advancedTimeline" class="research-timeline"></ol></section>
+        <section class="advanced-section" aria-labelledby="advancedChartTitle"><h3 id="advancedChartTitle" data-advanced-key="chartTitle">점수 변화와 표 대체</h3><p id="advancedChartSummary"></p><div id="advancedBars" class="research-bars" role="img" aria-label="방법별 합성 점수 막대. 바로 아래 표에서 같은 값을 확인할 수 있습니다."></div><div id="advancedChartTable" class="table-scroll"></div></section>
+        <section id="advancedCommoditySection" class="advanced-section" aria-labelledby="advancedCommodityTitle"><h3 id="advancedCommodityTitle" data-advanced-key="commodityTitle">금·은 합성 사건 허브</h3><p class="muted">권리가 확인된 예시 또는 재배포 가능한 합성 구조만 표시하며 기사 본문을 복제하지 않습니다.</p><div id="advancedCommodity" class="commodity-grid"></div></section>
+        <div class="advanced-management">
+          <section><h3>Saved research views</h3><ul id="advancedSavedViews" class="saved-list"></ul></section>
+          <section><h3 data-advanced-key="issueTitle">문제·정정 요청</h3><form id="advancedIssueForm"><label>Type<select id="advancedIssueType"></select></label><label>Evidence-based description<textarea id="advancedIssueText" maxlength="500" required></textarea></label><button type="submit" class="secondary" data-advanced-key="issueSubmit">근거와 함께 접수</button></form><p id="advancedIssueStatus" role="status"></p></section>
+          <section><h3>Local research data</h3><div class="data-actions"><button id="advancedExport" type="button" class="secondary" data-advanced-key="exportData">고급 연구 백업</button><label class="file-picker"><span data-advanced-key="importData">고급 연구 복원</span><input id="advancedImport" type="file" accept="application/json,.json"></label><button id="advancedDelete" type="button" class="danger-button" data-advanced-key="deleteData">고급 연구 자료 삭제</button></div><label class="analytics-toggle"><input id="advancedAnalytics" type="checkbox"><span data-advanced-key="analyticsTitle">익명 과업 측정</span></label><p id="advancedAnalyticsStatus" class="muted" data-advanced-key="analyticsOff">기본 꺼짐</p></section>
+        </div>
+      </section>
     </section>
     <section class="view more-view" data-view="more" tabindex="-1" hidden>
       <div class="page-title"><p class="eyebrow">SETTINGS & METHODS</p><h1>방법·저장·설치</h1></div>
@@ -88,6 +115,8 @@
   <div id="scannerToast" class="toast" role="status" aria-live="polite" hidden></div>
   <footer class="scanner-footer"><p><b>Stock Scanner</b> · 무료 교육·연구 서비스 · 합성자료 전용</p><p>역사적 사례는 교육 자료이며 투자 권유·수익 보장·개인 맞춤 조언이 아닙니다.</p></footer>
   <script src="public_config.js"></script>
+  <script src="advanced_research_runtime.js"></script>
   <script src="stock_scanner_runtime.js"></script>
+  <script src="advanced_research_ui.js"></script>
 </body>
 </html>

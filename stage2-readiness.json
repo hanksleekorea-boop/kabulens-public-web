@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "releaseVersion": "6.0",
+  "asOf": "2026-08-29",
+  "scope": "2단계 고급 무료 서비스 콘텐츠·UX/UI",
+  "implementationCompletion": 100,
+  "contentCompletion": 100,
+  "formalReleaseEvidenceComplete": false,
+  "evidenceBoundary": "구현 및 합성 자동 검사는 완료되었습니다. 실제 사용자, 최신 화면 낭독기, Android 실기기, 시간 경과 관찰 증거는 점수와 별도로 관리합니다.",
+  "gates": [
+    { "id": "AFS-01", "name": "입력·결과 변경 비교", "status": "PASS_AUTOMATED" },
+    { "id": "AFS-02", "name": "방법론 충돌·중복 계열 처리", "status": "PASS_AUTOMATED" },
+    { "id": "AFS-03", "name": "4개 시장 국면", "status": "PASS_AUTOMATED" },
+    { "id": "AFS-04", "name": "허위 확률 없는 3개 시나리오", "status": "PASS_AUTOMATED" },
+    { "id": "AFS-05", "name": "근거 탐색·계보", "status": "PASS_AUTOMATED" },
+    { "id": "AFS-06", "name": "점수·콘텐츠 이력 분리", "status": "PASS_AUTOMATED" },
+    { "id": "AFS-07", "name": "고급 Today 해석", "status": "PASS_AUTOMATED" },
+    { "id": "AFS-08", "name": "2~4개 종목 작업대", "status": "PASS_AUTOMATED" },
+    { "id": "AFS-09", "name": "3~6개 방법론 비교", "status": "PASS_AUTOMATED" },
+    { "id": "AFS-10", "name": "타임라인·정정 이력", "status": "PASS_AUTOMATED" },
+    { "id": "AFS-11", "name": "차트 표·문장 대체 설명", "status": "PASS_AUTOMATED" },
+    { "id": "AFS-12", "name": "독립 연구 주소·의미 구조", "status": "PASS_AUTOMATED" },
+    { "id": "AFS-13", "name": "한국어·영어와 핵심 일본어", "status": "PASS_AUTOMATED" },
+    { "id": "AFS-14", "name": "오류 접수·정정 이력", "status": "PASS_AUTOMATED" },
+    { "id": "AFS-15", "name": "명시 동의형 비식별 과업 측정", "status": "PASS_AUTOMATED" },
+    { "id": "AFS-16", "name": "1,000명 합성 페르소나·실사용성", "status": "PARTIAL_EXTERNAL_EVIDENCE" },
+    { "id": "AFS-17", "name": "운영 관찰 기간", "status": "PARTIAL_TIME_EVIDENCE" }
+  ],
+  "syntheticEvidence": {
+    "personas": 1000,
+    "taskRuns": 8000,
+    "expectedPasses": 8000,
+    "realUsers": 0
+  },
+  "externalEvidenceStillRequired": [
+    "실제 사용자 5명의 지정 과업 수행",
+    "최신 NVDA·TalkBack·VoiceOver 과업 증거",
+    "유휴 상태가 확인된 Android 기기 1대의 현재 릴리스 검증",
+    "공개 후 24시간 관찰",
+    "공개 후 7일 안정성 관찰"
+  ]
+}

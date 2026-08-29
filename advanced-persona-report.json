@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "releaseVersion": "6.0",
+  "generatedAt": "2026-08-29T00:00:00.000Z",
+  "population": 1000,
+  "model": "deterministic synthetic task coverage",
+  "taskRuns": 8000,
+  "passed": 8000,
+  "failed": 0,
+  "passRate": 100,
+  "segments": {
+    "novice": 340,
+    "intermediate": 330,
+    "advanced": 330,
+    "mobilePreferred": 500,
+    "desktopPreferred": 500,
+    "ko": 400,
+    "en": 400,
+    "ja": 200
+  },
+  "tasks": [
+    "2~4개 종목 비교",
+    "3~6개 호환 방법론 선택",
+    "방법론 충돌 및 보류 상태 해석",
+    "4개 시장 국면 검토",
+    "확률을 꾸미지 않은 3개 시나리오 검토",
+    "근거·정정 이력 추적",
+    "로컬 연구 보기 저장·복원",
+    "내보내기·삭제 또는 익명 과업 측정 동의"
+  ],
+  "boundary": {
+    "realUsers": 0,
+    "androidDevices": 0,
+    "screenReaderSessions": 0,
+    "statement": "합성 과업 검사는 실제 사용성, 접근성, 기기 호환성 또는 투자 성과의 증거가 아닙니다."
+  }
+}

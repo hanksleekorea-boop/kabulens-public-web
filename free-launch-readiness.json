@@ -1,8 +1,8 @@
 {
   "schemaVersion": "stock-scanner-free-launch-readiness/v1",
   "product": "Stock Scanner",
-  "version": "5.8",
-  "updatedAt": "2026-08-29T23:00:00+07:00",
+  "version": "6.0",
+  "updatedAt": "2026-08-29T23:45:00+07:00",
   "scopeId": "FREE_PUBLIC_EDUCATION_RESEARCH_NO_PAYMENT",
   "scoreBasis": "The shared PC and mobile PWA gate weights total 100. Passed gates total 99; one point remains for a manual assistive-technology check.",
   "platforms": {
@@ -13,6 +13,7 @@
     "Anonymous use without sign-in or payment",
     "Synthetic US and Japan fixtures for education and product-flow verification",
     "Twelve complete method explainers, three learning scenarios, four presets, two-to-four candidate comparison, complete reports, local save, backup, restore, delete, export, print, share and PWA offline shell",
+    "Stage-two advanced workbench with change comparison, conflict hold, four regimes, three non-probabilistic scenarios, evidence lineage, corrections, local views, Korean and English plus core Japanese",
     "Six getting-started guides, twenty-five FAQs, fifty glossary terms and nine recoverable screen states",
     "Public support, status, privacy notice and free-use conditions"
   ],

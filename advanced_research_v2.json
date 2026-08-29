@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "stock-scanner-advanced-content/v2",
+  "version": "6.0",
+  "dataMode": "SYNTHETIC_ONLY",
+  "reviewedAt": "2026-08-29",
+  "nextReviewAt": "2026-11-29",
+  "boundaryKo": "합성 고정자료 연구 기능이며 실제 종목 전망·확률·투자 권유가 아닙니다.",
+  "changeContract": ["바뀐 것", "바뀌지 않은 것", "바뀐 이유", "아직 모르는 것"],
+  "regimes": [
+    {
+      "id": "RISING",
+      "title": {"ko":"상승 환경","en":"Rising market","ja":"上昇環境"},
+      "summary": {"ko":"가격 흐름과 성장 신호가 이어지는 합성 환경입니다.","en":"A synthetic environment where trend and growth signals persist.","ja":"トレンドと成長シグナルが続く合成環境です。"},
+      "familyFit": {"MOMENTUM":"STRONG","TREND":"STRONG","GROWTH":"STRONG","LOW_RISK":"WEAK"},
+      "strengths": {"MOMENTUM":"지속되는 상대 흐름 포착","TREND":"방향 일치 확인","GROWTH":"기대 변화 확인"},
+      "weaknesses": {"MOMENTUM":"급반전 지연","TREND":"후행 확인","GROWTH":"과도한 기대"},
+      "defaultStrength": "다른 계열과 함께 방향을 확인합니다.",
+      "defaultWeakness": "상승 환경만으로 독립 성과를 보장하지 않습니다.",
+      "evidenceRef": "regime:rising:synthetic-v1",
+      "limitations": ["실제 시장 국면을 분류하지 않습니다.", "숫자 확률을 제공하지 않습니다."]
+    },
+    {
+      "id": "FALLING",
+      "title": {"ko":"하락 환경","en":"Falling market","ja":"下落環境"},
+      "summary": {"ko":"위험 회피와 손실 통제가 중요한 합성 환경입니다.","en":"A synthetic environment focused on risk avoidance and loss control.","ja":"リスク回避と損失管理を重視する合成環境です。"},
+      "familyFit": {"LOW_RISK":"STRONG","QUALITY":"STRONG","MOMENTUM":"WEAK","VALUE":"MIXED"},
+      "strengths": {"LOW_RISK":"하락 위험 비교","QUALITY":"재무 완충력 확인"},
+      "weaknesses": {"MOMENTUM":"급격한 반등 누락","VALUE":"가치 함정 가능성"},
+      "defaultStrength": "반대 근거와 손실 경로를 확인합니다.",
+      "defaultWeakness": "낮은 점수가 미래 하락을 뜻하지 않습니다.",
+      "evidenceRef": "regime:falling:synthetic-v1",
+      "limitations": ["실제 위기 자료를 사용하지 않습니다.", "방어 성과를 주장하지 않습니다."]
+    },
+    {
+      "id": "SIDEWAYS",
+      "title": {"ko":"횡보 환경","en":"Sideways market","ja":"横ばい環境"},
+      "summary": {"ko":"방향이 약하고 상대가치와 되돌림을 비교하는 합성 환경입니다.","en":"A synthetic low-direction environment for comparing value and reversion.","ja":"方向感が弱く、価値と反転を比較する合成環境です。"},
+      "familyFit": {"VALUE":"STRONG","MEAN_REVERSION":"STRONG","TREND":"WEAK","QUALITY":"MIXED"},
+      "strengths": {"VALUE":"상대 가격 차이 확인","MEAN_REVERSION":"단기 과도 반응 비교"},
+      "weaknesses": {"TREND":"빈번한 신호 전환","MEAN_REVERSION":"구조적 하락 오인"},
+      "defaultStrength": "평가 목적과 기간을 함께 봅니다.",
+      "defaultWeakness": "방향 부재가 위험 부재를 뜻하지 않습니다.",
+      "evidenceRef": "regime:sideways:synthetic-v1",
+      "limitations": ["실제 거래비용을 반영하지 않습니다.", "구간 선택 편향을 검증하지 않습니다."]
+    },
+    {
+      "id": "HIGH_VOLATILITY",
+      "title": {"ko":"고변동 환경","en":"High-volatility market","ja":"高変動環境"},
+      "summary": {"ko":"가격 변화가 크고 신호 불확실성이 높은 합성 환경입니다.","en":"A synthetic environment with large moves and elevated signal uncertainty.","ja":"値動きが大きくシグナル不確実性が高い合成環境です。"},
+      "familyFit": {"LOW_RISK":"STRONG","EVENT":"MIXED","TREND":"MIXED","MEAN_REVERSION":"WEAK"},
+      "strengths": {"LOW_RISK":"하방 위험 비교","EVENT":"사건 전후 변화 구분"},
+      "weaknesses": {"MEAN_REVERSION":"추가 급락 위험","TREND":"거짓 돌파 가능성"},
+      "defaultStrength": "자료 신선도와 변경 조건을 우선 확인합니다.",
+      "defaultWeakness": "표시 신뢰도를 실제 확률로 읽으면 안 됩니다.",
+      "evidenceRef": "regime:high-volatility:synthetic-v1",
+      "limitations": ["실제 변동성 수치를 제공하지 않습니다.", "위기 예측 기능이 아닙니다."]
+    }
+  ],
+  "scenarios": [
+    {"id":"OPTIMISTIC","title":{"ko":"낙관","en":"Optimistic","ja":"楽観"},"assumptions":{"ko":["서로 다른 세 계열 이상이 같은 방향"],"en":["At least three distinct families align"],"ja":["3つ以上の異なる系列が一致"]},"observations":{"ko":["계열별 점수와 반대 근거"],"en":["Family scores and counter-evidence"],"ja":["系列別スコアと反証"]},"changeConditions":{"ko":["한 계열이 강한 반대로 전환"],"en":["One family turns strongly against"],"ja":["一系列が強い反対へ転換"]}},
+    {"id":"BASE","title":{"ko":"기준","en":"Base","ja":"基準"},"assumptions":{"ko":["찬반이 섞여 추가 관찰 필요"],"en":["Mixed evidence requires more observation"],"ja":["証拠が混在し追加観察が必要"]},"observations":{"ko":["가장 큰 민감도와 자료 확인일"],"en":["Largest sensitivity and review date"],"ja":["最大感応度と確認日"]},"changeConditions":{"ko":["새 근거가 충돌을 해소하거나 확대"],"en":["New evidence resolves or widens conflict"],"ja":["新証拠が対立を解消または拡大"]}},
+    {"id":"PESSIMISTIC","title":{"ko":"비관","en":"Pessimistic","ja":"悲観"},"assumptions":{"ko":["반대 근거 또는 자료 공백이 지배"],"en":["Counter-evidence or missing data dominates"],"ja":["反証またはデータ不足が支配"]},"observations":{"ko":["누락·정정·오래된 근거"],"en":["Missing, corrected, or stale evidence"],"ja":["不足・訂正・古い証拠"]},"changeConditions":{"ko":["검증 가능한 새 근거와 독립 계열 확인"],"en":["Verifiable new evidence and an independent family"],"ja":["検証可能な新証拠と独立系列"]}}
+  ],
+  "methodEvidence": [
+    {"methodId":"M-VALUE-001","family":"VALUE","sources":[{"id":"example:value:v1","grade":"SYNTHETIC_A","kind":"CALCULATION_FIXTURE","checkedAt":"2026-08-29T00:00:00Z","allowedUse":"EXAMPLE_DATA_ONLY","calculationTrace":"synthetic multiples → normalized composite","corrections":[]}]},
+    {"methodId":"M-QUALITY-001","family":"QUALITY","sources":[{"id":"example:fscore:v1","grade":"SYNTHETIC_A","kind":"CALCULATION_FIXTURE","checkedAt":"2026-08-29T00:00:00Z","allowedUse":"EXAMPLE_DATA_ONLY","calculationTrace":"synthetic accounting flags → F-score example","corrections":[]}]},
+    {"methodId":"M-QUALITY-002","family":"QUALITY","sources":[{"id":"example:roic:v1","grade":"SYNTHETIC_A","kind":"CALCULATION_FIXTURE","checkedAt":"2026-08-29T00:00:00Z","allowedUse":"EXAMPLE_DATA_ONLY","calculationTrace":"synthetic ROIC and cash conversion → quality score","corrections":[]}]},
+    {"methodId":"M-GROWTH-001","family":"GROWTH","sources":[{"id":"example:growth:v1","grade":"SYNTHETIC_A","kind":"CALCULATION_FIXTURE","checkedAt":"2026-08-29T00:00:00Z","allowedUse":"EXAMPLE_DATA_ONLY","calculationTrace":"synthetic growth and surprise → growth score","corrections":[]}]},
+    {"methodId":"M-FACTOR-001","family":"FACTOR","sources":[{"id":"example:factor:v1","grade":"SYNTHETIC_A","kind":"CALCULATION_FIXTURE","checkedAt":"2026-08-29T00:00:00Z","allowedUse":"EXAMPLE_DATA_ONLY","calculationTrace":"synthetic factors → residual score","corrections":[]}]},
+    {"methodId":"M-MOM-001","family":"MOMENTUM","sources":[{"id":"example:momentum:v1","grade":"SYNTHETIC_A","kind":"CALCULATION_FIXTURE","checkedAt":"2026-08-29T00:00:00Z","allowedUse":"EXAMPLE_DATA_ONLY","calculationTrace":"synthetic relative prices → 12-1 score","corrections":[]}]},
+    {"methodId":"M-TREND-001","family":"TREND","sources":[{"id":"example:trend:v1","grade":"SYNTHETIC_A","kind":"CALCULATION_FIXTURE","checkedAt":"2026-08-29T00:00:00Z","allowedUse":"EXAMPLE_DATA_ONLY","calculationTrace":"synthetic moving averages → trend score","corrections":[]}]},
+    {"methodId":"M-REVERT-001","family":"MEAN_REVERSION","sources":[{"id":"example:reversion:v1","grade":"SYNTHETIC_A","kind":"CALCULATION_FIXTURE","checkedAt":"2026-08-29T00:00:00Z","allowedUse":"EXAMPLE_DATA_ONLY","calculationTrace":"synthetic oversold input → reversal score","corrections":[]}]},
+    {"methodId":"M-LOWRISK-001","family":"LOW_RISK","sources":[{"id":"example:low-risk:v1","grade":"SYNTHETIC_A","kind":"CALCULATION_FIXTURE","checkedAt":"2026-08-29T00:00:00Z","allowedUse":"EXAMPLE_DATA_ONLY","calculationTrace":"synthetic downside risk → low-risk score","corrections":[]}]},
+    {"methodId":"M-EVENT-001","family":"EVENT","sources":[{"id":"example:event:v1","grade":"SYNTHETIC_A","kind":"CALCULATION_FIXTURE","checkedAt":"2026-08-29T00:00:00Z","allowedUse":"EXAMPLE_DATA_ONLY","calculationTrace":"synthetic event sequence → execution score","corrections":[]}]},
+    {"methodId":"M-ACCOUNT-001","family":"ACCOUNTING","sources":[{"id":"example:accounting:v1","grade":"SYNTHETIC_A","kind":"CALCULATION_FIXTURE","checkedAt":"2026-08-29T00:00:00Z","allowedUse":"EXAMPLE_DATA_ONLY","calculationTrace":"synthetic accruals → earnings-quality score","corrections":[{"id":"correction-example-1","at":"2026-08-29","reason":"합성 정정 이력 표시 예시","state":"CORRECTED_EXAMPLE"}]}]},
+    {"methodId":"M-ENSEMBLE-001","family":"MACRO_STAT_ML","sources":[{"id":"example:ensemble:v1","grade":"SYNTHETIC_A","kind":"CALCULATION_FIXTURE","checkedAt":"2026-08-29T00:00:00Z","allowedUse":"EXAMPLE_DATA_ONLY","calculationTrace":"family-balanced synthetic scores → explainable consensus","corrections":[]}]}
+  ],
+  "commodityEvents": [
+    {"id":"commodity:gold:fixture-1","commodity":"GOLD","title":{"ko":"합성 금 실질금리 변화 예시","en":"Synthetic gold real-rate change example","ja":"合成金実質金利変化例"},"facts":{"ko":["실제 기사가 아닌 고정 학습 사건"],"en":["A fixed learning event, not a real article"],"ja":["実際の記事ではない固定学習イベント"]},"interpretation":{"ko":["금리·통화·위험선호의 영향 경로를 분리해 봅니다."],"en":["Separate rate, currency, and risk-appetite impact paths."],"ja":["金利・通貨・リスク選好の経路を分けます。"]},"impactPath":["REAL_RATE","USD","RISK_APPETITE"],"relatedAssets":["GOLD_MINERS_EXAMPLE"],"sourceLink":"https://hanksleekorea-boop.github.io/kabulens-public-web/","checkedAt":"2026-08-29","rightsState":"EXAMPLE_DATA_ONLY"},
+    {"id":"commodity:silver:fixture-1","commodity":"SILVER","title":{"ko":"합성 은 산업수요 변화 예시","en":"Synthetic silver industrial-demand example","ja":"合成銀産業需要変化例"},"facts":{"ko":["실제 수요 통계가 아닌 구조 학습자료"],"en":["A structural fixture, not actual demand statistics"],"ja":["実需要統計ではない構造学習資料"]},"interpretation":{"ko":["산업수요와 귀금속 수요를 별도로 해석합니다."],"en":["Interpret industrial and precious-metal demand separately."],"ja":["産業需要と貴金属需要を分けて解釈します。"]},"impactPath":["INDUSTRIAL_DEMAND","PRECIOUS_METAL_DEMAND"],"relatedAssets":["SILVER_MINERS_EXAMPLE"],"sourceLink":"https://hanksleekorea-boop.github.io/kabulens-public-web/","checkedAt":"2026-08-29","rightsState":"EXAMPLE_DATA_ONLY"},
+    {"id":"commodity:blocked:fixture-1","commodity":"OIL","title":{"ko":"권리 미확인 사건 차단 표본","en":"Rights-unverified blocked fixture","ja":"権利未確認の遮断例"},"facts":{"ko":["화면에 공개하지 않는 검사 표본"],"en":["A test fixture that must not be published"],"ja":["公開しない検査用サンプル"]},"interpretation":{"ko":["권리 확인 전 사용 금지"],"en":["Do not use before rights review"],"ja":["権利確認前は使用禁止"]},"impactPath":["BLOCKED"],"relatedAssets":[],"sourceLink":"https://hanksleekorea-boop.github.io/kabulens-public-web/","checkedAt":"2026-08-29","rightsState":"UNKNOWN"}
+  ],
+  "issueTypes": ["CALCULATION","CONTENT","ACCESSIBILITY","RIGHTS","TRANSLATION","OTHER"],
+  "taskEvents": ["ADVANCED_VIEW_OPENED","SNAPSHOT_SAVED","EVIDENCE_OPENED","SCENARIO_COMPARED","VIEW_RESTORED","ISSUE_SUBMITTED"],
+  "jaCoreKeys": ["advancedTitle","runResearch","changeTitle","conflictTitle","evidenceTitle","scenarioTitle","boundary"],
+  "locales": {
+    "ko": {"advancedTitle":"고급 연구 작업대","advancedIntro":"변화·충돌·시장환경·근거를 한 화면에서 추적합니다.","runResearch":"연구 결과 새로 계산","saveSnapshot":"현재 시점 저장","saveView":"연구 보기 저장","resetView":"기본값으로 복귀","exportData":"고급 연구 백업","importData":"고급 연구 복원","deleteData":"고급 연구 자료 삭제","goal":"내 연구 목표","security":"합성 종목","methods":"집중 비교 방법","changeTitle":"무엇이 달라졌나","changed":"바뀐 것","unchanged":"바뀌지 않은 것","why":"바뀐 이유","unknown":"아직 모르는 것","conflictTitle":"방법론 충돌과 판정 보류","regimeTitle":"시장환경 네 가지","scenarioTitle":"낙관·기준·비관 조건","evidenceTitle":"근거 탐색기","timelineTitle":"변화 시간선","chartTitle":"점수 변화와 표 대체","commodityTitle":"금·은 합성 사건 허브","facts":"확인된 사실","interpretation":"해석","rights":"사용 범위","issueTitle":"문제·정정 요청","issueSubmit":"근거와 함께 접수","analyticsTitle":"익명 과업 측정","analyticsOff":"기본 꺼짐","boundary":"합성자료이며 실제 전망·확률·권유가 아닙니다.","hold":"판정 보류","noHistory":"이전 저장 시점이 없습니다.","ready":"고급 합성 연구 준비 완료","error":"고급 연구를 계산하지 못했습니다.","sourceGrade":"출처 등급","checkedAt":"확인 시각","calculation":"계산 계보","corrections":"정정 이력"},
+    "en": {"advancedTitle":"Advanced research workbench","advancedIntro":"Track changes, conflicts, regimes, and evidence in one place.","runResearch":"Recalculate research","saveSnapshot":"Save current snapshot","saveView":"Save research view","resetView":"Reset to defaults","exportData":"Back up advanced research","importData":"Restore advanced research","deleteData":"Delete advanced research data","goal":"My research goal","security":"Synthetic security","methods":"Focused methods","changeTitle":"What changed","changed":"Changed","unchanged":"Unchanged","why":"Why it changed","unknown":"Still unknown","conflictTitle":"Method conflicts and hold","regimeTitle":"Four market regimes","scenarioTitle":"Optimistic, base, and pessimistic conditions","evidenceTitle":"Evidence explorer","timelineTitle":"Change timeline","chartTitle":"Score changes with table alternative","commodityTitle":"Gold and silver synthetic-event hub","facts":"Verified facts","interpretation":"Interpretation","rights":"Allowed use","issueTitle":"Issue and correction request","issueSubmit":"Submit with evidence","analyticsTitle":"Anonymous task measurement","analyticsOff":"Off by default","boundary":"Synthetic data; not a forecast, probability, or recommendation.","hold":"Hold","noHistory":"No previous saved snapshot.","ready":"Advanced synthetic research is ready.","error":"Advanced research could not be calculated.","sourceGrade":"Source grade","checkedAt":"Checked at","calculation":"Calculation lineage","corrections":"Correction history"},
+    "ja": {"advancedTitle":"高度リサーチ作業台","advancedIntro":"変化・対立・市場環境・根拠を追跡します。","runResearch":"研究結果を再計算","saveSnapshot":"現在時点を保存","saveView":"研究ビューを保存","resetView":"初期値に戻す","exportData":"高度研究をバックアップ","importData":"高度研究を復元","deleteData":"高度研究データを削除","goal":"研究目標","security":"合成銘柄","methods":"集中比較手法","changeTitle":"何が変わったか","changed":"変化","unchanged":"不変","why":"変化理由","unknown":"不明点","conflictTitle":"手法対立と保留","regimeTitle":"4つの市場環境","scenarioTitle":"楽観・基準・悲観条件","evidenceTitle":"根拠探索","timelineTitle":"変化タイムライン","chartTitle":"スコア変化と表","commodityTitle":"金・銀合成イベント","facts":"確認済み事実","interpretation":"解釈","rights":"使用範囲","issueTitle":"問題・訂正依頼","issueSubmit":"根拠付きで送信","analyticsTitle":"匿名タスク測定","analyticsOff":"初期設定はオフ","boundary":"合成資料であり予測・確率・推奨ではありません。","hold":"判定保留","noHistory":"以前の保存時点はありません。","ready":"高度合成研究の準備完了","error":"高度研究を計算できませんでした。","sourceGrade":"出典等級","checkedAt":"確認時刻","calculation":"計算系譜","corrections":"訂正履歴"}
+  }
+}

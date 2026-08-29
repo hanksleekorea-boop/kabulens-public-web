@@ -2,14 +2,15 @@
   "schemaVersion": "stock-scanner-progress/v1",
   "product": "Stock Scanner",
   "nameKo": "스탁스캐너",
-  "version": "5.8",
-  "updatedAt": "2026-08-29T23:00:00+07:00",
+  "version": "6.0",
+  "updatedAt": "2026-08-29T23:45:00+07:00",
   "releaseState": "PUBLIC_FREE_EDUCATION",
   "boundary": "SYNTHETIC_FIXED_NOT_REAL_SECURITIES",
-  "summary": "로그인·결제 없이 사용하는 PC·모바일 무료 교육·연구판입니다. 합성 종목 240개, 완결된 12개 방법론 콘텐츠, 3개 학습 시나리오, 4개 사전 설정, 후보 비교, 25개 FAQ와 50개 용어를 제공하지만 실제 종목 추천·수익 예측·실데이터 상용판은 아닙니다.",
+  "summary": "로그인·결제 없이 사용하는 PC·모바일 무료 교육·연구판입니다. 1단계 콘텐츠에 더해 2~4개 종목·3~6개 방법론 고급 작업대, 변화·충돌·4개 시장 국면·3개 조건 시나리오·근거 계보·정정·금은 합성 사건 허브를 제공합니다. 실제 종목 추천·수익 예측·실데이터 상용판은 아닙니다.",
   "metrics": [
     {"id":"brand","label":"Stock Scanner 브랜드·공개","value":100,"unit":"%","state":"PASS","evidence":"공개 main·QR·PWA·정책·지원 전환 완료"},
     {"id":"content","label":"1단계 무료서비스 콘텐츠 구현","value":100,"unit":"%","state":"PASS","evidence":"12개 방법×완전 콘텐츠 계약, 시작 안내 6개, 시나리오 3개, 프리셋 4개, FAQ 25개, 용어 50개, 상태 9개"},
+    {"id":"stage2","label":"2단계 고급 무료서비스 구현·콘텐츠","value":100,"unit":"%","state":"PASS_AUTOMATED","evidence":"AFS-01~17 구현 완료, 1,000명 합성 페르소나 8,000과업 통과; 실제 사용자·실기기·시간 관찰은 별도"},
     {"id":"pc","label":"PC 무료 공개판 출시 준비도","value":99,"unit":"/100","state":"OPEN","evidence":"공유 출시 게이트 99점 통과, 실제 화면읽기 도구 수동검사 1점 남음"},
     {"id":"mobile","label":"모바일 무료 공개판 출시 준비도","value":99,"unit":"/100","state":"OPEN","evidence":"390·360px·PWA·Android 통과, 실제 화면읽기 도구 수동검사 1점 남음"},
     {"id":"automation","label":"현재 자동 품질 검사","value":100,"unit":"%","state":"PASS","evidence":"서버·웹·3개 브라우저·Lighthouse 기준 통과"},
@@ -35,6 +36,9 @@
     "서비스 6개 화면의 콘텐츠 보안정책·엄격한 참조정보 정책과 비공개 보안 신고 표준 경로",
     "공개 품질 의존성 취약점 0건·SPDX 구성요소 목록 125개 자동 생성",
     "로컬 백업 변조 100종 차단과 알 수 없는 미래 필드 무손실 복원"
+    ,"2~4개 종목·3~6개 방법론 작업대, 입력·결과 변화 비교, 중복 계열 축약과 충돌 시 판정 보류"
+    ,"4개 시장 국면·확률을 꾸며내지 않은 3개 시나리오·근거 계보·정정 이력·표와 문장 대체 설명"
+    ,"한국어·영어 전체와 핵심 일본어, 권리 미확인 기사 본문 차단, 명시 동의형 비식별 과업 측정"
   ],
   "bottlenecks": [
     {"label":"무료판 남은 1점","state":"MANUAL_EVIDENCE","unlock":"실제 PC·모바일 화면읽기 도구로 핵심 여정 수동 확인"},
@@ -50,6 +54,8 @@
     "mobile":"https://hanksleekorea-boop.github.io/kabulens-public-web/stock-scanner.html#today",
     "reports":"https://hanksleekorea-boop.github.io/kabulens-public-web/stock-scanner.html#reports",
     "freeLaunchEvidence":"https://hanksleekorea-boop.github.io/kabulens-public-web/free-launch-readiness.json",
+    "stage2Evidence":"https://hanksleekorea-boop.github.io/kabulens-public-web/stage2-readiness.json",
+    "advancedPersonas":"https://hanksleekorea-boop.github.io/kabulens-public-web/advanced-persona-report.json",
     "dashboard":"https://hanksleekorea-boop.github.io/kabulens-public-web/dashboard.html",
     "status":"https://hanksleekorea-boop.github.io/kabulens-public-web/status.html",
     "support":"https://hanksleekorea-boop.github.io/kabulens-public-web/support.html",

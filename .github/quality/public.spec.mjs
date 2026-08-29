@@ -53,7 +53,7 @@ test('Stock Scanner QR policy and PWA assets are public',async({page,request,bas
   await expect(page.locator('#publicQrLink')).toHaveAttribute('href',/stock-scanner-qr\.png$/);
   await expect(page.locator('body')).not.toContainText('개발 진척');
   await expect(page.locator('body')).not.toContainText('99/100');
-  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','methodology_education_v1.json','brand.json','stock-scanner-qr.png','.well-known/security.txt','dashboard.html','progress.json','free-launch-readiness.json','legal/terms.html','legal/privacy.html']){
+  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','methodology_education_v1.json','brand.json','stock-scanner-qr.png','advanced_research_runtime.js','advanced_research_ui.js','advanced_research_v2.json','stage2-readiness.json','advanced-persona-report.json','.well-known/security.txt','dashboard.html','progress.json','free-launch-readiness.json','legal/terms.html','legal/privacy.html']){
     expect((await request.get(new URL(asset,baseURL).href)).ok(),asset).toBeTruthy();
   }
   const manifest=await(await request.get(new URL('stock-scanner.webmanifest',baseURL).href)).json();
@@ -63,11 +63,32 @@ test('Stock Scanner QR policy and PWA assets are public',async({page,request,bas
   expect(security).toContain('security/advisories/new');
 });
 
+test('Stage two advanced workbench is complete responsive and evidence bounded',async({page,baseURL})=>{
+  const errors=[];page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});page.on('pageerror',error=>errors.push(error.message));
+  for(const width of [1440,390,360]){
+    await page.setViewportSize({width,height:width>1000?1000:844});
+    await page.goto(new URL('stock-scanner.html?research=conflict#reports',baseURL).href,{waitUntil:'networkidle'});
+    await expect(page.locator('#advancedWorkbench')).toBeVisible();
+    await expect(page.locator('#advancedChange article')).toHaveCount(4);
+    await expect(page.locator('#advancedRegimes article')).toHaveCount(4);
+    await expect(page.locator('#advancedScenarios article')).toHaveCount(3);
+    await expect(page.locator('#advancedEvidence details')).toHaveCount(3);
+    await expect(page.locator('#advancedCommodity article')).toHaveCount(2);
+    await expect(page.locator('#advancedConflictVerdict')).toContainText(/HOLD|SYNTHETIC/);
+    await expect(page.locator('#advancedChartSummary')).toContainText('methods');
+    await expect(page.locator('#advancedChartTable table')).toBeVisible();
+    const size=await page.evaluate(()=>({client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth,active:document.activeElement&&document.activeElement.id}));
+    expect(size.scroll,`stage2 overflow at ${width}px`).toBeLessThanOrEqual(size.client);
+    expect(size.active).toBe('advancedConflictSection');
+  }
+  expect(errors).toEqual([]);
+});
+
 test('Stock Scanner development dashboard exposes truthful progress and twenty-item queues',async({page,baseURL})=>{
   const response=await page.goto(new URL('dashboard.html',baseURL).href,{waitUntil:'networkidle'});
   expect(response?.ok()).toBeTruthy();
   await expect(page).toHaveTitle(/개발 진척 대시보드 · Stock Scanner/);
-  await expect(page.locator('#metrics .metric-card')).toHaveCount(6);
+  await expect(page.locator('#metrics .metric-card')).toHaveCount(7);
   await expect(page.locator('#urgent li')).toHaveCount(20);
   await expect(page.locator('#autonomous li')).toHaveCount(20);
   await expect(page.locator('#summary')).toContainText('로그인·결제 없이');
