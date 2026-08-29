@@ -26,7 +26,7 @@ SURFACES = {
     "advanced_research_v2.json": ("application/json", b'"schemaVersion": "stock-scanner-advanced-content/v2"', 500_000),
     "methodology_education_v1.json": ("application/json", b'"schemaVersion": "stock-scanner-method-education/v1"', 500_000),
     "free_content_guide_v1.json": ("application/json", b'"schemaVersion": "stock-scanner-free-content/v1"', 500_000),
-    "stock-scanner-sw.js": ("javascript", b"stock-scanner-shell-v6-0-advanced-research1", 100_000),
+    "stock-scanner-sw.js": ("javascript", b"stock-scanner-shell-v6-0-advanced-research2", 100_000),
     "sw.js": ("javascript", b"stock-scanner-sw.js", 20_000),
     "public_config.js": ("javascript", b"STOCK_SCANNER_PUBLIC_CONFIG", 20_000),
     "brand.json": ("application/json", b'"name": "Stock Scanner"', 20_000),

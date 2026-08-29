@@ -1,5 +1,5 @@
 'use strict';
-const CACHE='stock-scanner-shell-v6-0-advanced-research1';
+const CACHE='stock-scanner-shell-v6-0-advanced-research2';
 const SHELL=['./','./index.html','./root_redirect.js','./stock-scanner.html','./stock-scanner.css','./stock_scanner_runtime.js','./advanced_research_runtime.js','./advanced_research_ui.js','./advanced_research_v2.json','./methodology_education_v1.json','./free_content_guide_v1.json','./public_config.js','./brand.json','./stock-scanner.webmanifest','./icon.svg','./legal/terms.html','./legal/privacy.html','./status.html','./support.html','./stock-scanner-qr.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>(key.startsWith('stock-scanner-')||key.startsWith('kabulens-shell-'))&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()));});
