@@ -1,8 +1,8 @@
 {
   "schemaVersion": "stock-scanner-free-launch-readiness/v1",
   "product": "Stock Scanner",
-  "version": "5.3",
-  "updatedAt": "2026-08-28T18:00:00+07:00",
+  "version": "5.8",
+  "updatedAt": "2026-08-29T23:00:00+07:00",
   "scopeId": "FREE_PUBLIC_EDUCATION_RESEARCH_NO_PAYMENT",
   "scoreBasis": "The shared PC and mobile PWA gate weights total 100. Passed gates total 99; one point remains for a manual assistive-technology check.",
   "platforms": {
@@ -12,7 +12,8 @@
   "included": [
     "Anonymous use without sign-in or payment",
     "Synthetic US and Japan fixtures for education and product-flow verification",
-    "Twelve method explainers, comparisons, reports, local save, backup, restore, delete, export, print, share and PWA offline shell",
+    "Twelve complete method explainers, three learning scenarios, four presets, two-to-four candidate comparison, complete reports, local save, backup, restore, delete, export, print, share and PWA offline shell",
+    "Six getting-started guides, twenty-five FAQs, fifty glossary terms and nine recoverable screen states",
     "Public support, status, privacy notice and free-use conditions"
   ],
   "excluded": [
@@ -25,7 +26,7 @@
   "gates": [
     {"id":"F-01","label":"Free scope and no-payment boundary","weight":5,"state":"PASS","evidence":"Release boundary and every public caution separate the free education build from commercial operation."},
     {"id":"F-02","label":"Scan and per-method report flow","weight":10,"state":"PASS","evidence":"Deterministic scan, pagination, report, errors and browser journeys are tested."},
-    {"id":"F-03","label":"Twelve method education records","weight":5,"state":"PASS","evidence":"Plain explanation, principle, masters, case, source and caution are validated for all twelve methods."},
+    {"id":"F-03","label":"Twelve method education records","weight":5,"state":"PASS","evidence":"All twelve methods have the complete twelve-part contract: plain explanation, analogy, principle, inputs, calculation steps, favorable and unfavorable environments, masters, case, failure modes, conflict interpretation, sources and review dates."},
     {"id":"F-04","label":"Family-balanced comparison and sensitivity","weight":4,"state":"PASS","evidence":"Weight total, three-family rule and leave-one-out sensitivity are tested."},
     {"id":"F-05","label":"Device-local watchlist and saved scans","weight":5,"state":"PASS","evidence":"Bounded local state and lossless unknown-field preservation are tested."},
     {"id":"F-06","label":"Local backup, restore and delete","weight":5,"state":"PASS","evidence":"Version, boundary, size and integrity checks fail before mutation; delete is explicitly confirmed."},
@@ -33,7 +34,7 @@
     {"id":"F-08","label":"Terms, privacy, support and status","weight":5,"state":"PASS","evidence":"Public pages disclose unverified operator and paid-service fields instead of inventing them."},
     {"id":"F-09","label":"Installable offline PWA shell","weight":6,"state":"PASS","evidence":"Manifest, service worker, same-origin cache list and offline browser journey pass."},
     {"id":"F-10","label":"PC three-column layout and browser coverage","weight":6,"state":"PASS","evidence":"Desktop flow is tested in Chromium, Firefox and WebKit automation."},
-    {"id":"F-11","label":"Mobile five-tab responsive flow","weight":6,"state":"PASS","evidence":"Today, Scan, Watchlist, Reports and More work at 390px and 360px without horizontal overflow."},
+    {"id":"F-11","label":"Mobile five-tab responsive flow","weight":6,"state":"PASS","evidence":"Today, Scan, Watchlist, Reports and More work at 390px and 360px without horizontal overflow; current in-app browser inspection found zero visible controls below 44px."},
     {"id":"F-12","label":"Touch and keyboard automated checks","weight":4,"state":"PASS","evidence":"Minimum targets, focus visibility, skip link and automated accessibility checks pass."},
     {"id":"F-13","label":"Performance and discoverability","weight":5,"state":"PASS","evidence":"Public Lighthouse performance, accessibility, best-practices and SEO thresholds pass."},
     {"id":"F-14","label":"Public deployment and availability","weight":5,"state":"PASS","evidence":"Public entry, app, dashboard, policies, assets and connectivity surface return valid same-origin responses."},

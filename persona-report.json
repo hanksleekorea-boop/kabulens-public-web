@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "stock-scanner-persona-report/v2",
+  "product": "Stock Scanner",
+  "releaseVersion": "5.8",
+  "evaluatedAt": "2026-08-29",
+  "seed": 20260829,
+  "evidenceKind": "synthetic-contract-simulation-not-real-user",
+  "dataMode": "SYNTHETIC_ONLY",
+  "personas": 1000,
+  "segments": {
+    "beginner": 200,
+    "intermediate": 200,
+    "experienced": 200,
+    "olderAdult": 100,
+    "lowVision": 100,
+    "keyboardOnly": 100,
+    "intermittentNetwork": 100
+  },
+  "taskContracts": [
+    {"id":"identify-boundary","labelKo":"합성자료와 실제 추천을 구별","passed":1000,"attempted":1000},
+    {"id":"run-example","labelKo":"예제 스캔 실행","passed":1000,"attempted":1000},
+    {"id":"select-three-families","labelKo":"서로 다른 세 계열 선택","passed":1000,"attempted":1000},
+    {"id":"compare-candidates","labelKo":"후보 2~4개 비교","passed":1000,"attempted":1000},
+    {"id":"explain-score","labelKo":"합성점수와 실제 상승확률 구별","passed":1000,"attempted":1000},
+    {"id":"read-two-sided-evidence","labelKo":"찬성·반대 근거 함께 확인","passed":1000,"attempted":1000},
+    {"id":"use-help-search","labelKo":"도움말·FAQ·용어 검색","passed":1000,"attempted":1000},
+    {"id":"save-locally","labelKo":"관심·검사 조건 로컬 저장","passed":1000,"attempted":1000},
+    {"id":"backup-restore-delete","labelKo":"백업·복원·삭제 경로 발견","passed":1000,"attempted":1000},
+    {"id":"recover-from-state","labelKo":"빈 결과·오류·오프라인 다음 행동 확인","passed":1000,"attempted":1000}
+  ],
+  "attempts": 10000,
+  "passed": 10000,
+  "taskContractSuccessRate": 100,
+  "boundaryExposureRate": 100,
+  "thresholds": {
+    "taskContractSuccessRate": 95,
+    "boundaryExposureRate": 90
+  },
+  "result": "PASS",
+  "limitationsKo": [
+    "가상 사용자의 통과는 화면과 콘텐츠 계약의 존재·연결을 계산한 결과이며 사람의 실제 이해를 증명하지 않습니다.",
+    "실제 사용자 5명 과업 관찰과 실제 화면읽기 프로그램 시험은 별도 증거가 필요합니다.",
+    "투자 성과·상승확률·시장자료 정확도를 평가한 보고서가 아닙니다."
+  ]
+}

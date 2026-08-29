@@ -1,6 +1,8 @@
 {
   "schemaVersion": "stock-scanner-method-education/v1",
-  "updatedAt": "2026-08-28",
+  "updatedAt": "2026-08-29",
+  "nextReviewAt": "2026-11-29",
+  "contentContractVersion": "stock-scanner-method-content/complete-v1",
   "language": "ko",
   "boundary": "HISTORICAL_EDUCATION_NOT_A_FORECAST",
   "globalCautionKo": "아래 인물과 사례는 방법론을 이해하기 위한 역사·연구 자료입니다. 특정 종목 추천이 아니며, 과거의 실제 성과나 모의 성과는 미래 수익을 보장하지 않습니다.",
@@ -17,7 +19,13 @@
       ],
       "caseStudy": {"titleKo": "Washington Post Company: 가격과 가치의 간격", "summaryKo": "Berkshire는 1973년 약 1,060만 달러를 투자했습니다. 1974년 시장가격은 원가보다 약 25% 낮아졌지만 사업가치와 자사주 매입 효과를 함께 보며 보유했습니다.", "outcomeKo": "Buffett의 1985년 서한은 이후 사업가치 상승, 할인 축소, 저평가 자사주 매입이 겹친 ‘세 겹의 효과’를 설명합니다.", "lessonKo": "싼 가격만이 아니라 사업가치와 경영진의 자본 배분을 함께 봐야 한다는 사례입니다.", "evidenceType": "PUBLIC_COMPANY_LETTER", "sourceLabel": "Berkshire 1985 주주서한", "sourceUrl": "https://www.berkshirehathaway.com/letters/1985.html"},
       "failureModesKo": ["사업이 영구적으로 악화된 가치 함정", "업종이 다른 회사를 같은 배수로 비교", "일회성 이익 때문에 싸 보이는 착시"],
-      "cautionKo": "유명 투자자의 전체 성과를 상대가치 배수 하나의 성과로 해석해서는 안 됩니다."
+      "cautionKo": "유명 투자자의 전체 성과를 상대가치 배수 하나의 성과로 해석해서는 안 됩니다.",
+      "requiredDataKo": ["업종별 이익·장부·매출 배수", "부채와 현금흐름", "일회성 손익과 공시일"],
+      "favorableMarketKo": "같은 업종 안에서 가격 차이가 크고 사업가치가 비교적 안정적인 시장",
+      "unfavorableMarketKo": "산업 구조가 빠르게 무너지거나 회계이익이 일회성 항목에 크게 좌우되는 시장",
+      "conflictInterpretationKo": "가치 점수는 높지만 품질이 낮으면 가치 함정 가능성을 먼저 확인하고, 추세가 약하면 가격 재평가 시점이 아직 오지 않았다고 봅니다.",
+      "reviewedAt": "2026-08-29",
+      "nextReviewAt": "2026-11-29"
     },
     {
       "id": "M-QUALITY-001",
@@ -31,7 +39,13 @@
       ],
       "caseStudy": {"titleKo": "F-score 원 연구의 가치주 분리 시험", "summaryKo": "Piotroski는 높은 장부가치/시장가치 종목 안에서 9개 재무 신호를 이용해 강한 기업과 약한 기업을 구분했습니다.", "outcomeKo": "논문 표본에서 강한 F-score 집단과 약한 집단의 후속 수익 차이가 관찰됐습니다. 이는 실제 펀드 실적이 아니라 과거자료 연구 결과입니다.", "lessonKo": "‘싸다’와 ‘재무가 개선된다’를 결합하면 가치 함정을 일부 줄일 수 있다는 대표 연구입니다.", "evidenceType": "ACADEMIC_BACKTEST", "sourceLabel": "Journal of Accounting Research 원 논문", "sourceUrl": "https://www.jstor.org/stable/2672906"},
       "failureModesKo": ["공시일보다 먼저 자료를 안 것으로 계산하는 시점 편향", "회계기준·업종 차이를 무시", "9점 합계만 보고 개별 위험을 생략"],
-      "cautionKo": "원 연구의 모의 포트폴리오 성과는 거래비용·세금·현재 시장에서 그대로 재현된다는 뜻이 아닙니다."
+      "cautionKo": "원 연구의 모의 포트폴리오 성과는 거래비용·세금·현재 시장에서 그대로 재현된다는 뜻이 아닙니다.",
+      "requiredDataKo": ["공시일 기준 재무제표", "전년 비교 수익성·레버리지·유동성", "주식 수와 영업효율"],
+      "favorableMarketKo": "재무상태 개선이 가격에 천천히 반영되는 저평가 종목군",
+      "unfavorableMarketKo": "회계기준 차이가 크거나 구조조정·인수합병으로 전년 비교가 어려운 시장",
+      "conflictInterpretationKo": "가치와 F-score가 함께 좋으면 개선형 가치 후보로 보되, 성장·추세가 반대면 개선 속도와 공시 시점을 다시 확인합니다.",
+      "reviewedAt": "2026-08-29",
+      "nextReviewAt": "2026-11-29"
     },
     {
       "id": "M-QUALITY-002",
@@ -45,7 +59,13 @@
       ],
       "caseStudy": {"titleKo": "See’s Candies: 적은 추가 자본, 큰 누적 현금", "summaryKo": "Blue Chip Stamps는 1972년 See’s를 2,500만 달러에 샀고 당시 세전이익은 500만 달러 미만이었습니다.", "outcomeKo": "Berkshire의 2007년 서한에 따르면 2007년까지 추가 투입자본은 3,200만 달러였지만 누적 세전이익은 13억5천만 달러였습니다.", "lessonKo": "성장률만큼이나 높은 자본수익률과 현금 재배치 능력이 중요하다는 직관적 사례입니다.", "evidenceType": "PUBLIC_COMPANY_LETTER", "sourceLabel": "Berkshire 2007 주주서한", "sourceUrl": "https://www.berkshirehathaway.com/letters/2007ltr.pdf"},
       "failureModesKo": ["호황기 한 해의 ROIC를 정상치로 오해", "영업권·리스·현금 정의가 서로 다른 회사 비교", "높은 과거 수익성이 경쟁 진입 뒤에도 유지된다고 가정"],
-      "cautionKo": "See’s는 사업 전체의 질과 운영·가격결정력이 결합된 사례이며 ROIC 숫자 하나의 성과가 아닙니다."
+      "cautionKo": "See’s는 사업 전체의 질과 운영·가격결정력이 결합된 사례이며 ROIC 숫자 하나의 성과가 아닙니다.",
+      "requiredDataKo": ["세후영업이익", "투하자본", "현금전환과 재투자율"],
+      "favorableMarketKo": "가격결정력과 반복 수요가 있고 높은 자본수익을 오래 유지하는 사업",
+      "unfavorableMarketKo": "호황기 이익이 일시적으로 높거나 대규모 자본투자가 막 시작된 업종",
+      "conflictInterpretationKo": "품질이 높아도 가치가 지나치게 비싸면 기대수익이 낮을 수 있고, 성장과 함께 높으면 재투자 지속성을 확인합니다.",
+      "reviewedAt": "2026-08-29",
+      "nextReviewAt": "2026-11-29"
     },
     {
       "id": "M-GROWTH-001",
@@ -59,7 +79,13 @@
       ],
       "caseStudy": {"titleKo": "실적 발표 후 표류(PEAD) 연구 포트폴리오", "summaryKo": "초기 연구는 예상보다 실적이 좋은 종목을 사고 나쁜 종목을 파는 가상 포트폴리오를 구성했습니다.", "outcomeKo": "후속 검토 논문은 초기 연구에서 연환산 비정상수익이 보고됐지만, 이후에는 효과 약화·거래마찰·정의 차이가 중요한 쟁점이라고 정리합니다.", "lessonKo": "놀라움은 발표 당일 반응만이 아니라 이후 정보 확산 속도와 함께 봐야 합니다.", "evidenceType": "ACADEMIC_BACKTEST", "sourceLabel": "PEAD 문헌 검토", "sourceUrl": "https://doi.org/10.1016/j.jbef.2020.100446"},
       "failureModesKo": ["현재 수정된 컨센서스를 과거 기대값으로 사용", "일회성 이익을 성장으로 오해", "좋은 실적이 이미 가격에 반영됐는지 무시"],
-      "cautionKo": "연구 포트폴리오의 비정상수익은 실제 투자자의 순수익이나 현재 재현 가능 수익이 아닙니다."
+      "cautionKo": "연구 포트폴리오의 비정상수익은 실제 투자자의 순수익이나 현재 재현 가능 수익이 아닙니다.",
+      "requiredDataKo": ["실적 발표 시각", "당시 시장 기대치", "매출·이익 성장과 전망 변경"],
+      "favorableMarketKo": "실적 개선이 연속되고 시장 기대가 아직 따라오지 못한 환경",
+      "unfavorableMarketKo": "일회성 이익이 크거나 기대가 이미 가격에 과도하게 반영된 환경",
+      "conflictInterpretationKo": "성장은 좋지만 가치·추세가 반대면 기대 과열 가능성을 확인하고, 품질이 낮으면 성장의 현금 지속성을 우선 검토합니다.",
+      "reviewedAt": "2026-08-29",
+      "nextReviewAt": "2026-11-29"
     },
     {
       "id": "M-FACTOR-001",
@@ -73,7 +99,13 @@
       ],
       "caseStudy": {"titleKo": "Dimensional의 연구 기반 체계적 투자", "summaryKo": "Dimensional은 Fama와 French의 연구를 포함한 자산가격 연구를 실제 포트폴리오 설계에 연결한 대표 운용사입니다.", "outcomeKo": "학술 요인을 장기간 상용 포트폴리오에 구현한 유명 사례이지만, 고객의 개별 순수익을 5요인 하나에 귀속할 수는 없습니다.", "lessonKo": "요인 발견보다 거래비용·분산·일관된 구현이 실제 운용에서 더 중요할 수 있습니다.", "evidenceType": "COMMERCIAL_IMPLEMENTATION", "sourceLabel": "Dimensional 연혁", "sourceUrl": "https://www.dimensional.com/gb-en/our-heritage"},
       "failureModesKo": ["현재 분류를 과거에 소급하는 미래정보 편향", "짧은 기간의 알파를 실력으로 단정", "요인 정의를 결과에 맞춰 반복 조정"],
-      "cautionKo": "요인 연구수익과 실제 펀드 순수익은 비용·세금·제약 때문에 다릅니다."
+      "cautionKo": "요인 연구수익과 실제 펀드 순수익은 비용·세금·제약 때문에 다릅니다.",
+      "requiredDataKo": ["당시 시점 가격과 시가총액", "가치·수익성·투자 지표", "시장·무위험 수익률"],
+      "favorableMarketKo": "충분히 많은 종목과 긴 관찰기간으로 요인 노출을 분산해 볼 수 있는 시장",
+      "unfavorableMarketKo": "표본이 작고 거래비용이 높거나 짧은 기간 한 요인이 급반전하는 시장",
+      "conflictInterpretationKo": "잔여수익이 높아도 특정 요인 노출만으로 설명되면 독립 실력으로 해석하지 않고 다른 방법의 근거를 확인합니다.",
+      "reviewedAt": "2026-08-29",
+      "nextReviewAt": "2026-11-29"
     },
     {
       "id": "M-MOM-001",
@@ -87,7 +119,13 @@
       ],
       "caseStudy": {"titleKo": "AQR의 장기·다시장 모멘텀 검증", "summaryKo": "AQR 연구진은 미국의 장기 주식자료와 여러 국가·자산군에서 상대적 승자와 패자의 후속 성과를 비교했습니다.", "outcomeKo": "연구는 광범위한 역사 표본에서 모멘텀 프리미엄을 보고했지만, 반전 손실과 구현비용도 함께 강조합니다.", "lessonKo": "모멘텀은 ‘오른 종목은 무조건 산다’가 아니라 상대 순위, 보유기간, 비용, 붕괴 위험을 통제하는 규칙입니다.", "evidenceType": "RESEARCH_AND_PRACTITIONER_EVIDENCE", "sourceLabel": "AQR Fact, Fiction and Momentum", "sourceUrl": "https://www.aqr.com/Insights/Research/Journal-Article/Fact-Fiction-and-Momentum-Investing"},
       "failureModesKo": ["급반전장에서 승자·패자가 동시에 뒤집힘", "거래비용과 세금을 무시", "상장폐지 종목을 표본에서 제거"],
-      "cautionKo": "AQR의 연구 결과와 특정 AQR 상품의 실제 순수익은 같은 것이 아닙니다."
+      "cautionKo": "AQR의 연구 결과와 특정 AQR 상품의 실제 순수익은 같은 것이 아닙니다.",
+      "requiredDataKo": ["최근 13개월 수정주가", "거래 가능성과 유동성", "동일 시장 비교집합"],
+      "favorableMarketKo": "종목 간 성과 차이가 이어지고 시장 방향이 급변하지 않는 환경",
+      "unfavorableMarketKo": "폭락 뒤 급반등처럼 승자와 패자가 빠르게 뒤집히는 환경",
+      "conflictInterpretationKo": "모멘텀이 강해도 가치·품질이 약하면 가격 추종 위험을 표시하고, 추세와 함께 강할 때도 급반전 위험을 별도로 봅니다.",
+      "reviewedAt": "2026-08-29",
+      "nextReviewAt": "2026-11-29"
     },
     {
       "id": "M-TREND-001",
@@ -101,7 +139,13 @@
       ],
       "caseStudy": {"titleKo": "관리선물과 137년 추세추종 모의 기록", "summaryKo": "AQR 연구는 1880년까지 확장한 여러 자산의 시계열 모멘텀 규칙을 조사하고 관리선물 성과와의 관계를 분석했습니다.", "outcomeKo": "역사 표본에서 장기적으로 양의 모의 성과가 관찰됐지만, 특정 시기와 높은 상관 환경에서는 약해질 수 있었습니다.", "lessonKo": "추세추종의 핵심은 예언이 아니라 손실을 제한하고 이어지는 방향에 머무르는 일관된 규칙입니다.", "evidenceType": "ACADEMIC_BACKTEST", "sourceLabel": "A Century of Evidence on Trend-Following", "sourceUrl": "https://www.aqr.com/-/media/AQR/Documents/Insights/Journal-Article/AQR-JPM-Fall-2017.pdf"},
       "failureModesKo": ["횡보장에서 잦은 손절과 재진입", "가장 잘 맞는 이동평균을 사후 선택", "급격한 갭으로 계획 가격에 거래 불가"],
-      "cautionKo": "137년 결과는 재구성된 모의 자료를 포함하며 실제 투자계좌 성과가 아닙니다."
+      "cautionKo": "137년 결과는 재구성된 모의 자료를 포함하며 실제 투자계좌 성과가 아닙니다.",
+      "requiredDataKo": ["수정 가격 시계열", "장·단기 이동평균", "거래비용과 거래 가능성"],
+      "favorableMarketKo": "상승이나 하락 방향이 오래 지속되고 잡음보다 방향성이 큰 환경",
+      "unfavorableMarketKo": "좁은 범위에서 오르내려 신호가 자주 뒤집히는 횡보장",
+      "conflictInterpretationKo": "추세와 모멘텀이 다르면 측정 기간 차이를 확인하고, 가치가 반대면 추세 지속과 과대평가 위험을 함께 표시합니다.",
+      "reviewedAt": "2026-08-29",
+      "nextReviewAt": "2026-11-29"
     },
     {
       "id": "M-REVERT-001",
@@ -115,7 +159,13 @@
       ],
       "caseStudy": {"titleKo": "과거 패자 포트폴리오의 후속 반전", "summaryKo": "De Bondt와 Thaler는 극단적으로 부진했던 과거 패자와 승자 포트폴리오의 이후 수익을 비교했습니다.", "outcomeKo": "역사 표본에서 장기 패자 집단의 상대적 반전이 관찰됐습니다. 다만 현재 Stock Scanner의 1주~1개월 단기 규칙과 연구의 장기 보유기간은 동일하지 않습니다.", "lessonKo": "‘많이 빠졌다’만으로 충분하지 않으며, 시간축과 악재의 영구성을 구분해야 합니다.", "evidenceType": "ACADEMIC_BACKTEST", "sourceLabel": "Does the Stock Market Overreact?", "sourceUrl": "https://doi.org/10.1111/j.1540-6261.1985.tb05004.x"},
       "failureModesKo": ["구조적 파산 위험을 일시적 과매도로 오해", "유동성 부족으로 원하는 가격에 거래 불가", "장기 반전 연구를 초단기 규칙에 그대로 적용"],
-      "cautionKo": "대표 연구의 시간축과 이 서비스의 단기 후보 규칙은 다르므로 직접적인 수익 근거가 아닙니다."
+      "cautionKo": "대표 연구의 시간축과 이 서비스의 단기 후보 규칙은 다르므로 직접적인 수익 근거가 아닙니다.",
+      "requiredDataKo": ["단기 수정 가격", "거래량과 유동성", "파산·사건·시장 충격 표시"],
+      "favorableMarketKo": "일시적 과잉 반응 뒤 사업과 유동성이 유지되는 환경",
+      "unfavorableMarketKo": "파산·회계 문제·구조적 악화처럼 하락에 지속 원인이 있는 환경",
+      "conflictInterpretationKo": "반전 신호가 추세와 반대면 짧은 되돌림과 장기 방향을 구분하고, 품질이 낮으면 구조적 하락 가능성을 우선합니다.",
+      "reviewedAt": "2026-08-29",
+      "nextReviewAt": "2026-11-29"
     },
     {
       "id": "M-LOWRISK-001",
@@ -129,7 +179,13 @@
       ],
       "caseStudy": {"titleKo": "Robeco Conservative Equities의 실제 구현", "summaryKo": "Robeco는 저변동 연구를 보수적 주식 전략으로 구현해 2000년대 중반부터 실제 운용 기록을 축적했다고 공개합니다.", "outcomeKo": "대표적인 상용 구현 사례지만, 공개된 설명만으로 모든 기간의 초과수익이나 비용 차감 성과를 단정할 수 없습니다.", "lessonKo": "낮은 변동성만 고르는 것이 아니라 가치·모멘텀·업종 위험을 함께 통제하는 구현이 중요합니다.", "evidenceType": "COMMERCIAL_IMPLEMENTATION", "sourceLabel": "Robeco 저변동 연구", "sourceUrl": "https://www.robeco.com/en-us/insights/2021/06/low-volatility-investing-now-more-than-ever"},
       "failureModesKo": ["유틸리티·필수소비재 등 방어 업종 집중", "금리 급등기에 동반 약세", "강한 위험선호 상승장에서 장기간 뒤처짐"],
-      "cautionKo": "운용사의 설명은 독립적인 성과 인증이 아니며 실제 상품은 수수료와 추적오차가 있습니다."
+      "cautionKo": "운용사의 설명은 독립적인 성과 인증이 아니며 실제 상품은 수수료와 추적오차가 있습니다.",
+      "requiredDataKo": ["수정 수익률", "변동성·하락폭", "업종·금리 민감도"],
+      "favorableMarketKo": "손실 회피와 안정성이 중요하고 위험 회피가 커지는 환경",
+      "unfavorableMarketKo": "고위험 성장주가 빠르게 오르는 강한 위험선호 시장",
+      "conflictInterpretationKo": "낮은 위험 점수는 상승 가능성보다 손실 특성을 말하므로 모멘텀·성장과 같은 방향이어도 목적을 구분합니다.",
+      "reviewedAt": "2026-08-29",
+      "nextReviewAt": "2026-11-29"
     },
     {
       "id": "M-EVENT-001",
@@ -143,7 +199,13 @@
       ],
       "caseStudy": {"titleKo": "Washington Post의 저평가 자사주 매입", "summaryKo": "Berkshire가 보유하던 동안 Washington Post 경영진은 시장가격이 사업가치보다 크게 낮을 때 상당한 자사주를 매입했습니다.", "outcomeKo": "Buffett는 사업 성장, 할인 축소와 함께 자사주 매입이 주당가치를 더 빠르게 높였다고 설명했습니다.", "lessonKo": "‘매입 발표’보다 실제 실행 가격과 남은 주주의 주당가치 변화가 핵심입니다.", "evidenceType": "PUBLIC_COMPANY_LETTER", "sourceLabel": "Berkshire 1985 주주서한", "sourceUrl": "https://www.berkshirehathaway.com/letters/1985.html"},
       "failureModesKo": ["발표만 하고 실제 매입하지 않음", "고평가 상태에서 주가 부양 목적으로 매입", "스톡옵션 발행을 상쇄하지 못해 주식 수가 줄지 않음"],
-      "cautionKo": "사건 뒤 수익에는 사업 변화와 시장 환경도 작용하므로 사건 하나의 인과효과로 단정하지 않습니다."
+      "cautionKo": "사건 뒤 수익에는 사업 변화와 시장 환경도 작용하므로 사건 하나의 인과효과로 단정하지 않습니다.",
+      "requiredDataKo": ["공식 발표 원문과 시각", "실제 실행 내역", "주식 수·전망·후속 정정"],
+      "favorableMarketKo": "공식 발표 뒤 실제 실행과 후속 확인 자료가 연속해서 나오는 환경",
+      "unfavorableMarketKo": "발표만 반복되고 실행이 없거나 여러 사건이 겹쳐 원인을 나누기 어려운 환경",
+      "conflictInterpretationKo": "사건 신호가 좋아도 품질·회계가 나쁘면 일회성 주가 부양 가능성을 표시하고 실제 실행을 기다립니다.",
+      "reviewedAt": "2026-08-29",
+      "nextReviewAt": "2026-11-29"
     },
     {
       "id": "M-ACCOUNT-001",
@@ -157,7 +219,13 @@
       ],
       "caseStudy": {"titleKo": "Sloan의 발생액 이상현상 포트폴리오", "summaryKo": "Sloan은 이익을 현금흐름과 발생액으로 나누고, 시장이 두 구성요소의 지속성 차이를 즉시 충분히 반영하는지 시험했습니다.", "outcomeKo": "원 연구는 고발생액과 저발생액 집단의 후속 수익 차이를 보고했습니다. 후속 연구는 거래비용과 효과 약화를 함께 지적합니다.", "lessonKo": "높은 이익 숫자보다 그 이익이 현금으로 뒷받침되는지를 봐야 한다는 대표 사례입니다.", "evidenceType": "ACADEMIC_BACKTEST", "sourceLabel": "Sloan 원 논문", "sourceUrl": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2598"},
       "failureModesKo": ["성장 투자로 인한 정상 운전자본 증가를 부실로 오해", "금융업에 일반 제조업 공식을 적용", "정정공시와 인수합병 효과를 누락"],
-      "cautionKo": "발생액 이상현상은 공개 뒤 약해졌다는 연구도 있어 최신 시장·비용 재검증이 필수입니다."
+      "cautionKo": "발생액 이상현상은 공개 뒤 약해졌다는 연구도 있어 최신 시장·비용 재검증이 필수입니다.",
+      "requiredDataKo": ["공시일 기준 손익·현금흐름", "운전자본 변화", "정정공시·인수합병 정보"],
+      "favorableMarketKo": "회계이익과 현금흐름 차이가 크고 그 차이가 반복되는 시장",
+      "unfavorableMarketKo": "성장 투자와 운전자본 증가가 정상인데 이를 부실로 오해하기 쉬운 환경",
+      "conflictInterpretationKo": "이익의 질이 낮으면 성장·가치 점수를 낮은 확신으로 보고, 금융업에는 일반 제조업 해석을 적용하지 않습니다.",
+      "reviewedAt": "2026-08-29",
+      "nextReviewAt": "2026-11-29"
     },
     {
       "id": "M-ENSEMBLE-001",
@@ -171,7 +239,13 @@
       ],
       "caseStudy": {"titleKo": "AQR의 다중스타일 상용 포트폴리오", "summaryKo": "AQR은 가치·모멘텀·품질 특성을 한 포트폴리오에서 체계적으로 결합하는 실제 다중스타일 상품을 운영합니다.", "outcomeKo": "서로 다른 신호를 결합한 대표 상용 사례지만, 특정 기간의 수익을 종합 방식 하나에 귀속하거나 미래 성과로 일반화할 수 없습니다.", "lessonKo": "여러 방법을 단순히 많이 넣는 것이 아니라 중복을 줄이고 각 신호의 기여를 설명하는 것이 핵심입니다.", "evidenceType": "COMMERCIAL_IMPLEMENTATION", "sourceLabel": "AQR Large Cap Multi-Style Fund", "sourceUrl": "https://funds.aqr.com/funds/aqr-large-cap-multi-style-fund"},
       "failureModesKo": ["비슷한 신호를 여러 번 넣어 확신을 과장", "좋았던 방법만 사후 선택", "모형이 복잡해져 사용자가 이유를 이해하지 못함"],
-      "cautionKo": "다중스타일 상용 상품도 손실이 가능하며, 신호 결합이 위험을 없애지는 않습니다."
+      "cautionKo": "다중스타일 상용 상품도 손실이 가능하며, 신호 결합이 위험을 없애지는 않습니다.",
+      "requiredDataKo": ["각 방법의 원점수·계열", "누락률과 상관 묶음", "한 방법 제외 민감도"],
+      "favorableMarketKo": "서로 다른 세 계열 이상이 독립 근거를 제공하고 누락이 낮은 환경",
+      "unfavorableMarketKo": "비슷한 신호가 반복되거나 한 계열이 결과를 독점하고 설명이 불가능한 환경",
+      "conflictInterpretationKo": "충돌이 크면 억지 종합을 하지 않고 판정 보류하며, 가장 영향이 큰 방법을 제외한 결과도 함께 봅니다.",
+      "reviewedAt": "2026-08-29",
+      "nextReviewAt": "2026-11-29"
     }
   ]
 }
