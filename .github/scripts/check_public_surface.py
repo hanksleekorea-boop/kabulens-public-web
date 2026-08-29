@@ -22,7 +22,7 @@ SURFACES = {
     "stock-scanner.css": ("text/css", b"focus-visible", 500_000),
     "stock_scanner_runtime.js": ("javascript", b"StockScanner", 500_000),
     "advanced_research_runtime.js": ("javascript", b"StockScannerAdvanced", 500_000),
-    "advanced_research_ui.js": ("javascript", b"advancedWorkbench", 500_000),
+    "advanced_research_ui.js": ("javascript", b"StockScannerAdvanced", 500_000),
     "advanced_research_v2.json": ("application/json", b'"schemaVersion": "stock-scanner-advanced-content/v2"', 500_000),
     "methodology_education_v1.json": ("application/json", b'"schemaVersion": "stock-scanner-method-education/v1"', 500_000),
     "free_content_guide_v1.json": ("application/json", b'"schemaVersion": "stock-scanner-free-content/v1"', 500_000),
