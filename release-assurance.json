@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "stock-scanner-free-release-assurance/v1",
+  "releaseVersion": "7.0",
+  "asOf": "2026-08-30",
+  "scope": "무료 합성자료 고급 연구·교육 공개판의 자동 검증 가능한 출시 표면",
+  "automatedChecks": 20,
+  "passed": 20,
+  "state": "PASS_AUTOMATED_PUBLIC_SCOPE",
+  "externalAssuranceComplete": false,
+  "checks": [
+    {"id":"FRA-01","name":"무료 범위·비보증 문구","status":"PASS_AUTOMATED"},
+    {"id":"FRA-02","name":"무료 고급 통과 조건","status":"PASS_AUTOMATED"},
+    {"id":"FRA-03","name":"합성 페르소나 1,000명×10과업","status":"PASS_AUTOMATED"},
+    {"id":"FRA-04","name":"공개 판번호 일치","status":"PASS_AUTOMATED"},
+    {"id":"FRA-05","name":"한국어·영어·핵심 일본어 계약","status":"PASS_AUTOMATED"},
+    {"id":"FRA-06","name":"12개 방법 교육 콘텐츠","status":"PASS_AUTOMATED"},
+    {"id":"FRA-07","name":"시작·시나리오·FAQ·용어 콘텐츠","status":"PASS_AUTOMATED"},
+    {"id":"FRA-08","name":"반응형·키보드·터치 CSS","status":"PASS_AUTOMATED"},
+    {"id":"FRA-09","name":"인쇄·PDF 구조","status":"PASS_AUTOMATED"},
+    {"id":"FRA-10","name":"오프라인 전체 화면 목록","status":"PASS_AUTOMATED"},
+    {"id":"FRA-11","name":"서비스워커 안전한 판 교체","status":"PASS_AUTOMATED"},
+    {"id":"FRA-12","name":"로컬 백업·복원·삭제","status":"PASS_AUTOMATED"},
+    {"id":"FRA-13","name":"안전한 JSON·CSV 내보내기","status":"PASS_AUTOMATED"},
+    {"id":"FRA-14","name":"정책 화면 콘텐츠 보안","status":"PASS_AUTOMATED"},
+    {"id":"FRA-15","name":"비밀값·추적기 부재","status":"PASS_AUTOMATED"},
+    {"id":"FRA-16","name":"내부 링크 무결성","status":"PASS_AUTOMATED"},
+    {"id":"FRA-17","name":"비공개 보안 신고와 만료 여유","status":"PASS_AUTOMATED"},
+    {"id":"FRA-18","name":"설치정보·검색 노출 파일","status":"PASS_AUTOMATED"},
+    {"id":"FRA-19","name":"3브라우저·Lighthouse·의존성 검사","status":"PASS_AUTOMATED"},
+    {"id":"FRA-20","name":"20개 보증 보고서 완결성","status":"PASS_AUTOMATED"}
+  ],
+  "externalEvidence": [
+    {"name":"최신 Android 화면읽기 도구 수동 여정","status":"NOT_PROVEN"},
+    {"name":"iPhone VoiceOver·설치·업데이트·오프라인","status":"NOT_RUN"},
+    {"name":"실제 사용자 5명 사용성 관찰","status":"NOT_RUN"},
+    {"name":"운영자 법적 신원·관할·정식 법률 검토","status":"USER_DECISION"},
+    {"name":"허가된 실제 시장자료·독립 예측 성능","status":"VENDOR_OR_EXTERNAL"}
+  ],
+  "nonClaim": "이 보고서는 자동 검사 가능한 무료 합성 연구판 범위만 보증하며 실제 투자예측, 법률 준수 인증, 실사용성 또는 실기기 화면읽기 완료를 뜻하지 않습니다."
+}

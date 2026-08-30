@@ -21,6 +21,7 @@ SURFACES = {
     "advanced-persona-report.json": ("application/json", b'"population": 1000', 100_000),
     "commercial-free-readiness.json": ("application/json", b'"releaseVersion": "7.0"', 100_000),
     "commercial-persona-report.json": ("application/json", b'"tasks": 10000', 100_000),
+    "release-assurance.json": ("application/json", b'"automatedChecks": 20', 100_000),
     "stock-scanner.css": ("text/css", b"focus-visible", 500_000),
     "stock_scanner_runtime.js": ("javascript", b"StockScanner", 500_000),
     "advanced_research_runtime.js": ("javascript", b"StockScannerAdvanced", 500_000),

@@ -53,7 +53,7 @@ test('Stock Scanner QR policy and PWA assets are public',async({page,request,bas
   await expect(page.locator('#publicQrLink')).toHaveAttribute('href',/stock-scanner-qr\.png$/);
   await expect(page.locator('body')).not.toContainText('개발 진척');
   await expect(page.locator('body')).not.toContainText('99/100');
-  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','methodology_education_v1.json','brand.json','stock-scanner-qr.png','advanced_research_runtime.js','advanced_research_ui.js','advanced_research_v2.json','stage2-readiness.json','advanced-persona-report.json','commercial_free_runtime.js','commercial_free_ui.js','commercial_free_v1.json','commercial-free-readiness.json','commercial-persona-report.json','.well-known/security.txt','dashboard.html','progress.json','free-launch-readiness.json','legal/terms.html','legal/privacy.html']){
+  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','methodology_education_v1.json','brand.json','stock-scanner-qr.png','advanced_research_runtime.js','advanced_research_ui.js','advanced_research_v2.json','stage2-readiness.json','advanced-persona-report.json','commercial_free_runtime.js','commercial_free_ui.js','commercial_free_v1.json','commercial-free-readiness.json','commercial-persona-report.json','release-assurance.json','.well-known/security.txt','dashboard.html','progress.json','free-launch-readiness.json','legal/terms.html','legal/privacy.html']){
     expect((await request.get(new URL(asset,baseURL).href)).ok(),asset).toBeTruthy();
   }
   const manifest=await(await request.get(new URL('stock-scanner.webmanifest',baseURL).href)).json();
@@ -108,11 +108,38 @@ test('Advanced free commercial desk completes a reproducible local research flow
   expect(errors).toEqual([]);
 });
 
+test('Print report and offline policy surfaces remain usable',async({page,context,browserName,baseURL})=>{
+  await page.setViewportSize({width:1440,height:900});
+  await page.goto(new URL('stock-scanner.html#scan',baseURL).href,{waitUntil:'networkidle'});
+  await page.locator('details.advanced-filters summary').click();
+  await page.locator('#scanMinScore').selectOption('-100');
+  await page.getByRole('button',{name:'상승 후보 찾기'}).click();
+  await page.locator('#resultList .result-card').first().click();
+  await page.emulateMedia({media:'print'});
+  await expect(page.locator('#reportPanel')).toBeVisible();
+  await expect(page.locator('.scanner-header')).toBeHidden();
+  await expect(page.locator('#reportPanel')).toContainText('찬성 근거');
+  await page.emulateMedia({media:'screen'});
+  test.skip(browserName!=='chromium','one real service-worker offline journey is sufficient');
+  await page.goto(new URL('stock-scanner.html?research=desk#reports',baseURL).href,{waitUntil:'networkidle'});
+  await page.evaluate(async()=>{await navigator.serviceWorker.ready;if(!navigator.serviceWorker.controller)location.reload();});
+  await page.waitForFunction(()=>Boolean(navigator.serviceWorker.controller));
+  await context.setOffline(true);
+  try{
+    await page.goto(new URL('legal/privacy.html',baseURL).href,{waitUntil:'domcontentloaded'});
+    await expect(page.getByRole('heading',{name:'Stock Scanner 개인정보 안내'})).toBeVisible();
+    await page.goto(new URL('support.html',baseURL).href,{waitUntil:'domcontentloaded'});
+    await expect(page.getByRole('heading',{name:'Stock Scanner 지원·신고'})).toBeVisible();
+    await page.goto(new URL('stock-scanner.html?research=desk#reports',baseURL).href,{waitUntil:'domcontentloaded'});
+    await expect(page.locator('#commercialLaunchDesk')).toBeVisible();
+  }finally{await context.setOffline(false);}
+});
+
 test('Stock Scanner development dashboard exposes truthful progress and twenty-item queues',async({page,baseURL})=>{
   const response=await page.goto(new URL('dashboard.html',baseURL).href,{waitUntil:'networkidle'});
   expect(response?.ok()).toBeTruthy();
   await expect(page).toHaveTitle(/개발 진척 대시보드 · Stock Scanner/);
-  await expect(page.locator('#metrics .metric-card')).toHaveCount(8);
+  await expect(page.locator('#metrics .metric-card')).toHaveCount(9);
   await expect(page.locator('#urgent li')).toHaveCount(20);
   await expect(page.locator('#autonomous li')).toHaveCount(20);
   await expect(page.locator('#summary')).toContainText('로그인·결제 없이');

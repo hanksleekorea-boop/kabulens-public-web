@@ -16,7 +16,7 @@ export default defineConfig({
   use: {
     baseURL: process.env.STOCK_SCANNER_PUBLIC_URL,
     ignoreHTTPSErrors: false,
-    serviceWorkers: 'block',
+    serviceWorkers: 'allow',
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure'
   },

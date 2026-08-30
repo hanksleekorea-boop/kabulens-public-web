@@ -42,6 +42,8 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
+      - name: Verify twenty-point free release assurance
+        run: python .github/scripts/check_free_release_assurance.py --root .
       - run: npm ci --prefix .github/quality
       - run: npm audit --prefix .github/quality --audit-level=high
       - run: mkdir -p .github/quality/results
