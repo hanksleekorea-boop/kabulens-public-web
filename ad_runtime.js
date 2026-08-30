@@ -153,6 +153,8 @@
   }
 
   var api = Object.freeze({ validateConfig: validateConfig, routeName: routeName, decide: decide, initialize: initialize, setCertifiedConsent: setCertifiedConsent });
-  if (typeof window !== 'undefined' && window.document) window.addEventListener('DOMContentLoaded', function () { initialize(window); }, { once: true });
+  if (typeof window !== 'undefined' && window.document) window.addEventListener('DOMContentLoaded', function () {
+    if (!window.STOCK_SCANNER_AD_DEMAND_CONFIG) initialize(window);
+  }, { once: true });
   return api;
 }));

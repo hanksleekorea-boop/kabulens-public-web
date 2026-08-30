@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "stock-scanner-advertising-readiness/v2",
+  "asOf": "2026-08-30",
+  "scope": "Stage-two Google Ad Manager orchestration and managed demand expansion",
+  "automaticStatus": "COMPLETE",
+  "liveStatus": "HOUSE_ONLY",
+  "automaticGates": [
+    {"id":"AD2-01","status":"PASS","name":"Google Ad Manager demand configuration"},
+    {"id":"AD2-02","status":"PASS","name":"Single orchestrator for all educational slots"},
+    {"id":"AD2-03","status":"PASS","name":"Core and policy routes remain ad-free"},
+    {"id":"AD2-04","status":"PASS","name":"Maximum two ads and reserved responsive space"},
+    {"id":"AD2-05","status":"PASS","name":"Certified consent required before provider load"},
+    {"id":"AD2-06","status":"PASS","name":"GPC and age restriction fail closed"},
+    {"id":"AD2-07","status":"PASS","name":"GPT initial request disabled before consent"},
+    {"id":"AD2-08","status":"PASS","name":"Google Ad Manager identifiers validated"},
+    {"id":"AD2-09","status":"PASS","name":"Unverified and uncontracted demand rejected"},
+    {"id":"AD2-10","status":"PASS","name":"Server-side Open Bidding only in stage two"},
+    {"id":"AD2-11","status":"PASS","name":"House fallback always available"},
+    {"id":"AD2-12","status":"PASS","name":"Provider timeout and circuit breaker"},
+    {"id":"AD2-13","status":"PASS","name":"Automatic refresh disabled"},
+    {"id":"AD2-14","status":"PASS","name":"No-ad holdout supported without persistent identity"},
+    {"id":"AD2-15","status":"PASS","name":"Aggregate-only reporting contract"},
+    {"id":"AD2-16","status":"PASS","name":"Creative category and editorial protections"},
+    {"id":"AD2-17","status":"PASS","name":"Pricing rules require real evidence"},
+    {"id":"AD2-18","status":"PASS","name":"Supply-chain authorization fails closed"},
+    {"id":"AD2-19","status":"PASS","name":"Stage-two activation bundle generator"},
+    {"id":"AD2-20","status":"PASS","name":"Public automated stage-two verification"}
+  ],
+  "externalGates": [
+    {"id":"ADX2-01","status":"WAITING","name":"All stage-one external gates approved"},
+    {"id":"ADX2-02","status":"WAITING","name":"Ad Manager network and web inventory approved"},
+    {"id":"ADX2-03","status":"WAITING","name":"Ad Exchange or eligible backfill linked"},
+    {"id":"ADX2-04","status":"WAITING","name":"Open Bidding terms and partner contracts confirmed"},
+    {"id":"ADX2-05","status":"WAITING","name":"Yield groups and protections reviewed"},
+    {"id":"ADX2-06","status":"WAITING","name":"Authorized ads.txt lines and seller relationships verified"},
+    {"id":"ADX2-07","status":"WAITING","name":"Regional CMP and GPC journeys verified"},
+    {"id":"ADX2-08","status":"NOT_RUN","name":"One idle Android device advertising journey"},
+    {"id":"ADX2-09","status":"NOT_RUN","name":"Thirty-day valid traffic, bid, fill, net revenue and UX evidence"},
+    {"id":"ADX2-10","status":"WAITING","name":"Human review and production activation approval"}
+  ],
+  "evidenceBoundary": "Automatic completion proves code, content, tests and safe public configuration. It does not prove account eligibility, contracts, live auctions, traffic quality, revenue, regional legal compliance or device behavior."
+}

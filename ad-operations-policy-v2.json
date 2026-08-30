@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "stock-scanner-ad-operations-policy/v2",
+  "status": "PRE_APPROVAL",
+  "objective": "Fund free educational content without changing research conclusions, collecting user identifiers, or degrading core experience.",
+  "inventory": {
+    "allowedSurfaces": ["education"],
+    "blockedSurfaces": ["scanner", "results", "reports", "policies", "support", "status", "privacy-choices", "print", "offline"],
+    "maximumAdsPerPage": 2,
+    "automaticRefresh": false
+  },
+  "demandStrategy": {
+    "primaryAdServer": "google-ad-manager",
+    "stage2Auction": "Google Ad Manager unified auction when externally approved",
+    "openBidding": "CONTRACT_AND_ACCOUNT_REQUIRED",
+    "clientHeaderBidding": "NOT_ENABLED_STAGE2",
+    "directAdSenseOverlap": "FORBIDDEN_WHEN_AD_EXCHANGE_OR_YIELD_GROUP_TARGETS_SAME_INVENTORY",
+    "houseFallback": "ALWAYS_AVAILABLE"
+  },
+  "privacy": {
+    "certifiedCmpRequired": true,
+    "gpcHonored": true,
+    "contextualDefault": true,
+    "aggregateReportingOnly": true,
+    "userIdentifiers": false,
+    "childDirectedRequests": "NO_THIRD_PARTY_DEMAND"
+  },
+  "performance": {
+    "providerTimeoutMs": 1200,
+    "reservedSlotSpace": true,
+    "maximumCls": 0.1,
+    "circuitBreakerFailures": 3,
+    "circuitBreakerWindowSeconds": 300,
+    "noAdHoldoutPercent": 10
+  },
+  "pricing": {
+    "liveFloorRules": [],
+    "rule": "Do not set or optimize floors before at least 30 days of valid bid, fill, net revenue, and user-experience evidence.",
+    "overlapReviewRequired": true
+  },
+  "creativeProtections": {
+    "blockedCategories": ["get-rich-quick", "gambling", "high-risk-loans", "unlicensed-brokerage", "guaranteed-returns"],
+    "openBiddingProtectionFilteringRequired": true,
+    "advertiserCannotInfluenceResearch": true
+  },
+  "releaseRule": "All automatic gates plus every external gate must pass before LIVE_STAGE2. Missing or stale evidence means HOUSE_ONLY."
+}

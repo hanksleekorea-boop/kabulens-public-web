@@ -146,7 +146,7 @@ test('Stock Scanner development dashboard exposes truthful progress and twenty-i
   await expect(page.locator('#metrics')).toContainText('99/100');
 });
 
-test('Stage one advertising preparation is English responsive and fails closed',async({page,request,baseURL})=>{
+test('Stage two advertising orchestration is responsive and fails closed',async({page,request,baseURL})=>{
   const thirdParty=[];
   page.on('request',entry=>{if(/googlesyndication|doubleclick|fundingchoices/i.test(entry.url()))thirdParty.push(entry.url());});
   for(const width of [1440,390,360]){
@@ -164,8 +164,16 @@ test('Stage one advertising preparation is English responsive and fails closed',
   const readiness=await(await request.get(new URL('advertising-stage1-readiness.json',baseURL).href)).json();
   expect(readiness.automaticGates).toHaveLength(20);
   expect(readiness.externalGates.every(item=>item.status!=='PASS')).toBeTruthy();
+  const stage2=await(await request.get(new URL('advertising-stage2-readiness.json',baseURL).href)).json();
+  expect(stage2.automaticGates).toHaveLength(20);
+  expect(stage2.externalGates).toHaveLength(10);
+  expect(stage2.externalGates.every(item=>item.status!=='PASS')).toBeTruthy();
+  const stage2Config=await(await request.get(new URL('ad_demand_config.js',baseURL).href)).text();
+  expect(stage2Config).toContain("releaseMode: 'PRE_APPROVAL_STAGE2'");
+  expect(stage2Config).toContain('enabled: false');
   await page.goto(new URL('privacy-choices.html',baseURL).href,{waitUntil:'networkidle'});
   await expect(page.getByRole('heading',{name:'Advertising and privacy choices'})).toBeVisible();
   await page.getByRole('button',{name:'Clear advertising preferences'}).click();
   await expect(page.locator('#clearAdStatus')).toContainText('were cleared');
+  await expect(page.locator('#gpcStatus')).not.toBeEmpty();
 });
