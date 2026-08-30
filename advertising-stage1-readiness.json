@@ -24,7 +24,7 @@
     {"id": "AD1-17", "title": "Financial promotion separation", "status": "PASS"},
     {"id": "AD1-18", "title": "Responsive reserved ad dimensions", "status": "PASS"},
     {"id": "AD1-19", "title": "No ads on legal, support, status", "status": "PASS"},
-    {"id": "AD1-20", "title": "Machine-verifiable activation gate", "status": "PASS"}
+    {"id": "AD1-20", "title": "Machine-verifiable site-ownership and activation gates", "status": "PASS"}
   ],
   "externalGates": [
     {"id": "ADX-01", "title": "Verified legal operator identity and address", "status": "WAITING_OPERATOR"},

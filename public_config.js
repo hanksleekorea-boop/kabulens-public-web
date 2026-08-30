@@ -6,7 +6,7 @@
     brandName: 'Stock Scanner',
     publicUrl: PUBLIC_URL,
     qrUrl: PUBLIC_URL + 'stock-scanner-qr.png',
-    releaseVersion: '7.3'
+    releaseVersion: '7.4'
   });
   window.STOCK_SCANNER_PUBLIC_CONFIG = config;
   /* Previous global name remains a read-only alias so older installed pages keep working. */
