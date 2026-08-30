@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "stock-scanner-ad-operations-policy/v3",
+  "status": "PRE_APPROVAL",
+  "objective": "Operate a transparent multi-demand marketplace for free educational content without user identity, editorial influence, or degradation of the scanner.",
+  "inventory": {
+    "allowedSurfaces": ["education"],
+    "blockedSurfaces": ["scanner", "results", "reports", "policies", "support", "status", "privacy-choices", "print", "offline"],
+    "maximumAdsPerPage": 2,
+    "automaticRefresh": false
+  },
+  "marketplace": {
+    "finalAdServer": "google-ad-manager",
+    "channels": ["direct-sold-gam-line-items", "ad-exchange", "open-bidding", "limited-prebid", "house"],
+    "maximumPrebidPartnersPerSlot": 3,
+    "prebidAuctionTimeoutMs": 700,
+    "prebidMaximumRolloutPercent": 50,
+    "duplicatePartnerAcrossOpenBiddingAndPrebid": "FORBIDDEN",
+    "selfHostedVersionPinnedPrebidRequired": true,
+    "houseFallback": "ALWAYS_AVAILABLE"
+  },
+  "privacy": {
+    "certifiedCmpRequired": true,
+    "tcfAndGppSignalsRequiredWhereApplicable": true,
+    "gpcHonored": true,
+    "contextualOnly": true,
+    "deviceAccess": false,
+    "userSync": false,
+    "userIdModules": false,
+    "aggregateReportingOnly": true,
+    "userIdentifiers": false,
+    "childDirectedRequests": "NO_THIRD_PARTY_DEMAND"
+  },
+  "targeting": {
+    "allowedContextKeys": ["ss_surface", "ss_slot", "ss_language", "ss_synthetic"],
+    "forbiddenKeys": ["user_id", "email", "symbol", "company", "portfolio", "search_query", "watchlist"],
+    "advertiserAudienceFromResearchData": false
+  },
+  "directSales": {
+    "signedInsertionOrderRequired": true,
+    "creativeAndLandingPageApprovalRequired": true,
+    "invoiceTaxAndRefundTermsRequired": true,
+    "frequencyCapRequired": true,
+    "advertiserCannotInfluenceResearch": true,
+    "sponsoredResearchOrPaidRanking": "FORBIDDEN"
+  },
+  "performance": {
+    "totalProviderTimeoutMs": 1500,
+    "reservedSlotSpace": true,
+    "maximumCls": 0.1,
+    "circuitBreakerFailures": 3,
+    "circuitBreakerWindowSeconds": 300,
+    "noAdHoldoutPercent": 10,
+    "rolloutStagesPercent": [1, 10, 25, 50]
+  },
+  "pricing": {
+    "currency": "USD",
+    "liveFloorRules": [],
+    "evidenceDaysRequired": 30,
+    "floorSkipControlPercent": 10,
+    "rule": "No floor is generated or optimized until valid bid, fill, fee-adjusted net revenue, direct delivery, LCP, CLS, and retention evidence is reviewed.",
+    "googleAndPrebidOverlapReviewRequired": true
+  },
+  "supplyChain": {
+    "adsTxt11Required": true,
+    "sellerRelationshipsRequired": true,
+    "sellersJsonRequired": true,
+    "completeSchainRequired": true,
+    "ownerDomainAndManagerDomainRequiredWhenApplicable": true,
+    "unverifiedResellerPath": "REJECT"
+  },
+  "creativeProtections": {
+    "blockedCategories": ["get-rich-quick", "gambling", "high-risk-loans", "unlicensed-brokerage", "guaranteed-returns"],
+    "safeRendererRequiredWhenApplicable": true,
+    "topWindowRenderer": false,
+    "malwareAndRedirectReviewRequired": true,
+    "advertiserCannotInfluenceResearch": true
+  },
+  "releaseRule": "All automatic gates and every external gate must pass before LIVE_STAGE3. Missing, stale, duplicate, or inconsistent evidence means HOUSE_ONLY."
+}

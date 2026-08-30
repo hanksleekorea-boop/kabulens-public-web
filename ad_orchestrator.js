@@ -195,6 +195,6 @@
   }
 
   var api = Object.freeze({validateConfig: validateConfig, routeName: routeName, hashBucket: hashBucket, ephemeralSeed: ephemeralSeed, createMetrics: createMetrics, recordMetric: recordMetric, consentDecision: consentDecision, isCircuitOpen: isCircuitOpen, recordHealth: recordHealth, selectDemand: selectDemand, initialize: initialize});
-  if (typeof window !== 'undefined' && window.document) window.addEventListener('DOMContentLoaded', function () { initialize(window); }, {once: true});
+  if (typeof window !== 'undefined' && window.document && !window.STOCK_SCANNER_AD_MARKETPLACE_CONFIG) window.addEventListener('DOMContentLoaded', function () { initialize(window); }, {once: true});
   return api;
 }));

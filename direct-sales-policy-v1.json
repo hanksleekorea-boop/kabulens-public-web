@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "stock-scanner-direct-sales-policy/v1",
+  "status": "NOT_ACCEPTING_LIVE_CAMPAIGNS",
+  "inventory": ["learnTop", "learnMiddle"],
+  "formats": ["responsive-banner"],
+  "prohibited": [
+    "paid stock ranking or scanner inclusion",
+    "guaranteed returns or misleading financial claims",
+    "unlicensed brokerage or financial intermediation",
+    "gambling, high-risk lending, malware, forced redirects, or deceptive controls",
+    "creative that resembles scanner output or a service recommendation",
+    "collection or targeting based on watchlists, saved scans, notes, imports, symbols, or company searches"
+  ],
+  "requiredBeforeCampaign": [
+    "verified legal advertiser and billing contact",
+    "signed insertion order with dates, inventory, rate, cap, cancellation, make-good, and refund terms",
+    "creative and landing-page review",
+    "frequency and delivery cap",
+    "tax and invoicing verification",
+    "clear advertising label",
+    "independent Stock Scanner editorial approval",
+    "post-campaign aggregate delivery report"
+  ],
+  "measurement": {
+    "aggregateOnly": true,
+    "stockScannerUserIdentifier": false,
+    "viewThroughOrCrossSiteIdentity": false,
+    "researchDataAudience": false
+  },
+  "contactState": "USE_PUBLIC_SUPPORT_FOR_NON_SENSITIVE_INTEREST_ONLY_UNTIL_VERIFIED_OPERATOR_CHANNEL_IS_PUBLISHED"
+}

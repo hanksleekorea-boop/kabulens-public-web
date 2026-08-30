@@ -1,7 +1,7 @@
 {
   "schemaVersion": "stock-scanner-free-launch-readiness/v1",
   "product": "Stock Scanner",
-  "version": "7.2",
+  "version": "7.3",
   "updatedAt": "2026-08-29T23:45:00+07:00",
   "scopeId": "FREE_PUBLIC_EDUCATION_RESEARCH_NO_PAYMENT",
   "scoreBasis": "The shared PC and mobile PWA gate weights total 100. Passed gates total 99; one point remains for a manual assistive-technology check.",
