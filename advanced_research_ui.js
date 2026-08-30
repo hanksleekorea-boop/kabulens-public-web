@@ -65,7 +65,12 @@
     window.addEventListener('stockscanner-delete-all',function(){localStorage.removeItem(KEY);state=Advanced.state();renderSelectors();run();});
   }
   function focusRequestedResearch(){var key=new URLSearchParams(location.search).get('research'),targets={change:'advancedChangeSection',conflict:'advancedConflictSection',regimes:'advancedRegimesSection',scenarios:'advancedScenariosSection',evidence:'advancedEvidenceSection',timeline:'advancedTimelineSection',commodity:'advancedCommoditySection'};if(!targets[key])return;var target=el(targets[key]);target.setAttribute('tabindex','-1');setTimeout(function(){target.focus({preventScroll:false});},100);}
-  function init(payload){content=Advanced.validateContent(payload);state=load();el('advancedAsOf').value='2026-08-29';content.issueTypes.forEach(function(type){el('advancedIssueType').insertAdjacentHTML('beforeend','<option value="'+esc(type)+'">'+esc(type)+'</option>');});renderSelectors();renderTranslations();wire();run();var coverage=Advanced.localeCoverage(content);el('advancedLocaleCoverage').textContent='KO '+coverage.locales.ko.coverage+'% · EN '+coverage.locales.en.coverage+'% · JA core '+(coverage.jaCoreComplete?'100%':'partial');focusRequestedResearch();}
+  function init(payload){content=Advanced.validateContent(payload);state=load();el('advancedAsOf').value='2026-08-29';content.issueTypes.forEach(function(type){el('advancedIssueType').insertAdjacentHTML('beforeend','<option value="'+esc(type)+'">'+esc(type)+'</option>');});renderSelectors();renderTranslations();wire();run();var coverage=Advanced.localeCoverage(content);el('advancedLocaleCoverage').textContent='KO '+coverage.locales.ko.coverage+'% · EN '+coverage.locales.en.coverage+'% · JA core '+(coverage.jaCoreComplete?'100%':'partial');focusRequestedResearch();window.StockScannerAdvancedUIReady=true;window.dispatchEvent(new CustomEvent('stockscanner-advanced-ready'));}
   function start(){fetch('./advanced_research_v2.json',{cache:'no-cache'}).then(function(response){if(!response.ok)throw new Error('ADVANCED_CONTENT_FETCH_FAILED');return response.json();}).then(init).catch(function(error){if(el('advancedStatus'))status('Advanced content unavailable: '+error.message,true);console.error(error);});}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
+  var started=false;
+  function requested(){return location.hash==='#reports'||new URLSearchParams(location.search).has('research');}
+  function startOnce(){if(started)return;started=true;window.removeEventListener('hashchange',startWhenRequested);start();}
+  function startWhenRequested(){if(requested())startOnce();}
+  function schedule(){startWhenRequested();if(!started)window.addEventListener('hashchange',startWhenRequested);}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule);else schedule();
 })();

@@ -40,5 +40,12 @@
     window.addEventListener('stockscanner-delete-all',function(){localStorage.removeItem(KEY);state=Commercial.state();currentPack=null;render();});
   }
   function init(values){content=Commercial.validateContent(values[0]);advancedContent=Advanced.validateContent(values[1]);markSectionFromUrl();el('commercialBoundaryConfirm').checked=state.boundaryConfirmed;wire();render();setTimeout(renderChecklist,250);setTimeout(renderChecklist,1000);if(new URLSearchParams(location.search).get('research')==='desk')setTimeout(function(){el('commercialLaunchDesk').focus({preventScroll:false});},100);}
-  Promise.all([fetch('./commercial_free_v1.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error('COMMERCIAL_CONTENT_FETCH');return r.json();}),fetch('./advanced_research_v2.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error('ADVANCED_CONTENT_FETCH');return r.json();})]).then(init).catch(function(error){if(el('commercialPackStatus'))el('commercialPackStatus').textContent='무료 고급 연구 데스크를 불러오지 못했습니다: '+error.message;console.error(error);});
+  function initWhenAdvancedReady(values){if(window.StockScannerAdvancedUIReady){init(values);return;}window.addEventListener('stockscanner-advanced-ready',function(){init(values);},{once:true});}
+  function start(){Promise.all([fetch('./commercial_free_v1.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error('COMMERCIAL_CONTENT_FETCH');return r.json();}),fetch('./advanced_research_v2.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error('ADVANCED_CONTENT_FETCH');return r.json();})]).then(initWhenAdvancedReady).catch(function(error){if(el('commercialPackStatus'))el('commercialPackStatus').textContent='무료 고급 연구 데스크를 불러오지 못했습니다: '+error.message;console.error(error);});}
+  var started=false;
+  function requested(){return location.hash==='#reports'||new URLSearchParams(location.search).has('research');}
+  function startOnce(){if(started)return;started=true;window.removeEventListener('hashchange',startWhenRequested);start();}
+  function startWhenRequested(){if(requested())startOnce();}
+  function schedule(){startWhenRequested();if(!started)window.addEventListener('hashchange',startWhenRequested);}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule);else schedule();
 }());
