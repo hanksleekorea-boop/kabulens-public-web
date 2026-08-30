@@ -30,7 +30,7 @@ SURFACES = {
     "persona-report.json": ("application/json", b'"schemaVersion": "stock-scanner-persona-report/v2"', 100_000),
     "stage2-readiness.json": ("application/json", b'"releaseVersion": "6.0"', 100_000),
     "advanced-persona-report.json": ("application/json", b'"population": 1000', 100_000),
-    "commercial-free-readiness.json": ("application/json", b'"releaseVersion": "7.0"', 100_000),
+    "commercial-free-readiness.json": ("application/json", b'"releaseVersion": "7.2"', 100_000),
     "commercial-persona-report.json": ("application/json", b'"tasks": 10000', 100_000),
     "release-assurance.json": ("application/json", b'"automatedChecks": 20', 100_000),
     "stock-scanner.css": ("text/css", b"focus-visible", 500_000),
