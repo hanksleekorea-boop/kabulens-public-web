@@ -1,6 +1,6 @@
 {
   "schemaVersion": "stock-scanner-free-release-assurance/v1",
-  "releaseVersion": "7.0",
+  "releaseVersion": "7.2",
   "asOf": "2026-08-30",
   "scope": "무료 합성자료 고급 연구·교육 공개판의 자동 검증 가능한 출시 표면",
   "automatedChecks": 20,

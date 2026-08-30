@@ -1,6 +1,6 @@
 {
   "schemaVersion": "stock-scanner-brand/v1",
-  "releaseVersion": "7.0",
+  "releaseVersion": "7.2",
   "name": "Stock Scanner",
   "nameKo": "스탁스캐너",
   "descriptor": "Global multi-method equity research",
