@@ -7,6 +7,15 @@
   "passed": 20,
   "state": "PASS_AUTOMATED_PUBLIC_SCOPE",
   "externalAssuranceComplete": false,
+  "githubSecurity": {
+    "observedAt": "2026-08-30T05:04:05Z",
+    "codeScanning": "CONFIGURED_EXTENDED_WEEKLY",
+    "codeScanningOpenAlerts": 0,
+    "dependabotSecurityUpdates": "ENABLED",
+    "dependabotOpenAlerts": 0,
+    "secretScanning": "ENABLED",
+    "secretScanningPushProtection": "ENABLED"
+  },
   "checks": [
     {"id":"FRA-01","name":"무료 범위·비보증 문구","status":"PASS_AUTOMATED"},
     {"id":"FRA-02","name":"무료 고급 통과 조건","status":"PASS_AUTOMATED"},
