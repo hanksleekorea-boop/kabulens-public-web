@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "stock-scanner-advertising-stage1/v1",
+  "assessedAt": "2026-08-30",
+  "scope": "GLOBAL_FREE_PC_CONTEXTUAL_ADVERTISING",
+  "implementationStatus": "READY_DISABLED",
+  "activationPolicy": "FAIL_CLOSED",
+  "automaticGates": [
+    {"id": "AD1-01", "title": "English educational surface", "status": "PASS"},
+    {"id": "AD1-02", "title": "Core scanner and results stay ad-free", "status": "PASS"},
+    {"id": "AD1-03", "title": "Maximum two educational ad slots", "status": "PASS"},
+    {"id": "AD1-04", "title": "No publisher identifier before verification", "status": "PASS"},
+    {"id": "AD1-05", "title": "No external ad request in pre-approval mode", "status": "PASS"},
+    {"id": "AD1-06", "title": "Certified consent signal required", "status": "PASS"},
+    {"id": "AD1-07", "title": "Offline and print advertising blocked", "status": "PASS"},
+    {"id": "AD1-08", "title": "Provider timeout and house fallback", "status": "PASS"},
+    {"id": "AD1-09", "title": "Privacy choices surface", "status": "PASS"},
+    {"id": "AD1-10", "title": "Korean and English advertising disclosure", "status": "PASS"},
+    {"id": "AD1-11", "title": "Editorial independence disclosure", "status": "PASS"},
+    {"id": "AD1-12", "title": "Service worker never caches third-party ads", "status": "PASS"},
+    {"id": "AD1-13", "title": "Learning page search metadata", "status": "PASS"},
+    {"id": "AD1-14", "title": "Sitemap and robots access", "status": "PASS"},
+    {"id": "AD1-15", "title": "ads.txt honest disabled state", "status": "PASS"},
+    {"id": "AD1-16", "title": "Advertising preference deletion", "status": "PASS"},
+    {"id": "AD1-17", "title": "Financial promotion separation", "status": "PASS"},
+    {"id": "AD1-18", "title": "Responsive reserved ad dimensions", "status": "PASS"},
+    {"id": "AD1-19", "title": "No ads on legal, support, status", "status": "PASS"},
+    {"id": "AD1-20", "title": "Machine-verifiable activation gate", "status": "PASS"}
+  ],
+  "externalGates": [
+    {"id": "ADX-01", "title": "Verified legal operator identity and address", "status": "WAITING_OPERATOR"},
+    {"id": "ADX-02", "title": "Root custom domain ownership", "status": "WAITING_OPERATOR"},
+    {"id": "ADX-03", "title": "Approved AdSense publisher and ad-unit identifiers", "status": "WAITING_GOOGLE"},
+    {"id": "ADX-04", "title": "Google-certified CMP account and live messages", "status": "WAITING_GOOGLE"},
+    {"id": "ADX-05", "title": "Tax, payment, identity and address verification", "status": "WAITING_OPERATOR_GOOGLE"},
+    {"id": "ADX-06", "title": "AdSense site review", "status": "WAITING_GOOGLE"},
+    {"id": "ADX-07", "title": "Thirty days of valid traffic and revenue evidence", "status": "NOT_RUN"}
+  ],
+  "activationRule": "Live advertising remains disabled unless every external gate ADX-01 through ADX-06 is verified and the deployment-specific configuration passes the same automated checks.",
+  "evidenceBoundary": "PASS means local code and content contract only. It does not mean Google approval, legal advice, valid tax setup, actual impressions, revenue, or Android advertising validation."
+}

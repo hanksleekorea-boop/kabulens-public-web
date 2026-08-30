@@ -145,3 +145,27 @@ test('Stock Scanner development dashboard exposes truthful progress and twenty-i
   await expect(page.locator('#summary')).toContainText('로그인·결제 없이');
   await expect(page.locator('#metrics')).toContainText('99/100');
 });
+
+test('Stage one advertising preparation is English responsive and fails closed',async({page,request,baseURL})=>{
+  const thirdParty=[];
+  page.on('request',entry=>{if(/googlesyndication|doubleclick|fundingchoices/i.test(entry.url()))thirdParty.push(entry.url());});
+  for(const width of [1440,390,360]){
+    await page.setViewportSize({width,height:width>1000?900:844});
+    await page.goto(new URL('learn.html',baseURL).href,{waitUntil:'networkidle'});
+    await expect(page).toHaveTitle(/Stock Research Methods Guide/);
+    await expect(page.locator('.method-guide>article')).toHaveCount(12);
+    await expect(page.locator('[data-ad-surface="education"]')).toHaveCount(2);
+    await expect(page.locator('[data-ad-state="house"]')).toHaveCount(2);
+    await expect(page.locator('body')).toContainText('Advertising is not active');
+    const size=await page.evaluate(()=>({client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));
+    expect(size.scroll,`learning overflow at ${width}px`).toBeLessThanOrEqual(size.client);
+  }
+  expect(thirdParty).toEqual([]);
+  const readiness=await(await request.get(new URL('advertising-stage1-readiness.json',baseURL).href)).json();
+  expect(readiness.automaticGates).toHaveLength(20);
+  expect(readiness.externalGates.every(item=>item.status!=='PASS')).toBeTruthy();
+  await page.goto(new URL('privacy-choices.html',baseURL).href,{waitUntil:'networkidle'});
+  await expect(page.getByRole('heading',{name:'Advertising and privacy choices'})).toBeVisible();
+  await page.getByRole('button',{name:'Clear advertising preferences'}).click();
+  await expect(page.locator('#clearAdStatus')).toContainText('were cleared');
+});

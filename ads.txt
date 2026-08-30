@@ -1,0 +1,2 @@
+# Stock Scanner advertising is disabled until the publisher account and root custom domain are verified.
+# Do not add seller records here without validating the publisher ID against the approved account.
