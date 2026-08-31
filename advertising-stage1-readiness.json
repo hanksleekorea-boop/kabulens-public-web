@@ -2,13 +2,13 @@
   "schemaVersion": "stock-scanner-advertising-stage1/v1",
   "assessedAt": "2026-08-30",
   "scope": "GLOBAL_FREE_PC_CONTEXTUAL_ADVERTISING",
-  "implementationStatus": "READY_DISABLED",
+  "implementationStatus": "SITE_REVIEW_READY_DISABLED",
   "activationPolicy": "FAIL_CLOSED",
   "automaticGates": [
     {"id": "AD1-01", "title": "English educational surface", "status": "PASS"},
     {"id": "AD1-02", "title": "Core scanner and results stay ad-free", "status": "PASS"},
     {"id": "AD1-03", "title": "Maximum two educational ad slots", "status": "PASS"},
-    {"id": "AD1-04", "title": "No publisher identifier before verification", "status": "PASS"},
+    {"id": "AD1-04", "title": "Public publisher identifier verified at host root; no secret account data", "status": "PASS"},
     {"id": "AD1-05", "title": "No external ad request in pre-approval mode", "status": "PASS"},
     {"id": "AD1-06", "title": "Certified consent signal required", "status": "PASS"},
     {"id": "AD1-07", "title": "Offline and print advertising blocked", "status": "PASS"},
@@ -19,7 +19,7 @@
     {"id": "AD1-12", "title": "Service worker never caches third-party ads", "status": "PASS"},
     {"id": "AD1-13", "title": "Learning page search metadata", "status": "PASS"},
     {"id": "AD1-14", "title": "Sitemap and robots access", "status": "PASS"},
-    {"id": "AD1-15", "title": "ads.txt honest disabled state", "status": "PASS"},
+    {"id": "AD1-15", "title": "Authoritative host-root ads.txt and project-path mirror agree", "status": "PASS"},
     {"id": "AD1-16", "title": "Advertising preference deletion", "status": "PASS"},
     {"id": "AD1-17", "title": "Financial promotion separation", "status": "PASS"},
     {"id": "AD1-18", "title": "Responsive reserved ad dimensions", "status": "PASS"},
@@ -28,13 +28,22 @@
   ],
   "externalGates": [
     {"id": "ADX-01", "title": "Verified legal operator identity and address", "status": "WAITING_OPERATOR"},
-    {"id": "ADX-02", "title": "Root custom domain ownership", "status": "WAITING_OPERATOR"},
-    {"id": "ADX-03", "title": "Approved AdSense publisher and ad-unit identifiers", "status": "WAITING_GOOGLE"},
+    {"id": "ADX-02", "title": "Root custom domain ownership", "status": "PARTIAL_GITHUB_PAGES_ROOT_CONTROLLED_CUSTOM_DOMAIN_MISSING"},
+    {"id": "ADX-03", "title": "Approved AdSense publisher and ad-unit identifiers", "status": "PARTIAL_PUBLIC_PUBLISHER_ID_AD_UNITS_UNVERIFIED"},
     {"id": "ADX-04", "title": "Google-certified CMP account and live messages", "status": "WAITING_GOOGLE"},
     {"id": "ADX-05", "title": "Tax, payment, identity and address verification", "status": "WAITING_OPERATOR_GOOGLE"},
     {"id": "ADX-06", "title": "AdSense site review", "status": "WAITING_GOOGLE"},
     {"id": "ADX-07", "title": "Thirty days of valid traffic and revenue evidence", "status": "NOT_RUN"}
   ],
+  "publicEvidence": {
+    "publisherId": "ca-pub-2476023536699107",
+    "siteUrl": "https://hanksleekorea-boop.github.io/",
+    "rootAdsTxtUrl": "https://hanksleekorea-boop.github.io/ads.txt",
+    "projectLearningUrl": "https://hanksleekorea-boop.github.io/kabulens-public-web/learn.html",
+    "checkedAt": "2026-08-31",
+    "boundary": "Public metadata and ads.txt prove deployable ownership records, not AdSense account approval, site Ready status, CMP publication, ad-unit creation, impressions, or revenue."
+  },
+  "supportedFormats": ["responsive-display", "in-article", "multiplex-runtime-ready", "auto-ads-account-controlled"],
   "activationRule": "Live advertising remains disabled unless every external gate ADX-01 through ADX-06 is verified and the deployment-specific configuration passes the same automated checks.",
   "evidenceBoundary": "PASS means local code and content contract only. It does not mean Google approval, legal advice, valid tax setup, actual impressions, revenue, or Android advertising validation."
 }

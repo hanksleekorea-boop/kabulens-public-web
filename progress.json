@@ -3,7 +3,7 @@
   "product": "Stock Scanner",
   "nameKo": "스탁스캐너",
   "version": "7.4",
-  "updatedAt": "2026-08-30T19:10:00+07:00",
+  "updatedAt": "2026-08-31T14:30:00+07:00",
   "releaseState": "PUBLIC_ADVANCED_FREE_RESEARCH",
   "boundary": "SYNTHETIC_FIXED_NOT_REAL_SECURITIES",
   "summary": "로그인·결제 없이 사용하는 PC·모바일 무료 고급 연구 서비스입니다. 광고 3단계의 Google Ad Manager 최종조정·제한 Prebid·직접광고·공급망·동의·GPC·장애 차단 코드는 100% 구현됐지만 외부 승인 전에는 광고 요청 0과 자체 안내를 유지합니다. 공개 자료는 합성 예시이며 실제 종목 추천·수익 예측·개인 맞춤 권고는 아닙니다.",
@@ -45,10 +45,12 @@
     ,"한국어·영어 전체와 핵심 일본어, 권리 미확인 기사 본문 차단, 명시 동의형 비식별 과업 측정"
     ,"광고 2단계 AD2-01~20, Ad Manager 단일 조정, 동의·GPC·연령·장애 차단, 광고 요청 0 안전 공개"
     ,"광고 3단계 AD3-01~20, 제한 Prebid·직접광고·채널중복 차단·공급망·활성화 생성, 광고 요청 0 안전 공개"
-    ,"AdSense 승인 전 소유확인 메타태그·루트 ads.txt 생성기, 오입력·중복·비HTTPS 차단 4/4"
+    ,"AdSense 소유확인 메타태그·루트 ads.txt 생성기, 오입력·중복·비HTTPS 차단 4/4"
+    ,"공개 루트와 Stock Scanner의 AdSense 게시자 번호 일치, 루트 ads.txt HTTP 200"
+    ,"반응형 디스플레이·인아티클 두 형식과 멀티플렉스 실행기 지원, 승인 전 광고 요청 0"
   ],
   "bottlenecks": [
-    {"label":"AdSense 1단계 계정 생성","state":"USER_CONFIRMATION","unlock":"사용할 Google 계정·변경 불가능한 지급 국가·이메일 수신 선택·약관 동의를 확인한 뒤 계정 생성"},
+    {"label":"AdSense 사이트 Ready·광고 단위","state":"ACCOUNT_EVIDENCE_REQUIRED","unlock":"AdSense에서 게시자 번호 일치·사이트 Ready·인증 동의 메시지·실제 광고 단위 2개를 확인"},
     {"label":"무료판 남은 1점","state":"MANUAL_EVIDENCE","unlock":"실제 PC·모바일 화면읽기 도구로 핵심 여정 수동 확인"},
     {"label":"광고 3단계 실제 활성화","state":"EXTERNAL_12_GATES","unlock":"2단계 외부 통과·Prebid/SSP 계약·공급망·CMP·직접광고·Android·단계 공개·30/90일 자료·사람 승인"},
     {"label":"실제 시장자료","state":"USER_OR_VENDOR","unlock":"미국·일본 공급자와 표시·저장·파생·내보내기 권리 확정"},
@@ -77,20 +79,20 @@
     "qr":"https://hanksleekorea-boop.github.io/kabulens-public-web/stock-scanner-qr.png"
   },
   "urgentNext": [
-    "AdSense 소유자로 사용할 Google 계정 하나 확정",
+    "AdSense 계정에서 게시자 번호 pub-2476023536699107 일치 확인",
     "변경 불가능한 지급 국가·지역이 태국이 맞는지 확정",
-    "최적화 이메일 수신 여부와 AdSense 약관 동의 결정",
-    "AdSense 계정 생성 후 공개 게시자 번호 발급",
+    "운영자 신원·주소·세금·지급 프로필 실제 완료 확인",
+    "AdSense 사이트 목록에서 hanksleekorea-boop.github.io 상태 확인",
     "운영자 법적 이름·주소·관할·비공개 문의 채널 확정",
     "최종 루트 도메인·HTTPS·루트 ads.txt 통제 확인",
     "소유확인 생성기로 메타태그 묶음 생성·검토",
-    "소유확인 메타태그 공개 후 AdSense 연결 확인",
+    "소유확인 메타태그와 루트 ads.txt를 Google에서 검증",
     "Google에 사이트 검토 즉시 요청",
     "Google Privacy & Messaging 인증 CMP 생성",
     "EEA·영국·스위스 동의·거부·철회 여정 확인",
     "미국 지역 개인정보 선택 메시지와 GPC 확인",
     "신원·주소·세금·지급 프로필 검증",
-    "사이트 Ready 뒤 반응형 광고 단위 두 개 생성",
+    "사이트 Ready 뒤 반응형 디스플레이·인아티클 광고 단위 두 개 생성",
     "1단계 활성화 묶음 생성·두 사람 검토",
     "유휴 Android 한 대의 실제 광고 여정 시험",
     "iPhone과 실제 화면읽기 도구의 동의·광고 여정 시험",

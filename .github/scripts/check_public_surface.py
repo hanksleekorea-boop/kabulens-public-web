@@ -24,7 +24,7 @@ SURFACES = {
     "ad_marketplace_orchestrator.js": ("javascript", b"StockScannerAdMarketplace", 200_000),
     "ad-operations-policy-v3.json": ("application/json", b'"stock-scanner-ad-operations-policy/v3"', 100_000),
     "direct-sales-policy-v1.json": ("application/json", b'"stock-scanner-direct-sales-policy/v1"', 100_000),
-    "ads.txt": ("text/plain", b"# Stock Scanner advertising is disabled", 20_000),
+    "ads.txt": ("text/plain", b"google.com, pub-2476023536699107, DIRECT, f08c47fec0942fa0", 20_000),
     "advertising-stage1-readiness.json": ("application/json", b'"schemaVersion": "stock-scanner-advertising-stage1/v1"', 100_000),
     "advertising-stage2-readiness.json": ("application/json", b'"stock-scanner-advertising-readiness/v2"', 100_000),
     "advertising-stage3-readiness.json": ("application/json", b'"stock-scanner-advertising-readiness/v3"', 100_000),

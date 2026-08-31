@@ -21,13 +21,16 @@ def run(root: Path) -> int:
     terms_en = read(web / "legal" / "terms-en.html")
     choices = read(web / "privacy-choices.html")
     readiness = json.loads(read(web / "advertising-stage1-readiness.json"))
+    verification_script = read(root / "scripts" / "render_adsense_site_verification.py")
+    runbook = read(root / "docs" / "ADVERTISING_STAGE1_RUNBOOK.md")
 
     checks = [
         ("English educational surface", '<html lang="en">' in learn and learn.count('<article id="') == 12),
         ("Core scanner stays ad-free", "data-ad-surface" not in scanner and "adsbygoogle" not in scanner),
         ("Two slots maximum", learn.count('data-ad-surface="education"') == 2 and "maxAdsPerPage: 2" in config),
-        ("No publisher identifier", not re.search(r"ca-pub-\d", config + learn)),
-        ("Pre-approval disabled", "enabled: false" in config and "ADS_DISABLED_PRE_APPROVAL" in runtime),
+        ("Verified public publisher identifier only", config.count("ca-pub-2476023536699107") == 1 and learn.count("ca-pub-2476023536699107") == 1),
+        ("Site-review mode stays disabled", "releaseMode: 'SITE_REVIEW_READY'" in config and "enabled: false" in config and "ADS_DISABLED_PRE_APPROVAL" in runtime),
+        ("Two explicit formats", "learnTop: 'responsive-display'" in config and "learnMiddle: 'in-article'" in config and "data-ad-format=\"responsive-display\"" in learn and "data-ad-format=\"in-article\"" in learn),
         ("Certified consent required", "CERTIFIED_CONSENT_REQUIRED" in runtime and "google-certified-cmp" in runtime),
         ("Offline blocked", "OFFLINE_NO_ADS" in runtime),
         ("Print blocked", "PRINT_NO_ADS" in runtime),
@@ -35,14 +38,21 @@ def run(root: Path) -> int:
         ("House fallback", "renderFallback" in runtime and "without tracking" in learn),
         ("Privacy choices", "Clear advertising preferences" in choices),
         ("Korean disclosure", "광고는 현재 비활성" in privacy_ko),
-        ("English disclosure", "Live advertising is disabled" in privacy_en),
+        ("English disclosure", "Live advertising remains disabled" in privacy_en),
         ("Editorial independence", "Advertisers cannot purchase rankings" in terms_en),
         ("First-party service worker only", "url.origin!==self.location.origin" in sw and "pagead2" not in sw),
         ("Search metadata", 'hreflang="en"' in learn and 'robots" content="index,follow' in learn),
         ("Sitemap educational URL", "learn.html" in read(web / "sitemap.xml")),
-        ("Honest ads.txt", "advertising is disabled" in read(web / "ads.txt").lower() and "google.com," not in read(web / "ads.txt")),
+        ("Verified ads.txt mirror", "google.com, pub-2476023536699107, DIRECT, f08c47fec0942fa0" in read(web / "ads.txt") and "authoritative record" in read(web / "ads.txt").lower()),
         ("External gates explicit", len(readiness["externalGates"]) == 7 and all(g["status"] != "PASS" for g in readiness["externalGates"])),
-        ("Automatic contract complete", len(readiness["automaticGates"]) == 20 and all(g["status"] == "PASS" for g in readiness["automaticGates"])),
+        (
+            "Automatic contract complete",
+            len(readiness["automaticGates"]) == 20
+            and all(g["status"] == "PASS" for g in readiness["automaticGates"])
+            and "google-adsense-account" in verification_script
+            and "loadsAdvertisingScript" in verification_script
+            and "render_adsense_site_verification.py" in runbook,
+        ),
     ]
     failed = [name for name, passed in checks if not passed]
     for name, passed in checks:

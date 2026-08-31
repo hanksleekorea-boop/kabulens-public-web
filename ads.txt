@@ -1,2 +1,3 @@
-# Stock Scanner advertising is disabled until the publisher account and root custom domain are verified.
-# Do not add seller records here without validating the publisher ID against the approved account.
+# Mirror for project-path diagnostics; Google's authoritative record is the host-root file below.
+# https://hanksleekorea-boop.github.io/ads.txt
+google.com, pub-2476023536699107, DIRECT, f08c47fec0942fa0

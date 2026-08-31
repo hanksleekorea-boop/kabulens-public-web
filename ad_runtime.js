@@ -7,6 +7,7 @@
   'use strict';
   var PUBLISHER_PATTERN = /^ca-pub-\d{16}$/;
   var SLOT_PATTERN = /^\d{6,12}$/;
+  var SLOT_FORMATS = ['responsive-display', 'in-article', 'multiplex'];
   var CERTIFIED_SOURCES = ['google-certified-cmp', 'tcf-v2.3', 'gpp'];
 
   function text(value) { return String(value == null ? '' : value).trim(); }
@@ -17,6 +18,7 @@
     if (config && config.provider !== 'google-adsense') errors.push('PROVIDER_NOT_ALLOWED_STAGE1');
     if (config && config.enabled && !PUBLISHER_PATTERN.test(text(config.publisherId))) errors.push('PUBLISHER_ID_INVALID');
     if (config && config.enabled && (!config.cmp || config.cmp.accountConfigured !== true)) errors.push('CERTIFIED_CMP_NOT_CONFIGURED');
+    if (config && config.enabled && config.slotFormats && Object.keys(config.slotFormats).some(function (key) { return SLOT_FORMATS.indexOf(text(config.slotFormats[key])) < 0; })) errors.push('AD_FORMAT_INVALID');
     if (config && (!Number.isInteger(config.maxAdsPerPage) || config.maxAdsPerPage < 0 || config.maxAdsPerPage > 2)) errors.push('AD_DENSITY_INVALID');
     return errors;
   }
@@ -72,6 +74,7 @@
   function renderAdSlot(slot, config) {
     var key = text(slot.dataset.adSlotKey);
     var slotId = text(config.slotIds && config.slotIds[key]);
+    var format = text(config.slotFormats && config.slotFormats[key]) || 'responsive-display';
     if (!SLOT_PATTERN.test(slotId)) {
       renderFallback(slot, 'AD_SLOT_ID_INVALID');
       return false;
@@ -86,8 +89,16 @@
     ad.style.display = 'block';
     ad.dataset.adClient = config.publisherId;
     ad.dataset.adSlot = slotId;
-    ad.dataset.adFormat = 'auto';
-    ad.dataset.fullWidthResponsive = 'true';
+    if (format === 'in-article') {
+      ad.dataset.adLayout = 'in-article';
+      ad.dataset.adFormat = 'fluid';
+    } else if (format === 'multiplex') {
+      ad.dataset.adFormat = 'autorelaxed';
+    } else {
+      ad.dataset.adFormat = 'auto';
+      ad.dataset.fullWidthResponsive = 'true';
+    }
+    slot.dataset.adFormat = format;
     slot.append(label, ad);
     return true;
   }
