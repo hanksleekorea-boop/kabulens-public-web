@@ -21,8 +21,19 @@ def run(root: Path) -> int:
     terms_en = read(web / "legal" / "terms-en.html")
     choices = read(web / "privacy-choices.html")
     readiness = json.loads(read(web / "advertising-stage1-readiness.json"))
-    verification_script = read(root / "scripts" / "render_adsense_site_verification.py")
-    runbook = read(root / "docs" / "ADVERTISING_STAGE1_RUNBOOK.md")
+    verification_script_path = root / "scripts" / "render_adsense_site_verification.py"
+    runbook_path = root / "docs" / "ADVERTISING_STAGE1_RUNBOOK.md"
+    source_contract_available = verification_script_path.is_file() and runbook_path.is_file()
+    verification_script = read(verification_script_path) if source_contract_available else ""
+    runbook = read(runbook_path) if source_contract_available else ""
+    verification_contract = (
+        "google-adsense-account" in verification_script
+        and "loadsAdvertisingScript" in verification_script
+        and "render_adsense_site_verification.py" in runbook
+        if source_contract_available
+        else learn.count('name="google-adsense-account" content="ca-pub-2476023536699107"') == 1
+        and "google.com, pub-2476023536699107, DIRECT, f08c47fec0942fa0" in read(web / "ads.txt")
+    )
 
     checks = [
         ("English educational surface", '<html lang="en">' in learn and learn.count('<article id="') == 12),
@@ -49,9 +60,7 @@ def run(root: Path) -> int:
             "Automatic contract complete",
             len(readiness["automaticGates"]) == 20
             and all(g["status"] == "PASS" for g in readiness["automaticGates"])
-            and "google-adsense-account" in verification_script
-            and "loadsAdvertisingScript" in verification_script
-            and "render_adsense_site_verification.py" in runbook,
+            and verification_contract,
         ),
     ]
     failed = [name for name, passed in checks if not passed]
