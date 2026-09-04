@@ -123,55 +123,82 @@
       "id": "FIRST_USE",
       "titleKo": "아직 검사를 실행하지 않았습니다",
       "reasonKo": "예제 또는 직접 조건을 선택할 수 있습니다.",
-      "actionKo": "예제 스캔 시작"
+      "actionKo": "예제 스캔 시작",
+      "titleEn": "No scan has been run",
+      "reasonEn": "Choose an example or your own conditions.",
+      "actionEn": "Start an example scan"
     },
     {
       "id": "LOADING",
       "titleKo": "합성 후보를 계산하고 있습니다",
       "reasonKo": "선택한 조건을 같은 고정 규칙으로 적용합니다.",
-      "actionKo": "잠시 기다리기"
+      "actionKo": "잠시 기다리기",
+      "titleEn": "Calculating synthetic candidates",
+      "reasonEn": "Applying the same fixed rules to the selected conditions.",
+      "actionEn": "Please wait"
     },
     {
       "id": "EMPTY",
       "titleKo": "조건에 맞는 합성 후보가 없습니다",
       "reasonKo": "최소 점수가 높거나 검색어와 조건이 너무 좁을 수 있습니다.",
-      "actionKo": "최소 점수 낮추기"
+      "actionKo": "최소 점수 낮추기",
+      "titleEn": "No synthetic candidates match",
+      "reasonEn": "The minimum score may be high or the filters too narrow.",
+      "actionEn": "Lower the minimum score"
     },
     {
       "id": "PARTIAL",
       "titleKo": "일부 자료만 사용할 수 있습니다",
       "reasonKo": "누락된 항목은 점수나 보고서에서 별도로 표시합니다.",
-      "actionKo": "누락 항목 보기"
+      "actionKo": "누락 항목 보기",
+      "titleEn": "Only partial data is available",
+      "reasonEn": "Missing fields are separately identified in scores and reports.",
+      "actionEn": "Inspect missing fields"
     },
     {
       "id": "STALE",
       "titleKo": "확인일이 지난 자료입니다",
       "reasonKo": "현재 상황과 다를 수 있으므로 새 자료처럼 해석하면 안 됩니다.",
-      "actionKo": "확인일 보기"
+      "actionKo": "확인일 보기",
+      "titleEn": "The review date has passed",
+      "reasonEn": "Do not interpret older information as current data.",
+      "actionEn": "Check the review date"
     },
     {
       "id": "OFFLINE",
       "titleKo": "오프라인으로 보고 있습니다",
       "reasonKo": "마지막으로 저장된 화면은 볼 수 있지만 새 시장자료를 불러오지 않습니다.",
-      "actionKo": "연결 뒤 다시 확인"
+      "actionKo": "연결 뒤 다시 확인",
+      "titleEn": "Viewing offline",
+      "reasonEn": "Saved screens may be available; no new market data is loaded.",
+      "actionEn": "Recheck after reconnecting"
     },
     {
       "id": "ERROR",
       "titleKo": "검사를 완료하지 못했습니다",
       "reasonKo": "선택한 방법과 기간이 맞지 않거나 입력이 올바르지 않을 수 있습니다.",
-      "actionKo": "조건 확인"
+      "actionKo": "조건 확인",
+      "titleEn": "The scan could not be completed",
+      "reasonEn": "The method and horizon may be incompatible or an input invalid.",
+      "actionEn": "Check conditions"
     },
     {
       "id": "RESTORED",
       "titleKo": "백업을 복원했습니다",
       "reasonKo": "관심 종목과 저장 검사를 현재 기기에 적용했습니다.",
-      "actionKo": "복원된 자료 보기"
+      "actionKo": "복원된 자료 보기",
+      "titleEn": "Backup restored",
+      "reasonEn": "Watchlists and saved scans were restored on this device.",
+      "actionEn": "View restored data"
     },
     {
       "id": "DELETED",
       "titleKo": "현재 기기 자료를 삭제했습니다",
       "reasonKo": "Stock Scanner의 로컬 자료만 삭제했으며 이전 판 원본은 유지했습니다.",
-      "actionKo": "처음부터 시작"
+      "actionKo": "처음부터 시작",
+      "titleEn": "Local data deleted",
+      "reasonEn": "Only Stock Scanner data on this device was deleted; previous-version sources remain.",
+      "actionEn": "Start again"
     }
   ],
   "faqs": [

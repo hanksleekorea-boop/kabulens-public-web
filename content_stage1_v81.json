@@ -147,7 +147,16 @@
           "Inspect leverage and liquidity.",
           "Check efficiency and filing dates."
         ]
-      }
+      },
+      "additionalSources": [
+        {
+          "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+          "labelKo": "공시·XBRL 입력 정의",
+          "labelEn": "Filing and XBRL input definitions",
+          "role": "METHOD_OR_INPUT_REFERENCE_NOT_RETURN_PROOF",
+          "checkedAt": "2026-09-04"
+        }
+      ]
     },
     {
       "methodId": "M-QUALITY-002",
@@ -180,7 +189,16 @@
           "Compare cash conversion.",
           "Adjust for reinvestment and industry structure."
         ]
-      }
+      },
+      "additionalSources": [
+        {
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/roc.htm",
+          "labelKo": "업종별 ROIC 조정 비교",
+          "labelEn": "Industry ROIC adjustment comparison",
+          "role": "METHOD_OR_INPUT_REFERENCE_NOT_RETURN_PROOF",
+          "checkedAt": "2026-09-04"
+        }
+      ]
     },
     {
       "methodId": "M-GROWTH-001",
@@ -213,7 +231,16 @@
           "Compare the actual release.",
           "Check one-offs and guidance changes."
         ]
-      }
+      },
+      "additionalSources": [
+        {
+          "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+          "labelKo": "공시 시점·재무 입력 정의",
+          "labelEn": "Filing-time and financial input definitions",
+          "role": "METHOD_OR_INPUT_REFERENCE_NOT_RETURN_PROOF",
+          "checkedAt": "2026-09-04"
+        }
+      ]
     },
     {
       "methodId": "M-FACTOR-001",
@@ -246,7 +273,16 @@
           "Inspect five-factor exposures.",
           "Read residual return and uncertainty."
         ]
-      }
+      },
+      "additionalSources": [
+        {
+          "url": "https://doi.org/10.1016/j.jfineco.2014.10.010",
+          "labelKo": "5요인 모형 연구",
+          "labelEn": "Five-factor model research",
+          "role": "METHOD_OR_INPUT_REFERENCE_NOT_RETURN_PROOF",
+          "checkedAt": "2026-09-04"
+        }
+      ]
     },
     {
       "methodId": "M-MOM-001",
@@ -279,7 +315,16 @@
           "Skip the latest month.",
           "Check turnover costs and reversal risk."
         ]
-      }
+      },
+      "additionalSources": [
+        {
+          "url": "https://www.nber.org/papers/w20439",
+          "labelKo": "모멘텀 급락 연구",
+          "labelEn": "Momentum crash research",
+          "role": "METHOD_OR_INPUT_REFERENCE_NOT_RETURN_PROOF",
+          "checkedAt": "2026-09-04"
+        }
+      ]
     },
     {
       "methodId": "M-TREND-001",
@@ -312,7 +357,16 @@
           "Inspect crossover persistence.",
           "Use ranges and costs as counter-evidence."
         ]
-      }
+      },
+      "additionalSources": [
+        {
+          "url": "https://www.nber.org/papers/w20439",
+          "labelKo": "관련 전략의 급반전 위험 비교 (추세 성과 증거 아님)",
+          "labelEn": "Related-strategy reversal risk (not evidence of trend returns)",
+          "role": "METHOD_OR_INPUT_REFERENCE_NOT_RETURN_PROOF",
+          "checkedAt": "2026-09-04"
+        }
+      ]
     },
     {
       "methodId": "M-REVERT-001",
@@ -345,7 +399,16 @@
           "Check new disclosures and events.",
           "Use liquidity and trend as counter-evidence."
         ]
-      }
+      },
+      "additionalSources": [
+        {
+          "url": "https://doi.org/10.1111/j.1540-6261.1990.tb05110.x",
+          "labelKo": "단기 수익률 예측성 원 연구",
+          "labelEn": "Original short-horizon return predictability research",
+          "role": "METHOD_OR_INPUT_REFERENCE_NOT_RETURN_PROOF",
+          "checkedAt": "2026-09-04"
+        }
+      ]
     },
     {
       "methodId": "M-LOWRISK-001",
@@ -378,7 +441,16 @@
           "Check sector concentration.",
           "Read opportunity cost in bull markets."
         ]
-      }
+      },
+      "additionalSources": [
+        {
+          "url": "https://www.aqr.com/insights/research/journal-article/betting-against-beta",
+          "labelKo": "베타·차입 제약 연구",
+          "labelEn": "Beta and leverage-constraint research",
+          "role": "METHOD_OR_INPUT_REFERENCE_NOT_RETURN_PROOF",
+          "checkedAt": "2026-09-04"
+        }
+      ]
     },
     {
       "methodId": "M-EVENT-001",
@@ -444,7 +516,16 @@
           "Inspect working-capital changes.",
           "Check industry context and restatements."
         ]
-      }
+      },
+      "additionalSources": [
+        {
+          "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+          "labelKo": "회계 공시 입력·단위·기간 정의",
+          "labelEn": "Accounting filing inputs, units and periods",
+          "role": "METHOD_OR_INPUT_REFERENCE_NOT_RETURN_PROOF",
+          "checkedAt": "2026-09-04"
+        }
+      ]
     },
     {
       "methodId": "M-ENSEMBLE-001",

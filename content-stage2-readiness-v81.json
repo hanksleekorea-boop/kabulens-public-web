@@ -3,12 +3,28 @@
   "stage": 2,
   "updatedAt": "2026-09-04T00:00:00+07:00",
   "scope": "LICENSED_US_MARKET_CONTENT",
-  "implementationContracts": {"passed": 24, "total": 24, "rate": 100, "evidenceRef": "stage1-market-v8.json"},
-  "actualContent": {"publishedSecurities": 0, "publishedReports": 0, "doubleReviewedDocuments": 0, "observationDays": 0, "rate": 0},
-  "externalEvidence": {"passed": 0, "total": 10, "rate": 0, "evidenceRef": "stage1-market-v8.json"},
+  "implementationContracts": {
+    "passed": 24,
+    "total": 24,
+    "rate": 100,
+    "evidenceRef": "stage1-market-v8.json"
+  },
+  "actualContent": {
+    "publishedSecurities": 0,
+    "publishedReports": 0,
+    "doubleReviewedDocuments": 0,
+    "observationDays": 0,
+    "rate": 0
+  },
+  "externalEvidence": {
+    "passed": 0,
+    "total": 10,
+    "rate": 0,
+    "evidenceRef": "stage1-market-v8.json"
+  },
   "automatedComplete": true,
   "externalComplete": false,
   "overallComplete": false,
   "blockingReason": "No contracted market-data provider, verified six-operation rights, real operator, independent method review, real users, current device evidence, legal review, or public real-market observation.",
-  "boundary": "The real-market content system is code-complete but real US market content remains held at zero until external evidence exists."
+  "boundary": "24/24 measures existing v8 machine safety contracts, not completion of the 24 C2 v8.1 plan tasks. Provider-specific real-data integration and end-to-end validation remain incomplete; no real US content is published."
 }
