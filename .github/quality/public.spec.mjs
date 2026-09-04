@@ -208,11 +208,14 @@ test('v8.1 content library has complete reports and English help at desktop and 
   const errors=[];
   page.on('pageerror',error=>errors.push(error.message));
   for(const width of [1440,390,360]){
+    // A same-URL navigation may preserve open <details>; start each viewport with a new document.
+    await page.goto('about:blank');
     await page.setViewportSize({width,height:900});
     await page.goto(new URL('stock-scanner.html#more',baseURL).href,{waitUntil:'networkidle'});
     await expect(page.locator('#contentV81Methods > details')).toHaveCount(12);
     await expect(page.locator('#contentV81Tutorials > article')).toHaveCount(18);
     await expect(page.locator('#contentV81Gallery > article details')).toHaveCount(36);
+    await expect(page.locator('#contentV81States > article')).toHaveCount(12);
     await page.locator('#contentV81Gallery > article details summary').first().click();
     await expect(page.locator('#contentV81Gallery > article details code').first()).toBeVisible();
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth)).toBeTruthy();
