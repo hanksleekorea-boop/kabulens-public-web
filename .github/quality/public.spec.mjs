@@ -53,9 +53,10 @@ test('Stock Scanner QR policy and PWA assets are public',async({page,request,bas
   await expect(page.locator('#publicQrLink')).toHaveAttribute('href',/stock-scanner-qr\.png$/);
   await expect(page.locator('body')).not.toContainText('개발 진척');
   await expect(page.locator('body')).not.toContainText('99/100');
-  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','methodology_education_v1.json','brand.json','stock-scanner-qr.png','advanced_research_runtime.js','advanced_research_ui.js','advanced_research_v2.json','stage2-readiness.json','advanced-persona-report.json','commercial_free_runtime.js','commercial_free_ui.js','commercial_free_v1.json','commercial-free-readiness.json','commercial-persona-report.json','release-assurance.json','.well-known/security.txt','dashboard.html','progress.json','free-launch-readiness.json','legal/terms.html','legal/privacy.html']){
+  for(const asset of ['stock-scanner.webmanifest','stock-scanner-sw.js','sw_update_v8.js','methodology_education_v1.json','brand.json','stock-scanner-qr.png','advanced_research_runtime.js','advanced_research_ui.js','advanced_research_v2.json','stage2-readiness.json','advanced-persona-report.json','commercial_free_runtime.js','commercial_free_ui.js','commercial_free_v1.json','commercial-free-readiness.json','commercial-persona-report.json','release-assurance.json','.well-known/security.txt','dashboard.html','progress.json','stage1-market-v8.json','stage2-global-v8.json','free-launch-readiness.json','legal/terms.html','legal/privacy.html']){
     expect((await request.get(new URL(asset,baseURL).href)).ok(),asset).toBeTruthy();
   }
+  expect((await request.get(new URL('stock-scanner-v8.css',baseURL).href)).ok(),'stock-scanner-v8.css').toBeTruthy();
   const manifest=await(await request.get(new URL('stock-scanner.webmanifest',baseURL).href)).json();
   expect(manifest.name).toBe('Stock Scanner');
   expect(manifest.start_url).toBe('./stock-scanner.html#today');
@@ -139,11 +140,23 @@ test('Stock Scanner development dashboard exposes truthful progress and twenty-i
   const response=await page.goto(new URL('dashboard.html',baseURL).href,{waitUntil:'networkidle'});
   expect(response?.ok()).toBeTruthy();
   await expect(page).toHaveTitle(/개발 진척 대시보드 · Stock Scanner/);
-  await expect(page.locator('#metrics .metric-card')).toHaveCount(9);
+  await expect(page.locator('#metrics .metric-card')).toHaveCount(13);
   await expect(page.locator('#urgent li')).toHaveCount(20);
   await expect(page.locator('#autonomous li')).toHaveCount(20);
   await expect(page.locator('#summary')).toContainText('로그인·결제 없이');
   await expect(page.locator('#metrics')).toContainText('99/100');
+  await expect(page.locator('#metrics')).toContainText('24개 / 24개');
+  await expect(page.locator('#metrics')).toContainText('0개 / 10개');
+  await expect(page.locator('#metrics')).toContainText('20개 / 20개');
+  await expect(page.locator('#metrics')).toContainText('0개 / 12개');
+  const marketStage1=await(await page.request.get(new URL('stage1-market-v8.json',baseURL).href)).json();
+  expect(marketStage1.automatedGates).toHaveLength(24);
+  expect(marketStage1.externalGates).toHaveLength(10);
+  expect(marketStage1.externalGates.every(item=>item.status!=='VERIFIED')).toBeTruthy();
+  const globalStage2=await(await page.request.get(new URL('stage2-global-v8.json',baseURL).href)).json();
+  expect(globalStage2.automatedGates).toHaveLength(20);
+  expect(globalStage2.externalGates).toHaveLength(12);
+  expect(globalStage2.externalGates.every(item=>item.status!=='VERIFIED')).toBeTruthy();
 });
 
 test('Stage three advertising marketplace is responsive and fails closed',async({page,request,baseURL})=>{

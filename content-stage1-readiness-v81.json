@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "stock-scanner-content-readiness/v8.1",
+  "stage": 1,
+  "updatedAt": "2026-09-04T00:00:00+07:00",
+  "scope": "COMPLETE_SYNTHETIC_EDUCATION_LIBRARY",
+  "quantityAutomated": {"passed": 8, "total": 8, "rate": 100},
+  "qualityAutomated": {"passed": 8, "total": 8, "rate": 100},
+  "workItems": {"automatedPassed": 20, "total": 20, "rate": 100},
+  "externalEvidence": [
+    {"id":"METHOD_EXPERT_REVIEW","status":"NOT_RUN"},
+    {"id":"KO_EN_TRANSLATION_REVIEW","status":"NOT_RUN"},
+    {"id":"JA_CORE_REVIEW","status":"NOT_RUN"},
+    {"id":"REAL_USERS_5","status":"NOT_RUN"},
+    {"id":"SCREEN_READER_SESSION","status":"NOT_RUN"}
+  ],
+  "automatedComplete": true,
+  "externalComplete": false,
+  "overallComplete": false,
+  "boundary": "100% automated means the declared synthetic education content and machine-verifiable checks are complete. It does not replace expert, translation, real-user or screen-reader evidence."
+}

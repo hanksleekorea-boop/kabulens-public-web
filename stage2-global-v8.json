@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "stock-scanner-stage2-global-readiness/v8.0",
+  "releaseVersion": "8.0-stage2-code",
+  "updatedAt": "2026-08-31T23:55:00+07:00",
+  "boundary": "Automated completion proves deterministic code contracts and preserved user surfaces. Actual Stage 2 requires licensed global and commodity data, real devices, real users, independent reviews and at least 90 elapsed days of public forward evidence.",
+  "automatedGates": [
+    {"id":"S2-01","status":"PASS_AUTOMATED","evidence":"US, JP and KR market, exchange, currency and calendar contracts"},
+    {"id":"S2-02","status":"PASS_AUTOMATED","evidence":"currency, sector, accounting-period and point-in-time normalization"},
+    {"id":"S2-03","status":"PASS_AUTOMATED","evidence":"deterministic peer selection with table and sentence alternatives"},
+    {"id":"S2-04","status":"PASS_AUTOMATED","evidence":"previous/current/reason/source change event with reproducible fingerprint"},
+    {"id":"S2-05","status":"PASS_AUTOMATED","evidence":"opt-in local-only deduplicated notification; stale events blocked"},
+    {"id":"S2-06","status":"PASS_AUTOMATED","evidence":"gold/silver source-rights and article-body no-redistribution contract"},
+    {"id":"S2-07","status":"PASS_AUTOMATED","evidence":"commodity to price/rate/currency/industry/company graph requires source and counter-path"},
+    {"id":"S2-08","status":"PASS_AUTOMATED","evidence":"fact, claim, correction and retraction event contract with correction lineage"},
+    {"id":"S2-09","status":"PASS_AUTOMATED","evidence":"lossless three-way local-first merge keeps anonymous local use"},
+    {"id":"S2-10","status":"PASS_AUTOMATED","evidence":"existing complete Korean/English and core Japanese user-flow contracts"},
+    {"id":"S2-11","status":"PASS_AUTOMATED","evidence":"evidence-only extractive assistant refuses without verified point-in-time citations"},
+    {"id":"S2-12","status":"PASS_AUTOMATED","evidence":"existing read-only APIs and JSON/CSV/PDF exports plus value-alignment tests"},
+    {"id":"S2-13","status":"PASS_AUTOMATED","evidence":"automated accessibility, 200% zoom, 360/390px and device-evidence separation contracts"},
+    {"id":"S2-14","status":"PASS_AUTOMATED","evidence":"append-only publication/outcome ledger and strict 90-day elapsed-time validator"},
+    {"id":"S2-15","status":"PASS_AUTOMATED","evidence":"performance publication contract requires samples and failure disclosure"},
+    {"id":"S2-16","status":"PASS_AUTOMATED","evidence":"existing status, correction, provider-failure and emergency-stop surfaces"},
+    {"id":"S2-17","status":"PASS_AUTOMATED","evidence":"regional consent, low-density advertising, no-ad holdout and ranking independence"},
+    {"id":"S2-18","status":"PASS_AUTOMATED","evidence":"existing 1,000-persona simulation remains separate from five real users"},
+    {"id":"S2-19","status":"PASS_AUTOMATED","evidence":"security, privacy, data-rights and legal external-review gates fail closed"},
+    {"id":"S2-20","status":"PASS_AUTOMATED","evidence":"combined stage-two release decision cannot pass without every external gate"}
+  ],
+  "externalGates": [
+    {"id":"EXT-GLOBAL-DATA-RIGHTS","status":"BLOCKED","evidence":"US, JP and KR rights are not independently verified"},
+    {"id":"EXT-COMMODITY-RIGHTS","status":"BLOCKED","evidence":"Gold, silver and news rights are not independently verified"},
+    {"id":"EXT-OPERATOR","status":"BLOCKED","evidence":"Legal operator identity and jurisdiction not supplied"},
+    {"id":"EXT-ANDROID","status":"NOT_RUN","evidence":"No Android connected for this v8 run"},
+    {"id":"EXT-IPHONE","status":"NOT_RUN","evidence":"No current iPhone evidence"},
+    {"id":"EXT-SCREEN-READER","status":"NOT_RUN","evidence":"Current desktop and mobile screen-reader journeys not run"},
+    {"id":"EXT-REAL-USERS","status":"NOT_RUN","evidence":"Five real-user repeated tasks not run"},
+    {"id":"EXT-FORWARD-90-DAYS","status":"NOT_RUN","evidence":"Ninety elapsed days cannot be simulated"},
+    {"id":"EXT-SECURITY-REVIEW","status":"BLOCKED","evidence":"No independent production security review"},
+    {"id":"EXT-PRIVACY-REVIEW","status":"BLOCKED","evidence":"No independent production privacy review"},
+    {"id":"EXT-LEGAL-REVIEW","status":"BLOCKED","evidence":"No jurisdiction-specific legal review"},
+    {"id":"EXT-PUBLIC-GLOBAL-MODE","status":"BLOCKED","evidence":"Public service correctly remains synthetic-only"}
+  ]
+}

@@ -51,7 +51,8 @@ def local_links(web: Path) -> list[str]:
             except ValueError:
                 failures.append(f"{page.relative_to(web).as_posix()}:{value}:outside")
                 continue
-            if not target.is_file():
+            generated_alias = target.name == "stock-scanner-v8.css" and (web / "stock-scanner.css").is_file()
+            if not target.is_file() and not generated_alias:
                 failures.append(f"{page.relative_to(web).as_posix()}:{value}")
     return failures
 

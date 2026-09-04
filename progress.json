@@ -3,19 +3,26 @@
   "product": "Stock Scanner",
   "nameKo": "스탁스캐너",
   "version": "7.4",
-  "updatedAt": "2026-08-31T14:30:00+07:00",
+  "updatedAt": "2026-09-04T14:30:00+07:00",
   "releaseState": "PUBLIC_ADVANCED_FREE_RESEARCH",
   "boundary": "SYNTHETIC_FIXED_NOT_REAL_SECURITIES",
-  "summary": "로그인·결제 없이 사용하는 PC·모바일 무료 고급 연구 서비스입니다. 광고 3단계의 Google Ad Manager 최종조정·제한 Prebid·직접광고·공급망·동의·GPC·장애 차단 코드는 100% 구현됐지만 외부 승인 전에는 광고 요청 0과 자체 안내를 유지합니다. 공개 자료는 합성 예시이며 실제 종목 추천·수익 예측·개인 맞춤 권고는 아닙니다.",
+  "summary": "로그인·결제 없이 사용하는 PC·모바일 무료 고급 연구 서비스입니다. v8.1 콘텐츠 1단계 자동 작업 20/20과 콘텐츠 2단계 구현 계약 24/24, v8.0 실제시장 1단계 24/24와 글로벌 2단계 20/20을 완료했습니다. 실제 제공자·재배포권·운영자·현재판 실기기·실사용자·90일 관찰은 확보되지 않았으므로 실제 시장과 글로벌 모드는 닫혀 있고 공개 자료는 계속 합성 예시입니다.",
   "metrics": [
     {"id":"brand","label":"Stock Scanner 브랜드·공개","value":100,"unit":"%","state":"PASS","evidence":"공개 main·QR·PWA·정책·지원 전환 완료"},
-    {"id":"content","label":"1단계 무료서비스 콘텐츠 구현","value":100,"unit":"%","state":"PASS","evidence":"12개 방법×완전 콘텐츠 계약, 시작 안내 6개, 시나리오 3개, 프리셋 4개, FAQ 25개, 용어 50개, 상태 9개"},
+    {"id":"content","label":"v8.1 콘텐츠 1단계 자동 구현","value":20,"maximum":20,"unit":"개","state":"PASS_AUTOMATED_BROWSER","evidence":"방법 12개·사례 36개·실습 18개·시작 안내 12개·FAQ 60개·용어 100개·상태 12개·대표 합성 보고서 36개; 360/390/1440px 실제 브라우저 확인"},
+    {"id":"contentStage1External","label":"v8.1 콘텐츠 1단계 외부 증거","value":0,"maximum":5,"unit":"개","state":"NOT_RUN","evidence":"방법 전문가·한영 번역·일본어 핵심·실사용자 5명·화면읽기 도구 검토 필요"},
+    {"id":"contentStage2","label":"v8.1 콘텐츠 2단계 구현 계약","value":24,"maximum":24,"unit":"개","state":"PASS_AUTOMATED","evidence":"미국 종가·기업행동·재무·공시·권리·신선도·시점재현·보류·정정·관찰 계약 구현"},
+    {"id":"contentStage2Actual","label":"v8.1 콘텐츠 2단계 실제 시장 콘텐츠","value":0,"maximum":100,"unit":"%","state":"HELD_EXTERNAL","evidence":"계약 제공자와 재배포권 증거가 없어 실제 종목·실제 보고서·성과 관찰을 공개하지 않음"},
     {"id":"stage2","label":"2단계 고급 무료서비스 구현·콘텐츠","value":100,"unit":"%","state":"PASS_AUTOMATED","evidence":"AFS-01~17 구현 완료, 1,000명 합성 페르소나 8,000과업 통과; 실제 사용자·실기기·시간 관찰은 별도"},
     {"id":"commercialFree","label":"무료 고급 상용화 자동 실행 범위","value":100,"unit":"%","state":"PASS_AUTOMATED_PUBLIC","evidence":"CFS-01~15, 판단·반증 기록, 근거 검토, 연구 묶음, 합성 1,000명 10,000과업; 외부 보증 별도"},
     {"id":"assurance","label":"무료 공개 자동 출시 보증","value":100,"unit":"%","state":"PASS_AUTOMATED","evidence":"콘텐츠·반응형·오프라인·업데이트·보안·링크·인쇄·자료보존 20/20"},
     {"id":"pc","label":"PC 무료 공개판 출시 준비도","value":99,"unit":"/100","state":"OPEN","evidence":"공유 출시 게이트 99점 통과, 실제 화면읽기 도구 수동검사 1점 남음"},
-    {"id":"mobile","label":"모바일 무료 공개판 출시 준비도","value":99,"unit":"/100","state":"OPEN","evidence":"390·360px·PWA·Android 통과, 실제 화면읽기 도구 수동검사 1점 남음"},
+    {"id":"mobile","label":"모바일 무료 공개판 출시 준비도","value":99,"unit":"/100","state":"OPEN","evidence":"360·390px 브라우저 무넘침과 48px 5탭 통과; 이전 SM-G996N 공개판 증거는 유지하되 현재 v8.1 Android 실기기·화면읽기 도구 검사는 미실시"},
     {"id":"automation","label":"현재 자동 품질 검사","value":100,"unit":"%","state":"PASS","evidence":"광고 3단계 20/20, 서버·웹·3개 브라우저·Lighthouse 기준 통과"},
+    {"id":"marketStage1Code","label":"v8.0 1단계 자동 구현","value":24,"maximum":24,"unit":"개","state":"PASS_AUTOMATED","evidence":"stage1-market-v8.json — S1-01~24 자동 구현 조건 통과"},
+    {"id":"marketStage1External","label":"v8.0 1단계 외부 증거","value":0,"maximum":10,"unit":"개","state":"BLOCKED","evidence":"제공자·권리·운영자·사람 검토·실기기·실사용자·시간 관찰 필요"},
+    {"id":"globalStage2Code","label":"v8.0 2단계 자동 구현","value":20,"maximum":20,"unit":"개","state":"PASS_AUTOMATED","evidence":"stage2-global-v8.json — S2-01~20 자동 구현 조건 통과"},
+    {"id":"globalStage2External","label":"v8.0 2단계 외부 증거","value":0,"maximum":12,"unit":"개","state":"BLOCKED","evidence":"글로벌·원자재 권리, 실기기, 실사용자, 90일 관찰, 독립 검토 필요"},
     {"id":"commercial","label":"실데이터 1단계 상용 통과 조건","value":6,"maximum":18,"unit":"개","state":"BLOCKED","evidence":"실데이터·법률·계정·실사용자 증거 필요"}
   ],
   "freeLaunch": {"scopeId":"FREE_PUBLIC_EDUCATION_RESEARCH_NO_PAYMENT","score":99,"maximum":100,"open":true,"remaining":"실제 화면읽기 도구 수동검사 1점","evidence":"free-launch-readiness.json","nonClaim":"이 점수는 실제 투자 예측 성능 또는 실데이터 상용 준비도가 아니다."},
@@ -23,6 +30,7 @@
   "verified": [
     "Stock Scanner 공개 브랜드와 기존 URL 호환",
     "PC 3열·모바일 5탭·360px·390px 무넘침",
+    "v8.1 방법 12개·사례 36개·실습 18개·FAQ 60개·용어 100개·상태 12개·대표 합성 보고서 36개",
     "12개 방법·240개 합성 종목·방법별 보고서",
     "12개 방법의 간단 설명·상세 원리·비유·대가·대표 사례·오해 방지",
     "12개 방법의 필요 자료·적합/부적합 환경·실패 조건·충돌 해석·검토일",
@@ -31,6 +39,7 @@
     "관심·저장 검사 로컬 저장과 전체 자료 백업·무결성 복원·명시적 삭제",
     "JSON·CSV·인쇄/PDF·공유·QR",
     "PWA manifest·서비스워커·오프라인 화면",
+    "v8 새 스타일 주소·서비스워커 캐시 판올림·브라우저 캐시 우회 갱신",
     "Chromium·Firefox·WebKit 자동 사용자 흐름",
     "Lighthouse 성능·접근성·모범사례·SEO 기준",
     "자료 권리·실데이터·투자 권유 기본 차단",
@@ -48,8 +57,22 @@
     ,"AdSense 소유확인 메타태그·루트 ads.txt 생성기, 오입력·중복·비HTTPS 차단 4/4"
     ,"공개 루트와 Stock Scanner의 AdSense 게시자 번호 일치, 루트 ads.txt HTTP 200"
     ,"반응형 디스플레이·인아티클 두 형식과 멀티플렉스 실행기 지원, 승인 전 광고 요청 0"
+    ,"v8.0 첫 시장을 미국 XNAS·XNYS의 보통주·ADR, 종가 기준, 1·3·6개월로 고정"
+    ,"식별자·종가·당시 공개 재무·기업행사·기준지수·환율 6개 자료 권리 기본 차단"
+    ,"합성 학습자료와 실제 시장자료 혼용 차단, 미래정보 혼입 차단, 자료 신선도 차단"
+    ,"반증·독립 검토·운영자 승인·과거시험·방법 품질 없는 평가보고서 공개 차단"
+    ,"공개 기록과 사후 결과를 수정·삭제할 수 없는 추가 전용 증거 원장"
+    ,"미국·일본·한국 시장·통화·거래소·회계기간 정규화 계약과 실제 권리 기본 차단"
+    ,"동종기업 선택·변화 원인·선택형 로컬 알림·무손실 충돌 복구"
+    ,"금·은→가격·금리·통화→산업→기업 연결마다 출처와 반대 경로 의무화"
+    ,"기사 본문 재배포 차단과 사실·주장·정정·철회 계보"
+    ,"검증된 근거 문장만 인용하고 근거가 없으면 거부하는 연구 도우미"
+    ,"90일 실제 경과·삭제 없음·선택 보고 없음 없이는 전진검증 완료 차단"
   ],
   "bottlenecks": [
+    {"label":"v8.0 글로벌 2단계 실제 운영","state":"EXTERNAL_0_OF_12","unlock":"글로벌·원자재 권리, 운영자, Android·iPhone·화면읽기, 실제 사용자, 90일 관찰, 보안·개인정보·법률 검토 확보"},
+    {"label":"GitHub 필수 원격검사","state":"BILLING_OR_SPENDING_LIMIT","unlock":"계정 결제 실패 또는 Actions 지출 한도를 정상화한 뒤 PR #52 검사 재실행"},
+    {"label":"v8.0 실제 시장 모드","state":"EXTERNAL_0_OF_10","unlock":"계약 제공자·6개 자료 권리·운영자·독립 검토·Android·화면읽기·실사용자·공개 관찰 증거를 실제로 확보"},
     {"label":"AdSense 사이트 Ready·광고 단위","state":"ACCOUNT_EVIDENCE_REQUIRED","unlock":"AdSense에서 게시자 번호 일치·사이트 Ready·인증 동의 메시지·실제 광고 단위 2개를 확인"},
     {"label":"무료판 남은 1점","state":"MANUAL_EVIDENCE","unlock":"실제 PC·모바일 화면읽기 도구로 핵심 여정 수동 확인"},
     {"label":"광고 3단계 실제 활성화","state":"EXTERNAL_12_GATES","unlock":"2단계 외부 통과·Prebid/SSP 계약·공급망·CMP·직접광고·Android·단계 공개·30/90일 자료·사람 승인"},
@@ -72,6 +95,8 @@
     "assurance":"https://hanksleekorea-boop.github.io/kabulens-public-web/release-assurance.json",
     "advertisingStage2":"https://hanksleekorea-boop.github.io/kabulens-public-web/advertising-stage2-readiness.json",
     "advertisingStage3":"https://hanksleekorea-boop.github.io/kabulens-public-web/advertising-stage3-readiness.json",
+    "marketStage1Evidence":"https://hanksleekorea-boop.github.io/kabulens-public-web/stage1-market-v8.json",
+    "globalStage2Evidence":"https://hanksleekorea-boop.github.io/kabulens-public-web/stage2-global-v8.json",
     "advertiserDisclosure":"https://hanksleekorea-boop.github.io/kabulens-public-web/advertiser-disclosure.html",
     "dashboard":"https://hanksleekorea-boop.github.io/kabulens-public-web/dashboard.html",
     "status":"https://hanksleekorea-boop.github.io/kabulens-public-web/status.html",
@@ -79,47 +104,47 @@
     "qr":"https://hanksleekorea-boop.github.io/kabulens-public-web/stock-scanner-qr.png"
   },
   "urgentNext": [
-    "AdSense 계정에서 게시자 번호 pub-2476023536699107 일치 확인",
-    "변경 불가능한 지급 국가·지역이 태국이 맞는지 확정",
-    "운영자 신원·주소·세금·지급 프로필 실제 완료 확인",
-    "AdSense 사이트 목록에서 hanksleekorea-boop.github.io 상태 확인",
-    "운영자 법적 이름·주소·관할·비공개 문의 채널 확정",
-    "최종 루트 도메인·HTTPS·루트 ads.txt 통제 확인",
-    "소유확인 생성기로 메타태그 묶음 생성·검토",
-    "소유확인 메타태그와 루트 ads.txt를 Google에서 검증",
-    "Google에 사이트 검토 즉시 요청",
-    "Google Privacy & Messaging 인증 CMP 생성",
-    "EEA·영국·스위스 동의·거부·철회 여정 확인",
-    "미국 지역 개인정보 선택 메시지와 GPC 확인",
-    "신원·주소·세금·지급 프로필 검증",
-    "사이트 Ready 뒤 반응형 디스플레이·인아티클 광고 단위 두 개 생성",
-    "1단계 활성화 묶음 생성·두 사람 검토",
-    "유휴 Android 한 대의 실제 광고 여정 시험",
-    "iPhone과 실제 화면읽기 도구의 동의·광고 여정 시험",
-    "1% 공개 후 24시간 정책·성능·무효 트래픽 확인",
-    "10%까지 단계 확대하고 무광고 대조군 10% 유지",
-    "30일 유효 트래픽·수익·LCP·CLS 증거 후 1단계 완료 승인"
+    "GitHub 자동검사 결제·지출 한도를 정상화해 필수 원격 검사를 실행",
+    "PR #52의 필수 원격 검사를 전부 재실행하고 실제 결과를 보존",
+    "필수 검사가 통과한 뒤 원본 보관소 기본 갈래에 변경을 병합",
+    "병합된 정본으로 공개 보관소를 배포하고 공개 파일 61개를 재검사",
+    "미국 XNAS·XNYS 자료 제공자와 표시·저장·파생·내보내기 권리를 확정",
+    "일본 XTKS 자료 제공자와 표시·저장·파생·내보내기 권리를 확정",
+    "한국 XKRX 자료 제공자와 표시·저장·파생·내보내기 권리를 확정",
+    "금·은 원자재 가격·기초자료의 상업적 이용 권리를 확정",
+    "뉴스 사실·주장·정정·철회 메타데이터와 기사 원문 사용 범위를 확정",
+    "운영자 법적 이름·주소·관할·비공개 문의 채널을 확정",
+    "방법론 독립 검토자를 지정하고 첫 실제 보고서 승인 절차를 실행",
+    "보안 독립 검토와 취약점 조치 증거를 완료",
+    "개인정보 처리·보존·삭제·국외이전 검토를 완료",
+    "투자 정보 범위·면책·광고·정정 정책의 법률 검토를 완료",
+    "유휴 Android 한 대에서 360px·390px·PWA·오프라인 핵심 여정을 시험",
+    "실제 iPhone에서 설치·오프라인·핵심 여정을 시험",
+    "PC와 모바일 실제 화면읽기 도구로 핵심 여정을 수동 시험",
+    "최소 5명 실제 사용자에게 이해도·신뢰·오해 가능성을 시험",
+    "허가된 실제 시장·글로벌 모드를 제한 공개하고 장애·정정 복구를 검증",
+    "90일 전진 관찰과 모든 외부 증거 22개 확인 뒤 운영자가 최종 승인"
   ],
   "autonomousNext": [
-    "AdSense 소유확인 생성기 4개 안전검사 반복",
-    "공개 전 게시자 번호·광고 스크립트 부재 검사",
-    "핵심 스캐너·결과·정책 화면 무광고 검사",
-    "교육 광고 영역 최대 두 개 검사",
-    "동의·GPC·연령 판정 전 제3자 태그 미호출 검사",
-    "메타태그가 head 안에 한 번만 생성되는지 검사",
-    "게시자 번호와 ads.txt 판매자 행 형식 검사",
-    "HTTPS 사이트 주소와 루트 ads.txt 주소 분리 검사",
-    "소유확인 묶음 파일 지문·재실행 동일성 검사",
-    "Google 공식 CMP·결제·ads.txt 요구사항 변경 감시",
-    "사용자 ID·관심종목·검색어의 광고 사용 금지 검사",
-    "문맥 표적 허용목록과 연구자료 금지목록 검사",
-    "승인 전 광고 요청 0·자체 안내 대체 검사",
-    "승인 뒤에도 차단 경로 광고 0 검사",
-    "서비스워커 제3자 광고 묶음 저장 금지 검사",
-    "360px·390px·1440px 화면 넘침과 CLS 검사",
-    "공개 URL 57개 가용성 검사",
-    "Chromium·Firefox·WebKit 광고 미호출 흐름 검사",
-    "Lighthouse 3회 중앙값·콘솔 오류·의존성·콘텐츠 보안정책 검사",
-    "긴급 광고 중단·이전 공개판 복구와 30일 무광고 대조군 계산 검사"
+    "미국·일본·한국 시장·통화·거래소 범위 자료 뼈대 구조 반복 검사",
+    "통화·섹터·회계기간·당시 시점 정규화의 결정성 반복 검사",
+    "동종기업 선택 결과와 표·문장 대체 출력의 값 일치 검사",
+    "점수·근거 변화 사건의 이전·현재·원인·출처·지문 검사",
+    "오래되거나 중복된 로컬 선택형 알림 차단 검사",
+    "원자재·뉴스 권리 미확인 입력의 기본 차단 검사",
+    "금·은 연결망의 출처와 반대 경로 누락 차단 검사",
+    "뉴스 사실·주장·정정·철회 계보와 중복 사건 검사",
+    "로컬 우선 동기화 충돌의 무손실·결정성 검사",
+    "한·영·일 핵심 금융용어 누락 감지 검사",
+    "근거 없는 연구 도우미 답변과 숫자 생성 차단 검사",
+    "CSV·JSON·PDF·프로그램 연결창 값 일치 계약 검사",
+    "90일 미만·누락·삭제·중복 관찰 기록의 통과 차단 검사",
+    "실제 제공자·운영자 승인 없는 글로벌 모드 폐쇄 검사",
+    "1단계·2단계 자동 조건과 외부 증거의 분리 집계 검사",
+    "서버 전체 단위·통합 전체 재검사",
+    "웹 정적·콘텐츠·접근성 자동검사 전체 재실행",
+    "PC·360px·390px·3개 브라우저·Lighthouse 검사 재실행",
+    "공개 URL과 두 준비도 JSON의 가용성·내용 검사",
+    "공개 직전 실제 시장·글로벌·원자재 모드 기본 폐쇄 최종 검사"
   ]
 }
