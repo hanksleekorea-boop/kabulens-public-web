@@ -136,11 +136,15 @@ test('Print report and offline policy surfaces remain usable',async({page,contex
   }finally{await context.setOffline(false);}
 });
 
-test('Stock Scanner development dashboard exposes truthful progress and twenty-item queues',async({page,baseURL})=>{
+test('Stock Scanner development dashboard exposes truthful progress and twenty-item queues',async({page,request,baseURL})=>{
   const response=await page.goto(new URL('dashboard.html',baseURL).href,{waitUntil:'networkidle'});
   expect(response?.ok()).toBeTruthy();
   await expect(page).toHaveTitle(/개발 진척 대시보드 · Stock Scanner/);
-  await expect(page.locator('#metrics .metric-card')).toHaveCount(13);
+  const progressResponse=await request.get(new URL('progress.json',baseURL).href);
+  expect(progressResponse.ok()).toBeTruthy();
+  const progress=await progressResponse.json();
+  expect(progress.metrics.length).toBeGreaterThanOrEqual(16);
+  await expect(page.locator('#metrics .metric-card')).toHaveCount(progress.metrics.length);
   await expect(page.locator('#urgent li')).toHaveCount(20);
   await expect(page.locator('#autonomous li')).toHaveCount(20);
   await expect(page.locator('#summary')).toContainText('로그인·결제 없이');
@@ -199,4 +203,29 @@ test('Stage three advertising marketplace is responsive and fails closed',async(
   await page.getByRole('button',{name:'Clear advertising preferences'}).click();
   await expect(page.locator('#clearAdStatus')).toContainText('were cleared');
   await expect(page.locator('#gpcStatus')).not.toBeEmpty();
+});
+test('v8.1 content library has complete reports and English help at desktop and mobile widths',async({page,baseURL})=>{
+  const errors=[];
+  page.on('pageerror',error=>errors.push(error.message));
+  for(const width of [1440,390,360]){
+    await page.setViewportSize({width,height:900});
+    await page.goto(new URL('stock-scanner.html#more',baseURL).href,{waitUntil:'networkidle'});
+    await expect(page.locator('#contentV81Methods > details')).toHaveCount(12);
+    await expect(page.locator('#contentV81Tutorials > article')).toHaveCount(18);
+    await expect(page.locator('#contentV81Gallery > article details')).toHaveCount(36);
+    await page.locator('#contentV81Gallery > article details summary').first().click();
+    await expect(page.locator('#contentV81Gallery > article details code').first()).toBeVisible();
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth)).toBeTruthy();
+    if(width<900){
+      const heights=await page.locator('.mobile-routes button').evaluateAll(nodes=>nodes.map(x=>x.getBoundingClientRect().height));
+      expect(heights.every(x=>x>=44)).toBeTruthy();
+    }
+  }
+  await page.locator('#scannerLocale').selectOption('en');
+  await expect(page.locator('#contentV81Title')).toHaveText('Methods, cases and practice library');
+  await expect(page.locator('#faqList summary').first()).toHaveText('What does this service do?');
+  await expect(page.locator('#glossaryList dt').first()).toHaveText('Synthetic data');
+  await expect(page.locator('#contentV81Gallery')).toContainText('Held: missing input');
+  await expect(page.locator('#contentV81Methods')).toContainText('Washington Post: the price-value gap');
+  expect(errors).toEqual([]);
 });

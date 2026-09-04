@@ -16,141 +16,1125 @@
     "galleryReports": 36
   },
   "additionalFirstUse": [
-    {"titleKo":"점수와 확률 구분하기","bodyKo":"합성 비교점수는 후보를 나란히 놓는 값입니다. 실제 상승확률은 실자료와 표본 밖 검증이 있어야만 표시됩니다.","titleEn":"Separate scores from probabilities","bodyEn":"A synthetic comparison score ranks examples. A real probability requires licensed data, out-of-sample evidence, and calibration."},
-    {"titleKo":"반대 근거 먼저 읽기","bodyKo":"점수가 높아도 보고서의 반대 근거와 실패 조건을 먼저 읽고 판단 보류가 필요한지 확인합니다.","titleEn":"Read counter-evidence first","bodyEn":"Even with a high score, inspect counter-evidence and failure conditions before deciding whether to hold judgment."},
-    {"titleKo":"서로 다른 계열 비교하기","bodyKo":"비슷한 방법을 여러 개 고르지 말고 가치·품질·가격흐름처럼 서로 다른 세 계열 이상을 비교합니다.","titleEn":"Compare independent families","bodyEn":"Compare at least three different families such as value, quality, and price momentum instead of stacking similar methods."},
-    {"titleKo":"자료 상태 확인하기","bodyKo":"합성·실제, 최신·지연·누락, 이용권 상태를 확인한 뒤 결과를 읽습니다.","titleEn":"Check data status","bodyEn":"Check synthetic versus real, freshness, missingness, and rights status before interpreting a result."},
-    {"titleKo":"판단을 기록하고 다시 보기","bodyKo":"현재 가설, 틀렸음을 보여줄 조건, 다음 확인일을 함께 저장하면 사후 합리화를 줄일 수 있습니다.","titleEn":"Record and revisit a judgment","bodyEn":"Save the hypothesis, disconfirming condition, and next review date to reduce hindsight bias."},
-    {"titleKo":"내 자료 직접 관리하기","bodyKo":"백업을 내려받고 복원 전 미리 확인하며, 삭제는 이 기기 저장자료에만 적용됩니다.","titleEn":"Control your local data","bodyEn":"Download a backup, preview before restore, and remember deletion applies only to data stored on this device."}
+    {
+      "titleKo": "점수와 확률 구분하기",
+      "bodyKo": "합성 비교점수는 후보를 나란히 놓는 값입니다. 실제 상승확률은 실자료와 표본 밖 검증이 있어야만 표시됩니다.",
+      "titleEn": "Separate scores from probabilities",
+      "bodyEn": "A synthetic comparison score ranks examples. A real probability requires licensed data, out-of-sample evidence, and calibration."
+    },
+    {
+      "titleKo": "반대 근거 먼저 읽기",
+      "bodyKo": "점수가 높아도 보고서의 반대 근거와 실패 조건을 먼저 읽고 판단 보류가 필요한지 확인합니다.",
+      "titleEn": "Read counter-evidence first",
+      "bodyEn": "Even with a high score, inspect counter-evidence and failure conditions before deciding whether to hold judgment."
+    },
+    {
+      "titleKo": "서로 다른 계열 비교하기",
+      "bodyKo": "비슷한 방법을 여러 개 고르지 말고 가치·품질·가격흐름처럼 서로 다른 세 계열 이상을 비교합니다.",
+      "titleEn": "Compare independent families",
+      "bodyEn": "Compare at least three different families such as value, quality, and price momentum instead of stacking similar methods."
+    },
+    {
+      "titleKo": "자료 상태 확인하기",
+      "bodyKo": "합성·실제, 최신·지연·누락, 이용권 상태를 확인한 뒤 결과를 읽습니다.",
+      "titleEn": "Check data status",
+      "bodyEn": "Check synthetic versus real, freshness, missingness, and rights status before interpreting a result."
+    },
+    {
+      "titleKo": "판단을 기록하고 다시 보기",
+      "bodyKo": "현재 가설, 틀렸음을 보여줄 조건, 다음 확인일을 함께 저장하면 사후 합리화를 줄일 수 있습니다.",
+      "titleEn": "Record and revisit a judgment",
+      "bodyEn": "Save the hypothesis, disconfirming condition, and next review date to reduce hindsight bias."
+    },
+    {
+      "titleKo": "내 자료 직접 관리하기",
+      "bodyKo": "백업을 내려받고 복원 전 미리 확인하며, 삭제는 이 기기 저장자료에만 적용됩니다.",
+      "titleEn": "Control your local data",
+      "bodyEn": "Download a backup, preview before restore, and remember deletion applies only to data stored on this device."
+    }
   ],
   "additionalStates": [
-    {"id":"HELD","labelKo":"판정 보류","meaningKo":"필수 자료·권리·반대 근거가 부족해 결론을 내리지 않습니다.","actionKo":"보류 이유와 다음 확인일을 봅니다."},
-    {"id":"CORRECTED","labelKo":"정정됨","meaningKo":"원자료나 설명이 바뀌어 새 판이 추가됐습니다.","actionKo":"이전 판과 정정 이유를 비교합니다."},
-    {"id":"WITHDRAWN","labelKo":"철회됨","meaningKo":"계산·자료·권리 문제로 공개 판단이 중단됐습니다.","actionKo":"이 결과를 현재 판단에 사용하지 않습니다."}
+    {
+      "id": "HELD",
+      "labelKo": "판정 보류",
+      "meaningKo": "필수 자료·권리·반대 근거가 부족해 결론을 내리지 않습니다.",
+      "actionKo": "보류 이유와 다음 확인일을 봅니다.",
+      "labelEn": "Held judgment",
+      "meaningEn": "Required data, rights, or counter-evidence are insufficient.",
+      "actionEn": "Read the reason for withholding a judgment and the next review date."
+    },
+    {
+      "id": "CORRECTED",
+      "labelKo": "정정됨",
+      "meaningKo": "원자료나 설명이 바뀌어 새 판이 추가됐습니다.",
+      "actionKo": "이전 판과 정정 이유를 비교합니다.",
+      "labelEn": "Corrected",
+      "meaningEn": "A new version was added after the underlying data or explanation changed.",
+      "actionEn": "Compare the prior version and correction reason."
+    },
+    {
+      "id": "WITHDRAWN",
+      "labelKo": "철회됨",
+      "meaningKo": "계산·자료·권리 문제로 공개 판단이 중단됐습니다.",
+      "actionKo": "이 결과를 현재 판단에 사용하지 않습니다.",
+      "labelEn": "Withdrawn",
+      "meaningEn": "Publication was stopped because of a calculation, data, or rights issue.",
+      "actionEn": "Do not use this result for current decisions."
+    }
   ],
   "methodEnhancements": [
-    {"methodId":"M-VALUE-001","titleKo":"상대가치 종합","titleEn":"Relative value composite","failureCase":{"titleKo":"싸 보이는 가치 함정","summaryKo":"산업 쇠퇴·과도한 부채·일회성 이익 때문에 배수가 낮을 수 있습니다. 가격만 보고 사업 악화를 놓치는 실패를 학습합니다.","titleEn":"The value-trap failure","summaryEn":"Low multiples can reflect structural decline, excessive debt, or one-off earnings. The lesson is to test business quality before calling a stock cheap.","sourceRef":"https://www.berkshirehathaway.com/letters/1985.html"},"currentApplication":{"titleKo":"현재 적용 점검표","summaryKo":"같은 업종 비교, 여러 배수 표준화, 현금흐름·부채·이익의 질 확인을 모두 통과할 때만 가치 후보로 남깁니다.","titleEn":"Current application checklist","summaryEn":"Retain a value candidate only after peer comparison, multi-multiple normalization, and cash-flow, leverage, and earnings-quality checks.","sourceRef":"https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html"},"tutorial":{"goalKo":"싼 종목과 가치 함정을 구분한다.","stepsKo":["같은 업종을 고릅니다.","두 개 이상 가치 배수를 비교합니다.","부채와 현금흐름을 반대 근거로 확인합니다."],"goalEn":"Separate cheap stocks from value traps.","stepsEn":["Choose a comparable industry.","Compare at least two valuation multiples.","Use debt and cash flow as counter-evidence."]}},
-    {"methodId":"M-QUALITY-001","titleKo":"Piotroski F-score","titleEn":"Piotroski F-score","failureCase":{"titleKo":"공시 시점이 뒤섞인 F-score","summaryKo":"나중에 발표된 재무값을 과거 시점에 사용하면 성과가 부풀려집니다. 공시 당시 알 수 있던 값만 써야 합니다.","titleEn":"An F-score with leaked filing dates","summaryEn":"Using later financial data at an earlier date inflates results. Only information available at the filing date is valid.","sourceRef":"https://www.jstor.org/stable/2672906"},"currentApplication":{"titleKo":"현재 적용 점검표","summaryKo":"9개 신호를 개별 표시하고 국가 회계기준·금융업 특수성·정정 공시를 별도로 확인합니다.","titleEn":"Current application checklist","summaryEn":"Expose all nine signals and separately check accounting regimes, financial-sector exceptions, and restatements.","sourceRef":"https://www.jstor.org/stable/2672906"},"tutorial":{"goalKo":"F-score 합계 뒤의 9개 신호를 읽는다.","stepsKo":["수익성 신호를 봅니다.","부채·유동성 신호를 봅니다.","운영효율과 공시일을 확인합니다."],"goalEn":"Read the nine signals behind the F-score.","stepsEn":["Inspect profitability.","Inspect leverage and liquidity.","Check efficiency and filing dates."]}},
-    {"methodId":"M-QUALITY-002","titleKo":"수익성·ROIC 품질","titleEn":"Profitability and ROIC quality","failureCase":{"titleKo":"회계이익만 높은 착시","summaryKo":"순이익이 높아도 운전자본 증가와 큰 재투자 때문에 현금전환이 약할 수 있습니다.","titleEn":"High accounting profit, weak cash conversion","summaryEn":"Reported profit can look strong while working-capital needs and reinvestment weaken cash conversion.","sourceRef":"https://www.berkshirehathaway.com/letters/2007ltr.pdf"},"currentApplication":{"titleKo":"현재 적용 점검표","summaryKo":"ROIC, 재투자 필요, 현금전환, 업종 자본구조를 함께 보고 금융업은 별도 정의를 사용합니다.","titleEn":"Current application checklist","summaryEn":"Review ROIC, reinvestment needs, cash conversion, and industry capital structure; use separate definitions for financials.","sourceRef":"https://www.berkshirehathaway.com/letters/letters.html"},"tutorial":{"goalKo":"높은 이익과 좋은 사업 품질을 구분한다.","stepsKo":["투하자본을 확인합니다.","현금전환을 비교합니다.","재투자와 업종 차이를 반영합니다."],"goalEn":"Separate high profit from durable business quality.","stepsEn":["Inspect invested capital.","Compare cash conversion.","Adjust for reinvestment and industry structure."]}},
-    {"methodId":"M-GROWTH-001","titleKo":"실적 성장·놀라움","titleEn":"Growth and earnings surprise","failureCase":{"titleKo":"기대치 시점 오류","summaryKo":"실적 발표 뒤 수정된 기대치를 발표 전 기대치로 사용하면 놀라움이 과장됩니다.","titleEn":"A timestamp error in expectations","summaryEn":"Using post-announcement revisions as pre-announcement expectations exaggerates surprise.","sourceRef":"https://faculty.chicagobooth.edu/ray-ball/research"},"currentApplication":{"titleKo":"현재 적용 점검표","summaryKo":"발표 직전 기대치, 실제 발표값, 발표시각, 일회성 항목을 분리하고 절대 성장과 기대 초과를 함께 봅니다.","titleEn":"Current application checklist","summaryEn":"Separate pre-release expectations, actual results, release time, and one-offs; inspect both absolute growth and surprise.","sourceRef":"https://doi.org/10.1016/j.jbef.2020.100446"},"tutorial":{"goalKo":"성장과 기대 초과를 구분한다.","stepsKo":["기대치 기준시각을 고정합니다.","실제 발표값을 비교합니다.","일회성 항목과 전망 변화를 확인합니다."],"goalEn":"Separate growth from surprise.","stepsEn":["Freeze the expectation timestamp.","Compare the actual release.","Check one-offs and guidance changes."]}},
-    {"methodId":"M-FACTOR-001","titleKo":"5요인 노출·잔여수익","titleEn":"Five-factor exposure and residual return","failureCase":{"titleKo":"요인 수익을 종목 실력으로 오해","summaryKo":"시장·규모·가치·수익성·투자 요인의 영향을 제거하지 않으면 단순 요인 노출을 고유 성과로 잘못 볼 수 있습니다.","titleEn":"Mistaking factor exposure for stock skill","summaryEn":"Without separating market, size, value, profitability, and investment effects, common exposure can be mistaken for unique performance.","sourceRef":"https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html"},"currentApplication":{"titleKo":"현재 적용 점검표","summaryKo":"지역·통화·표본기간을 맞추고 요인 노출, 잔여수익, 추정 불확실성을 함께 표시합니다.","titleEn":"Current application checklist","summaryEn":"Align region, currency, and sample period, then show factor exposure, residual return, and estimation uncertainty together.","sourceRef":"https://www.dimensional.com/gb-en/our-heritage"},"tutorial":{"goalKo":"종목 성과를 공통 요인과 잔여로 나눈다.","stepsKo":["기준 시장을 고릅니다.","다섯 요인 노출을 확인합니다.","잔여수익과 불확실성을 읽습니다."],"goalEn":"Split stock performance into common factors and residuals.","stepsEn":["Choose the benchmark market.","Inspect five-factor exposures.","Read residual return and uncertainty."]}},
-    {"methodId":"M-MOM-001","titleKo":"12-1 상대 가격 흐름","titleEn":"12-1 relative momentum","failureCase":{"titleKo":"급반전의 모멘텀 붕괴","summaryKo":"시장 방향이 급격히 바뀌면 과거 승자가 빠르게 하락할 수 있습니다. 최근 한 달 제외와 위험 제한이 필요합니다.","titleEn":"Momentum crashes during sharp reversals","summaryEn":"Past winners can fall quickly when market direction reverses. Skipping the latest month and controlling risk are essential.","sourceRef":"https://www.aqr.com/Insights/Research/Journal-Article/Fact-Fiction-and-Momentum-Investing"},"currentApplication":{"titleKo":"현재 적용 점검표","summaryKo":"12개월 중 최근 1개월을 제외하고 상대성과를 비교하며 유동성·회전율·급반전 위험을 함께 봅니다.","titleEn":"Current application checklist","summaryEn":"Compare relative performance over months 12 to 2 and inspect liquidity, turnover, and reversal risk.","sourceRef":"https://doi.org/10.1111/j.1540-6261.1993.tb04702.x"},"tutorial":{"goalKo":"가격 상승과 상대 모멘텀을 구분한다.","stepsKo":["비교 시장을 정합니다.","최근 한 달을 제외합니다.","회전비용과 반전 위험을 확인합니다."],"goalEn":"Separate price gains from relative momentum.","stepsEn":["Choose a comparison market.","Skip the latest month.","Check turnover costs and reversal risk."]}},
-    {"methodId":"M-TREND-001","titleKo":"장단기 이동평균 추세","titleEn":"Long-short moving-average trend","failureCase":{"titleKo":"횡보장의 반복 손실","summaryKo":"방향이 없는 시장에서는 이동평균 신호가 자주 뒤집혀 작은 손실이 반복될 수 있습니다.","titleEn":"Repeated whipsaws in a range-bound market","summaryEn":"In a directionless market, moving-average signals can flip repeatedly and create a series of small losses.","sourceRef":"https://www.aqr.com/-/media/AQR/Documents/Insights/Journal-Article/AQR-JPM-Fall-2017.pdf"},"currentApplication":{"titleKo":"현재 적용 점검표","summaryKo":"장·단기 창, 거래비용, 변동성, 신호 지속기간을 공개하고 한 번의 교차를 확정적 방향으로 보지 않습니다.","titleEn":"Current application checklist","summaryEn":"Disclose long and short windows, costs, volatility, and signal persistence; do not treat one crossover as certainty.","sourceRef":"https://cmtassociation.org/technically_speaking/technically-speaking-july-2011/"},"tutorial":{"goalKo":"추세와 잡음을 구분한다.","stepsKo":["장·단기 창을 고정합니다.","교차 지속기간을 봅니다.","횡보와 비용을 반대 근거로 확인합니다."],"goalEn":"Separate trend from noise.","stepsEn":["Fix long and short windows.","Inspect crossover persistence.","Use ranges and costs as counter-evidence."]}},
-    {"methodId":"M-REVERT-001","titleKo":"단기 과매도 되돌림","titleEn":"Short-term oversold reversal","failureCase":{"titleKo":"구조적 하락을 과매도로 오해","summaryKo":"새로운 악재로 가치가 영구 훼손된 종목은 많이 떨어졌다는 이유만으로 되돌아오지 않을 수 있습니다.","titleEn":"Mistaking structural decline for oversold","summaryEn":"A security impaired by new fundamental information may not rebound merely because it has fallen sharply.","sourceRef":"https://doi.org/10.1111/j.1540-6261.1985.tb05004.x"},"currentApplication":{"titleKo":"현재 적용 점검표","summaryKo":"하락 폭·기간·거래량과 새 공시를 함께 보고, 사건이 있는 하락과 유동성 충격을 분리합니다.","titleEn":"Current application checklist","summaryEn":"Review drawdown, horizon, volume, and new disclosures; separate event-driven decline from liquidity shock.","sourceRef":"https://www.aeaweb.org/articles?id=10.1257/jep.3.1.189"},"tutorial":{"goalKo":"일시적 과매도와 구조적 손상을 구분한다.","stepsKo":["하락 기간과 폭을 봅니다.","새 공시와 사건을 확인합니다.","유동성과 추세를 반대 근거로 봅니다."],"goalEn":"Separate temporary oversold conditions from structural damage.","stepsEn":["Inspect drawdown and horizon.","Check new disclosures and events.","Use liquidity and trend as counter-evidence."]}},
-    {"methodId":"M-LOWRISK-001","titleKo":"낮은 변동·하락 위험","titleEn":"Low volatility and downside risk","failureCase":{"titleKo":"강한 상승장에서의 뒤처짐","summaryKo":"낮은 변동 종목은 시장이 급등할 때 고위험 종목보다 상승 폭이 작을 수 있으며 특정 방어 업종에 쏠릴 수 있습니다.","titleEn":"Lagging in a strong bull market","summaryEn":"Low-volatility stocks can lag riskier stocks in sharp rallies and may concentrate in defensive sectors.","sourceRef":"https://www.robeco.com/en-us/insights/2021/06/low-volatility-investing-now-more-than-ever"},"currentApplication":{"titleKo":"현재 적용 점검표","summaryKo":"전체 변동성뿐 아니라 하락 변동·최대낙폭·업종 집중·금리 민감도를 함께 봅니다.","titleEn":"Current application checklist","summaryEn":"Inspect downside volatility, maximum drawdown, sector concentration, and rate sensitivity alongside total volatility.","sourceRef":"https://www.robeco.com/en-int/glossary/quantitative-investing/low-volatility-anomaly"},"tutorial":{"goalKo":"낮은 변동과 낮은 위험을 구분한다.","stepsKo":["변동성과 하락 폭을 봅니다.","업종 집중을 확인합니다.","시장 상승기 기회비용을 읽습니다."],"goalEn":"Separate low volatility from low risk.","stepsEn":["Inspect volatility and drawdown.","Check sector concentration.","Read opportunity cost in bull markets."]}},
-    {"methodId":"M-EVENT-001","titleKo":"자사주·전망 실행 사건","titleEn":"Buyback and guidance execution events","failureCase":{"titleKo":"발표와 실행을 같은 것으로 계산","summaryKo":"자사주 매입 한도 발표가 실제 매입을 뜻하지 않습니다. 중복 발표와 미집행을 걸러야 합니다.","titleEn":"Counting an announcement as execution","summaryEn":"A buyback authorization is not the same as completed purchases. Duplicate announcements and non-execution must be separated.","sourceRef":"https://www.berkshirehathaway.com/letters/2011ltr.pdf"},"currentApplication":{"titleKo":"현재 적용 점검표","summaryKo":"공식 발표, 실행기간, 실제 집행, 취소·변경, 주식수 감소를 시간순으로 연결합니다.","titleEn":"Current application checklist","summaryEn":"Link the official announcement, execution window, actual purchases, amendments, and share-count change in time order.","sourceRef":"https://www.berkshirehathaway.com/letters/1985.html"},"tutorial":{"goalKo":"사건 발표와 실제 실행을 구분한다.","stepsKo":["공식 발표를 찾습니다.","실행기간과 금액을 확인합니다.","실제 집행과 취소를 비교합니다."],"goalEn":"Separate event announcements from execution.","stepsEn":["Find the official announcement.","Check period and authorized amount.","Compare execution and cancellation."]}},
-    {"methodId":"M-ACCOUNT-001","titleKo":"발생액·이익 품질","titleEn":"Accrual and earnings quality","failureCase":{"titleKo":"업종 차이를 무시한 발생액 비교","summaryKo":"금융업과 성장 투자 기업을 제조업과 같은 발생액 기준으로 비교하면 정상적인 자산 변화를 위험으로 오해할 수 있습니다.","titleEn":"Ignoring industry differences in accruals","summaryEn":"Applying the same accrual rule to financial firms, growth investors, and manufacturers can misclassify normal balance-sheet changes.","sourceRef":"https://www.marshall.usc.edu/personnel/patricia-dechow"},"currentApplication":{"titleKo":"현재 적용 점검표","summaryKo":"순이익·영업현금흐름·운전자본·비현금항목·정정 공시를 업종 안에서 비교합니다.","titleEn":"Current application checklist","summaryEn":"Compare earnings, operating cash flow, working capital, non-cash items, and restatements within an industry.","sourceRef":"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2598"},"tutorial":{"goalKo":"회계이익과 현금의 차이를 읽는다.","stepsKo":["순이익과 현금흐름을 비교합니다.","운전자본 변화를 봅니다.","업종과 정정 공시를 확인합니다."],"goalEn":"Read the gap between accounting earnings and cash.","stepsEn":["Compare earnings and cash flow.","Inspect working-capital changes.","Check industry context and restatements."]}},
-    {"methodId":"M-ENSEMBLE-001","titleKo":"설명 가능한 다계열 종합","titleEn":"Explainable multi-family consensus","failureCase":{"titleKo":"비슷한 신호의 가짜 합의","summaryKo":"서로 같은 자료를 쓰는 방법을 여러 개 넣으면 독립된 다수 의견처럼 보이지만 실제 정보는 늘지 않습니다.","titleEn":"False consensus from duplicated signals","summaryEn":"Adding several methods built on the same data can look like independent agreement without adding information.","sourceRef":"https://www.aqr.com/Insights/Research/Journal-Article/Investing-with-Style"},"currentApplication":{"titleKo":"현재 적용 점검표","summaryKo":"방법을 계열별로 먼저 묶고 자료 중복·상관·제외 민감도·반대 계열을 함께 공개합니다.","titleEn":"Current application checklist","summaryEn":"Aggregate within families first and disclose data overlap, correlation, leave-one-out sensitivity, and opposing families.","sourceRef":"https://www.aqr.com/insights/research/journal-article/understanding-style-premia"},"tutorial":{"goalKo":"진짜 다계열 합의와 중복표를 구분한다.","stepsKo":["방법을 계열로 묶습니다.","계열 안에서 먼저 평균합니다.","한 방법을 뺐을 때 결과 변화를 봅니다."],"goalEn":"Separate genuine multi-family agreement from duplicate votes.","stepsEn":["Group methods by family.","Average within each family first.","Inspect leave-one-out changes."]}}
+    {
+      "methodId": "M-VALUE-001",
+      "titleKo": "상대가치 종합",
+      "titleEn": "Relative value composite",
+      "failureCase": {
+        "titleKo": "싸 보이는 가치 함정",
+        "summaryKo": "산업 쇠퇴·과도한 부채·일회성 이익 때문에 배수가 낮을 수 있습니다. 가격만 보고 사업 악화를 놓치는 실패를 학습합니다.",
+        "titleEn": "The value-trap failure",
+        "summaryEn": "Low multiples can reflect structural decline, excessive debt, or one-off earnings. The lesson is to test business quality before calling a stock cheap.",
+        "sourceRef": "https://www.berkshirehathaway.com/letters/1985.html"
+      },
+      "currentApplication": {
+        "titleKo": "현재 적용 점검표",
+        "summaryKo": "같은 업종 비교, 여러 배수 표준화, 현금흐름·부채·이익의 질 확인을 모두 통과할 때만 가치 후보로 남깁니다.",
+        "titleEn": "Current application checklist",
+        "summaryEn": "Retain a value candidate only after peer comparison, multi-multiple normalization, and cash-flow, leverage, and earnings-quality checks.",
+        "sourceRef": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html"
+      },
+      "tutorial": {
+        "goalKo": "싼 종목과 가치 함정을 구분한다.",
+        "stepsKo": [
+          "같은 업종을 고릅니다.",
+          "두 개 이상 가치 배수를 비교합니다.",
+          "부채와 현금흐름을 반대 근거로 확인합니다."
+        ],
+        "goalEn": "Separate cheap stocks from value traps.",
+        "stepsEn": [
+          "Choose a comparable industry.",
+          "Compare at least two valuation multiples.",
+          "Use debt and cash flow as counter-evidence."
+        ]
+      }
+    },
+    {
+      "methodId": "M-QUALITY-001",
+      "titleKo": "Piotroski F-score",
+      "titleEn": "Piotroski F-score",
+      "failureCase": {
+        "titleKo": "공시 시점이 뒤섞인 F-score",
+        "summaryKo": "나중에 발표된 재무값을 과거 시점에 사용하면 성과가 부풀려집니다. 공시 당시 알 수 있던 값만 써야 합니다.",
+        "titleEn": "An F-score with leaked filing dates",
+        "summaryEn": "Using later financial data at an earlier date inflates results. Only information available at the filing date is valid.",
+        "sourceRef": "https://www.jstor.org/stable/2672906"
+      },
+      "currentApplication": {
+        "titleKo": "현재 적용 점검표",
+        "summaryKo": "9개 신호를 개별 표시하고 국가 회계기준·금융업 특수성·정정 공시를 별도로 확인합니다.",
+        "titleEn": "Current application checklist",
+        "summaryEn": "Expose all nine signals and separately check accounting regimes, financial-sector exceptions, and restatements.",
+        "sourceRef": "https://www.jstor.org/stable/2672906"
+      },
+      "tutorial": {
+        "goalKo": "F-score 합계 뒤의 9개 신호를 읽는다.",
+        "stepsKo": [
+          "수익성 신호를 봅니다.",
+          "부채·유동성 신호를 봅니다.",
+          "운영효율과 공시일을 확인합니다."
+        ],
+        "goalEn": "Read the nine signals behind the F-score.",
+        "stepsEn": [
+          "Inspect profitability.",
+          "Inspect leverage and liquidity.",
+          "Check efficiency and filing dates."
+        ]
+      }
+    },
+    {
+      "methodId": "M-QUALITY-002",
+      "titleKo": "수익성·ROIC 품질",
+      "titleEn": "Profitability and ROIC quality",
+      "failureCase": {
+        "titleKo": "회계이익만 높은 착시",
+        "summaryKo": "순이익이 높아도 운전자본 증가와 큰 재투자 때문에 현금전환이 약할 수 있습니다.",
+        "titleEn": "High accounting profit, weak cash conversion",
+        "summaryEn": "Reported profit can look strong while working-capital needs and reinvestment weaken cash conversion.",
+        "sourceRef": "https://www.berkshirehathaway.com/letters/2007ltr.pdf"
+      },
+      "currentApplication": {
+        "titleKo": "현재 적용 점검표",
+        "summaryKo": "ROIC, 재투자 필요, 현금전환, 업종 자본구조를 함께 보고 금융업은 별도 정의를 사용합니다.",
+        "titleEn": "Current application checklist",
+        "summaryEn": "Review ROIC, reinvestment needs, cash conversion, and industry capital structure; use separate definitions for financials.",
+        "sourceRef": "https://www.berkshirehathaway.com/letters/letters.html"
+      },
+      "tutorial": {
+        "goalKo": "높은 이익과 좋은 사업 품질을 구분한다.",
+        "stepsKo": [
+          "투하자본을 확인합니다.",
+          "현금전환을 비교합니다.",
+          "재투자와 업종 차이를 반영합니다."
+        ],
+        "goalEn": "Separate high profit from durable business quality.",
+        "stepsEn": [
+          "Inspect invested capital.",
+          "Compare cash conversion.",
+          "Adjust for reinvestment and industry structure."
+        ]
+      }
+    },
+    {
+      "methodId": "M-GROWTH-001",
+      "titleKo": "실적 성장·놀라움",
+      "titleEn": "Growth and earnings surprise",
+      "failureCase": {
+        "titleKo": "기대치 시점 오류",
+        "summaryKo": "실적 발표 뒤 수정된 기대치를 발표 전 기대치로 사용하면 놀라움이 과장됩니다.",
+        "titleEn": "A timestamp error in expectations",
+        "summaryEn": "Using post-announcement revisions as pre-announcement expectations exaggerates surprise.",
+        "sourceRef": "https://doi.org/10.1016/j.jbef.2020.100446"
+      },
+      "currentApplication": {
+        "titleKo": "현재 적용 점검표",
+        "summaryKo": "발표 직전 기대치, 실제 발표값, 발표시각, 일회성 항목을 분리하고 절대 성장과 기대 초과를 함께 봅니다.",
+        "titleEn": "Current application checklist",
+        "summaryEn": "Separate pre-release expectations, actual results, release time, and one-offs; inspect both absolute growth and surprise.",
+        "sourceRef": "https://doi.org/10.1016/j.jbef.2020.100446"
+      },
+      "tutorial": {
+        "goalKo": "성장과 기대 초과를 구분한다.",
+        "stepsKo": [
+          "기대치 기준시각을 고정합니다.",
+          "실제 발표값을 비교합니다.",
+          "일회성 항목과 전망 변화를 확인합니다."
+        ],
+        "goalEn": "Separate growth from surprise.",
+        "stepsEn": [
+          "Freeze the expectation timestamp.",
+          "Compare the actual release.",
+          "Check one-offs and guidance changes."
+        ]
+      }
+    },
+    {
+      "methodId": "M-FACTOR-001",
+      "titleKo": "5요인 노출·잔여수익",
+      "titleEn": "Five-factor exposure and residual return",
+      "failureCase": {
+        "titleKo": "요인 수익을 종목 실력으로 오해",
+        "summaryKo": "시장·규모·가치·수익성·투자 요인의 영향을 제거하지 않으면 단순 요인 노출을 고유 성과로 잘못 볼 수 있습니다.",
+        "titleEn": "Mistaking factor exposure for stock skill",
+        "summaryEn": "Without separating market, size, value, profitability, and investment effects, common exposure can be mistaken for unique performance.",
+        "sourceRef": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html"
+      },
+      "currentApplication": {
+        "titleKo": "현재 적용 점검표",
+        "summaryKo": "지역·통화·표본기간을 맞추고 요인 노출, 잔여수익, 추정 불확실성을 함께 표시합니다.",
+        "titleEn": "Current application checklist",
+        "summaryEn": "Align region, currency, and sample period, then show factor exposure, residual return, and estimation uncertainty together.",
+        "sourceRef": "https://www.dimensional.com/gb-en/our-heritage"
+      },
+      "tutorial": {
+        "goalKo": "종목 성과를 공통 요인과 잔여로 나눈다.",
+        "stepsKo": [
+          "기준 시장을 고릅니다.",
+          "다섯 요인 노출을 확인합니다.",
+          "잔여수익과 불확실성을 읽습니다."
+        ],
+        "goalEn": "Split stock performance into common factors and residuals.",
+        "stepsEn": [
+          "Choose the benchmark market.",
+          "Inspect five-factor exposures.",
+          "Read residual return and uncertainty."
+        ]
+      }
+    },
+    {
+      "methodId": "M-MOM-001",
+      "titleKo": "12-1 상대 가격 흐름",
+      "titleEn": "12-1 relative momentum",
+      "failureCase": {
+        "titleKo": "급반전의 모멘텀 붕괴",
+        "summaryKo": "시장 방향이 급격히 바뀌면 과거 승자가 빠르게 하락할 수 있습니다. 최근 한 달 제외와 위험 제한이 필요합니다.",
+        "titleEn": "Momentum crashes during sharp reversals",
+        "summaryEn": "Past winners can fall quickly when market direction reverses. Skipping the latest month and controlling risk are essential.",
+        "sourceRef": "https://www.aqr.com/Insights/Research/Journal-Article/Fact-Fiction-and-Momentum-Investing"
+      },
+      "currentApplication": {
+        "titleKo": "현재 적용 점검표",
+        "summaryKo": "12개월 중 최근 1개월을 제외하고 상대성과를 비교하며 유동성·회전율·급반전 위험을 함께 봅니다.",
+        "titleEn": "Current application checklist",
+        "summaryEn": "Compare relative performance over months 12 to 2 and inspect liquidity, turnover, and reversal risk.",
+        "sourceRef": "https://doi.org/10.1111/j.1540-6261.1993.tb04702.x"
+      },
+      "tutorial": {
+        "goalKo": "가격 상승과 상대 모멘텀을 구분한다.",
+        "stepsKo": [
+          "비교 시장을 정합니다.",
+          "최근 한 달을 제외합니다.",
+          "회전비용과 반전 위험을 확인합니다."
+        ],
+        "goalEn": "Separate price gains from relative momentum.",
+        "stepsEn": [
+          "Choose a comparison market.",
+          "Skip the latest month.",
+          "Check turnover costs and reversal risk."
+        ]
+      }
+    },
+    {
+      "methodId": "M-TREND-001",
+      "titleKo": "장단기 이동평균 추세",
+      "titleEn": "Long-short moving-average trend",
+      "failureCase": {
+        "titleKo": "횡보장의 반복 손실",
+        "summaryKo": "방향이 없는 시장에서는 이동평균 신호가 자주 뒤집혀 작은 손실이 반복될 수 있습니다.",
+        "titleEn": "Repeated whipsaws in a range-bound market",
+        "summaryEn": "In a directionless market, moving-average signals can flip repeatedly and create a series of small losses.",
+        "sourceRef": "https://www.aqr.com/-/media/AQR/Documents/Insights/Journal-Article/AQR-JPM-Fall-2017.pdf"
+      },
+      "currentApplication": {
+        "titleKo": "현재 적용 점검표",
+        "summaryKo": "장·단기 창, 거래비용, 변동성, 신호 지속기간을 공개하고 한 번의 교차를 확정적 방향으로 보지 않습니다.",
+        "titleEn": "Current application checklist",
+        "summaryEn": "Disclose long and short windows, costs, volatility, and signal persistence; do not treat one crossover as certainty.",
+        "sourceRef": "https://cmtassociation.org/technically_speaking/technically-speaking-july-2011/"
+      },
+      "tutorial": {
+        "goalKo": "추세와 잡음을 구분한다.",
+        "stepsKo": [
+          "장·단기 창을 고정합니다.",
+          "교차 지속기간을 봅니다.",
+          "횡보와 비용을 반대 근거로 확인합니다."
+        ],
+        "goalEn": "Separate trend from noise.",
+        "stepsEn": [
+          "Fix long and short windows.",
+          "Inspect crossover persistence.",
+          "Use ranges and costs as counter-evidence."
+        ]
+      }
+    },
+    {
+      "methodId": "M-REVERT-001",
+      "titleKo": "단기 과매도 되돌림",
+      "titleEn": "Short-term oversold reversal",
+      "failureCase": {
+        "titleKo": "구조적 하락을 과매도로 오해",
+        "summaryKo": "새로운 악재로 가치가 영구 훼손된 종목은 많이 떨어졌다는 이유만으로 되돌아오지 않을 수 있습니다.",
+        "titleEn": "Mistaking structural decline for oversold",
+        "summaryEn": "A security impaired by new fundamental information may not rebound merely because it has fallen sharply.",
+        "sourceRef": "https://doi.org/10.1111/j.1540-6261.1985.tb05004.x"
+      },
+      "currentApplication": {
+        "titleKo": "현재 적용 점검표",
+        "summaryKo": "하락 폭·기간·거래량과 새 공시를 함께 보고, 사건이 있는 하락과 유동성 충격을 분리합니다.",
+        "titleEn": "Current application checklist",
+        "summaryEn": "Review drawdown, horizon, volume, and new disclosures; separate event-driven decline from liquidity shock.",
+        "sourceRef": "https://www.aeaweb.org/articles?id=10.1257/jep.3.1.189"
+      },
+      "tutorial": {
+        "goalKo": "일시적 과매도와 구조적 손상을 구분한다.",
+        "stepsKo": [
+          "하락 기간과 폭을 봅니다.",
+          "새 공시와 사건을 확인합니다.",
+          "유동성과 추세를 반대 근거로 봅니다."
+        ],
+        "goalEn": "Separate temporary oversold conditions from structural damage.",
+        "stepsEn": [
+          "Inspect drawdown and horizon.",
+          "Check new disclosures and events.",
+          "Use liquidity and trend as counter-evidence."
+        ]
+      }
+    },
+    {
+      "methodId": "M-LOWRISK-001",
+      "titleKo": "낮은 변동·하락 위험",
+      "titleEn": "Low volatility and downside risk",
+      "failureCase": {
+        "titleKo": "강한 상승장에서의 뒤처짐",
+        "summaryKo": "낮은 변동 종목은 시장이 급등할 때 고위험 종목보다 상승 폭이 작을 수 있으며 특정 방어 업종에 쏠릴 수 있습니다.",
+        "titleEn": "Lagging in a strong bull market",
+        "summaryEn": "Low-volatility stocks can lag riskier stocks in sharp rallies and may concentrate in defensive sectors.",
+        "sourceRef": "https://www.robeco.com/en-us/insights/2021/06/low-volatility-investing-now-more-than-ever"
+      },
+      "currentApplication": {
+        "titleKo": "현재 적용 점검표",
+        "summaryKo": "전체 변동성뿐 아니라 하락 변동·최대낙폭·업종 집중·금리 민감도를 함께 봅니다.",
+        "titleEn": "Current application checklist",
+        "summaryEn": "Inspect downside volatility, maximum drawdown, sector concentration, and rate sensitivity alongside total volatility.",
+        "sourceRef": "https://www.robeco.com/en-int/glossary/quantitative-investing/low-volatility-anomaly"
+      },
+      "tutorial": {
+        "goalKo": "낮은 변동과 낮은 위험을 구분한다.",
+        "stepsKo": [
+          "변동성과 하락 폭을 봅니다.",
+          "업종 집중을 확인합니다.",
+          "시장 상승기 기회비용을 읽습니다."
+        ],
+        "goalEn": "Separate low volatility from low risk.",
+        "stepsEn": [
+          "Inspect volatility and drawdown.",
+          "Check sector concentration.",
+          "Read opportunity cost in bull markets."
+        ]
+      }
+    },
+    {
+      "methodId": "M-EVENT-001",
+      "titleKo": "자사주·전망 실행 사건",
+      "titleEn": "Buyback and guidance execution events",
+      "failureCase": {
+        "titleKo": "발표와 실행을 같은 것으로 계산",
+        "summaryKo": "자사주 매입 한도 발표가 실제 매입을 뜻하지 않습니다. 중복 발표와 미집행을 걸러야 합니다.",
+        "titleEn": "Counting an announcement as execution",
+        "summaryEn": "A buyback authorization is not the same as completed purchases. Duplicate announcements and non-execution must be separated.",
+        "sourceRef": "https://www.berkshirehathaway.com/letters/2011ltr.pdf"
+      },
+      "currentApplication": {
+        "titleKo": "현재 적용 점검표",
+        "summaryKo": "공식 발표, 실행기간, 실제 집행, 취소·변경, 주식수 감소를 시간순으로 연결합니다.",
+        "titleEn": "Current application checklist",
+        "summaryEn": "Link the official announcement, execution window, actual purchases, amendments, and share-count change in time order.",
+        "sourceRef": "https://www.berkshirehathaway.com/letters/1985.html"
+      },
+      "tutorial": {
+        "goalKo": "사건 발표와 실제 실행을 구분한다.",
+        "stepsKo": [
+          "공식 발표를 찾습니다.",
+          "실행기간과 금액을 확인합니다.",
+          "실제 집행과 취소를 비교합니다."
+        ],
+        "goalEn": "Separate event announcements from execution.",
+        "stepsEn": [
+          "Find the official announcement.",
+          "Check period and authorized amount.",
+          "Compare execution and cancellation."
+        ]
+      }
+    },
+    {
+      "methodId": "M-ACCOUNT-001",
+      "titleKo": "발생액·이익 품질",
+      "titleEn": "Accrual and earnings quality",
+      "failureCase": {
+        "titleKo": "업종 차이를 무시한 발생액 비교",
+        "summaryKo": "금융업과 성장 투자 기업을 제조업과 같은 발생액 기준으로 비교하면 정상적인 자산 변화를 위험으로 오해할 수 있습니다.",
+        "titleEn": "Ignoring industry differences in accruals",
+        "summaryEn": "Applying the same accrual rule to financial firms, growth investors, and manufacturers can misclassify normal balance-sheet changes.",
+        "sourceRef": "https://www.marshall.usc.edu/personnel/patricia-dechow"
+      },
+      "currentApplication": {
+        "titleKo": "현재 적용 점검표",
+        "summaryKo": "순이익·영업현금흐름·운전자본·비현금항목·정정 공시를 업종 안에서 비교합니다.",
+        "titleEn": "Current application checklist",
+        "summaryEn": "Compare earnings, operating cash flow, working capital, non-cash items, and restatements within an industry.",
+        "sourceRef": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2598"
+      },
+      "tutorial": {
+        "goalKo": "회계이익과 현금의 차이를 읽는다.",
+        "stepsKo": [
+          "순이익과 현금흐름을 비교합니다.",
+          "운전자본 변화를 봅니다.",
+          "업종과 정정 공시를 확인합니다."
+        ],
+        "goalEn": "Read the gap between accounting earnings and cash.",
+        "stepsEn": [
+          "Compare earnings and cash flow.",
+          "Inspect working-capital changes.",
+          "Check industry context and restatements."
+        ]
+      }
+    },
+    {
+      "methodId": "M-ENSEMBLE-001",
+      "titleKo": "설명 가능한 다계열 종합",
+      "titleEn": "Explainable multi-family consensus",
+      "failureCase": {
+        "titleKo": "비슷한 신호의 가짜 합의",
+        "summaryKo": "서로 같은 자료를 쓰는 방법을 여러 개 넣으면 독립된 다수 의견처럼 보이지만 실제 정보는 늘지 않습니다.",
+        "titleEn": "False consensus from duplicated signals",
+        "summaryEn": "Adding several methods built on the same data can look like independent agreement without adding information.",
+        "sourceRef": "https://www.aqr.com/Insights/Research/Journal-Article/Investing-with-Style"
+      },
+      "currentApplication": {
+        "titleKo": "현재 적용 점검표",
+        "summaryKo": "방법을 계열별로 먼저 묶고 자료 중복·상관·제외 민감도·반대 계열을 함께 공개합니다.",
+        "titleEn": "Current application checklist",
+        "summaryEn": "Aggregate within families first and disclose data overlap, correlation, leave-one-out sensitivity, and opposing families.",
+        "sourceRef": "https://www.aqr.com/insights/research/journal-article/understanding-style-premia"
+      },
+      "tutorial": {
+        "goalKo": "진짜 다계열 합의와 중복표를 구분한다.",
+        "stepsKo": [
+          "방법을 계열로 묶습니다.",
+          "계열 안에서 먼저 평균합니다.",
+          "한 방법을 뺐을 때 결과 변화를 봅니다."
+        ],
+        "goalEn": "Separate genuine multi-family agreement from duplicate votes.",
+        "stepsEn": [
+          "Group methods by family.",
+          "Average within each family first.",
+          "Inspect leave-one-out changes."
+        ]
+      }
+    }
   ],
   "synthesisTutorials": [
-    {"id":"SYN-01","titleKo":"가치·품질·모멘텀 삼각검사","titleEn":"Value-quality-momentum triangle","goalKo":"싼 이유, 사업 품질, 가격 확인을 세 방향에서 비교한다.","goalEn":"Compare cheapness, business quality, and market confirmation from three independent angles."},
-    {"id":"SYN-02","titleKo":"높은 점수 반박하기","titleEn":"Challenge a high score","goalKo":"가장 높은 후보의 반대 근거와 실패 조건을 찾아 보류 여부를 판단한다.","goalEn":"Find counter-evidence and failure conditions for the top candidate before deciding whether to hold."},
-    {"id":"SYN-03","titleKo":"시장환경 바꿔보기","titleEn":"Change the market regime","goalKo":"같은 방법이 상승·횡보·하락·충격 환경에서 어떻게 달라지는지 비교한다.","goalEn":"Compare how the same method behaves in rising, ranging, falling, and shock regimes."},
-    {"id":"SYN-04","titleKo":"자료 부족 보고서 읽기","titleEn":"Read a missing-data report","goalKo":"누락·지연·오래됨 상태가 결과 공개를 왜 막는지 이해한다.","goalEn":"Understand why missing, delayed, or stale data blocks publication."},
-    {"id":"SYN-05","titleKo":"연구 묶음 재현하기","titleEn":"Reproduce a research pack","goalKo":"같은 종목·방법·날짜·자료판을 사용해 같은 결과가 나오는지 확인한다.","goalEn":"Verify that the same securities, methods, date, and data version reproduce the same result."},
-    {"id":"SYN-06","titleKo":"판단 일지 사후검토","titleEn":"Review a decision journal","goalKo":"가설·반증조건·다음 확인일을 이용해 사후 합리화를 줄인다.","goalEn":"Use the hypothesis, disconfirming condition, and review date to reduce hindsight bias."}
+    {
+      "id": "SYN-01",
+      "titleKo": "가치·품질·모멘텀 삼각검사",
+      "titleEn": "Value-quality-momentum triangle",
+      "goalKo": "싼 이유, 사업 품질, 가격 확인을 세 방향에서 비교한다.",
+      "goalEn": "Compare cheapness, business quality, and market confirmation from three independent angles.",
+      "stepsKo": [
+        "가치·품질·모멘텀을 하나씩 선택하고 같은 기간을 고릅니다.",
+        "후보 두 개의 계열별 점수와 반대 근거를 표로 비교합니다.",
+        "세 계열이 어긋나면 보류 이유와 다음 확인일을 기록합니다."
+      ],
+      "stepsEn": [
+        "Select value, quality, and momentum with one common horizon.",
+        "Compare two candidates' family scores and counter-evidence.",
+        "If families disagree, record the reason to hold and the next review date."
+      ]
+    },
+    {
+      "id": "SYN-02",
+      "titleKo": "높은 점수 반박하기",
+      "titleEn": "Challenge a high score",
+      "goalKo": "가장 높은 후보의 반대 근거와 실패 조건을 찾아 보류 여부를 판단한다.",
+      "goalEn": "Find counter-evidence and failure conditions for the top candidate before deciding whether to hold.",
+      "stepsKo": [
+        "가장 높은 합성 후보의 상세 보고서를 엽니다.",
+        "실패 조건 하나와 누락되면 결론을 바꿀 자료 하나를 찾습니다.",
+        "종합 비교에서 해당 방법을 뺀 결과를 확인하고 가설을 기록합니다."
+      ],
+      "stepsEn": [
+        "Open the highest-ranked synthetic candidate's report.",
+        "Find one failure condition and one input whose absence changes the conclusion.",
+        "Inspect the leave-one-out comparison and record your hypothesis."
+      ]
+    },
+    {
+      "id": "SYN-03",
+      "titleKo": "시장환경 바꿔보기",
+      "titleEn": "Change the market regime",
+      "goalKo": "같은 방법이 상승·횡보·하락·충격 환경에서 어떻게 달라지는지 비교한다.",
+      "goalEn": "Compare how the same method behaves in rising, ranging, falling, and shock regimes.",
+      "stepsKo": [
+        "보고서의 상승·횡보·하락·충격 환경 설명을 차례로 읽습니다.",
+        "같은 방법의 유리한 환경과 불리한 환경을 비교합니다.",
+        "환경 설명을 실제 미래예측으로 해석하지 않고 민감 조건을 기록합니다."
+      ],
+      "stepsEn": [
+        "Read the rising, ranging, falling, and shock regime explanations.",
+        "Compare conditions favorable and unfavorable to the same method.",
+        "Record sensitivity conditions without treating the scenario as a forecast."
+      ]
+    },
+    {
+      "id": "SYN-04",
+      "titleKo": "자료 부족 보고서 읽기",
+      "titleEn": "Read a missing-data report",
+      "goalKo": "누락·지연·오래됨 상태가 결과 공개를 왜 막는지 이해한다.",
+      "goalEn": "Understand why missing, delayed, or stale data blocks publication.",
+      "stepsKo": [
+        "보고서 도서관에서 입력 누락으로 판정 보류 예시를 엽니다.",
+        "누락 입력과 점수 비공개 이유를 확인합니다.",
+        "누락값을 0이나 중립으로 대체하지 않고 필요한 다음 자료를 기록합니다."
+      ],
+      "stepsEn": [
+        "Open a held, missing-input example in the report library.",
+        "Identify the missing input and why the score is withheld.",
+        "Record the required next input without replacing the missing value with zero or neutral."
+      ]
+    },
+    {
+      "id": "SYN-05",
+      "titleKo": "연구 묶음 재현하기",
+      "titleEn": "Reproduce a research pack",
+      "goalKo": "같은 종목·방법·날짜·자료판을 사용해 같은 결과가 나오는지 확인한다.",
+      "goalEn": "Verify that the same securities, methods, date, and data version reproduce the same result.",
+      "stepsKo": [
+        "보고서에서 같은 종목·방법·기간·기준일을 고정합니다.",
+        "연구 묶음에 입력·출력·출처·경계 문구를 함께 저장합니다.",
+        "재현 지문 검사로 변조 여부를 확인하고 다른 조건의 결과와 구분합니다."
+      ],
+      "stepsEn": [
+        "Fix the security, method, horizon, and as-of date.",
+        "Save inputs, outputs, sources, and boundaries in a research pack.",
+        "Verify the fingerprint and distinguish results produced under other conditions."
+      ]
+    },
+    {
+      "id": "SYN-06",
+      "titleKo": "판단 일지 사후검토",
+      "titleEn": "Review a decision journal",
+      "goalKo": "가설·반증조건·다음 확인일을 이용해 사후 합리화를 줄인다.",
+      "goalEn": "Use the hypothesis, disconfirming condition, and review date to reduce hindsight bias.",
+      "stepsKo": [
+        "판단 일지에 가설·반증 조건·다음 확인일을 입력합니다.",
+        "후속 검토에서 원래 가설을 바꾸지 않고 새 근거를 별도 기록합니다.",
+        "맞음·틀림·판단 불가를 구분하고 합성 사례를 실제 성과로 합산하지 않습니다."
+      ],
+      "stepsEn": [
+        "Record a hypothesis, disconfirming condition, and next review date.",
+        "At review, preserve the original hypothesis and record new evidence separately.",
+        "Distinguish confirmed, disproved, and inconclusive without counting synthetic cases as real performance."
+      ]
+    }
   ],
   "additionalFaqs": [
-    {"qKo":"왜 높은 점수가 매수 신호가 아닌가요?","aKo":"점수는 합성 후보를 같은 규칙으로 비교한 값이며 가격 적정성, 개인 상황, 실제 미래수익을 판단하지 않습니다.","qEn":"Why is a high score not a buy signal?","aEn":"It compares synthetic examples under one rule; it does not establish fair price, personal suitability, or future return."},
-    {"qKo":"판정 보류는 실패인가요?","aKo":"아닙니다. 자료·권리·반대 근거가 부족할 때 결론을 강요하지 않는 안전한 결과입니다.","qEn":"Is a held judgment a failure?","aEn":"No. It is the safe result when data, rights, or counter-evidence are insufficient."},
-    {"qKo":"방법을 많이 고르면 더 정확한가요?","aKo":"비슷한 계열을 반복하면 가짜 합의가 생깁니다. 서로 다른 계열 세 개 이상을 비교하세요.","qEn":"Are more methods always more accurate?","aEn":"No. Repeating similar families creates false consensus; compare at least three independent families."},
-    {"qKo":"사례의 과거 성과가 미래에도 반복되나요?","aKo":"아닙니다. 사례는 원리와 실패 조건을 배우는 자료이며 미래 성과 보장이 아닙니다.","qEn":"Will a historical case repeat?","aEn":"No. Cases teach mechanisms and failure conditions; they do not guarantee future results."},
-    {"qKo":"대표 대가의 전체 성과가 해당 방법의 성과인가요?","aKo":"아닙니다. 실제 성과에는 여러 판단과 실행이 섞여 있어 한 방법의 효과로 돌릴 수 없습니다.","qEn":"Does a master's full record prove one method?","aEn":"No. A real record combines many decisions and cannot be attributed to one method."},
-    {"qKo":"출처 링크가 열리지 않으면 어떻게 하나요?","aKo":"내용을 확정 사실로 사용하지 말고 지원·정정 경로로 알려주세요. 대체 원문이나 보관 링크를 검토합니다.","qEn":"What if a source link is unavailable?","aEn":"Do not treat the claim as confirmed; report it so an alternate original or archive can be reviewed."},
-    {"qKo":"자료 검토일은 무엇인가요?","aKo":"콘텐츠와 출처를 마지막으로 확인한 날짜입니다. 다음 검토일이 지나면 오래됨 상태가 될 수 있습니다.","qEn":"What is the review date?","aEn":"It is when the content and source were last checked; passing the next-review date can make it stale."},
-    {"qKo":"기준시각은 왜 중요한가요?","aKo":"그 시점에 실제로 알 수 있었던 자료만 사용해야 미래정보 누수를 막을 수 있기 때문입니다.","qEn":"Why does as-of time matter?","aEn":"It prevents look-ahead by limiting analysis to information actually available at that time."},
-    {"qKo":"신뢰도는 실제 적중률인가요?","aKo":"합성 화면의 신뢰도는 예시 입력 충족도를 설명할 뿐 실제 적중률이 아닙니다.","qEn":"Is confidence an observed hit rate?","aEn":"No. In the synthetic view it describes example input coverage, not observed predictive accuracy."},
-    {"qKo":"보고서 백분위는 어떤 범위를 비교하나요?","aKo":"같은 합성 집합 안에서 점수가 어느 위치인지 보여주며 실제 시장 전체의 위치가 아닙니다.","qEn":"What universe does the report percentile compare?","aEn":"It shows position within the same synthetic set, not within the real market."},
-    {"qKo":"가치와 추세가 충돌하면 어떻게 하나요?","aKo":"싼 이유와 가격 확인 시점이 다를 수 있으므로 두 근거를 모두 보고 보류 또는 다음 확인일을 정합니다.","qEn":"What if value and trend conflict?","aEn":"Cheapness and market confirmation can occur at different times; inspect both and set a hold or review date."},
-    {"qKo":"자료가 없으면 중립으로 계산하나요?","aKo":"아닙니다. 필수 자료 누락은 보류로 처리해야 하며 임의의 중립값으로 채우지 않습니다.","qEn":"Does missing data become neutral?","aEn":"No. Missing required data must be held, not silently replaced with a neutral value."},
-    {"qKo":"오프라인 점수는 최신인가요?","aKo":"아닙니다. 마지막 저장 시점의 합성 화면이며 온라인 새 시장자료를 제공하지 않습니다.","qEn":"Is an offline score current?","aEn":"No. It is the last stored synthetic view and contains no new online market data."},
-    {"qKo":"정정됨 상태는 무엇인가요?","aKo":"원자료나 설명이 바뀌어 새 판이 추가됐다는 뜻이며 이전 판과 이유도 보존합니다.","qEn":"What does corrected mean?","aEn":"A new version was added after data or explanation changed; the prior version and reason remain visible."},
-    {"qKo":"철회된 결과를 사용할 수 있나요?","aKo":"현재 판단에는 사용하지 마세요. 계산·자료·권리 문제가 해결된 새 판을 기다려야 합니다.","qEn":"Can I use a withdrawn result?","aEn":"Do not use it for current judgment; wait for a new version after the issue is resolved."},
-    {"qKo":"합성 보고서를 공유해도 되나요?","aKo":"가능하지만 합성자료·실제 확률 아님·투자 권유 아님이라는 경계 문구를 함께 유지해야 합니다.","qEn":"Can I share a synthetic report?","aEn":"Yes, but retain the labels that it is synthetic, not a real probability, and not investment advice."},
-    {"qKo":"인쇄본에도 자료 경계가 남나요?","aKo":"예. 인쇄·PDF에도 합성자료, 기준일, 방법, 한계와 면책 문구가 포함돼야 합니다.","qEn":"Does the printed version keep the boundary?","aEn":"Yes. Print and PDF must retain synthetic status, date, method, limitations, and disclaimer."},
-    {"qKo":"검색 결과가 없으면 무엇을 하나요?","aKo":"검색어를 지우고 시장·기간·최소 점수·방법 호환성을 차례로 확인하세요.","qEn":"What if search returns no results?","aEn":"Clear the query, then check market, horizon, minimum score, and method compatibility."},
-    {"qKo":"왜 기간마다 사용할 수 있는 방법이 다른가요?","aKo":"방법의 가정과 자료가 작동하는 시간범위가 다르기 때문입니다.","qEn":"Why do available methods differ by horizon?","aEn":"Each method has assumptions and data suited to different time horizons."},
-    {"qKo":"민감도는 무엇을 보여주나요?","aKo":"한 방법을 뺐을 때 종합점수가 얼마나 바뀌는지 보여줘 특정 방법 의존도를 드러냅니다.","qEn":"What does sensitivity show?","aEn":"It shows how the combined score changes when one method is removed, revealing dependence."},
-    {"qKo":"같은 계열 평균은 왜 사용하나요?","aKo":"서로 비슷한 신호가 여러 표를 얻어 종합점수를 부풀리는 일을 막기 위해서입니다.","qEn":"Why average within a family?","aEn":"It prevents similar signals from receiving multiple votes and inflating consensus."},
-    {"qKo":"연구 묶음의 지문은 전자서명인가요?","aKo":"아닙니다. 우발적 변경을 확인하는 값이며 신원이나 법적 서명을 증명하지 않습니다.","qEn":"Is the research-pack fingerprint a digital signature?","aEn":"No. It detects accidental changes but does not prove identity or a legal signature."},
-    {"qKo":"판단 일지에 무엇을 쓰나요?","aKo":"현재 가설, 틀렸음을 보여줄 조건, 다음 확인일을 짧고 구체적으로 씁니다.","qEn":"What belongs in a decision journal?","aEn":"Record the current hypothesis, what would disprove it, and a specific next review date."},
-    {"qKo":"관심 종목은 서버에 저장되나요?","aKo":"현재 공개판에서는 이 브라우저에만 저장되며 자동으로 서버에 전송되지 않습니다.","qEn":"Is the watchlist stored on a server?","aEn":"No. In the current public version it stays in this browser and is not uploaded automatically."},
-    {"qKo":"브라우저를 바꾸면 저장자료가 보이나요?","aKo":"자동으로 보이지 않습니다. 기존 브라우저에서 백업을 내려받아 새 브라우저에서 직접 복원해야 합니다.","qEn":"Will data appear in another browser?","aEn":"Not automatically. Export a backup from the old browser and explicitly restore it in the new one."},
-    {"qKo":"삭제한 자료를 되돌릴 수 있나요?","aKo":"삭제 전 내려받은 백업이 있을 때만 직접 복원할 수 있습니다.","qEn":"Can deleted data be restored?","aEn":"Only if you downloaded a backup before deletion."},
-    {"qKo":"광고가 순위에 영향을 주나요?","aKo":"아닙니다. 광고·후원은 방법 점수·종목 순위·근거에 접근하거나 영향을 줄 수 없습니다.","qEn":"Can advertising affect rankings?","aEn":"No. Advertising and sponsorship cannot access or influence method scores, rankings, or evidence."},
-    {"qKo":"실제 시장 모드는 언제 열리나요?","aKo":"자료 이용권, 시점 검증, 전문가·법률 검토, 실제 사용자·기기 시험이 모두 통과한 뒤에만 제한 공개합니다.","qEn":"When will real-market mode open?","aEn":"Only after data rights, point-in-time tests, expert and legal review, and real user/device tests pass."},
-    {"qKo":"왜 실제 종목명 대신 USX·JPX를 쓰나요?","aKo":"실제 기업이나 시세로 오해되지 않도록 합성 학습자료를 분명히 구분하기 위해서입니다.","qEn":"Why use USX and JPX names?","aEn":"They clearly separate synthetic learning examples from real companies and prices."},
-    {"qKo":"보고서의 긍정 근거만 읽어도 되나요?","aKo":"아닙니다. 반대 근거·한계·자료상태를 함께 읽지 않으면 결론이 과장될 수 있습니다.","qEn":"Can I read only positive evidence?","aEn":"No. Ignoring counter-evidence, limitations, and data status can exaggerate the conclusion."},
-    {"qKo":"서로 다른 시장 점수를 바로 비교해도 되나요?","aKo":"통화·회계·거래시간·업종 구성이 달라 현재 합성 예시 밖의 직접 비교는 적절하지 않습니다.","qEn":"Can scores from different markets be compared directly?","aEn":"Not without normalization for currency, accounting, trading calendars, and sector composition."},
-    {"qKo":"서비스가 법률 또는 투자 자문을 제공하나요?","aKo":"아닙니다. 교육·연구 도구이며 개인 상황에 맞춘 법률·세금·투자 자문이 아닙니다.","qEn":"Does the service provide legal or investment advice?","aEn":"No. It is an educational research tool, not personalized legal, tax, or investment advice."},
-    {"qKo":"오류를 발견하면 어떻게 하나요?","aKo":"지원·신고 화면에서 원문 주소와 문제 위치를 함께 보내면 정정 검토에 도움이 됩니다.","qEn":"How do I report an error?","aEn":"Use the support path and include the source URL and exact location to help correction review."},
-    {"qKo":"방법론 콘텐츠는 얼마나 자주 검토하나요?","aKo":"최소 분기마다 검토하며 원 연구·공식 자료 또는 계산판이 바뀌면 즉시 새 판을 냅니다.","qEn":"How often is method content reviewed?","aEn":"At least quarterly, and immediately when primary research, official data, or the calculation version changes."},
-    {"qKo":"콘텐츠 100%는 오류가 전혀 없다는 뜻인가요?","aKo":"아닙니다. 선언한 범위의 측정 조건을 모두 통과하고 미확인을 숨기지 않았다는 뜻입니다.","qEn":"Does 100% content mean perfect forever?","aEn":"No. It means all declared measurable conditions passed and unknowns were not hidden."}
+    {
+      "qKo": "왜 높은 점수가 매수 신호가 아닌가요?",
+      "aKo": "점수는 합성 후보를 같은 규칙으로 비교한 값이며 가격 적정성, 개인 상황, 실제 미래수익을 판단하지 않습니다.",
+      "qEn": "Why is a high score not a buy signal?",
+      "aEn": "It compares synthetic examples under one rule; it does not establish fair price, personal suitability, or future return."
+    },
+    {
+      "qKo": "판정 보류는 실패인가요?",
+      "aKo": "아닙니다. 자료·권리·반대 근거가 부족할 때 결론을 강요하지 않는 안전한 결과입니다.",
+      "qEn": "Is a held judgment a failure?",
+      "aEn": "No. It is the safe result when data, rights, or counter-evidence are insufficient."
+    },
+    {
+      "qKo": "방법을 많이 고르면 더 정확한가요?",
+      "aKo": "비슷한 계열을 반복하면 가짜 합의가 생깁니다. 서로 다른 계열 세 개 이상을 비교하세요.",
+      "qEn": "Are more methods always more accurate?",
+      "aEn": "No. Repeating similar families creates false consensus; compare at least three independent families."
+    },
+    {
+      "qKo": "사례의 과거 성과가 미래에도 반복되나요?",
+      "aKo": "아닙니다. 사례는 원리와 실패 조건을 배우는 자료이며 미래 성과 보장이 아닙니다.",
+      "qEn": "Will a historical case repeat?",
+      "aEn": "No. Cases teach mechanisms and failure conditions; they do not guarantee future results."
+    },
+    {
+      "qKo": "대표 대가의 전체 성과가 해당 방법의 성과인가요?",
+      "aKo": "아닙니다. 실제 성과에는 여러 판단과 실행이 섞여 있어 한 방법의 효과로 돌릴 수 없습니다.",
+      "qEn": "Does a master's full record prove one method?",
+      "aEn": "No. A real record combines many decisions and cannot be attributed to one method."
+    },
+    {
+      "qKo": "출처 링크가 열리지 않으면 어떻게 하나요?",
+      "aKo": "내용을 확정 사실로 사용하지 말고 지원·정정 경로로 알려주세요. 대체 원문이나 보관 링크를 검토합니다.",
+      "qEn": "What if a source link is unavailable?",
+      "aEn": "Do not treat the claim as confirmed; report it so an alternate original or archive can be reviewed."
+    },
+    {
+      "qKo": "자료 검토일은 무엇인가요?",
+      "aKo": "콘텐츠와 출처를 마지막으로 확인한 날짜입니다. 다음 검토일이 지나면 오래됨 상태가 될 수 있습니다.",
+      "qEn": "What is the review date?",
+      "aEn": "It is when the content and source were last checked; passing the next-review date can make it stale."
+    },
+    {
+      "qKo": "기준시각은 왜 중요한가요?",
+      "aKo": "그 시점에 실제로 알 수 있었던 자료만 사용해야 미래정보 누수를 막을 수 있기 때문입니다.",
+      "qEn": "Why does as-of time matter?",
+      "aEn": "It prevents look-ahead by limiting analysis to information actually available at that time."
+    },
+    {
+      "qKo": "신뢰도는 실제 적중률인가요?",
+      "aKo": "합성 화면의 신뢰도는 예시 입력 충족도를 설명할 뿐 실제 적중률이 아닙니다.",
+      "qEn": "Is confidence an observed hit rate?",
+      "aEn": "No. In the synthetic view it describes example input coverage, not observed predictive accuracy."
+    },
+    {
+      "qKo": "보고서 백분위는 어떤 범위를 비교하나요?",
+      "aKo": "같은 합성 집합 안에서 점수가 어느 위치인지 보여주며 실제 시장 전체의 위치가 아닙니다.",
+      "qEn": "What universe does the report percentile compare?",
+      "aEn": "It shows position within the same synthetic set, not within the real market."
+    },
+    {
+      "qKo": "가치와 추세가 충돌하면 어떻게 하나요?",
+      "aKo": "싼 이유와 가격 확인 시점이 다를 수 있으므로 두 근거를 모두 보고 보류 또는 다음 확인일을 정합니다.",
+      "qEn": "What if value and trend conflict?",
+      "aEn": "Cheapness and market confirmation can occur at different times; inspect both and set a hold or review date."
+    },
+    {
+      "qKo": "자료가 없으면 중립으로 계산하나요?",
+      "aKo": "아닙니다. 필수 자료 누락은 보류로 처리해야 하며 임의의 중립값으로 채우지 않습니다.",
+      "qEn": "Does missing data become neutral?",
+      "aEn": "No. Missing required data must be held, not silently replaced with a neutral value."
+    },
+    {
+      "qKo": "오프라인 점수는 최신인가요?",
+      "aKo": "아닙니다. 마지막 저장 시점의 합성 화면이며 온라인 새 시장자료를 제공하지 않습니다.",
+      "qEn": "Is an offline score current?",
+      "aEn": "No. It is the last stored synthetic view and contains no new online market data."
+    },
+    {
+      "qKo": "정정됨 상태는 무엇인가요?",
+      "aKo": "원자료나 설명이 바뀌어 새 판이 추가됐다는 뜻이며 이전 판과 이유도 보존합니다.",
+      "qEn": "What does corrected mean?",
+      "aEn": "A new version was added after data or explanation changed; the prior version and reason remain visible."
+    },
+    {
+      "qKo": "철회된 결과를 사용할 수 있나요?",
+      "aKo": "현재 판단에는 사용하지 마세요. 계산·자료·권리 문제가 해결된 새 판을 기다려야 합니다.",
+      "qEn": "Can I use a withdrawn result?",
+      "aEn": "Do not use it for current judgment; wait for a new version after the issue is resolved."
+    },
+    {
+      "qKo": "합성 보고서를 공유해도 되나요?",
+      "aKo": "가능하지만 합성자료·실제 확률 아님·투자 권유 아님이라는 경계 문구를 함께 유지해야 합니다.",
+      "qEn": "Can I share a synthetic report?",
+      "aEn": "Yes, but retain the labels that it is synthetic, not a real probability, and not investment advice."
+    },
+    {
+      "qKo": "인쇄본에도 자료 경계가 남나요?",
+      "aKo": "예. 인쇄·PDF에도 합성자료, 기준일, 방법, 한계와 면책 문구가 포함돼야 합니다.",
+      "qEn": "Does the printed version keep the boundary?",
+      "aEn": "Yes. Print and PDF must retain synthetic status, date, method, limitations, and disclaimer."
+    },
+    {
+      "qKo": "검색 결과가 없으면 무엇을 하나요?",
+      "aKo": "검색어를 지우고 시장·기간·최소 점수·방법 호환성을 차례로 확인하세요.",
+      "qEn": "What if search returns no results?",
+      "aEn": "Clear the query, then check market, horizon, minimum score, and method compatibility."
+    },
+    {
+      "qKo": "왜 기간마다 사용할 수 있는 방법이 다른가요?",
+      "aKo": "방법의 가정과 자료가 작동하는 시간범위가 다르기 때문입니다.",
+      "qEn": "Why do available methods differ by horizon?",
+      "aEn": "Each method has assumptions and data suited to different time horizons."
+    },
+    {
+      "qKo": "민감도는 무엇을 보여주나요?",
+      "aKo": "한 방법을 뺐을 때 종합점수가 얼마나 바뀌는지 보여줘 특정 방법 의존도를 드러냅니다.",
+      "qEn": "What does sensitivity show?",
+      "aEn": "It shows how the combined score changes when one method is removed, revealing dependence."
+    },
+    {
+      "qKo": "같은 계열 평균은 왜 사용하나요?",
+      "aKo": "서로 비슷한 신호가 여러 표를 얻어 종합점수를 부풀리는 일을 막기 위해서입니다.",
+      "qEn": "Why average within a family?",
+      "aEn": "It prevents similar signals from receiving multiple votes and inflating consensus."
+    },
+    {
+      "qKo": "연구 묶음의 지문은 전자서명인가요?",
+      "aKo": "아닙니다. 우발적 변경을 확인하는 값이며 신원이나 법적 서명을 증명하지 않습니다.",
+      "qEn": "Is the research-pack fingerprint a digital signature?",
+      "aEn": "No. It detects accidental changes but does not prove identity or a legal signature."
+    },
+    {
+      "qKo": "판단 일지에 무엇을 쓰나요?",
+      "aKo": "현재 가설, 틀렸음을 보여줄 조건, 다음 확인일을 짧고 구체적으로 씁니다.",
+      "qEn": "What belongs in a decision journal?",
+      "aEn": "Record the current hypothesis, what would disprove it, and a specific next review date."
+    },
+    {
+      "qKo": "관심 종목은 서버에 저장되나요?",
+      "aKo": "현재 공개판에서는 이 브라우저에만 저장되며 자동으로 서버에 전송되지 않습니다.",
+      "qEn": "Is the watchlist stored on a server?",
+      "aEn": "No. In the current public version it stays in this browser and is not uploaded automatically."
+    },
+    {
+      "qKo": "브라우저를 바꾸면 저장자료가 보이나요?",
+      "aKo": "자동으로 보이지 않습니다. 기존 브라우저에서 백업을 내려받아 새 브라우저에서 직접 복원해야 합니다.",
+      "qEn": "Will data appear in another browser?",
+      "aEn": "Not automatically. Export a backup from the old browser and explicitly restore it in the new one."
+    },
+    {
+      "qKo": "삭제한 자료를 되돌릴 수 있나요?",
+      "aKo": "삭제 전 내려받은 백업이 있을 때만 직접 복원할 수 있습니다.",
+      "qEn": "Can deleted data be restored?",
+      "aEn": "Only if you downloaded a backup before deletion."
+    },
+    {
+      "qKo": "광고가 순위에 영향을 주나요?",
+      "aKo": "아닙니다. 광고·후원은 방법 점수·종목 순위·근거에 접근하거나 영향을 줄 수 없습니다.",
+      "qEn": "Can advertising affect rankings?",
+      "aEn": "No. Advertising and sponsorship cannot access or influence method scores, rankings, or evidence."
+    },
+    {
+      "qKo": "실제 시장 모드는 언제 열리나요?",
+      "aKo": "자료 이용권, 시점 검증, 전문가·법률 검토, 실제 사용자·기기 시험이 모두 통과한 뒤에만 제한 공개합니다.",
+      "qEn": "When will real-market mode open?",
+      "aEn": "Only after data rights, point-in-time tests, expert and legal review, and real user/device tests pass."
+    },
+    {
+      "qKo": "왜 실제 종목명 대신 USX·JPX를 쓰나요?",
+      "aKo": "실제 기업이나 시세로 오해되지 않도록 합성 학습자료를 분명히 구분하기 위해서입니다.",
+      "qEn": "Why use USX and JPX names?",
+      "aEn": "They clearly separate synthetic learning examples from real companies and prices."
+    },
+    {
+      "qKo": "보고서의 긍정 근거만 읽어도 되나요?",
+      "aKo": "아닙니다. 반대 근거·한계·자료상태를 함께 읽지 않으면 결론이 과장될 수 있습니다.",
+      "qEn": "Can I read only positive evidence?",
+      "aEn": "No. Ignoring counter-evidence, limitations, and data status can exaggerate the conclusion."
+    },
+    {
+      "qKo": "서로 다른 시장 점수를 바로 비교해도 되나요?",
+      "aKo": "통화·회계·거래시간·업종 구성이 달라 현재 합성 예시 밖의 직접 비교는 적절하지 않습니다.",
+      "qEn": "Can scores from different markets be compared directly?",
+      "aEn": "Not without normalization for currency, accounting, trading calendars, and sector composition."
+    },
+    {
+      "qKo": "서비스가 법률 또는 투자 자문을 제공하나요?",
+      "aKo": "아닙니다. 교육·연구 도구이며 개인 상황에 맞춘 법률·세금·투자 자문이 아닙니다.",
+      "qEn": "Does the service provide legal or investment advice?",
+      "aEn": "No. It is an educational research tool, not personalized legal, tax, or investment advice."
+    },
+    {
+      "qKo": "오류를 발견하면 어떻게 하나요?",
+      "aKo": "지원·신고 화면에서 원문 주소와 문제 위치를 함께 보내면 정정 검토에 도움이 됩니다.",
+      "qEn": "How do I report an error?",
+      "aEn": "Use the support path and include the source URL and exact location to help correction review."
+    },
+    {
+      "qKo": "방법론 콘텐츠는 얼마나 자주 검토하나요?",
+      "aKo": "최소 분기마다 검토하며 원 연구·공식 자료 또는 계산판이 바뀌면 즉시 새 판을 냅니다.",
+      "qEn": "How often is method content reviewed?",
+      "aEn": "At least quarterly, and immediately when primary research, official data, or the calculation version changes."
+    },
+    {
+      "qKo": "콘텐츠 100%는 오류가 전혀 없다는 뜻인가요?",
+      "aKo": "아닙니다. 선언한 범위의 측정 조건을 모두 통과하고 미확인을 숨기지 않았다는 뜻입니다.",
+      "qEn": "Does 100% content mean perfect forever?",
+      "aEn": "No. It means all declared measurable conditions passed and unknowns were not hidden."
+    }
   ],
   "additionalGlossary": [
-    {"termKo":"자료판","definitionKo":"같은 시점의 원자료와 정규화 결과를 다시 재현할 수 있게 고정한 판번호","termEn":"Data version","definitionEn":"An immutable identifier for reproducing raw and normalized data at the same point in time."},
-    {"termKo":"방법판","definitionKo":"계산식·입력·결측 처리·가중치를 함께 고정한 방법의 판번호","termEn":"Method version","definitionEn":"A fixed version of a method's formula, inputs, missing-data rules, and weights."},
-    {"termKo":"콘텐츠판","definitionKo":"설명·출처·번역·검토 상태가 묶인 공개 콘텐츠의 판번호","termEn":"Content version","definitionEn":"A version binding copy, sources, translations, and review status."},
-    {"termKo":"기준시각","definitionKo":"분석이 알고 있다고 허용한 정보의 마지막 시점","termEn":"As-of time","definitionEn":"The latest point in time whose information an analysis may use."},
-    {"termKo":"관찰시각","definitionKo":"시스템이 자료를 실제로 확인하거나 받은 시점","termEn":"Observed time","definitionEn":"The time the system actually received or observed the data."},
-    {"termKo":"미래정보 누수","definitionKo":"과거 판단에 당시 알 수 없던 미래 자료가 섞이는 오류","termEn":"Look-ahead leakage","definitionEn":"The error of using information that was not yet available at the historical decision time."},
-    {"termKo":"표본 밖 시험","definitionKo":"방법을 만들거나 고르지 않은 별도 기간·자료에서 성능을 확인하는 시험","termEn":"Out-of-sample test","definitionEn":"A test on data not used to build or select the method."},
-    {"termKo":"보정오차","definitionKo":"예측확률과 실제 발생 비율이 얼마나 다른지 나타내는 값","termEn":"Calibration error","definitionEn":"The difference between predicted probabilities and observed frequencies."},
-    {"termKo":"Brier 점수","definitionKo":"확률예측과 실제 0·1 결과의 차이를 제곱해 평균한 값으로 낮을수록 좋음","termEn":"Brier score","definitionEn":"The mean squared difference between predicted probabilities and binary outcomes; lower is better."},
-    {"termKo":"신뢰범위","definitionKo":"표본 오차를 고려했을 때 참값이 있을 법한 범위","termEn":"Confidence interval","definitionEn":"A range reflecting uncertainty around an estimated value."},
-    {"termKo":"비교 기준지수","definitionKo":"종목 성과가 시장보다 나았는지 비교하도록 선택한 기준 묶음","termEn":"Comparison benchmark","definitionEn":"A selected reference basket used to compare whether a security outperformed its market."},
-    {"termKo":"초과수익","definitionKo":"종목 수익에서 같은 기간 기준지수 수익을 뺀 값","termEn":"Excess return","definitionEn":"A security's return minus its benchmark return over the same period."},
-    {"termKo":"최대낙폭","definitionKo":"고점에서 이후 저점까지의 가장 큰 하락률","termEn":"Maximum drawdown","definitionEn":"The largest peak-to-trough decline over a period."},
-    {"termKo":"최대 불리 움직임","definitionKo":"예측 뒤 목표 방향과 반대로 가장 크게 움직인 폭","termEn":"Maximum adverse excursion","definitionEn":"The largest move against the forecast direction after publication."},
-    {"termKo":"회전율","definitionKo":"일정 기간 동안 보유 후보가 얼마나 자주 바뀌는지 나타내는 비율","termEn":"Turnover","definitionEn":"How frequently portfolio or candidate holdings change over a period."},
-    {"termKo":"미끄러짐","definitionKo":"계산상 가격과 실제 거래 가능 가격 사이의 차이","termEn":"Slippage","definitionEn":"The gap between a model price and an achievable transaction price."},
-    {"termKo":"생존편향","definitionKo":"사라진 기업을 빼고 살아남은 기업만 분석해 성과가 좋아 보이는 오류","termEn":"Survivorship bias","definitionEn":"Inflated results caused by excluding delisted or failed securities."},
-    {"termKo":"반복비교 편향","definitionKo":"많은 방법을 시험한 뒤 우연히 좋은 결과만 고르는 오류","termEn":"Multiple-testing bias","definitionEn":"Selecting chance winners after testing many methods."},
-    {"termKo":"총발생액","definitionKo":"회계이익과 영업현금흐름의 전체 차이를 자산 규모와 함께 본 값","termEn":"Total accruals","definitionEn":"The total gap between accounting earnings and operating cash flow, usually scaled by assets."},
-    {"termKo":"현금전환","definitionKo":"회계이익이 실제 영업현금으로 이어지는 정도","termEn":"Cash conversion","definitionEn":"The degree to which accounting profit turns into operating cash flow."},
-    {"termKo":"투하자본수익률","definitionKo":"사업에 투입한 자본으로 세후 영업이익을 얼마나 만들었는지 보는 비율","termEn":"ROIC","definitionEn":"After-tax operating profit earned relative to capital invested in the business."},
-    {"termKo":"구조적 가치 함정","definitionKo":"산업이나 사업가치가 계속 악화되어 낮은 가격이 진짜 저평가가 아닌 상태","termEn":"Structural value trap","definitionEn":"A low price caused by persistent industry or business deterioration rather than genuine undervaluation."},
-    {"termKo":"실적 놀라움","definitionKo":"실제 발표값과 발표 직전 시장 기대치의 차이","termEn":"Earnings surprise","definitionEn":"The difference between reported results and expectations immediately before release."},
-    {"termKo":"잔여수익","definitionKo":"공통 시장·요인의 영향을 분리하고 남은 수익","termEn":"Residual return","definitionEn":"Return remaining after separating common market and factor effects."},
-    {"termKo":"요인 노출","definitionKo":"종목 수익이 시장·규모·가치 같은 공통 요인과 함께 움직이는 정도","termEn":"Factor exposure","definitionEn":"How strongly a security moves with common factors such as market, size, or value."},
-    {"termKo":"상대 모멘텀","definitionKo":"다른 종목이나 기준지수보다 최근 성과가 강한 정도","termEn":"Relative momentum","definitionEn":"The strength of recent performance relative to peers or a benchmark."},
-    {"termKo":"장단기 이동평균","definitionKo":"서로 다른 두 기간의 가격 평균을 비교해 방향을 살피는 값","termEn":"Long-short moving averages","definitionEn":"Two rolling price averages with different windows used to inspect direction."},
-    {"termKo":"휩소","definitionKo":"방향 없는 시장에서 추세 신호가 반복해서 뒤집히는 현상","termEn":"Whipsaw","definitionEn":"Repeated signal reversals in a directionless market."},
-    {"termKo":"단기 평균회귀","definitionKo":"짧은 기간에 극단적으로 움직인 값이 최근 평균 쪽으로 되돌아오는 경향","termEn":"Short-term mean reversion","definitionEn":"The tendency of a short-term extreme move to return toward its recent average."},
-    {"termKo":"하락 변동성","definitionKo":"가격이 내려가는 관측치만 사용해 계산한 변동 정도","termEn":"Downside volatility","definitionEn":"Volatility calculated from negative-return observations."},
-    {"termKo":"기업행동","definitionKo":"분할·배당·자사주·합병처럼 주식 수와 가격 비교에 영향을 주는 공식 사건","termEn":"Corporate action","definitionEn":"An official event such as a split, dividend, buyback, or merger affecting shares or price comparability."},
-    {"termKo":"자사주 집행률","definitionKo":"발표한 자사주 매입 한도 중 실제로 실행한 비율","termEn":"Buyback execution rate","definitionEn":"The share of an authorized repurchase that was actually completed."},
-    {"termKo":"전망 실행","definitionKo":"경영진이 제시한 수치·기한 목표와 실제 결과를 비교하는 과정","termEn":"Guidance execution","definitionEn":"Comparing management's stated targets and deadlines with actual outcomes."},
-    {"termKo":"계열 안 평균","definitionKo":"비슷한 방법을 먼저 평균해 하나의 계열이 여러 표를 얻지 못하게 하는 규칙","termEn":"Within-family average","definitionEn":"Averaging similar methods before combination so one family does not receive duplicate votes."},
-    {"termKo":"제외 민감도","definitionKo":"한 방법을 뺐을 때 종합 결과가 얼마나 바뀌는지 보는 값","termEn":"Leave-one-out sensitivity","definitionEn":"How much a combined result changes when one method is removed."},
-    {"termKo":"반증 조건","definitionKo":"현재 결론이 틀렸다고 판단하게 만드는 사전에 정한 조건","termEn":"Disconfirming condition","definitionEn":"A predeclared condition that would indicate the current conclusion is wrong."},
-    {"termKo":"공개 보류","definitionKo":"필수 근거가 부족하거나 충돌이 커서 결과를 사용자에게 공개하지 않는 상태","termEn":"Publication hold","definitionEn":"A state where a result is not published because evidence is insufficient or conflicting."},
-    {"termKo":"정정 계보","definitionKo":"원자료 수정이 번역·보고서·알림으로 어떻게 이어졌는지 남긴 연결 기록","termEn":"Correction lineage","definitionEn":"The record of how a source correction propagated to translations, reports, and alerts."},
-    {"termKo":"추가 전용 원장","definitionKo":"기존 기록을 고치거나 지우지 않고 새 기록만 덧붙이는 장부","termEn":"Append-only ledger","definitionEn":"A ledger that preserves prior entries and permits only new additions."},
-    {"termKo":"신선도 상태","definitionKo":"자료가 최신·지연·오래됨·누락 중 어디에 해당하는지 나타내는 상태","termEn":"Freshness status","definitionEn":"Whether data is fresh, delayed, stale, or missing."},
-    {"termKo":"자료 충분도","definitionKo":"방법 계산에 필요한 입력이 얼마나 빠짐없이 있는지 나타내는 값","termEn":"Data sufficiency","definitionEn":"How completely the inputs required by a method are available."},
-    {"termKo":"이용권 상태","definitionKo":"자료를 표시·저장·계산·내보낼 권리가 확인됐는지 나타내는 상태","termEn":"Rights status","definitionEn":"Whether permission to display, store, calculate, or export data has been verified."},
-    {"termKo":"원문 위치","definitionKo":"주장을 확인할 수 있는 공식 문서의 정확한 페이지·표·문단","termEn":"Source location","definitionEn":"The exact page, table, or paragraph in a primary document supporting a claim."},
-    {"termKo":"정규화","definitionKo":"시장·통화·단위·회계기간이 다른 값을 비교 가능하게 맞추는 처리","termEn":"Normalization","definitionEn":"Aligning market, currency, unit, and accounting-period differences for comparison."},
-    {"termKo":"사건 묶음","definitionKo":"같은 사실을 다룬 여러 기사와 공시를 하나의 사건으로 연결한 단위","termEn":"Event cluster","definitionEn":"A unit linking multiple articles and filings about the same underlying event."},
-    {"termKo":"사실 문장","definitionKo":"출처에서 직접 확인할 수 있고 해석과 분리된 문장","termEn":"Fact statement","definitionEn":"A source-verifiable statement kept separate from interpretation."},
-    {"termKo":"해석 문장","definitionKo":"확인된 사실이 시장·산업·기업에 미칠 의미를 설명하는 문장","termEn":"Interpretation statement","definitionEn":"A statement explaining what verified facts may mean for markets, industries, or firms."},
-    {"termKo":"영향 경로","definitionKo":"사건이 가격·금리·통화·산업·기업으로 전달되는 단계별 연결","termEn":"Impact path","definitionEn":"A stepwise link from an event through price, rates, currency, industry, and company effects."},
-    {"termKo":"전진관찰","definitionKo":"공개 당시 후보를 바꾸지 않고 이후 실제 결과를 시간에 따라 기록하는 검증","termEn":"Forward observation","definitionEn":"Tracking outcomes over time without altering the candidates originally published."},
-    {"termKo":"선택 보고","definitionKo":"좋은 결과만 남기고 실패를 숨겨 성과를 부풀리는 행위","termEn":"Selective reporting","definitionEn":"Inflating performance by retaining wins while hiding failures."}
+    {
+      "termKo": "자료판",
+      "definitionKo": "같은 시점의 원자료와 정규화 결과를 다시 재현할 수 있게 고정한 판번호",
+      "termEn": "Data version",
+      "definitionEn": "An immutable identifier for reproducing raw and normalized data at the same point in time."
+    },
+    {
+      "termKo": "방법판",
+      "definitionKo": "계산식·입력·결측 처리·가중치를 함께 고정한 방법의 판번호",
+      "termEn": "Method version",
+      "definitionEn": "A fixed version of a method's formula, inputs, missing-data rules, and weights."
+    },
+    {
+      "termKo": "콘텐츠판",
+      "definitionKo": "설명·출처·번역·검토 상태가 묶인 공개 콘텐츠의 판번호",
+      "termEn": "Content version",
+      "definitionEn": "A version binding copy, sources, translations, and review status."
+    },
+    {
+      "termKo": "기준시각",
+      "definitionKo": "분석이 알고 있다고 허용한 정보의 마지막 시점",
+      "termEn": "As-of time",
+      "definitionEn": "The latest point in time whose information an analysis may use."
+    },
+    {
+      "termKo": "관찰시각",
+      "definitionKo": "시스템이 자료를 실제로 확인하거나 받은 시점",
+      "termEn": "Observed time",
+      "definitionEn": "The time the system actually received or observed the data."
+    },
+    {
+      "termKo": "미래정보 누수",
+      "definitionKo": "과거 판단에 당시 알 수 없던 미래 자료가 섞이는 오류",
+      "termEn": "Look-ahead leakage",
+      "definitionEn": "The error of using information that was not yet available at the historical decision time."
+    },
+    {
+      "termKo": "표본 밖 시험",
+      "definitionKo": "방법을 만들거나 고르지 않은 별도 기간·자료에서 성능을 확인하는 시험",
+      "termEn": "Out-of-sample test",
+      "definitionEn": "A test on data not used to build or select the method."
+    },
+    {
+      "termKo": "보정오차",
+      "definitionKo": "예측확률과 실제 발생 비율이 얼마나 다른지 나타내는 값",
+      "termEn": "Calibration error",
+      "definitionEn": "The difference between predicted probabilities and observed frequencies."
+    },
+    {
+      "termKo": "Brier 점수",
+      "definitionKo": "확률예측과 실제 0·1 결과의 차이를 제곱해 평균한 값으로 낮을수록 좋음",
+      "termEn": "Brier score",
+      "definitionEn": "The mean squared difference between predicted probabilities and binary outcomes; lower is better."
+    },
+    {
+      "termKo": "신뢰범위",
+      "definitionKo": "표본 오차를 고려했을 때 참값이 있을 법한 범위",
+      "termEn": "Confidence interval",
+      "definitionEn": "A range reflecting uncertainty around an estimated value."
+    },
+    {
+      "termKo": "비교 기준지수",
+      "definitionKo": "종목 성과가 시장보다 나았는지 비교하도록 선택한 기준 묶음",
+      "termEn": "Comparison benchmark",
+      "definitionEn": "A selected reference basket used to compare whether a security outperformed its market."
+    },
+    {
+      "termKo": "초과수익",
+      "definitionKo": "종목 수익에서 같은 기간 기준지수 수익을 뺀 값",
+      "termEn": "Excess return",
+      "definitionEn": "A security's return minus its benchmark return over the same period."
+    },
+    {
+      "termKo": "최대낙폭",
+      "definitionKo": "고점에서 이후 저점까지의 가장 큰 하락률",
+      "termEn": "Maximum drawdown",
+      "definitionEn": "The largest peak-to-trough decline over a period."
+    },
+    {
+      "termKo": "최대 불리 움직임",
+      "definitionKo": "예측 뒤 목표 방향과 반대로 가장 크게 움직인 폭",
+      "termEn": "Maximum adverse excursion",
+      "definitionEn": "The largest move against the forecast direction after publication."
+    },
+    {
+      "termKo": "회전율",
+      "definitionKo": "일정 기간 동안 보유 후보가 얼마나 자주 바뀌는지 나타내는 비율",
+      "termEn": "Turnover",
+      "definitionEn": "How frequently portfolio or candidate holdings change over a period."
+    },
+    {
+      "termKo": "미끄러짐",
+      "definitionKo": "계산상 가격과 실제 거래 가능 가격 사이의 차이",
+      "termEn": "Slippage",
+      "definitionEn": "The gap between a model price and an achievable transaction price."
+    },
+    {
+      "termKo": "생존편향",
+      "definitionKo": "사라진 기업을 빼고 살아남은 기업만 분석해 성과가 좋아 보이는 오류",
+      "termEn": "Survivorship bias",
+      "definitionEn": "Inflated results caused by excluding delisted or failed securities."
+    },
+    {
+      "termKo": "반복비교 편향",
+      "definitionKo": "많은 방법을 시험한 뒤 우연히 좋은 결과만 고르는 오류",
+      "termEn": "Multiple-testing bias",
+      "definitionEn": "Selecting chance winners after testing many methods."
+    },
+    {
+      "termKo": "총발생액",
+      "definitionKo": "회계이익과 영업현금흐름의 전체 차이를 자산 규모와 함께 본 값",
+      "termEn": "Total accruals",
+      "definitionEn": "The total gap between accounting earnings and operating cash flow, usually scaled by assets."
+    },
+    {
+      "termKo": "현금전환",
+      "definitionKo": "회계이익이 실제 영업현금으로 이어지는 정도",
+      "termEn": "Cash conversion",
+      "definitionEn": "The degree to which accounting profit turns into operating cash flow."
+    },
+    {
+      "termKo": "투하자본수익률",
+      "definitionKo": "사업에 투입한 자본으로 세후 영업이익을 얼마나 만들었는지 보는 비율",
+      "termEn": "ROIC",
+      "definitionEn": "After-tax operating profit earned relative to capital invested in the business."
+    },
+    {
+      "termKo": "구조적 가치 함정",
+      "definitionKo": "산업이나 사업가치가 계속 악화되어 낮은 가격이 진짜 저평가가 아닌 상태",
+      "termEn": "Structural value trap",
+      "definitionEn": "A low price caused by persistent industry or business deterioration rather than genuine undervaluation."
+    },
+    {
+      "termKo": "실적 놀라움",
+      "definitionKo": "실제 발표값과 발표 직전 시장 기대치의 차이",
+      "termEn": "Earnings surprise",
+      "definitionEn": "The difference between reported results and expectations immediately before release."
+    },
+    {
+      "termKo": "잔여수익",
+      "definitionKo": "공통 시장·요인의 영향을 분리하고 남은 수익",
+      "termEn": "Residual return",
+      "definitionEn": "Return remaining after separating common market and factor effects."
+    },
+    {
+      "termKo": "요인 노출",
+      "definitionKo": "종목 수익이 시장·규모·가치 같은 공통 요인과 함께 움직이는 정도",
+      "termEn": "Factor exposure",
+      "definitionEn": "How strongly a security moves with common factors such as market, size, or value."
+    },
+    {
+      "termKo": "상대 모멘텀",
+      "definitionKo": "다른 종목이나 기준지수보다 최근 성과가 강한 정도",
+      "termEn": "Relative momentum",
+      "definitionEn": "The strength of recent performance relative to peers or a benchmark."
+    },
+    {
+      "termKo": "장단기 이동평균",
+      "definitionKo": "서로 다른 두 기간의 가격 평균을 비교해 방향을 살피는 값",
+      "termEn": "Long-short moving averages",
+      "definitionEn": "Two rolling price averages with different windows used to inspect direction."
+    },
+    {
+      "termKo": "휩소",
+      "definitionKo": "방향 없는 시장에서 추세 신호가 반복해서 뒤집히는 현상",
+      "termEn": "Whipsaw",
+      "definitionEn": "Repeated signal reversals in a directionless market."
+    },
+    {
+      "termKo": "단기 평균회귀",
+      "definitionKo": "짧은 기간에 극단적으로 움직인 값이 최근 평균 쪽으로 되돌아오는 경향",
+      "termEn": "Short-term mean reversion",
+      "definitionEn": "The tendency of a short-term extreme move to return toward its recent average."
+    },
+    {
+      "termKo": "하락 변동성",
+      "definitionKo": "가격이 내려가는 관측치만 사용해 계산한 변동 정도",
+      "termEn": "Downside volatility",
+      "definitionEn": "Volatility calculated from negative-return observations."
+    },
+    {
+      "termKo": "기업행동",
+      "definitionKo": "분할·배당·자사주·합병처럼 주식 수와 가격 비교에 영향을 주는 공식 사건",
+      "termEn": "Corporate action",
+      "definitionEn": "An official event such as a split, dividend, buyback, or merger affecting shares or price comparability."
+    },
+    {
+      "termKo": "자사주 집행률",
+      "definitionKo": "발표한 자사주 매입 한도 중 실제로 실행한 비율",
+      "termEn": "Buyback execution rate",
+      "definitionEn": "The share of an authorized repurchase that was actually completed."
+    },
+    {
+      "termKo": "전망 실행",
+      "definitionKo": "경영진이 제시한 수치·기한 목표와 실제 결과를 비교하는 과정",
+      "termEn": "Guidance execution",
+      "definitionEn": "Comparing management's stated targets and deadlines with actual outcomes."
+    },
+    {
+      "termKo": "계열 안 평균",
+      "definitionKo": "비슷한 방법을 먼저 평균해 하나의 계열이 여러 표를 얻지 못하게 하는 규칙",
+      "termEn": "Within-family average",
+      "definitionEn": "Averaging similar methods before combination so one family does not receive duplicate votes."
+    },
+    {
+      "termKo": "제외 민감도",
+      "definitionKo": "한 방법을 뺐을 때 종합 결과가 얼마나 바뀌는지 보는 값",
+      "termEn": "Leave-one-out sensitivity",
+      "definitionEn": "How much a combined result changes when one method is removed."
+    },
+    {
+      "termKo": "반증 조건",
+      "definitionKo": "현재 결론이 틀렸다고 판단하게 만드는 사전에 정한 조건",
+      "termEn": "Disconfirming condition",
+      "definitionEn": "A predeclared condition that would indicate the current conclusion is wrong."
+    },
+    {
+      "termKo": "공개 보류",
+      "definitionKo": "필수 근거가 부족하거나 충돌이 커서 결과를 사용자에게 공개하지 않는 상태",
+      "termEn": "Publication hold",
+      "definitionEn": "A state where a result is not published because evidence is insufficient or conflicting."
+    },
+    {
+      "termKo": "정정 계보",
+      "definitionKo": "원자료 수정이 번역·보고서·알림으로 어떻게 이어졌는지 남긴 연결 기록",
+      "termEn": "Correction lineage",
+      "definitionEn": "The record of how a source correction propagated to translations, reports, and alerts."
+    },
+    {
+      "termKo": "추가 전용 원장",
+      "definitionKo": "기존 기록을 고치거나 지우지 않고 새 기록만 덧붙이는 장부",
+      "termEn": "Append-only ledger",
+      "definitionEn": "A ledger that preserves prior entries and permits only new additions."
+    },
+    {
+      "termKo": "신선도 상태",
+      "definitionKo": "자료가 최신·지연·오래됨·누락 중 어디에 해당하는지 나타내는 상태",
+      "termEn": "Freshness status",
+      "definitionEn": "Whether data is fresh, delayed, stale, or missing."
+    },
+    {
+      "termKo": "자료 충분도",
+      "definitionKo": "방법 계산에 필요한 입력이 얼마나 빠짐없이 있는지 나타내는 값",
+      "termEn": "Data sufficiency",
+      "definitionEn": "How completely the inputs required by a method are available."
+    },
+    {
+      "termKo": "이용권 상태",
+      "definitionKo": "자료를 표시·저장·계산·내보낼 권리가 확인됐는지 나타내는 상태",
+      "termEn": "Rights status",
+      "definitionEn": "Whether permission to display, store, calculate, or export data has been verified."
+    },
+    {
+      "termKo": "원문 위치",
+      "definitionKo": "주장을 확인할 수 있는 공식 문서의 정확한 페이지·표·문단",
+      "termEn": "Source location",
+      "definitionEn": "The exact page, table, or paragraph in a primary document supporting a claim."
+    },
+    {
+      "termKo": "정규화",
+      "definitionKo": "시장·통화·단위·회계기간이 다른 값을 비교 가능하게 맞추는 처리",
+      "termEn": "Normalization",
+      "definitionEn": "Aligning market, currency, unit, and accounting-period differences for comparison."
+    },
+    {
+      "termKo": "사건 묶음",
+      "definitionKo": "같은 사실을 다룬 여러 기사와 공시를 하나의 사건으로 연결한 단위",
+      "termEn": "Event cluster",
+      "definitionEn": "A unit linking multiple articles and filings about the same underlying event."
+    },
+    {
+      "termKo": "사실 문장",
+      "definitionKo": "출처에서 직접 확인할 수 있고 해석과 분리된 문장",
+      "termEn": "Fact statement",
+      "definitionEn": "A source-verifiable statement kept separate from interpretation."
+    },
+    {
+      "termKo": "해석 문장",
+      "definitionKo": "확인된 사실이 시장·산업·기업에 미칠 의미를 설명하는 문장",
+      "termEn": "Interpretation statement",
+      "definitionEn": "A statement explaining what verified facts may mean for markets, industries, or firms."
+    },
+    {
+      "termKo": "영향 경로",
+      "definitionKo": "사건이 가격·금리·통화·산업·기업으로 전달되는 단계별 연결",
+      "termEn": "Impact path",
+      "definitionEn": "A stepwise link from an event through price, rates, currency, industry, and company effects."
+    },
+    {
+      "termKo": "전진관찰",
+      "definitionKo": "공개 당시 후보를 바꾸지 않고 이후 실제 결과를 시간에 따라 기록하는 검증",
+      "termEn": "Forward observation",
+      "definitionEn": "Tracking outcomes over time without altering the candidates originally published."
+    },
+    {
+      "termKo": "선택 보고",
+      "definitionKo": "좋은 결과만 남기고 실패를 숨겨 성과를 부풀리는 행위",
+      "termEn": "Selective reporting",
+      "definitionEn": "Inflating performance by retaining wins while hiding failures."
+    }
   ],
   "gallery": {
     "methods": 12,
-    "states": ["STRONG_UP", "CONFLICT", "HELD"],
+    "states": [
+      "STRONG_UP",
+      "CONFLICT",
+      "HELD"
+    ],
     "count": 36,
     "descriptionKo": "각 방법마다 강한 합성점수·방법충돌·판정보류 예시를 한 개씩 제공하며 실제 종목이나 성과가 아닙니다.",
     "descriptionEn": "Each method has one strong synthetic score, one conflict, and one held example; none is a real security or performance claim."
   },
   "externalEvidence": [
-    {"id":"METHOD_EXPERT_REVIEW","status":"NOT_RUN","required":true},
-    {"id":"KO_EN_TRANSLATION_REVIEW","status":"NOT_RUN","required":true},
-    {"id":"JA_CORE_REVIEW","status":"NOT_RUN","required":true},
-    {"id":"REAL_USERS_5","status":"NOT_RUN","required":true},
-    {"id":"SCREEN_READER_SESSION","status":"NOT_RUN","required":true}
-  ]
+    {
+      "id": "METHOD_EXPERT_REVIEW",
+      "status": "NOT_RUN",
+      "required": true
+    },
+    {
+      "id": "KO_EN_TRANSLATION_REVIEW",
+      "status": "NOT_RUN",
+      "required": true
+    },
+    {
+      "id": "JA_CORE_REVIEW",
+      "status": "NOT_RUN",
+      "required": true
+    },
+    {
+      "id": "REAL_USERS_5",
+      "status": "NOT_RUN",
+      "required": true
+    },
+    {
+      "id": "SCREEN_READER_SESSION",
+      "status": "NOT_RUN",
+      "required": true
+    }
+  ],
+  "boundaryEn": "Synthetic education and research only. These are not real stock forecasts, calibrated rise probabilities, or investment recommendations."
 }
