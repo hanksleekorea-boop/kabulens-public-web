@@ -147,7 +147,8 @@ test('Stock Scanner development dashboard exposes truthful progress and twenty-i
   await expect(page.locator('#metrics .metric-card')).toHaveCount(progress.metrics.length);
   await expect(page.locator('#urgent li')).toHaveCount(20);
   await expect(page.locator('#autonomous li')).toHaveCount(20);
-  await expect(page.locator('#summary')).toContainText('로그인·결제 없이');
+  const summaryData=await(await page.request.get(new URL('progress.json',baseURL).href)).json();
+  await expect(page.locator('#summary')).toHaveText(summaryData.summary);
   await expect(page.locator('#metrics')).toContainText('99/100');
   await expect(page.locator('#metrics')).toContainText('24개 / 24개');
   await expect(page.locator('#metrics')).toContainText('0개 / 10개');
@@ -207,6 +208,8 @@ test('Stage three advertising marketplace is responsive and fails closed',async(
 test('v8.1 content library has complete reports and English help at desktop and mobile widths',async({page,baseURL})=>{
   const errors=[];
   page.on('pageerror',error=>errors.push(error.message));
+  await page.goto(new URL('stock-scanner.html#today',baseURL).href,{waitUntil:'networkidle'});
+  await expect(page.locator('#contentV81Gallery > article')).toHaveCount(0);
   for(const width of [1440,390,360]){
     // A same-URL navigation may preserve open <details>; start each viewport with a new document.
     await page.goto('about:blank');
