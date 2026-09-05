@@ -104,8 +104,8 @@ def run(root: Path) -> dict[str, object]:
     checks: OrderedDict[str, bool] = OrderedDict([
         ("truthful_free_scope", release.get("publicReleaseOpen") is True and release.get("externalAssuranceComplete") is False and bool(release.get("nonClaim"))),
         ("commercial_free_gates", len(release.get("gates", [])) >= 15 and all(str(item.get("status", "")).startswith("PASS") for item in release.get("gates", []))),
-        ("synthetic_personas_1000x10", personas.get("population") == 1000 and personas.get("tasks") == 10000 and personas.get("failed") == 0 and personas.get("realUsers") == 0),
-        ("release_version_alignment", len({release.get("releaseVersion"), progress.get("version"), brand.get("releaseVersion"), assurance.get("releaseVersion")}) == 1),
+        ("persona_plan_does_not_fabricate_execution", personas.get("executionStatus") == "NOT_EXECUTED" and personas.get("population") == 1000 and personas.get("plannedTasks") == 10000 and personas.get("tasks") == 0 and personas.get("passed") == 0 and personas.get("realUsers") == 0),
+        ("current_and_historical_release_separated", release.get("validityStatus") == "HISTORICAL_NOT_CURRENT_ACCEPTANCE" and progress.get("freeLaunch", {}).get("score") is None and progress.get("releaseState") == "PARTIALLY_VERIFIED" and any(item.get("version") == release.get("releaseVersion") for item in progress.get("historicalAssessments", [])) and len({release.get("releaseVersion"), brand.get("releaseVersion"), assurance.get("releaseVersion")}) == 1),
         ("three_locale_advanced_contract", set(advanced.get("locales", {})) == {"ko", "en", "ja"} and bool(advanced.get("jaCoreKeys"))),
         ("complete_method_education", len(methods_rows) == 12 and all(all(field in item and item[field] for field in method_fields) for item in methods_rows)),
         ("complete_free_content", len(free_content.get("firstUse", [])) == 6 and len(free_content.get("scenarios", [])) == 3 and len(free_content.get("presets", [])) == 4 and len(free_content.get("states", [])) == 9 and len(free_content.get("faqs", [])) == 25 and len(free_content.get("glossary", [])) == 50),

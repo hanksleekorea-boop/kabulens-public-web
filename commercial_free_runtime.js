@@ -40,11 +40,12 @@
   }
   function addJournal(current,input){
     var next=state(current),hypothesis=text(input&&input.hypothesis,300),disconfirm=text(input&&input.disconfirm,300),nextCheck=text(input&&input.nextCheck,10),createdAt=text(input&&input.createdAt,30)||new Date().toISOString();
+    if(next.journal.length>=50)throw new Error('JOURNAL_LIMIT_REACHED');
     if(hypothesis.length<10)throw new Error('JOURNAL_HYPOTHESIS_REQUIRED');
     if(disconfirm.length<10)throw new Error('JOURNAL_DISCONFIRM_REQUIRED');
     if(!isoDate(nextCheck))throw new Error('JOURNAL_NEXT_CHECK_REQUIRED');
     if(secretPattern.test(hypothesis+' '+disconfirm))throw new Error('JOURNAL_SECRET_REJECTED');
-    var item={id:'JR-'+fingerprint({hypothesis:hypothesis,disconfirm:disconfirm,nextCheck:nextCheck,createdAt:createdAt}).slice(-8),hypothesis:hypothesis,disconfirm:disconfirm,nextCheck:nextCheck,createdAt:createdAt,status:'OPEN'};
+    var item={id:'JR-'+fingerprint({hypothesis:hypothesis,disconfirm:disconfirm,nextCheck:nextCheck,createdAt:createdAt}).slice(-8),hypothesis:hypothesis,disconfirm:disconfirm,nextCheck:nextCheck,createdAt:createdAt,reportRef:input.reportRef?copy(input.reportRef):null,status:'OPEN'};
     next.journal=[item].concat(next.journal).slice(0,50);
     return next;
   }
@@ -108,7 +109,7 @@
   }
   function personaReport(content,count){
     validateContent(content);var population=Math.max(1,Math.min(1000,Number(count)||1000));
-    return{schemaVersion:'stock-scanner-commercial-personas/v1',releaseVersion:'7.0',kind:'SYNTHETIC_PERSONAS_NOT_REAL_USERS',population:population,tasksPerPersona:10,tasks:population*10,passed:population*10,failed:0,realUsers:0,coverage:['onboarding','method-selection','counter-evidence','regime','scenario','journal','pack-create','pack-verify','offline-boundary','local-delete']};
+    return{schemaVersion:'stock-scanner-commercial-personas/v1',releaseVersion:'9.1',kind:'SYNTHETIC_PERSONAS_NOT_REAL_USERS',executionStatus:'NOT_EXECUTED',population:population,tasksPerPersona:10,plannedTasks:population*10,tasks:0,passed:0,failed:0,realUsers:0,limitation:'This function creates a coverage plan only. It does not execute user journeys or prove usability.',coverage:['onboarding','method-selection','counter-evidence','regime','scenario','journal','pack-create','pack-verify','offline-boundary','local-delete']};
   }
   return{STATE_SCHEMA:STATE_SCHEMA,PACK_SCHEMA:PACK_SCHEMA,canonical:canonical,fingerprint:fingerprint,validateContent:validateContent,state:state,addJournal:addJournal,createPack:createPack,verifyPack:verifyPack,savePack:savePack,reviewQueue:reviewQueue,checklist:checklist,personaReport:personaReport};
 }));

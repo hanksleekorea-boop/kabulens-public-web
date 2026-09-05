@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="Explore a 30-country listing directory and Taiwan daily closing data with source dates and clear coverage. Stock Scanner.">
+  <title>Global markets · Stock Scanner</title>
+  <link rel="stylesheet" href="stock-scanner.css?v=9-reliability-1"><link rel="stylesheet" href="markets.css">
+  <link rel="icon" href="icon.svg">
+</head>
+<body class="market-page">
+  <a class="skip-link" href="#marketMain">Skip to market search</a>
+  <header class="market-header"><a href="stock-scanner.html#today">Stock Scanner</a><nav aria-label="Service"><a href="stock-scanner.html#scan">학습 스캔 · Learning scanner</a><a href="learn.html">Methods</a></nav><label>Language <select id="marketLocale"><option value="ko">한국어</option><option value="en">English</option></select></label></header>
+  <main id="marketMain" tabindex="-1">
+    <p class="eyebrow">GLOBAL MARKETS</p><h1 id="marketTitle">종목을 찾고, 자료 범위를 확인하세요</h1>
+    <p id="marketIntro">대만 일별 시세와 30개국 종목 발견 명부를 제공합니다. 실시간 시세나 상승확률은 제공하지 않습니다.</p>
+    <div class="market-controls"><label><span id="modeLabel">자료 선택</span><select id="marketMode"><option value="daily">대만 일별 시세</option><option value="directory">30개국 종목 명부</option></select></label><label><span id="queryLabel">종목 코드·회사명 검색</span><input id="marketQuery" type="search" placeholder="2330, 台積電, Apple" maxlength="100" autocomplete="off"></label><label id="countryControl" hidden><span id="countryLabel">국가</span><select id="marketCountry"><option value="ALL">All countries</option></select></label><button id="marketSearch" type="button" class="primary">검색</button></div>
+    <p id="marketStatus" role="status" aria-live="polite">자료를 불러오는 중입니다.</p>
+    <p id="marketBoundary" class="market-notice"></p>
+    <section id="marketDetail" hidden aria-labelledby="detailTitle" tabindex="-1"></section>
+    <div class="market-table-wrap"><table><caption id="marketCaption">대만 거래소 일별 자료</caption><thead id="marketHead"></thead><tbody id="marketRows"></tbody></table></div>
+    <nav class="market-paging" aria-label="Result pages"><button id="marketPrev" type="button" class="secondary">이전</button><span id="marketPage"></span><button id="marketNext" type="button" class="secondary">다음</button></nav>
+    <details class="market-sources"><summary id="sourcesTitle">자료 출처·사용 조건·지원 범위</summary><div id="marketSources"></div></details>
+  </main>
+  <footer><a href="legal/terms.html">Terms</a> · <a href="legal/privacy.html">Privacy</a> · <a href="support.html">Support</a><p>Information and education only. No investment recommendation, probability forecast or real-time price feed.</p></footer>
+  <script src="market_directory_ui.js"></script>
+</body></html>

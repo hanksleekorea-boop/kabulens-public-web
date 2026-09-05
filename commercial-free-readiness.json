@@ -11,27 +11,106 @@
   "completionDefinition": "계정과 결제 없이 고급 연구 흐름, 로컬 저장, 재현 가능한 연구 묶음, 근거 검토, 접근 가능한 PC·모바일·오프라인 표면, 정책·지원·보안 경로가 공개 환경에서 자동 검증된 상태",
   "nonClaim": "실제 종목 예측 성능, 투자자문, 실데이터 사용권, 법률 자문, 실제 사용자 또는 실기기 검증 완료를 뜻하지 않습니다.",
   "gates": [
-    {"id":"CFS-01","name":"무료 고급 서비스 범위와 합성자료 경계","status":"PASS_AUTOMATED"},
-    {"id":"CFS-02","name":"3개 언어 서비스 약속·경계","status":"PASS_AUTOMATED"},
-    {"id":"CFS-03","name":"판단·반증·다음 확인일 기록","status":"PASS_AUTOMATED"},
-    {"id":"CFS-04","name":"비밀정보 저장 차단","status":"PASS_AUTOMATED"},
-    {"id":"CFS-05","name":"2~4개 종목·3~6개 방법 연구 묶음","status":"PASS_AUTOMATED"},
-    {"id":"CFS-06","name":"입력·결과·근거·한계 동봉","status":"PASS_AUTOMATED"},
-    {"id":"CFS-07","name":"결정적 일치 확인 지문","status":"PASS_AUTOMATED"},
-    {"id":"CFS-08","name":"변경된 연구 묶음 차단","status":"PASS_AUTOMATED"},
-    {"id":"CFS-09","name":"로컬 저장 상한·검증 복원","status":"PASS_AUTOMATED"},
-    {"id":"CFS-10","name":"근거 신선도·권리·정정 검토 대기열","status":"PASS_AUTOMATED"},
-    {"id":"CFS-11","name":"8단계 연구 완결 점검","status":"PASS_AUTOMATED"},
-    {"id":"CFS-12","name":"의미 구조·콘텐츠 보안 정책 준수 UI","status":"PASS_AUTOMATED"},
-    {"id":"CFS-13","name":"완전한 오프라인 연구 데스크","status":"PASS_AUTOMATED"},
-    {"id":"CFS-14","name":"1,000명 합성 페르소나 10,000과업","status":"PASS_AUTOMATED"},
-    {"id":"CFS-15","name":"구현 완료와 외부 보증 분리","status":"PASS_AUTOMATED"}
+    {
+      "id": "CFS-01",
+      "name": "무료 고급 서비스 범위와 합성자료 경계",
+      "status": "PASS_AUTOMATED"
+    },
+    {
+      "id": "CFS-02",
+      "name": "3개 언어 서비스 약속·경계",
+      "status": "PASS_AUTOMATED"
+    },
+    {
+      "id": "CFS-03",
+      "name": "판단·반증·다음 확인일 기록",
+      "status": "PASS_AUTOMATED"
+    },
+    {
+      "id": "CFS-04",
+      "name": "비밀정보 저장 차단",
+      "status": "PASS_AUTOMATED"
+    },
+    {
+      "id": "CFS-05",
+      "name": "2~4개 종목·3~6개 방법 연구 묶음",
+      "status": "PASS_AUTOMATED"
+    },
+    {
+      "id": "CFS-06",
+      "name": "입력·결과·근거·한계 동봉",
+      "status": "PASS_AUTOMATED"
+    },
+    {
+      "id": "CFS-07",
+      "name": "결정적 일치 확인 지문",
+      "status": "PASS_AUTOMATED"
+    },
+    {
+      "id": "CFS-08",
+      "name": "변경된 연구 묶음 차단",
+      "status": "PASS_AUTOMATED"
+    },
+    {
+      "id": "CFS-09",
+      "name": "로컬 저장 상한·검증 복원",
+      "status": "PASS_AUTOMATED"
+    },
+    {
+      "id": "CFS-10",
+      "name": "근거 신선도·권리·정정 검토 대기열",
+      "status": "PASS_AUTOMATED"
+    },
+    {
+      "id": "CFS-11",
+      "name": "8단계 연구 완결 점검",
+      "status": "PASS_AUTOMATED"
+    },
+    {
+      "id": "CFS-12",
+      "name": "의미 구조·콘텐츠 보안 정책 준수 UI",
+      "status": "PASS_AUTOMATED"
+    },
+    {
+      "id": "CFS-13",
+      "name": "완전한 오프라인 연구 데스크",
+      "status": "PASS_AUTOMATED"
+    },
+    {
+      "id": "CFS-14",
+      "name": "1,000명 합성 페르소나 10,000과업",
+      "status": "PASS_AUTOMATED"
+    },
+    {
+      "id": "CFS-15",
+      "name": "구현 완료와 외부 보증 분리",
+      "status": "PASS_AUTOMATED"
+    }
   ],
   "externalEvidence": [
-    {"name":"현재 Android 실기기 TalkBack·설치·업데이트·오프라인","status":"NOT_RUN"},
-    {"name":"현재 iPhone VoiceOver·설치·업데이트·오프라인","status":"NOT_RUN"},
-    {"name":"실제 사용자 5명 연구 흐름","status":"NOT_RUN"},
-    {"name":"운영자 법적 신원과 관할별 문구 검토","status":"USER_DECISION"},
-    {"name":"실제 시장자료 제공자 권리와 독립 성능 검증","status":"VENDOR_OR_EXTERNAL"}
-  ]
+    {
+      "name": "현재 Android 실기기 TalkBack·설치·업데이트·오프라인",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "현재 iPhone VoiceOver·설치·업데이트·오프라인",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "실제 사용자 5명 연구 흐름",
+      "status": "NOT_RUN"
+    },
+    {
+      "name": "운영자 법적 신원과 관할별 문구 검토",
+      "status": "USER_DECISION"
+    },
+    {
+      "name": "실제 시장자료 제공자 권리와 독립 성능 검증",
+      "status": "VENDOR_OR_EXTERNAL"
+    }
+  ],
+  "validityStatus": "HISTORICAL_NOT_CURRENT_ACCEPTANCE",
+  "reviewedAt": "2026-09-05",
+  "currentCompletion": null,
+  "currentAssessment": "Historical implementation percentages are superseded. Persona count-derived success claims are withdrawn; full current-scope completion is not measured."
 }

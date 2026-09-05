@@ -1,8 +1,6 @@
 name: Stock Scanner public browser quality
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "17 21 * * *"
 permissions:
   contents: read
 concurrency:

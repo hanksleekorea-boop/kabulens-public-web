@@ -118,16 +118,17 @@
     rows.forEach(function(item,index){events.push({kind:'SCORE_SNAPSHOT',at:item.savedAt,snapshotId:item.snapshotId,score:item.score,summary:'합성 점수 '+item.score});if(index){var diff=diffSnapshots(rows[index-1],item);if(diff.changed.length)events.push({kind:'CONTENT_OR_INPUT_CHANGE',at:item.savedAt,snapshotId:item.snapshotId,scoreDelta:diff.scoreDelta,summary:'변화 '+diff.changed.length+'개 · 원인 '+diff.reasons.join(', ')});}});
     return{schemaVersion:'stock-scanner-timeline/v2',boundary:BOUNDARY,events:events,scoreAndContentDistinct:true};
   }
-  function saveView(current,name,securityIds,methodIds,layout){
+  function saveView(current,name,securityIds,methodIds,layout,context){
     current=normalizeState(current);name=text(name,40);securityIds=Array.from(new Set(securityIds||[]));methodIds=Array.from(new Set(methodIds||[]));
     if(!name)throw new Error('VIEW_NAME_REQUIRED');if(securityIds.length<2||securityIds.length>4)throw new Error('VIEW_SECURITY_COUNT');if(methodIds.length<3||methodIds.length>6)throw new Error('VIEW_METHOD_COUNT');
-    current.savedViews=[{id:'view-'+Date.now().toString(36),name:name,securityIds:securityIds,methodIds:methodIds,layout:copy(layout||current.layout),createdAt:new Date().toISOString()}].concat(current.savedViews).slice(0,20);return current;
+    if(current.savedViews.length>=20)throw new Error('VIEW_LIMIT_REACHED');context=context||{};
+    current.savedViews=[{horizon:context.horizon||current.horizon||'3M',asOf:context.asOf||current.asOf||new Date().toISOString().slice(0,10),goal:context.goal||current.researchGoal||'',id:'view-'+Date.now().toString(36),name:name,securityIds:securityIds,methodIds:methodIds,layout:copy(layout||current.layout),createdAt:new Date().toISOString()}].concat(current.savedViews).slice(0,20);return current;
   }
   function issue(current,type,description,evidenceRefs,content){
     current=normalizeState(current);content=validateContent(content);if(content.issueTypes.indexOf(type)<0)throw new Error('ISSUE_TYPE_INVALID');
     var payload={type:type,description:text(description,500),evidenceRefs:Array.from(new Set((evidenceRefs||[]).map(function(item){return text(item,160);}))).slice(0,10)};
     if(!payload.description||!payload.evidenceRefs.length)throw new Error('ISSUE_EVIDENCE_REQUIRED');if(hasForbiddenKey(payload)||/(?:bearer\s+|api[_-]?key|password|secret|cookie)/i.test(payload.description))throw new Error('ISSUE_SENSITIVE_DATA');
-    current.issues=[{id:'issue-'+Date.now().toString(36),status:'RECEIVED',createdAt:new Date().toISOString(),payload:payload,correctionHistory:[]}].concat(current.issues).slice(0,20);return current;
+    current.issues=[{id:'issue-'+Date.now().toString(36),status:'LOCAL_DRAFT',createdAt:new Date().toISOString(),payload:payload,correctionHistory:[]}].concat(current.issues).slice(0,20);return current;
   }
   function taskEvent(current,type,fields,content){
     current=normalizeState(current);content=validateContent(content);if(!current.analyticsEnabled)return null;if(content.taskEvents.indexOf(type)<0)throw new Error('TASK_EVENT_INVALID');fields=fields||{};if(hasForbiddenKey(fields))throw new Error('TASK_EVENT_PII');

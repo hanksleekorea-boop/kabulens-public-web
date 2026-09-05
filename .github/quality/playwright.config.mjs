@@ -6,7 +6,7 @@ const qualityDir = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   testDir: qualityDir,
-  testMatch: 'public.spec.mjs',
+  testMatch: '*.spec.mjs',
   timeout: 90_000,
   expect: { timeout: 15_000 },
   fullyParallel: true,

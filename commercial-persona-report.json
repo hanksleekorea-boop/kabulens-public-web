@@ -1,14 +1,37 @@
 {
   "schemaVersion": "stock-scanner-commercial-personas/v1",
-  "releaseVersion": "7.0",
-  "generatedAt": "2026-08-29T00:00:00Z",
   "kind": "SYNTHETIC_PERSONAS_NOT_REAL_USERS",
+  "executionStatus": "NOT_EXECUTED",
   "population": 1000,
-  "tasksPerPersona": 10,
-  "tasks": 10000,
-  "passed": 10000,
+  "plannedTasks": 10000,
+  "tasks": 0,
+  "passed": 0,
   "failed": 0,
   "realUsers": 0,
-  "coverage": ["onboarding","method-selection","counter-evidence","regime","scenario","journal","pack-create","pack-verify","offline-boundary","local-delete"],
-  "boundary": "구조와 계약을 검사한 합성 결과이며 실제 사용성·접근성·투자 성과 증거가 아닙니다."
+  "correction": "2026-09-05: previous totals were generated from population, not measured task execution. Success claim withdrawn.",
+  "historicalRecord": {
+    "schemaVersion": "stock-scanner-commercial-personas/v1",
+    "releaseVersion": "7.0",
+    "generatedAt": "2026-08-29T00:00:00Z",
+    "kind": "SYNTHETIC_PERSONAS_NOT_REAL_USERS",
+    "population": 1000,
+    "tasksPerPersona": 10,
+    "tasks": 10000,
+    "passed": 10000,
+    "failed": 0,
+    "realUsers": 0,
+    "coverage": [
+      "onboarding",
+      "method-selection",
+      "counter-evidence",
+      "regime",
+      "scenario",
+      "journal",
+      "pack-create",
+      "pack-verify",
+      "offline-boundary",
+      "local-delete"
+    ],
+    "boundary": "구조와 계약을 검사한 합성 결과이며 실제 사용성·접근성·투자 성과 증거가 아닙니다."
+  }
 }
