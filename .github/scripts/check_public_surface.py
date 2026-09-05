@@ -52,7 +52,7 @@ SURFACES = {
     "commercial_free_v1.json": ("application/json", b'"serviceLevel": "ADVANCED_FREE_COMMERCIAL"', 500_000),
     "methodology_education_v1.json": ("application/json", b'"schemaVersion": "stock-scanner-method-education/v1"', 500_000),
     "free_content_guide_v1.json": ("application/json", b'"schemaVersion": "stock-scanner-free-content/v1"', 500_000),
-    "stock-scanner-sw.js": ("javascript", b"stock-scanner-shell-v8-stage2", 100_000),
+    "stock-scanner-sw.js": ("javascript", b"stock-scanner-shell-v9-content-atlas-1", 100_000),
     "sw_update_v8.js": ("javascript", b"updateViaCache", 20_000),
     "sw.js": ("javascript", b"stock-scanner-sw.js", 20_000),
     "public_config.js": ("javascript", b"STOCK_SCANNER_PUBLIC_CONFIG", 20_000),
