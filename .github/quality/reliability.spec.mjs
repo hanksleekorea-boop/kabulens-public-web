@@ -53,8 +53,14 @@ test('Practice feedback persists and full device backup preserves all four store
   await page.reload();
   await page.locator('#contentV81Tutorials > article > details > summary').first().click();
   await expect(form.locator('[data-practice-status]')).toContainText('Previous: correct');
+  await page.goto(new URL('stock-scanner.html?research=desk#reports',baseURL).href);
+  await expect(page.locator('#advancedWorkbench')).toBeVisible();
   await page.waitForFunction(()=>window.StockScannerAdvancedUIReady===true);
+  await page.locator('#commercialBoundaryConfirm').check();
+  await page.goto(new URL('stock-scanner.html#more',baseURL).href);
+  await expect(page.locator('#downloadLocalBackup')).toBeVisible();
   const before=await page.evaluate(()=>window.StockScannerReliability.capture(localStorage));
+  expect(Object.values(before).every(value=>value!==null)).toBeTruthy();
   const downloaded=page.waitForEvent('download');
   await page.locator('#downloadLocalBackup').click();
   const download=await downloaded,stream=await download.createReadStream();let raw='';

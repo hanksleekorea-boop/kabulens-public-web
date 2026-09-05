@@ -151,10 +151,10 @@ test('Stock Scanner development dashboard exposes truthful progress and twenty-i
   await expect(page.locator('#summary')).toHaveText(summaryData.summary);
   await expect(page.locator('#metrics')).toContainText('미측정');
   expect(progress.metrics.find(x=>x.id==='pc').value).toBeNull();
-  await expect(page.locator('#metrics')).toContainText('24개 / 24개');
-  await expect(page.locator('#metrics')).toContainText('0개 / 10개');
-  await expect(page.locator('#metrics')).toContainText('20개 / 20개');
-  await expect(page.locator('#metrics')).toContainText('0개 / 12개');
+  await expect(page.locator('#metrics')).toContainText('18685건');
+  await expect(page.locator('#metrics')).toContainText('1380상품');
+  await expect(page.locator('#metrics')).toContainText('0대');
+  expect(progress.historicalAssessments.length).toBeGreaterThan(0);
   const marketStage1=await(await page.request.get(new URL('stage1-market-v8.json',baseURL).href)).json();
   expect(marketStage1.automatedGates).toHaveLength(24);
   expect(marketStage1.externalGates).toHaveLength(10);

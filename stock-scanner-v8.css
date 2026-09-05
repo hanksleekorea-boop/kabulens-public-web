@@ -67,3 +67,4 @@ html{scroll-behavior:smooth}.today-view{max-width:1240px;padding-top:clamp(1.25r
 .practice-question{margin-top:1rem;padding:1rem;border:1px solid var(--line);border-radius:.6rem}.practice-question label{display:flex;align-items:center;gap:.6rem;min-height:44px}.practice-question input{min-height:0;width:auto}.practice-question legend{line-height:1.6}.content-tutorial-grid>article{min-width:0}.content-tutorial-grid>article>details>summary{min-height:44px;font-weight:700;cursor:pointer}.research-disclosure>summary{padding:1rem;cursor:pointer}.mobile-report-body details>summary{min-height:44px}
 /* Market entry is a primary mobile action. */
 .market-entry a{display:inline-flex;align-items:center;min-height:44px}
+.hero-atlas .hero-actions>a{display:inline-flex;align-items:center;justify-content:center;min-height:48px}
