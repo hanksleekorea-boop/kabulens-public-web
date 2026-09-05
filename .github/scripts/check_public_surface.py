@@ -31,7 +31,7 @@ SURFACES = {
     "advertiser-disclosure.html": ("text/html", b"Advertising cannot purchase a research outcome", 150_000),
     "dashboard.html": ("text/html", "개발 진척 대시보드".encode(), 250_000),
     "progress.json": ("application/json", b'"schemaVersion": "stock-scanner-progress/v1"', 100_000),
-    "stage1-market-v8.json": ("application/json", b'"schemaVersion": "stock-scanner-stage1-market/v8"', 100_000),
+    "stage1-market-v8.json": ("application/json", b'"schemaVersion": "stock-scanner-stage1-market-readiness/v8.0"', 100_000),
     "stage2-global-v8.json": ("application/json", b'"schemaVersion": "stock-scanner-stage2-global-readiness/v8.0"', 100_000),
     "free-launch-readiness.json": ("application/json", b'"schemaVersion": "stock-scanner-free-launch-readiness/v1"', 100_000),
     "stage1-readiness.json": ("application/json", b'"schemaVersion": "stock-scanner-stage1-readiness/v1"', 100_000),
