@@ -3,7 +3,7 @@
   "product": "Stock Scanner",
   "nameKo": "스탁스캐너",
   "version": "9.1-reliability-fd1",
-  "updatedAt": "2026-09-05T12:45:00Z",
+  "updatedAt": "2026-09-05T12:55:00Z",
   "releaseState": "PARTIALLY_VERIFIED",
   "boundary": "REAL_DAILY_SNAPSHOT_AND_UNVERIFIED_DIRECTORY_SEPARATE_FROM_SYNTHETIC_RESEARCH",
   "summary": "무료 학습 스캐너에 대만 1,380개 상장 상품의 2026-09-04 일별 스냅샷과 30개국 18,685건 발견 명부 검색을 추가했습니다. 발견 명부는 국가·거래소·상장 상태가 미검증이며 전세계 상장주식의 완전한 목록이 아닙니다. 학습 보고서는 합성 자료이며 실제 가격으로 예측하지 않습니다. 백업·복원·기간·공유·실습을 보완했습니다. 전체 완료율은 재평가 중이며 현재 Android·실사용자·실제 예측 성과는 미검증입니다.",
@@ -488,24 +488,27 @@
   "lighthouse": {
     "runId": 33966575203,
     "scope": "public entry only",
-    "checks": 20,
     "failed": [],
-    "notProvenByThisCheck": [
-      "manual-screen-reader",
-      "iphone",
-      "real-users",
-      "operator-legal-identity",
-      "licensed-market-data",
-      "investment-performance"
-    ],
+    "limits": {
+      "accessibility": 1,
+      "best-practices": 1,
+      "cumulative-layout-shift": 0.1,
+      "largest-contentful-paint": 2500,
+      "performance": 0.95,
+      "seo": 1,
+      "total-blocking-time": 200
+    },
     "observed": {
-      "daysToSecurityContactExpiry": 356,
-      "localBrokenLinks": [],
-      "methodRecords": 12,
-      "sitemapUrls": 9
+      "accessibility": 1,
+      "best-practices": 1,
+      "consoleErrors": 0,
+      "cumulative-layout-shift": 0.0081732806361458,
+      "largest-contentful-paint": 1855.395,
+      "performance": 0.98,
+      "seo": 1,
+      "total-blocking-time": 122
     },
     "passed": true,
-    "passedChecks": 20,
-    "schemaVersion": "stock-scanner-free-release-assurance-check/v1"
+    "runs": 3
   }
 }
