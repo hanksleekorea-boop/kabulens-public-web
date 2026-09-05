@@ -9,6 +9,7 @@
   function download(name,value){var link=document.createElement('a'),blob=new Blob([JSON.stringify(value,null,2)],{type:'application/json'});link.href=URL.createObjectURL(blob);link.download=name;document.body.appendChild(link);link.click();link.remove();setTimeout(function(){URL.revokeObjectURL(link.href);},0);}
   function selection(){
     var securities=el('advancedSecurities')?Array.from(el('advancedSecurities').selectedOptions).map(function(x){return x.value;}):[];
+    var reportContext=window.StockScannerReportContext;if(reportContext&&securities.indexOf(reportContext.securityId)>=0)securities=[reportContext.securityId].concat(securities.filter(function(id){return id!==reportContext.securityId;}));
     var methods=Array.from(document.querySelectorAll('input[name="advancedMethod"]:checked')).map(function(x){return x.value;});
     return{securityIds:securities,methodIds:methods,horizon:el('advancedHorizon').value,asOf:el('advancedAsOf').value,goal:el('advancedGoal').value};
   }
