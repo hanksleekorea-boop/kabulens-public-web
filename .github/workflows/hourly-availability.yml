@@ -1,9 +1,7 @@
-name: Stock Scanner hourly availability
+name: Stock Scanner manual availability
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "11 * * * *"
 
 permissions:
   contents: read
