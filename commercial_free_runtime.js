@@ -32,8 +32,8 @@
     value=value&&typeof value==='object'?value:{};
     return {
       schemaVersion:STATE_SCHEMA,
-      journal:Array.isArray(value.journal)?value.journal.slice(0,50).filter(function(x){return x&&x.id&&x.hypothesis&&x.disconfirm&&isoDate(x.nextCheck);}):[],
-      packs:Array.isArray(value.packs)?value.packs.slice(0,20).filter(function(x){return verifyPack(x).valid;}):[],
+      journal:Array.isArray(value.journal)?value.journal.filter(function(x){return x&&x.id&&x.hypothesis&&x.disconfirm&&isoDate(x.nextCheck);}):[],
+      packs:Array.isArray(value.packs)?value.packs.filter(function(x){return verifyPack(x).valid;}):[],
       boundaryConfirmed:value.boundaryConfirmed===true,
       reviewedSections:Array.from(new Set(Array.isArray(value.reviewedSections)?value.reviewedSections:[])).slice(0,20)
     };
@@ -81,8 +81,9 @@
   }
   function savePack(current,pack){
     var next=state(current),verified=verifyPack(pack);
-    if(!verified.valid)throw new Error(verified.reason);
-    next.packs=[copy(pack)].concat(next.packs.filter(function(x){return x.fingerprint!==pack.fingerprint;})).slice(0,20);
+      if(!verified.valid)throw new Error(verified.reason);
+      if(next.packs.length>=20&&!next.packs.some(function(x){return x.fingerprint===pack.fingerprint;}))throw new Error('RESEARCH_PACK_LIMIT_REACHED: 연구 묶음 20개에 도달했습니다. 전체 자료를 백업하고 정리한 뒤 저장하세요. 기존 묶음은 유지됩니다.');
+      next.packs=[copy(pack)].concat(next.packs.filter(function(x){return x.fingerprint!==pack.fingerprint;}));
     return next;
   }
   function daysBetween(from,to){return Math.floor((Date.parse(to+'T00:00:00Z')-Date.parse(from+'T00:00:00Z'))/86400000);}

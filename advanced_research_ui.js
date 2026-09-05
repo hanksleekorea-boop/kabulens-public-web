@@ -5,7 +5,7 @@
   function el(id){return document.getElementById(id);}
   function esc(value){return String(value==null?'':value).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
   var storageReadOnly=false;
-  function load(){try{var raw=localStorage.getItem(KEY),value=JSON.parse(raw||'{}');if(window.StockScannerReliability){var entries={};entries[KEY]=raw;window.StockScannerReliability.validateEntries(entries);}storageReadOnly=false;return Advanced.state(value);}catch(error){storageReadOnly=true;return Advanced.state();}}
+  function load(){try{var raw=localStorage.getItem(KEY),value=JSON.parse(raw||'{}');if(window.StockScannerReliability){var entries={};entries[KEY]=raw;window.StockScannerReliability.validateEntries(entries);}var normalized=Advanced.state(value);if(['snapshots','savedViews','issues'].some(function(key){return Array.isArray(value[key])&&value[key].length!==(normalized[key]||[]).length;}))throw Error('STORED_HISTORY_NEEDS_RECOVERY');storageReadOnly=false;return Object.assign({},value,normalized);}catch(error){storageReadOnly=true;return Advanced.state();}}
   function persist(){try{if(storageReadOnly)throw new Error('저장된 자료를 읽지 못했습니다. 전체 자료 백업으로 원본을 보관한 뒤 복원하세요.');localStorage.setItem(KEY,JSON.stringify(state));}catch(error){state=load();status('저장하지 못했습니다. 원본은 보존됩니다. 전체 자료 백업과 브라우저 저장 공간을 확인하세요.',true);throw error;}}
   function locale(){return el('scannerLocale')&&['ko','en','ja'].indexOf(el('scannerLocale').value)>=0?el('scannerLocale').value:'ko';}
   function t(key){var lang=locale();return content&&content.locales[lang]&&content.locales[lang][key]||content&&content.locales.ko[key]||key;}
