@@ -165,7 +165,7 @@
     "구현: 4개 저장소 전체 백업·검증·실패 롤백·손상 원본 보호",
     "구현: 18개 정답·피드백 실습",
     "GitHub: 공개 저장소 push·admin 권한 실제 확인",
-    "공개: 핵심20파일 HTTP200/로컬일치(a9f06fd 시점, 후속수정은 재검사 필요)",
+    "공개: 핵심23파일 HTTP200/로컬일치(c9590e45 시점); 전체 공개 표면61/61 통과",
     "원격: c7acbf2 판 Chromium·Firefox·WebKit31통과/2제외, 실행33966575203. 실제 삭제→네저장소 전체복원 포함",
     "성능: 공개진입화면 Lighthouse3회 검사통과; 전체사이트·실기기 품질과 별도",
     "구현·검증: 연구묶음20개 한도에서 기존기록보존·손상/초과자료보호·지연로딩전 복원자료 재조회"
@@ -482,6 +482,11 @@
     "skipped": 2,
     "failed": 0,
     "laterSafetyChanges": "PASS_AUTOMATED",
+    "latestPublicCommit": "c9590e45d0a3dff24c30e0ed902d3d1345fb2d11",
+    "pagesRunId": 33969759068,
+    "codeqlRunId": 33969759775,
+    "publicSurfacePassed": 61,
+    "publicCoreFilesPassed": 23,
     "android": "NOT_RUN",
     "realUsers": 0
   },
