@@ -15,6 +15,19 @@
   <main id="marketMain" tabindex="-1">
     <p class="eyebrow">GLOBAL MARKETS</p><h1 id="marketTitle">종목을 찾고, 자료 범위를 확인하세요</h1>
     <p id="marketIntro">대만 일별 시세와 30개국 종목 발견 명부를 제공합니다. 실시간 시세나 상승확률은 제공하지 않습니다.</p>
+    <section id="coverageBenchmark" class="coverage-benchmark" aria-labelledby="coverageBenchmarkTitle">
+      <p class="eyebrow" id="coverageBenchmarkEyebrow">COVERAGE BENCHMARK</p>
+      <h2 id="coverageBenchmarkTitle">Investing.com과 비교하는 시장 범위</h2>
+      <p id="coverageBenchmarkIntro">기업 수와 금융상품 수를 분리해 같은 기준으로 비교합니다. 아래 숫자는 현재 서비스가 모두 커버했다는 뜻이 아닙니다.</p>
+      <dl class="coverage-metrics">
+        <div><dt id="coverageWfeLabel">WFE 상위 30개 시장 기업 기준선</dt><dd id="coverageWfeValue">—</dd></div>
+        <div><dt id="coverageInvestingLabel">Investing.com 기업 공개 하한</dt><dd id="coverageInvestingValue">—</dd></div>
+        <div><dt id="coverageCurrentLabel">현재 발견 후보</dt><dd id="coverageCurrentValue">—</dd></div>
+        <div><dt id="coverageGapLabel">최소 기업 격차</dt><dd id="coverageGapValue">—</dd></div>
+      </dl>
+      <p id="coverageBenchmarkBoundary" class="market-notice"></p>
+      <details class="coverage-markets"><summary id="coverageMarketsTitle">상위 30개 시장 기준 보기</summary><div id="coverageMarketsBody"></div></details>
+    </section>
     <div class="market-controls"><label><span id="modeLabel">자료 선택</span><select id="marketMode"><option value="daily">대만 일별 시세</option><option value="directory">30개국 종목 명부</option></select></label><label><span id="queryLabel">종목 코드·회사명 검색</span><input id="marketQuery" type="search" placeholder="2330, 台積電, Apple" maxlength="100" autocomplete="off"></label><label id="countryControl" hidden><span id="countryLabel">국가</span><select id="marketCountry"><option value="ALL">All countries</option></select></label><button id="marketSearch" type="button" class="primary">검색</button></div>
     <p id="marketStatus" role="status" aria-live="polite">자료를 불러오는 중입니다.</p>
     <p id="marketBoundary" class="market-notice"></p>
