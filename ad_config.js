@@ -5,6 +5,7 @@
     schemaVersion: 'stock-scanner-ad-config/v1',
     releaseMode: 'SITE_REVIEW_READY',
     enabled: false,
+    liveAdsEnabled: false,
     provider: 'google-adsense',
     publisherId: 'ca-pub-2476023536699107',
     verification: Object.freeze({

@@ -21,6 +21,7 @@
         anchor: '#stockScannerEducationPilotAd',
         component: 'education-method-guide',
         contentBoundary: 'after-complete-general-education-section',
+        houseCreative: true,
         slotId: ''
       }),
       Object.freeze({
@@ -35,6 +36,7 @@
         anchor: '#glossary',
         component: 'education-glossary',
         contentBoundary: 'below-complete-glossary-and-risk-notice',
+        houseCreative: true,
         slotId: ''
       }),
       Object.freeze({
@@ -49,6 +51,7 @@
         anchor: '#guide-end-ad',
         component: 'education-guide-end',
         contentBoundary: 'after-guide-conclusion',
+        houseCreative: true,
         slotId: ''
       }),
       Object.freeze({
@@ -63,6 +66,7 @@
         anchor: '#stockScannerEducationPilotAd',
         component: 'education-method-guide',
         contentBoundary: 'after-complete-general-education-section',
+        houseCreative: true,
         slotId: ''
       })
     ])
