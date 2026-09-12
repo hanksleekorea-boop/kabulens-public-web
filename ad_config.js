@@ -19,15 +19,28 @@
       requireCertifiedSignal: true
     }),
     allowedSurfaces: Object.freeze(['education']),
-    blockedRoutes: Object.freeze(['scanner', 'scan', 'today', 'watchlist', 'reports', 'more', 'legal', 'privacy', 'terms', 'support', 'status', 'print', 'offline']),
+    blockedRoutes: Object.freeze(['scanner', 'scan', 'today', 'watchlist', 'reports', 'more', 'markets', 'dashboard', 'account', 'payment', 'personal-data', 'input', 'working-state', 'legal', 'privacy', 'terms', 'support', 'status', 'print', 'offline']),
     slotIds: Object.freeze({
       learnTop: '',
-      learnMiddle: ''
+      learnMiddle: '',
+      'LM26-22-stockscanner-education-pc-inarticle-v1': '',
+      'LM26-22-stockscanner-glossary-pc-display-v1': '',
+      'LM26-22-stockscanner-guide-end-pc-multiplex-v1': '',
+      'LM26-22-stockscanner-education-m-inarticle-v1': ''
     }),
     slotFormats: Object.freeze({
       learnTop: 'responsive-display',
-      learnMiddle: 'in-article'
+      learnMiddle: 'in-article',
+      'LM26-22-stockscanner-education-pc-inarticle-v1': 'in-article',
+      'LM26-22-stockscanner-glossary-pc-display-v1': 'responsive-display',
+      'LM26-22-stockscanner-guide-end-pc-multiplex-v1': 'multiplex',
+      'LM26-22-stockscanner-education-m-inarticle-v1': 'in-article'
     }),
+    slotManifestPath: 'adsense-slot-manifest.js',
+    pilotSlotKeys: Object.freeze([
+      'LM26-22-stockscanner-education-pc-inarticle-v1',
+      'LM26-22-stockscanner-education-m-inarticle-v1'
+    ]),
     autoAds: Object.freeze({
       enabled: false,
       reason: 'ACCOUNT_READY_AND_PAGE_EXCLUSIONS_NOT_VERIFIED'

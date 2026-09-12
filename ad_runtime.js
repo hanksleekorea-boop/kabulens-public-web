@@ -12,6 +12,18 @@
 
   function text(value) { return String(value == null ? '' : value).trim(); }
   function list(value) { return Array.isArray(value) ? value.map(text).filter(Boolean) : []; }
+  function manifestEntry(manifest, key) {
+    if (!manifest || !Array.isArray(manifest.slots)) return null;
+    return manifest.slots.find(function (entry) { return entry && text(entry.key) === text(key); }) || null;
+  }
+  function selectSlotKey(slot, rootLike) {
+    if (!slot) return '';
+    if (slot.dataset.adPilot === 'true') {
+      var mobile = rootLike && typeof rootLike.matchMedia === 'function' ? rootLike.matchMedia('(max-width: 899px)').matches : !!(rootLike && Number(rootLike.innerWidth) > 0 && Number(rootLike.innerWidth) <= 899);
+      if (mobile && slot.dataset.adSlotKeyMobile) return text(slot.dataset.adSlotKeyMobile);
+    }
+    return text(slot.dataset.adSlotKey);
+  }
   function validateConfig(config) {
     var errors = [];
     if (!config || config.schemaVersion !== 'stock-scanner-ad-config/v1') errors.push('CONFIG_SCHEMA_INVALID');
@@ -39,9 +51,17 @@
     var errors = validateConfig(config);
     var surface = text(input.surface);
     var route = text(input.route);
+    var slotKey = text(input.slotKey);
     var consent = input.consent || {};
     if (errors.length) return { allowed: false, reason: errors[0] };
     if (config.enabled !== true) return { allowed: false, reason: 'ADS_DISABLED_PRE_APPROVAL' };
+    if (input.manifest && slotKey) {
+      var entry = manifestEntry(input.manifest, slotKey);
+      if (!entry) return { allowed: false, reason: 'SLOT_KEY_NOT_MANIFESTED' };
+      if (entry.enabled !== true) return { allowed: false, reason: 'SLOT_NOT_ENABLED' };
+      if (entry.surface && text(entry.surface) !== surface) return { allowed: false, reason: 'SLOT_SURFACE_MISMATCH' };
+      if (entry.route && text(entry.route) !== route) return { allowed: false, reason: 'SLOT_ROUTE_MISMATCH' };
+    }
     if (input.online === false) return { allowed: false, reason: 'OFFLINE_NO_ADS' };
     if (input.printing === true) return { allowed: false, reason: 'PRINT_NO_ADS' };
     if (list(config.blockedRoutes).indexOf(route) >= 0) return { allowed: false, reason: 'CORE_OR_POLICY_ROUTE_BLOCKED' };
@@ -71,8 +91,8 @@
     slot.append(box);
   }
 
-  function renderAdSlot(slot, config) {
-    var key = text(slot.dataset.adSlotKey);
+  function renderAdSlot(slot, config, key) {
+    key = text(key || slot.dataset.adSlotKey);
     var slotId = text(config.slotIds && config.slotIds[key]);
     var format = text(config.slotFormats && config.slotFormats[key]) || 'responsive-display';
     if (!SLOT_PATTERN.test(slotId)) {
@@ -122,13 +142,20 @@
     rootLike = rootLike || (typeof window !== 'undefined' ? window : null);
     if (!rootLike || !rootLike.document) return Promise.resolve({ allowed: false, reason: 'NO_DOCUMENT' });
     var config = rootLike.STOCK_SCANNER_AD_CONFIG || {};
-    var slots = Array.from(rootLike.document.querySelectorAll('[data-ad-surface]'));
+    var manifest = rootLike.STOCK_SCANNER_AD_SLOT_MANIFEST || null;
+    var allSlots = Array.from(rootLike.document.querySelectorAll('[data-ad-surface]'));
+    var slots = manifest ? allSlots.filter(function (slot) { return slot.dataset.adPilot === 'true'; }) : allSlots;
+    if (manifest) allSlots.filter(function (slot) { return slot.dataset.adPilot !== 'true'; }).forEach(function (slot) { renderFallback(slot, 'NON_PILOT_SLOT_DISABLED'); });
     var surface = slots.length ? text(slots[0].dataset.adSurface) : '';
+    var route = routeName(rootLike.location);
+    var pilotKey = slots.length ? selectSlotKey(slots[0], rootLike) : '';
     var decision = decide({
       config: config,
       consent: rootLike.STOCK_SCANNER_CERTIFIED_CONSENT || {},
-      route: routeName(rootLike.location),
+      route: route,
       surface: surface,
+      slotKey: pilotKey,
+      manifest: manifest,
       online: rootLike.navigator ? rootLike.navigator.onLine !== false : true,
       printing: rootLike.matchMedia ? rootLike.matchMedia('print').matches : false
     });
@@ -138,7 +165,7 @@
       slots.forEach(function (slot) { renderFallback(slot, decision.reason); });
       return Promise.resolve(decision);
     }
-    var requested = slots.filter(function (slot) { return renderAdSlot(slot, config); });
+    var requested = slots.filter(function (slot) { return renderAdSlot(slot, config, selectSlotKey(slot, rootLike)); });
     if (!requested.length) return Promise.resolve({ allowed: false, reason: 'NO_VALID_AD_SLOTS' });
     return loadProvider(rootLike.document, config, config.requestTimeoutMs).then(function () {
       requested.forEach(function () {
@@ -163,7 +190,7 @@
     return true;
   }
 
-  var api = Object.freeze({ validateConfig: validateConfig, routeName: routeName, decide: decide, initialize: initialize, setCertifiedConsent: setCertifiedConsent });
+  var api = Object.freeze({ validateConfig: validateConfig, routeName: routeName, manifestEntry: manifestEntry, selectSlotKey: selectSlotKey, decide: decide, initialize: initialize, setCertifiedConsent: setCertifiedConsent });
   if (typeof window !== 'undefined' && window.document) window.addEventListener('DOMContentLoaded', function () {
     if (!window.STOCK_SCANNER_AD_DEMAND_CONFIG) initialize(window);
   }, { once: true });
