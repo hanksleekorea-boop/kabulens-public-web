@@ -66,6 +66,7 @@
     if (input.printing === true) return { allowed: false, reason: 'PRINT_NO_ADS' };
     if (list(config.blockedRoutes).indexOf(route) >= 0) return { allowed: false, reason: 'CORE_OR_POLICY_ROUTE_BLOCKED' };
     if (list(config.allowedSurfaces).indexOf(surface) < 0) return { allowed: false, reason: 'SURFACE_NOT_ALLOWED' };
+    if (input.manifest && slotKey && input.contentReady !== true) return { allowed: false, reason: 'CONTENT_BOUNDARY_REQUIRED' };
     if (config.cmp.requireCertifiedSignal === true) {
       if (consent.certified !== true || CERTIFIED_SOURCES.indexOf(text(consent.source)) < 0) return { allowed: false, reason: 'CERTIFIED_CONSENT_REQUIRED' };
       if (consent.adsAllowed !== true) return { allowed: false, reason: 'AD_CONSENT_DENIED' };
@@ -156,6 +157,7 @@
       surface: surface,
       slotKey: pilotKey,
       manifest: manifest,
+      contentReady: slots.length ? slots[0].dataset.adContentReady === 'true' : false,
       online: rootLike.navigator ? rootLike.navigator.onLine !== false : true,
       printing: rootLike.matchMedia ? rootLike.matchMedia('print').matches : false
     });
