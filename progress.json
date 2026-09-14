@@ -232,6 +232,7 @@
     "pc": "https://hanksleekorea-boop.github.io/kabulens-public-web/stock-scanner.html#scan",
     "mobile": "https://hanksleekorea-boop.github.io/kabulens-public-web/stock-scanner.html#today",
     "reports": "https://hanksleekorea-boop.github.io/kabulens-public-web/stock-scanner.html#reports",
+    "pairs": "https://hanksleekorea-boop.github.io/kabulens-public-web/pairs.html",
     "freeLaunchEvidence": "https://hanksleekorea-boop.github.io/kabulens-public-web/free-launch-readiness.json",
     "stage2Evidence": "https://hanksleekorea-boop.github.io/kabulens-public-web/stage2-readiness.json",
     "advancedPersonas": "https://hanksleekorea-boop.github.io/kabulens-public-web/advanced-persona-report.json",
