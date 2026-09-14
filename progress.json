@@ -2,8 +2,8 @@
   "schemaVersion": "stock-scanner-progress/v1",
   "product": "Stock Scanner",
   "nameKo": "스탁스캐너",
-  "version": "9.1-reliability-fd1",
-  "updatedAt": "2026-09-05T12:55:00Z",
+  "version": "9.1-reliability-fd1-g1",
+  "updatedAt": "2026-09-11T00:00:00Z",
   "releaseState": "PARTIALLY_VERIFIED",
   "boundary": "REAL_DAILY_SNAPSHOT_AND_UNVERIFIED_DIRECTORY_SEPARATE_FROM_SYNTHETIC_RESEARCH",
   "summary": "무료 학습 스캐너에 대만 1,380개 상장 상품의 2026-09-04 일별 스냅샷과 30개국 18,685건 발견 명부 검색을 추가했습니다. 발견 명부는 국가·거래소·상장 상태가 미검증이며 전세계 상장주식의 완전한 목록이 아닙니다. 학습 보고서는 합성 자료이며 실제 가격으로 예측하지 않습니다. 백업·복원·기간·공유·실습을 보완했습니다. 전체 완료율은 재평가 중이며 현재 Android·실사용자·실제 예측 성과는 미검증입니다.",
@@ -43,11 +43,11 @@
     {
       "id": "automation",
       "label": "웹 단위·정적 검사",
-      "value": 182,
-      "maximum": 182,
+      "value": 199,
+      "maximum": 199,
       "unit": "개",
       "state": "PASS_AUTOMATED",
-      "evidence": "현재 웹 단위·정적 검사182개통과. 실제 브라우저·실기기와 별도 집계."
+      "evidence": "현재 웹 단위·정적 검사199개통과(기존184 + 더미 계약15). 실제 브라우저·실기기와 별도 집계."
     },
     {
       "id": "dataContracts",
@@ -140,6 +140,32 @@
       "evidence": "시간 경과 필요. 예약 작업은 생성하지 않음"
     }
   ],
+  "readinessGauges": {
+    "automatedImplementation": {
+      "label": "자동 구현 범위",
+      "value": null,
+      "maximum": 100,
+      "unit": "%",
+      "state": "NOT_ASSESSED",
+      "evidence": "G0 분모 고정 전. 로컬 검사 개수는 전체 구현률이 아니며 합산하지 않음"
+    },
+    "freePublic": {
+      "label": "무료 공개 범위",
+      "value": null,
+      "maximum": 100,
+      "unit": "%",
+      "state": "NOT_ASSESSED",
+      "evidence": "공개 URL·정책·실사용·기기·운영 증거를 분리 재평가 중"
+    },
+    "externalCommercial": {
+      "label": "외부 상용화 게이트",
+      "value": null,
+      "maximum": 100,
+      "unit": "%",
+      "state": "BLOCKED_EXTERNAL",
+      "evidence": "Cloudflare DNS/Worker·Google OAuth·암호화 저장·자료권리·광고 승인·Android가 미확인"
+    }
+  },
   "freeLaunch": {
     "scopeId": "FREE_LEARNING_AND_LIMITED_DAILY_DIRECTORY",
     "score": null,
@@ -158,7 +184,7 @@
     "notice": "현재 완료율 미측정. 가상 사용자 계획에서 자동 생성되던 성공 건수는 철회함."
   },
   "verified": [
-    "자동: 현재 웹 단위·정적 검사182개통과",
+    "자동: 현재 웹 단위·정적 검사199개통과(기존184 + 더미 계약15)",
     "자동: 신규 데이터 계약 검사 6개 통과",
     "데이터: 30개국 발견 명부 18,685건; 미검증 후보",
     "데이터: TWSE 1,380개 상장 상품 일별 스냅샷, 사용권·출처 표시",

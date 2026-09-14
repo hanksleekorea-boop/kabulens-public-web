@@ -38,7 +38,7 @@ def run(root: Path) -> int:
     checks = [
         ("English educational surface", '<html lang="en">' in learn and learn.count('<article id="') == 12),
         ("Core scanner stays ad-free", "data-ad-surface" not in scanner and "adsbygoogle" not in scanner),
-        ("Two slots maximum", learn.count('data-ad-surface="education"') == 2 and "maxAdsPerPage: 2" in config),
+        ("Two network ad candidates maximum", learn.count('data-ad-pilot="true"') == 1 and learn.count('data-ad-content-ready="true"') == 3 and "maxAdsPerPage: 2" in config),
         ("Verified public publisher identifier only", config.count("ca-pub-2476023536699107") == 1 and learn.count("ca-pub-2476023536699107") == 1),
         ("Site-review mode stays disabled", "releaseMode: 'SITE_REVIEW_READY'" in config and "enabled: false" in config and "ADS_DISABLED_PRE_APPROVAL" in runtime),
         ("Two explicit formats", "learnTop: 'responsive-display'" in config and "learnMiddle: 'in-article'" in config and "data-ad-format=\"responsive-display\"" in learn and "data-ad-format=\"in-article\"" in learn),

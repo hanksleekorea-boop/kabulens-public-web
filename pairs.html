@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#06141a">
+  <meta name="description" content="Stock Scanner 상관관계 기반 롱쇼트 학습·연구 미리보기">
+  <meta name="robots" content="noindex,nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'self';">
+  <link rel="stylesheet" href="pairs.css">
+  <title>상관 롱쇼트 · Stock Scanner</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="topbar">
+    <a href="stock-scanner.html" class="brand">STOCK SCANNER <span>상관 롱쇼트 연구</span></a>
+    <a href="stock-scanner.html" class="back">기본 스캐너로 돌아가기</a>
+  </header>
+  <main id="main" class="shell">
+    <section class="hero">
+      <p class="eyebrow">CORRELATION · PAIRS · PAPER RESEARCH</p>
+      <h1>상관관계 기반 롱쇼트<br>학습·연구 미리보기</h1>
+      <p>두 종목의 수익률 관계와 상대가격 차이를 살펴봅니다. 아래 값은 합성자료 예시이며 실제 주문·대차·수익을 제공하지 않습니다.</p>
+      <p class="boundary" role="note"><b>합성자료 전용</b> 실제 시장자료·투자추천·수익보장이 아닙니다.</p>
+    </section>
+    <section class="panel" aria-labelledby="controlsTitle">
+      <h2 id="controlsTitle">연구 조건</h2>
+      <div class="controls">
+        <label>기간<select id="window"><option value="20">20일</option><option value="60" selected>60일</option><option value="120">120일</option><option value="252">252일</option></select></label>
+        <label>계산<select id="method"><option value="pearson" selected>Pearson</option><option value="spearman">Spearman</option><option value="kendall">Kendall tau-b</option></select></label>
+        <label>진입 기준<input id="entryZ" type="number" value="2" min="0.5" max="4" step="0.1"></label>
+        <label>최소 상관<input id="minimumCorrelation" type="number" value="0.7" min="0" max="1" step="0.05"></label>
+      </div>
+      <button id="run" class="primary" type="button">상관·롱쇼트 계산</button>
+      <p id="status" class="status" role="status" aria-live="polite">합성 예시를 준비하는 중입니다.</p>
+    </section>
+    <section class="panel" aria-labelledby="resultTitle">
+      <div class="panel-heading"><h2 id="resultTitle">결과</h2><span id="source" class="pill">PREVIEW ONLY</span></div>
+      <div id="result" class="result-grid"><p class="empty">계산 버튼을 누르면 결과가 표시됩니다.</p></div>
+    </section>
+    <section class="panel explanation" aria-labelledby="explainTitle">
+      <h2 id="explainTitle">읽는 법</h2>
+      <dl>
+        <div><dt>상관계수</dt><dd>선택한 기간의 수익률 방향이 함께 움직인 정도입니다. 원인이나 상승확률이 아닙니다.</dd></div>
+        <div><dt>계산법</dt><dd>Pearson은 선형 움직임, Spearman은 순위 움직임, Kendall tau-b는 순서가 맞는 쌍의 비율을 봅니다.</dd></div>
+        <div><dt>공적분</dt><dd>가격 사이의 장기 균형관계가 유지되는지 보는 선별검사입니다. 이 화면은 학습용 휴리스틱만 사용합니다.</dd></div>
+        <div><dt>z-score</dt><dd>현재 상대가격 차이가 평소보다 얼마나 큰지 나타냅니다. 값이 커도 관계가 반드시 회복되는 것은 아닙니다.</dd></div>
+      </dl>
+      <p class="notice">실제 공개 기능에는 자료 공급원·권리·대차 가능 여부·거래비용·증거금·시장별 공매도 규칙을 별도로 확인해야 합니다.</p>
+    </section>
+    <section class="panel references" aria-labelledby="referencesTitle">
+      <h2 id="referencesTitle">대표 연구와 위험 안내</h2>
+      <p>페어 트레이딩의 초기 실증 연구로는 Gatev·Goetzmann·Rouwenhorst의 연구가 있고, 장기 균형관계 검정에는 Engle–Granger 및 Johansen 방법이 널리 인용됩니다. 이 화면의 휴리스틱은 그 연구를 대신하지 않습니다.</p>
+      <ul>
+        <li><a href="https://www.nber.org/papers/w7032" rel="noreferrer">NBER 페어 트레이딩 연구</a></li>
+        <li><a href="https://www.jstor.org/stable/1913236" rel="noreferrer">Engle–Granger 공적분 연구</a></li>
+        <li><a href="https://www.econometricsociety.org/publications/econometrica/browse/1991/11/01/estimation-and-hypothesis-testing-cointegration-vectors" rel="noreferrer">Johansen 공적분 연구</a></li>
+        <li><a href="https://www.sec.gov/investor/pubs/regsho.htm" rel="noreferrer">SEC Regulation SHO(공매도 규정)</a> · <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-29" rel="noreferrer">증거금·손실 위험 안내</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer"><a href="legal/terms.html">이용 조건</a> · <a href="legal/privacy.html">개인정보 안내</a> · <a href="support.html">지원</a></footer>
+  <script src="pairs_runtime.js" defer></script>
+</body>
+</html>
